@@ -1,0 +1,1206 @@
+[
+  {
+    "id": "f502-01-tvm-npv-irr",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Time Value of Money, NPV vs IRR",
+    "difficulty": "foundation",
+    "tags": [
+      "time value of money",
+      "npv",
+      "irr",
+      "discount rate"
+    ],
+    "hook10k": "A dollar today beats a dollar next year because today's dollar can be invested, and every valuation in finance is built on that one idea. NPV turns it into a decision rule: take projects whose discounted cash flows exceed their cost, and be suspicious whenever IRR tells you otherwise.",
+    "pareto20_80": {
+      "summary": "Discounting converts future cash flows into today's value at a rate that reflects time and risk. NPV is the sum of discounted cash flows minus the investment, and IRR is the discount rate that makes NPV zero; NPV is the reliable rule when the two disagree.",
+      "keyPoints": [
+        "PV = CF / (1 + r)^t; NPV = Σ CF_t / (1 + r)^t − Initial investment.",
+        "Accept positive-NPV projects; NPV adds across projects and measures dollars of value created.",
+        "IRR can mislead for mutually exclusive projects of different scale or timing, and non-conventional cash flows can have several IRRs.",
+        "Use nominal rates with nominal cash flows and real rates with real cash flows; the Fisher relation links them.",
+        "Payback ignores cash flows after the cutoff and the time value of money, so use it only as a liquidity check."
+      ],
+      "formulas": [
+        {
+          "name": "Present value",
+          "expression": "PV = CF_t / (1 + r)^t"
+        },
+        {
+          "name": "Net present value",
+          "expression": "NPV = Σ_{t=0..T} CF_t / (1 + r)^t"
+        },
+        {
+          "name": "Fisher relation",
+          "expression": "(1 + nominal r) = (1 + real r) × (1 + inflation)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Executives often prefer IRR because a percentage is easy to compare with a hurdle rate, even when it ranks projects wrongly.",
+      "The discount rate is usually the most uncertain input, so show NPV across a range of rates rather than a single number."
+    ],
+    "lenses": {
+      "history": "Irving Fisher formalized discounting and the link between real and nominal interest in The Theory of Interest in 1930. Capital budgeting with NPV entered corporate practice after Joel Dean's work in the 1950s.",
+      "economics": "NPV measures the value a project adds over what investors could earn elsewhere at the same risk, so a positive NPV is an economic profit in present-value terms. Because NPVs add, a firm's value is the sum of the NPVs of its assets in place and future opportunities.",
+      "behavioralScience": "People discount the near future far more steeply than the distant future, a pattern called hyperbolic discounting. That bias pushes managers toward quick-payback projects even when slower projects have higher NPV.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "IRR answers the wrong question for most capital decisions, because it ignores scale and assumes reinvestment at the IRR. A small project with a 40% IRR can create far less value than a large one at 15%.",
+      "personalConnection": "Choosing between buying GPUs and renting them is an NPV problem: upfront capital versus a stream of cloud payments, discounted at the company's cost of capital. Carbon Robotics customers make the same calculation when a $120k LaserWeeder replaces years of hand-weeding labor.",
+      "antiPattern": "Teams rank projects by IRR and fund the highest percentage first. Rank mutually exclusive projects by NPV, and use IRR only as a secondary check."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-05-cash-flow-fcf",
+        "relationship": "builds-on",
+        "question": "Which cash flows, not earnings, belong in an NPV calculation?"
+      },
+      {
+        "targetId": "f502-02-fcff-dcf",
+        "relationship": "foundation-for",
+        "question": "How does NPV logic scale up to valuing a whole company with DCF?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "applied-in",
+        "question": "Why should only differential, future cash flows enter a project's NPV?"
+      },
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "contrasts-with",
+        "question": "When does static NPV undervalue a project that can be expanded or abandoned?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative choice between two mutually exclusive projects",
+      "prompt": "Project A costs $100 and returns $130 in one year, an IRR of 30%. Project B costs $1,000 and returns $1,200 in one year, an IRR of 20%. With a 10% cost of capital and room for only one project, which should the company choose?",
+      "cfoAnswer": "NPV of A is 130 / 1.10 − 100 ≈ $18.2, while NPV of B is 1,200 / 1.10 − 1,000 ≈ $90.9. IRR favors A, but B creates five times more value because it deploys ten times the capital at a return well above the 10% cost. Choose B, and use IRR only to confirm that each project clears the hurdle.",
+      "keyTakeaway": "For mutually exclusive projects, choose by NPV, not IRR."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on time value of money and capital budgeting",
+      "[Foster: FIN 502] Foster Capital problem on real and nominal risk-free rates",
+      "[Elite MBA: London Business School] Brealey, Myers and Allen, Principles of Corporate Finance, NPV versus IRR"
+    ]
+  },
+  {
+    "id": "f502-02-fcff-dcf",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Free Cash Flow to the Firm & the DCF Model",
+    "difficulty": "intermediate",
+    "tags": [
+      "dcf",
+      "fcff",
+      "enterprise value",
+      "valuation"
+    ],
+    "hook10k": "A company is worth the cash it will generate for all its investors, discounted for time and risk, and the DCF model is just that sentence turned into a spreadsheet. Every other valuation method is a shortcut that hides assumptions a DCF forces you to write down.",
+    "pareto20_80": {
+      "summary": "Free cash flow to the firm (FCFF) is operating cash available to both debt and equity holders after taxes, reinvestment in fixed assets and working capital. Discount forecast FCFF at WACC, add a terminal value, and the result is enterprise value; subtract net debt to reach equity value.",
+      "keyPoints": [
+        "FCFF = EBIT × (1 − tax rate) + D&A − CapEx − ΔNWC.",
+        "Discount FCFF at WACC to get enterprise value; discount free cash flow to equity at the cost of equity to get equity value directly.",
+        "Equity value = Enterprise value − Debt + Cash (and adjust for leases, minority interests and other claims).",
+        "Forecast an explicit period until the business reaches a steady state, then capture the rest with a terminal value.",
+        "Most of the value usually sits in the terminal value, so test growth, margins and reinvestment assumptions hard."
+      ],
+      "formulas": [
+        {
+          "name": "Free cash flow to the firm",
+          "expression": "FCFF = EBIT × (1 − t) + D&A − CapEx − ΔNWC"
+        },
+        {
+          "name": "Enterprise value",
+          "expression": "EV = Σ_{t=1..N} FCFF_t / (1 + WACC)^t + TV_N / (1 + WACC)^N"
+        },
+        {
+          "name": "Equity bridge",
+          "expression": "Equity value = EV − Debt + Cash"
+        }
+      ]
+    },
+    "realityCheck": [
+      "A DCF is only as good as its forecasts, and small changes in growth or discount rate can swing value by half.",
+      "Stock-based compensation is often left out of FCFF, which overstates value unless dilution is modeled explicitly.",
+      "Analysts often forecast margins that expand forever, which quietly assumes the company escapes competition."
+    ],
+    "lenses": {
+      "history": "John Burr Williams laid out the idea that a stock is worth the present value of its future dividends in The Theory of Investment Value in 1938. Modern FCFF models were standardized by practitioners such as McKinsey's valuation group in the 1990s.",
+      "economics": "In a world without frictions, value depends only on the cash flows an asset produces and their risk, not on accounting choices. DCF applies that principle directly, which is why it is the anchor for M&A and fairness opinions.",
+      "behavioralScience": "Analysts anchor on the current share price and then tune DCF assumptions until the model agrees with it. Building the model before looking at the price reduces that bias.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A DCF is less a prediction than a structured argument about growth, margins, reinvestment and risk. Its real value is showing which assumption the answer depends on most.",
+      "personalConnection": "Valuing a hyperscaler today hinges on how GPU capital spending converts into future free cash flow, so FCFF and its reinvestment line drive the whole argument. For a startup like PranaScan, a DCF is mostly a tool to test whether plausible margins and growth can ever support the valuation investors propose.",
+      "antiPattern": "Analysts present a DCF with a single point estimate and five decimal places. Always show a sensitivity table across discount rates and terminal growth."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-05-cash-flow-fcf",
+        "relationship": "builds-on",
+        "question": "How does free cash flow on the cash flow statement differ from FCFF in a DCF?"
+      },
+      {
+        "targetId": "a500-06-capex-depreciation",
+        "relationship": "builds-on",
+        "question": "Why does CapEx reduce FCFF while depreciation only adds back a tax shield?"
+      },
+      {
+        "targetId": "a500-04-balance-sheet-working-capital",
+        "relationship": "builds-on",
+        "question": "How does growth in working capital reduce free cash flow in a forecast?"
+      },
+      {
+        "targetId": "f502-04-terminal-value-multiples",
+        "relationship": "foundation-for",
+        "question": "How should the terminal value be estimated and sanity-checked?"
+      },
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "measured-by",
+        "question": "Which discount rate converts FCFF into enterprise value?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative mature software company valuation",
+      "prompt": "A company earns EBIT of $100M with a 21% tax rate, $20M of D&A, $30M of CapEx and a $5M increase in working capital. FCFF is expected to grow 3% a year forever, WACC is 9%, and net debt is $200M. Estimate enterprise and equity value.",
+      "cfoAnswer": "FCFF = 100 × 0.79 + 20 − 30 − 5 = $64M this year, so next year's FCFF is about $65.9M. A growing perpetuity gives enterprise value of 65.9 / (0.09 − 0.03) ≈ $1,099M, and equity value is about $899M after subtracting $200M of net debt. Each 1 point drop in WACC would raise value by roughly 20%, so the CFO should present the result as a range.",
+      "keyTakeaway": "Enterprise value comes from FCFF at WACC, and equity value is what remains after net debt."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on free cash flow and discounted cash flow valuation",
+      "[Elite MBA: McKinsey / Wharton] Koller, Goedhart and Wessels, Valuation: Measuring and Managing the Value of Companies",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran, Investment Valuation, free cash flow to the firm"
+    ]
+  },
+  {
+    "id": "f502-03-wacc-capm-beta",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Cost of Capital: WACC, CAPM & Beta",
+    "difficulty": "intermediate",
+    "tags": [
+      "wacc",
+      "capm",
+      "beta",
+      "cost of equity"
+    ],
+    "hook10k": "The discount rate is the price investors charge to bear a company's risk, and getting it wrong by two points can change a valuation by a third. CAPM says investors are only paid for risk they cannot diversify away, which is why beta, not volatility, sets the cost of equity.",
+    "pareto20_80": {
+      "summary": "CAPM sets the cost of equity at the risk-free rate plus beta times the market risk premium. WACC blends the cost of equity and after-tax cost of debt by their market-value weights, and leverage raises equity beta even when the business risk is unchanged.",
+      "keyPoints": [
+        "Cost of equity r_E = r_f + β_E × (E[R_m] − r_f).",
+        "WACC = (E / V) × r_E + (D / V) × r_D × (1 − t), using market values and target weights.",
+        "Asset beta measures business risk; equity beta rises with leverage because shareholders bear the residual risk.",
+        "Relever beta with β_E = β_A + (β_A − β_D) × D / E, or with Hamada's tax-adjusted formula.",
+        "Use the WACC of the project's risk, not the company's average, when evaluating a new line of business."
+      ],
+      "formulas": [
+        {
+          "name": "CAPM cost of equity",
+          "expression": "r_E = r_f + β_E × MRP"
+        },
+        {
+          "name": "Weighted average cost of capital",
+          "expression": "WACC = (E/V) × r_E + (D/V) × r_D × (1 − t)"
+        },
+        {
+          "name": "Relevered equity beta",
+          "expression": "β_E = β_A + (β_A − β_D) × (D / E)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Beta estimates are noisy and depend on the period, frequency and index used, so practitioners average industry betas.",
+      "The market risk premium is a judgment call, and reasonable experts differ by two or more points."
+    ],
+    "lenses": {
+      "history": "William Sharpe, John Lintner and Jan Mossin developed CAPM in the mid-1960s, and Sharpe shared the 1990 Nobel Prize for it. Despite empirical challenges, it remains the default cost of equity model in corporate practice.",
+      "economics": "Diversified investors can eliminate company-specific risk for free, so only systematic risk commands a premium. WACC is the opportunity cost of all the capital a firm uses, and projects must beat it to create value.",
+      "behavioralScience": "Managers often use a single company-wide hurdle rate for every project, which overinvests in risky divisions and underinvests in safe ones. Divisional cost of capital corrects that bias.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "CAPM is wrong in its details but useful as a disciplined way to argue about risk. The bigger error in practice is not the model but using a stale or company-wide rate for projects with very different risk.",
+      "personalConnection": "An enterprise AI startup selling into cyclical budgets has a higher asset beta than a utility, and heavy fixed GPU commitments raise it further through operating leverage. PranaScan investors would apply a venture-style required return far above any CAPM estimate, reflecting failure risk that CAPM does not capture.",
+      "antiPattern": "Analysts plug in book-value weights and a historical beta from a single regression. Use market weights, an industry-average asset beta relevered to the target structure, and a sensitivity table."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "builds-on",
+        "question": "How does leverage on the balance sheet change equity beta and WACC?"
+      },
+      {
+        "targetId": "f502-05-capital-structure",
+        "relationship": "foundation-for",
+        "question": "Why does M&M say WACC stays constant as leverage changes in a world without taxes?"
+      },
+      {
+        "targetId": "a501-08-eva-residual-income",
+        "relationship": "applied-in",
+        "question": "How is WACC used as the capital charge in EVA?"
+      },
+      {
+        "targetId": "BECON501",
+        "relationship": "applied-in",
+        "question": "How do interest rates and inflation move the risk-free rate in CAPM?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Hargrove Modigliani-Miller problem (Foster FIN 502 class problem)",
+      "prompt": "Hargrove is all-equity with an asset beta of 4.53, a 5% risk-free rate and a 5% market risk premium, and there are no taxes. It recapitalizes to 33% debt with a debt beta of 0.38. Compute the cost of equity before and after, and the WACC after.",
+      "cfoAnswer": "Unlevered, r_E = WACC = 5% + 4.53 × 5% = 27.65%. After the recap, r_D = 5% + 0.38 × 5% = 6.9% and equity beta rises to about 4.53 + (4.53 − 0.38) × 0.33 / 0.67 ≈ 6.57, so r_E ≈ 37.85%. WACC = 0.67 × 37.85% + 0.33 × 6.9% ≈ 27.65%, unchanged, so firm value stays at $34,173: leverage reshuffles risk between debt and equity without creating value absent taxes.",
+      "keyTakeaway": "Leverage raises the cost of equity, but without taxes WACC and firm value do not change."
+    },
+    "sources": [
+      "[Foster: FIN 502] Hargrove Modigliani-Miller and cost of capital class problem",
+      "[Foster: BA 500] Capital asset pricing model session slides",
+      "[Elite MBA: Stanford GSB] William Sharpe, capital asset pricing model and systematic risk"
+    ]
+  },
+  {
+    "id": "f502-04-terminal-value-multiples",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Terminal Value, Exit Multiples & the WACC > g Guard",
+    "difficulty": "advanced",
+    "tags": [
+      "terminal value",
+      "gordon growth",
+      "multiples",
+      "sensitivity analysis"
+    ],
+    "hook10k": "In most DCFs the years you forecast in detail are worth less than the single line that values everything after them. That line, the terminal value, only makes sense when the discount rate exceeds the growth rate, and breaking that rule produces infinite or negative nonsense.",
+    "pareto20_80": {
+      "summary": "Terminal value captures cash flows beyond the explicit forecast, either with the Gordon growth formula or with an exit multiple applied to a final-year metric. The growth formula requires WACC to exceed long-run growth, and both methods should be cross-checked through the multiple each one implies.",
+      "keyPoints": [
+        "Gordon growth: TV_N = FCFF_{N+1} / (WACC − g), valid only when WACC > g.",
+        "Long-run g should not exceed nominal GDP growth, because no company can outgrow the economy forever.",
+        "Exit multiple: TV_N = EV/EBITDA multiple × EBITDA_N, which imports today's market sentiment into the valuation.",
+        "Convert each method into the other's terms, such as the implied EBITDA multiple of a Gordon terminal value, to spot inconsistencies.",
+        "Present a WACC-versus-g sensitivity grid, because value is highly convex as g approaches WACC."
+      ],
+      "formulas": [
+        {
+          "name": "Gordon growth terminal value",
+          "expression": "TV_N = FCFF_N × (1 + g) / (WACC − g), requires WACC > g"
+        },
+        {
+          "name": "Exit multiple terminal value",
+          "expression": "TV_N = Multiple × EBITDA_N"
+        },
+        {
+          "name": "Implied multiple",
+          "expression": "Implied EV/EBITDA = TV_N / EBITDA_N"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Terminal value often makes up most of a DCF's value, so the model is really a bet on the steady state.",
+      "Exit multiples taken from today's market build current exuberance or pessimism into a forecast ten years out.",
+      "Spreadsheets will happily compute a terminal value with g above WACC, returning a negative number that silently breaks the model."
+    ],
+    "lenses": {
+      "history": "Myron Gordon popularized the constant-growth dividend model in 1959, building on John Burr Williams. The same formula now underlies nearly every terminal value in corporate valuation.",
+      "economics": "A growing perpetuity has finite value only if the discount rate exceeds the growth rate; otherwise later cash flows are worth more than earlier ones and the sum diverges. Stable growth also requires reinvestment: g equals the reinvestment rate times the return on new capital.",
+      "behavioralScience": "Analysts treat the terminal value as a plug rather than a forecast, so they spend hours on year-two margins and seconds on the line that carries most of the value. Anchoring on a familiar exit multiple compounds the problem.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "If most of the value is in the terminal value, the explicit forecast is mostly theater unless it changes your view of the steady state. Spend your time on what the business looks like when growth slows, not on next year's quarterly shape.",
+      "personalConnection": "Valuations of GPU-heavy AI companies are extremely sensitive to terminal growth, because analysts assume demand keeps compounding long after today's buildout. For an enterprise AI startup or PranaScan, exit-multiple terminal values from comparable deals often carry the entire valuation story.",
+      "antiPattern": "Modelers pick a 5% perpetual growth rate and a WACC of 7% without noticing that value has become hypersensitive. Cap g at long-run nominal growth, enforce WACC > g in the model, and show the grid."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-02-fcff-dcf",
+        "relationship": "builds-on",
+        "question": "How does the terminal value fit into the full DCF enterprise value?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "builds-on",
+        "question": "Why must terminal growth be consistent with reinvestment and return on new capital?"
+      },
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "applied-in",
+        "question": "How do margin and asset turnover assumptions in the final forecast year shape terminal value?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "applied-in",
+        "question": "How do exit multiples from acquisitions inform a terminal value?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative terminal value sensitivity for a scaled software company",
+      "prompt": "A company's year-5 FCFF is $100M. With a 9% WACC and 3% terminal growth, what is the terminal value and implied FCFF multiple? What happens if the team raises g to 4%, and what if someone types 10% growth?",
+      "cfoAnswer": "At 3%, TV = 100 × 1.03 / (0.09 − 0.03) ≈ $1,717M, about 17x final-year FCFF. At 4%, TV = 104 / 0.05 = $2,080M, a 21% jump from one point of growth. At 10% growth the formula returns a negative number because g exceeds WACC, so the model must reject it rather than report it; the CFO should cap g at long-run nominal growth and show the full WACC-versus-g grid.",
+      "keyTakeaway": "Terminal value is valid only when WACC exceeds g, and it becomes hypersensitive as they converge."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on terminal value and growing perpetuities",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran on stable growth and terminal value constraints",
+      "[Elite MBA: McKinsey / Wharton] Koller, Goedhart and Wessels, Valuation, continuing value"
+    ]
+  },
+  {
+    "id": "f502-05-capital-structure",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Capital Structure: M&M, Tax Shields & Distress",
+    "difficulty": "advanced",
+    "tags": [
+      "capital structure",
+      "modigliani-miller",
+      "tax shield",
+      "financial distress"
+    ],
+    "hook10k": "In a frictionless world, how a company splits its financing between debt and equity cannot change its value, and that surprising result is the starting point for every real capital structure decision. Value only moves through what the frictionless world leaves out: taxes, distress costs, incentives and signals.",
+    "pareto20_80": {
+      "summary": "Modigliani and Miller showed that without taxes or frictions firm value is independent of leverage, while the cost of equity rises linearly with debt. Adding corporate taxes makes interest tax shields valuable, and the trade-off theory balances those shields against expected distress costs.",
+      "keyPoints": [
+        "M&M Proposition I (no taxes): V_L = V_U, so leverage does not create value.",
+        "M&M Proposition II: r_E = r_A + (r_A − r_D) × D / E, so equity gets riskier as debt rises.",
+        "With corporate taxes, V_L = V_U + PV(interest tax shields), which is about t × D for permanent debt.",
+        "Trade-off theory: optimal debt balances tax shields against expected bankruptcy and agency costs.",
+        "Pecking order: firms prefer internal cash, then debt, then equity, because issuing equity signals overvaluation."
+      ],
+      "formulas": [
+        {
+          "name": "M&M Proposition I with taxes",
+          "expression": "V_L = V_U + t × D"
+        },
+        {
+          "name": "M&M Proposition II",
+          "expression": "r_E = r_A + (r_A − r_D) × (D / E)"
+        },
+        {
+          "name": "Interest tax shield",
+          "expression": "Annual tax shield = t × r_D × D"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Interest deductibility is capped in many tax regimes, which reduces the value of tax shields for highly levered firms.",
+      "Startups with volatile cash flows and few tangible assets can carry little debt, regardless of tax benefits."
+    ],
+    "lenses": {
+      "history": "Franco Modigliani and Merton Miller published their irrelevance proposition in 1958 and added taxes in 1963, and both later won Nobel Prizes. Their work turned capital structure from folklore into a field of economics.",
+      "economics": "Leverage only transfers risk between claimholders unless it changes total cash flows to investors, through taxes, distress costs or incentives. Debt can also discipline managers by committing free cash flow to interest payments.",
+      "behavioralScience": "Managers time equity issues to periods when their stock looks expensive, and investors know it, so equity issues are met with price drops. That signaling effect pushes firms toward the pecking order.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The irrelevance result is valuable precisely because it is false in practice: it tells you exactly where to look for value. If a financing change does not alter taxes, distress risk, incentives or information, it is just rearranging the deck chairs.",
+      "personalConnection": "Hyperscalers fund GPU data centers with a mix of operating cash, bonds and leases, and the leases quietly add leverage that M&M logic says must raise equity risk. An enterprise AI startup or PranaScan should avoid debt until cash flows are stable, because distress costs dwarf tax shields when there is little taxable income.",
+      "antiPattern": "Boards add debt to boost EPS and ROE and call it value creation. Ask what the extra debt does to taxes and distress risk; if neither changes meaningfully, value has not been created."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "builds-on",
+        "question": "How does M&M Proposition II connect to relevered beta and WACC?"
+      },
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "builds-on",
+        "question": "How do lease liabilities count as debt in capital structure analysis?"
+      },
+      {
+        "targetId": "f502-06-capital-allocation-buybacks",
+        "relationship": "foundation-for",
+        "question": "When does a debt-funded buyback create real value?"
+      },
+      {
+        "targetId": "a500-14-deferred-taxes",
+        "relationship": "applied-in",
+        "question": "Why does the marginal tax rate determine the value of interest tax shields?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Hargrove recapitalization extended with taxes (illustrative extension of a Foster FIN 502 problem)",
+      "prompt": "Hargrove's all-equity value is $34,173 in a world without taxes. Suppose instead it faced a 21% corporate tax and issued permanent debt equal to 33% of that value to repurchase shares, holding unlevered value fixed. How much value would the tax shield add, and what limits this logic?",
+      "cfoAnswer": "Debt is 0.33 × $34,173 ≈ $11,277, so the present value of a permanent tax shield is about 0.21 × $11,277 ≈ $2,368, raising levered value to roughly $36,541, all captured by shareholders at the recap. The limit is distress: Hargrove's asset beta of 4.53 signals extremely risky cash flows, so expected bankruptcy and agency costs could easily exceed the shield. The CFO should model interest coverage under a downturn before recommending any debt.",
+      "keyTakeaway": "Debt adds value through tax shields only until expected distress costs catch up."
+    },
+    "sources": [
+      "[Foster: FIN 502] Hargrove Modigliani-Miller recapitalization class problem",
+      "[Elite MBA: Chicago Booth / MIT] Franco Modigliani and Merton Miller, The Cost of Capital, Corporation Finance and the Theory of Investment (1958)",
+      "[Elite MBA: London Business School] Brealey, Myers and Allen, Principles of Corporate Finance, capital structure chapters"
+    ]
+  },
+  {
+    "id": "f502-06-capital-allocation-buybacks",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Capital Allocation: Reinvest, Acquire, Pay Down, Dividend or Buy Back",
+    "difficulty": "intermediate",
+    "tags": [
+      "capital allocation",
+      "buybacks",
+      "dividends",
+      "eps accretion"
+    ],
+    "hook10k": "A CEO's most important job after hiring is deciding where each dollar of free cash flow goes next. Buybacks, dividends, acquisitions and reinvestment are all the same decision in disguise: which use earns the most above the cost of capital.",
+    "pareto20_80": {
+      "summary": "Free cash flow can be reinvested in the business, used for acquisitions, used to pay down debt, paid as dividends or used to repurchase shares. A buyback creates value only when shares are bought below intrinsic value, and EPS accretion alone says nothing about value creation.",
+      "keyPoints": [
+        "Rank uses of cash by expected return on incremental capital relative to its risk-adjusted cost.",
+        "A buyback is accretive to EPS whenever the earnings yield (E/P) exceeds the after-tax yield on the cash used, even if it destroys value.",
+        "Buybacks transfer value from selling to remaining shareholders when the price is above or below intrinsic value.",
+        "Dividends are sticky: cutting one sends a strong negative signal, so firms set them below sustainable free cash flow.",
+        "Buybacks that offset stock-based compensation do not return capital; they pay employees in cash at one remove."
+      ],
+      "formulas": [
+        {
+          "name": "Shares repurchased",
+          "expression": "ΔShares = Buyback amount / Share price"
+        },
+        {
+          "name": "EPS accretion test",
+          "expression": "Accretive if E/P > r_cash × (1 − t)"
+        },
+        {
+          "name": "Value test",
+          "expression": "Buyback creates value if Price < Intrinsic value per share"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many companies buy back the most stock at peak prices, when cash is plentiful, and the least at troughs.",
+      "Executive pay tied to EPS creates an incentive to buy back shares even when reinvestment would create more value."
+    ],
+    "lenses": {
+      "history": "US companies were largely restricted from open-market buybacks until the SEC's Rule 10b-18 safe harbor in 1982. Since then, buybacks have grown to rival dividends as the main way large companies return cash.",
+      "economics": "In a perfect market, dividends and buybacks are equivalent and neither changes firm value, the payout irrelevance result of Miller and Modigliani. Value is created only by the investments a firm makes, or by buying its own stock at a discount to value.",
+      "behavioralScience": "Investors reward EPS beats, so managers favor actions that lift EPS mechanically, such as buybacks, over investments that pay off later. Studies of buyback timing show companies are often poor at judging their own valuation.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The best capital allocators, such as those profiled in The Outsiders, buy back stock aggressively only when it is cheap and stop when it is not. A buyback program on autopilot is an admission that management has no better ideas.",
+      "personalConnection": "Cisco has long returned cash through dividends and large buybacks, so the right question for any enterprise hardware or software company is whether incremental GPU, R&D or M&A spending earns more than its stock offers. Hyperscalers face the opposite trade-off today, cutting buyback growth to fund data center capital spending.",
+      "antiPattern": "Management announces a buyback because it is EPS-accretive and calls it a return of capital. Compare the price paid with your own intrinsic value estimate and net out buybacks used to absorb stock compensation."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "builds-on",
+        "question": "How much of a buyback simply offsets dilution from stock-based compensation?"
+      },
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "contrasts-with",
+        "question": "Why does a buyback lift ROE without improving operations?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "builds-on",
+        "question": "Why should reinvestment come first when incremental ROIC exceeds WACC?"
+      },
+      {
+        "targetId": "MGMT550",
+        "relationship": "applied-in",
+        "question": "How should a board decide between buybacks, dividends and acquisitions?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative large-cap buyback decision",
+      "prompt": "A company earns $1,000M of net income on 500M shares, so EPS is $2.00, and its stock trades at $40, a P/E of 20. It holds $2B of cash earning 4% before a 21% tax. If it spends all $2B buying back stock at $40, what happens to EPS, and does that prove the buyback creates value?",
+      "cfoAnswer": "The company retires 50M shares and loses $2B × 4% × 0.79 ≈ $63M of after-tax interest, so net income falls to about $937M on 450M shares, and EPS rises about 4% to $2.08. That accretion follows mechanically because the 5% earnings yield exceeds the 3.2% after-tax cash yield. It creates value only if intrinsic value exceeds $40 per share; if fair value is $35, remaining shareholders lose about $5 on each share bought.",
+      "keyTakeaway": "EPS accretion is arithmetic; value creation depends on buying below intrinsic value."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on payout policy and share repurchases",
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: HBS] William Thorndike, The Outsiders, and HBS teaching on capital allocation"
+    ]
+  },
+  {
+    "id": "f502-07-roic-vs-wacc",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "ROIC vs WACC: When Growth Creates (or Destroys) Value",
+    "difficulty": "advanced",
+    "tags": [
+      "roic",
+      "value creation",
+      "growth",
+      "dupont"
+    ],
+    "hook10k": "Growth is only good news when each new dollar invested earns more than it costs, and a company growing fast at returns below its cost of capital is getting bigger and poorer at the same time. ROIC versus WACC is the one comparison that tells you which kind of growth you are buying.",
+    "pareto20_80": {
+      "summary": "Return on invested capital (ROIC) is after-tax operating profit divided by the capital used to earn it. Value is created when ROIC exceeds WACC, and the value of growth depends on the return on new invested capital: growth at RONIC equal to WACC adds nothing.",
+      "keyPoints": [
+        "ROIC = NOPAT / Invested capital, where invested capital = operating working capital + net PP&E + other operating assets.",
+        "DuPont for ROIC: NOPAT margin × invested capital turnover.",
+        "Value driver formula: Value = NOPAT_{t+1} × (1 − g / RONIC) / (WACC − g).",
+        "If RONIC > WACC, faster growth adds value; if RONIC = WACC, growth is neutral; if RONIC < WACC, growth destroys value.",
+        "Sustained high ROIC needs a competitive advantage, otherwise competition drives returns down toward WACC."
+      ],
+      "formulas": [
+        {
+          "name": "Return on invested capital",
+          "expression": "ROIC = NOPAT / Invested capital"
+        },
+        {
+          "name": "ROIC DuPont",
+          "expression": "ROIC = (NOPAT / Revenue) × (Revenue / Invested capital)"
+        },
+        {
+          "name": "Value driver formula",
+          "expression": "Value = NOPAT_{t+1} × (1 − g / RONIC) / (WACC − g)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Invested capital excludes intangibles that were expensed, such as R&D and brand, so software ROIC is often overstated.",
+      "Acquisitive companies can show low ROIC including goodwill and high ROIC excluding it, and both views matter for different questions."
+    ],
+    "lenses": {
+      "history": "The link between returns, growth and value was formalized by Merton Miller and Franco Modigliani in 1961 and later turned into practice by McKinsey's valuation group. Warren Buffett popularized the idea that the best businesses reinvest at high returns for decades.",
+      "economics": "Excess returns above the cost of capital are economic rents, and competition erodes them unless barriers to entry protect them. The present value of future excess returns is what investors pay for above book value.",
+      "behavioralScience": null,
+      "marketingNarrative": "Investor narratives about total addressable market and growth rates often skip the return on capital needed to capture that growth. The strongest equity stories pair growth with evidence of high incremental returns.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Cutting growth can increase value when new investments earn less than WACC, which is why some companies are worth more shrinking. The question is never how fast to grow, but how much to grow at what return.",
+      "personalConnection": "Hyperscaler GPU buildouts are a live ROIC-versus-WACC test: the spending is enormous, and the value created depends on whether AI revenue earns more than the cost of that capital. Carbon Robotics or PranaScan should track return on each dollar of growth spending, not just top-line growth.",
+      "antiPattern": "Executives target revenue growth and celebrate it even as ROIC falls below WACC. Report ROIC and incremental ROIC beside growth in every board deck."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "builds-on",
+        "question": "How does DuPont analysis of ROE extend to ROIC?"
+      },
+      {
+        "targetId": "a501-08-eva-residual-income",
+        "relationship": "contrasts-with",
+        "question": "How do EVA dollars and the ROIC-WACC spread express the same value test?"
+      },
+      {
+        "targetId": "f502-04-terminal-value-multiples",
+        "relationship": "drives",
+        "question": "Why must terminal growth be consistent with return on new invested capital?"
+      },
+      {
+        "targetId": "MGMT502",
+        "relationship": "applied-in",
+        "question": "Which competitive advantages let ROIC stay above WACC for decades?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative growth decision for a business earning $100M of NOPAT",
+      "prompt": "A business will earn $100M of NOPAT next year, has a 10% WACC and plans to grow 5% a year forever. Compare its value if new investments earn 20%, 10% or 8% on new capital. What should the CEO conclude?",
+      "cfoAnswer": "Using value = NOPAT × (1 − g / RONIC) / (WACC − g): at 20% RONIC value is 100 × 0.75 / 0.05 = $1,500M; at 10% it is 100 × 0.5 / 0.05 = $1,000M, the same as with no growth; at 8% it falls to 100 × 0.375 / 0.05 = $750M. Growth adds $500M of value in the first case and destroys $250M in the last. The CEO should fund growth only in the units where incremental returns clearly exceed 10%.",
+      "keyTakeaway": "Growth creates value only when return on new capital exceeds the cost of capital."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on value creation and return on capital",
+      "[Foster: ACCTG 500] Session 21 Financial Statement Analysis and final review DuPont slide",
+      "[Elite MBA: McKinsey / Wharton] Koller, Goedhart and Wessels, Valuation, the value driver formula",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — return on invested capital versus cost of capital"
+    ]
+  },
+  {
+    "id": "f502-08-real-options-stage-gate",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Real Options & Stage-Gate Investing",
+    "difficulty": "advanced",
+    "tags": [
+      "real options",
+      "stage-gate",
+      "decision trees",
+      "uncertainty"
+    ],
+    "hook10k": "Static NPV assumes you commit to a project today and never change course, but real managers can wait, expand, pivot or quit when they learn more. Valuing that flexibility often turns a project that looks negative into one worth funding in stages.",
+    "pareto20_80": {
+      "summary": "Real options treat managerial flexibility, such as the option to expand, abandon, delay or switch, as having value like a financial option. Stage-gate investing commits small amounts first, learns, and releases further capital only when milestones are hit, which caps downside and preserves upside.",
+      "keyPoints": [
+        "Option value rises with uncertainty, because flexibility lets you avoid the bad outcomes while keeping the good ones.",
+        "Decision trees value options by working backward from the end, choosing the best action at each decision node.",
+        "Expanded NPV = Static NPV + Value of managerial flexibility.",
+        "Staged financing in venture capital is a real option: investors keep the right, not the obligation, to fund the next round.",
+        "Options are only valuable if the company will actually exercise them, including killing projects that miss milestones."
+      ],
+      "formulas": [
+        {
+          "name": "Expanded NPV",
+          "expression": "Expanded NPV = Static NPV + Option value"
+        },
+        {
+          "name": "Two-stage decision tree",
+          "expression": "NPV = −I_1 + p × max(PV_success − I_2, 0) + (1 − p) × max(PV_fail − I_2, 0)"
+        },
+        {
+          "name": "Option to abandon",
+          "expression": "Value = PV of project + PV of max(Salvage − Project value, 0)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Organizations rarely kill projects at the gate, so the abandonment option that justified the investment is often never exercised.",
+      "Formal option pricing models need volatility estimates that are rarely available for real projects, so decision trees are more practical."
+    ],
+    "lenses": {
+      "history": "Stewart Myers coined the term real options in 1977, applying the Black-Scholes insight that flexibility has value to corporate investments. Pharmaceutical and oil companies were early adopters because their projects unfold in clear stages.",
+      "economics": "Under uncertainty with irreversible investment, waiting to learn has value, so the hurdle for committing capital should exceed the simple NPV break-even. Staging converts large irreversible bets into a series of smaller, reversible ones.",
+      "behavioralScience": "Sunk cost bias and escalation of commitment make teams push projects through gates they should fail. Setting kill criteria before the project starts makes abandonment far more likely.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Many startups are worth more as bundles of options than as forecasts of cash flows, which is why venture investors fund in stages. The discipline is to design each stage to buy the most information per dollar.",
+      "personalConnection": "An enterprise AI pilot is a classic stage-gate: a small paid proof of concept buys the option to roll out across thousands of seats only if accuracy and adoption clear the bar. PranaScan's clinical validation study is the gate that unlocks the larger investment in regulatory approval and distribution.",
+      "antiPattern": "Teams approve a large project in one decision with no defined kill criteria. Break it into stages with explicit go and no-go metrics agreed before the first dollar is spent."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-01-tvm-npv-irr",
+        "relationship": "builds-on",
+        "question": "Why does static NPV miss the value of being able to stop or expand?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "applied-in",
+        "question": "How does staged venture financing act as a sequence of real options?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "contrasts-with",
+        "question": "How do sunk costs at each gate tempt teams to keep projects alive?"
+      },
+      {
+        "targetId": "QMETH501",
+        "relationship": "applied-in",
+        "question": "How would you build and solve a decision tree for a staged investment?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative two-stage AI product investment",
+      "prompt": "An AI product needs a $5M pilot with a 40% chance of success. If the pilot works, a $50M rollout produces cash flows worth $100M; if it fails, the rollout would be worth only $20M. Ignoring discounting for simplicity, compare committing $55M upfront with staging the decision.",
+      "cfoAnswer": "Committing everything now yields an expected value of 0.4 × $100M + 0.6 × $20M = $52M against $55M of cost, an NPV of −$3M. Staging spends $5M first and invests $50M only after success: NPV = −5 + 0.4 × (100 − 50) = +$15M, because the company avoids rolling out a $20M product for $50M. The $18M difference is the value of the option to abandon, so the board should fund the pilot with a clear success metric.",
+      "keyTakeaway": "Staging investments converts downside risk into an option, which can make a negative project worth funding."
+    },
+    "sources": [
+      "[Foster: FIN 502] Business finance sessions on decision trees and real options",
+      "[Elite MBA: MIT Sloan] Stewart Myers, Determinants of Corporate Borrowing (1977), origin of the real options concept",
+      "[Elite MBA: Wharton] Avinash Dixit and Robert Pindyck, Investment under Uncertainty"
+    ]
+  },
+  {
+    "id": "e557-09-startup-valuation-vc-method",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 557",
+    "title": "Startup Valuation: VC Method, Pre-Money and Post-Money",
+    "difficulty": "intermediate",
+    "tags": [
+      "startup valuation",
+      "vc method",
+      "pre-money",
+      "post-money"
+    ],
+    "hook10k": "Early-stage startups have no stable cash flows to discount, so investors work backward from what the company might be worth at exit and the return they need to justify the risk. The pre-money valuation that results is less a measurement than a negotiated price for ownership.",
+    "pareto20_80": {
+      "summary": "The VC method estimates a terminal exit value, divides by the target return multiple to get today's required post-money value, and adjusts for expected dilution from future rounds. Post-money equals pre-money plus new investment, and the price per share is pre-money divided by fully diluted pre-financing shares.",
+      "keyPoints": [
+        "Post-money valuation = Pre-money valuation + New investment; investor ownership = Investment / Post-money.",
+        "Price per share = Pre-money valuation / Fully diluted pre-financing shares (including the option pool).",
+        "VC method: required ownership at exit = Investment × Target multiple / Exit value, then divide by the retention ratio after future dilution.",
+        "Target multiples are high because most startups fail, so the multiple bakes in the probability of a zero.",
+        "Comparable rounds and market heat often set the price more than any model, so understand the terms as well as the headline."
+      ],
+      "formulas": [
+        {
+          "name": "Post-money",
+          "expression": "Post-money = Pre-money + Investment"
+        },
+        {
+          "name": "Price per share",
+          "expression": "Price = Pre-money / Fully diluted pre-financing shares"
+        },
+        {
+          "name": "VC method required ownership",
+          "expression": "Ownership_now = (Investment × Target multiple / Exit value) / Retention ratio"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Headline valuations often hide terms such as liquidation preferences or a large option pool that shift value away from founders.",
+      "Exit values used in the VC method are usually optimistic, so investors offset that optimism with very high target multiples."
+    ],
+    "lenses": {
+      "history": "The VC method was formalized in Harvard teaching notes by William Sahlman in the 1980s, when venture capital became an institutional asset class. It remains the standard back-of-the-envelope tool in term sheet negotiations.",
+      "economics": "A startup's value is the expected value of a highly skewed distribution of outcomes, dominated by a small chance of a large exit. Investors price that skew through target multiples and through preferred stock terms that protect the downside.",
+      "behavioralScience": "Founders anchor on the highest valuation they hear about from peers, while investors anchor on recent comparable rounds. Both sides benefit from translating valuation into ownership and terms.",
+      "marketingNarrative": "A high headline valuation is a marketing asset for recruiting and press, which is why founders sometimes accept harsh terms to get it. That story can backfire if the next round has to come in lower.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Valuation at seed is mostly a function of how much money the company needs and how much dilution founders can accept. Raising less at a fair price often beats raising more at a high price with heavy terms.",
+      "personalConnection": "Carbon Robotics' seed pitch had to justify a valuation from a few LaserWeeder sales, so the investor case rested on a large future exit, not current cash flows. PranaScan would be valued the same way, from a plausible exit in health or enterprise AI and the dilution expected before it.",
+      "antiPattern": "Founders negotiate only the pre-money number and ignore the option pool, liquidation preference and future dilution. Model ownership at exit under the full terms before comparing offers."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "builds-on",
+        "question": "How do fully diluted shares and option pools enter the price per share?"
+      },
+      {
+        "targetId": "f502-02-fcff-dcf",
+        "relationship": "contrasts-with",
+        "question": "Why does a DCF rarely work for valuing a seed-stage startup?"
+      },
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "foundation-for",
+        "question": "How do term sheet provisions change the economic meaning of a headline valuation?"
+      },
+      {
+        "targetId": "ENTRE510",
+        "relationship": "applied-in",
+        "question": "How does the startup's strategy shape the exit value assumed in the VC method?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative seed-stage valuation using the VC method",
+      "prompt": "A VC is considering a $4M investment in a startup that could exit for $200M in five years. The VC targets a 10x return and expects later rounds to dilute today's investors by 30%. What post-money and pre-money valuation can the VC justify?",
+      "cfoAnswer": "The VC needs $40M at exit, or 20% of a $200M company. Because 30% dilution means today's stake keeps only 70% of its size, the VC must buy 20% / 0.7 ≈ 28.6% now. Post-money is $4M / 0.286 ≈ $14M and pre-money about $10M; if the company has 1.2M fully diluted shares, the price per share would be about $8.33, so founders should test whether a smaller raise preserves more ownership.",
+      "keyTakeaway": "Work backward from exit value, target return and future dilution to get today's valuation."
+    },
+    "sources": [
+      "[Foster: ENTRE 542] VCIC term sheet slides on pre-money, post-money and price per share",
+      "[Foster: ENTRE 557] Entrepreneurial finance session on startup valuation",
+      "[Elite MBA: HBS] William Sahlman, The Venture Capital Method (HBS teaching note)"
+    ]
+  },
+  {
+    "id": "e557-10-safe-caps-discounts",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 557",
+    "title": "SAFEs, Convertible Notes, Caps & Discounts",
+    "difficulty": "intermediate",
+    "tags": [
+      "safe",
+      "convertible note",
+      "valuation cap",
+      "discount"
+    ],
+    "hook10k": "A SAFE lets a startup take money today and set the price later, but the cap and discount quietly decide how much of the company the early investor ends up owning. Founders who stack several SAFEs without modeling them often discover at the Series A that they own far less than they thought.",
+    "pareto20_80": {
+      "summary": "SAFEs and convertible notes convert into equity at the next priced round, at the lower of a price based on the valuation cap or a discount to the round price. Post-money SAFEs fix the investor's ownership as investment divided by the post-money cap, before the new round dilutes everyone.",
+      "keyPoints": [
+        "Conversion price = min(Cap price, Round price × (1 − Discount)), where cap price = Cap / Fully diluted capitalization.",
+        "Post-money SAFE ownership before the priced round = Investment / Post-money valuation cap.",
+        "Convertible notes add interest and a maturity date, so they are debt until conversion, while SAFEs are not debt.",
+        "Multiple SAFEs stack: each post-money SAFE dilutes the founders but not the other post-money SAFE holders.",
+        "SAFE holders usually convert into shadow preferred stock with the same liquidation preference per share as the new round price."
+      ],
+      "formulas": [
+        {
+          "name": "Conversion price",
+          "expression": "P_conv = min(Cap / FD shares, P_round × (1 − d))"
+        },
+        {
+          "name": "Shares issued on conversion",
+          "expression": "Shares = (Investment + Accrued interest) / P_conv"
+        },
+        {
+          "name": "Post-money SAFE ownership",
+          "expression": "Ownership = Investment / Post-money cap"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Founders often treat SAFEs as free money until the priced round, when conversion can take a much larger slice than expected.",
+      "Caps set too low act like a very cheap priced round without the governance protections of one."
+    ],
+    "lenses": {
+      "history": "Y Combinator introduced the SAFE in 2013 to simplify seed financing and replaced it with the post-money SAFE in 2018 to make ownership easier to calculate. Convertible notes were the standard seed instrument before that.",
+      "economics": "SAFEs defer the valuation question until more information exists, which lowers transaction costs at the earliest stage. The cap gives early investors upside protection for taking more risk than later investors.",
+      "behavioralScience": "Because SAFEs do not show a price on day one, founders underweight their dilution, a form of mental accounting. Tracking a pro forma cap table after every SAFE removes that blind spot.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A valuation cap is a valuation in all but name, so founders should negotiate it as seriously as a priced round. The convenience of a SAFE is speed, not a lower cost of capital.",
+      "personalConnection": "A startup like PranaScan raising pre-seed money from angels would likely use post-money SAFEs, and modeling each one shows exactly how much ownership remains for the Series A and the option pool. Enterprise AI founders raising several SAFEs at rising caps should total them before negotiating the priced round.",
+      "antiPattern": "Founders raise several SAFEs at different caps and never model the conversion until the Series A term sheet arrives. Update a pro forma cap table after every SAFE and show conversion under the expected round price."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "builds-on",
+        "question": "How do convertible instruments affect fully diluted share counts?"
+      },
+      {
+        "targetId": "e557-09-startup-valuation-vc-method",
+        "relationship": "builds-on",
+        "question": "How does the valuation cap relate to the VC method's required ownership?"
+      },
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "foundation-for",
+        "question": "How do converted SAFE holders rank in the liquidation preference stack?"
+      },
+      {
+        "targetId": "ENTRE532",
+        "relationship": "applied-in",
+        "question": "When should a software founder choose a SAFE over a priced seed round?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Convertible note conversion from the ENTRE 542 Cap Table Template",
+      "prompt": "A seed company has 1.25M fully diluted shares and a $500k convertible note with an $8M cap and a 20% discount. The Series A is priced at $5.00 per share. At what price does the note convert, how many shares does it receive, and which term mattered?",
+      "cfoAnswer": "The cap price is $8M / 1.25M = $6.40 per share, while the discounted round price is $5.00 × 0.8 = $4.00. The note converts at the lower price, $4.00, receiving $500k / $4.00 = 125,000 shares, ignoring accrued interest. The discount, not the cap, drove the outcome because the Series A price came in below the cap price, so founders should model both terms across a range of round prices.",
+      "keyTakeaway": "Notes and SAFEs convert at the lower of the cap price and the discounted round price."
+    },
+    "sources": [
+      "[Foster: ENTRE 542] Cap Table Template exercise with convertible note conversion",
+      "[Foster: ENTRE 557] Entrepreneurial finance session on convertible securities",
+      "[Elite MBA: Stanford GSB] Y Combinator post-money SAFE user guide as taught in venture finance courses"
+    ]
+  },
+  {
+    "id": "e542-11-venture-term-sheets",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 542",
+    "title": "Venture Term Sheets: Option Pool Shuffle, Preferences & Anti-Dilution",
+    "difficulty": "advanced",
+    "tags": [
+      "term sheets",
+      "liquidation preference",
+      "option pool",
+      "anti-dilution"
+    ],
+    "hook10k": "Two term sheets with the same headline valuation can leave founders with very different outcomes, because the option pool, liquidation preference and anti-dilution terms decide who gets paid first and how much. Reading a term sheet means translating every clause into ownership and dollars under a few exit scenarios.",
+    "pareto20_80": {
+      "summary": "Venture term sheets set price and ownership, but also economic terms such as liquidation preferences, participation and anti-dilution, and control terms such as board seats and protective provisions. The option pool shuffle places new pool shares in the pre-money, so founders alone bear that dilution.",
+      "keyPoints": [
+        "Option pool shuffle: an expanded pool inside the pre-money lowers the effective pre-money for founders by the pool's value.",
+        "1x non-participating preferred receives the greater of its investment back or its as-converted share of proceeds.",
+        "Participating preferred receives its investment back and then shares in the remainder as if converted, often called double dipping.",
+        "Full ratchet anti-dilution resets the conversion price to the new lower price; broad-based weighted average is gentler and most common.",
+        "Pool increases of roughly 8% to 15% of post-money are a common rule of thumb, sized to the hiring plan."
+      ],
+      "formulas": [
+        {
+          "name": "Effective pre-money for founders",
+          "expression": "Effective pre-money = Headline pre-money − Value of new pool shares"
+        },
+        {
+          "name": "Non-participating payout",
+          "expression": "Payout = max(Preference, Ownership × Exit proceeds)"
+        },
+        {
+          "name": "Full ratchet conversion ratio",
+          "expression": "Conversion ratio = Original price / New lower price"
+        }
+      ]
+    },
+    "realityCheck": [
+      "In downside exits, liquidation preferences can leave founders and employees with nothing even when the company sells for more than it raised.",
+      "Protective provisions and board composition often matter more than economic terms when the company hits trouble."
+    ],
+    "lenses": {
+      "history": "Preferred stock with liquidation preferences became standard in venture capital in the 1970s and 1980s as funds sought downside protection without debt. The National Venture Capital Association published model term sheets in the 2000s to reduce legal cost and confusion.",
+      "economics": "Preferred stock is a hybrid of debt and equity that aligns investor downside protection with upside participation. Liquidation preferences shift value to investors in middling outcomes, which can distort founders' incentives about whether to sell.",
+      "behavioralScience": "Founders fixate on the headline valuation because it is the number that gets reported, while investors often care more about terms. That asymmetry lets investors trade a higher price for harsher terms.",
+      "marketingNarrative": null,
+      "sociology": "Venture deals are repeated games inside small networks, so norms about fair terms are enforced by reputation as much as by law. Unusually harsh terms can label an investor as difficult in founder circles.",
+      "firstPrinciplesContrarian": "The best term sheet is often the one with clean terms at a slightly lower price, because complex terms compound across rounds. Founders should model the waterfall at modest exits, not just at a home run.",
+      "personalConnection": "Carbon Robotics or PranaScan raising a Series A would face the option pool shuffle directly, and a 1x non-participating preference is the founder-friendly norm to defend. Enterprise AI startups acquired for a modest multiple are where participating preferred quietly transfers the most value.",
+      "antiPattern": "Founders compare offers by pre-money valuation alone. Build the cap table and waterfall for each offer at three exit values, including one below total capital raised."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "e557-09-startup-valuation-vc-method",
+        "relationship": "builds-on",
+        "question": "How does the option pool shuffle change the effective pre-money valuation?"
+      },
+      {
+        "targetId": "e557-10-safe-caps-discounts",
+        "relationship": "builds-on",
+        "question": "Where do converted SAFEs sit in the preference stack?"
+      },
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "builds-on",
+        "question": "How does the option pool turn into stock-based compensation expense later?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "applied-in",
+        "question": "How does an acquisition price flow through the liquidation waterfall to each class?"
+      },
+      {
+        "targetId": "MGMT550",
+        "relationship": "applied-in",
+        "question": "How do venture board seats and protective provisions shape governance?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "VCIC term sheet example (Foster ENTRE 542 slides)",
+      "prompt": "A startup accepts a $5M pre-money valuation at $1.00 per share, with founders holding 3.6M shares and the investor requiring a 1.4M share option pool inside the pre-money. The investor puts in $5M. What does everyone own after the round, and what is the founders' effective pre-money valuation?",
+      "cfoAnswer": "Pre-money shares are 3.6M founder shares plus the 1.4M pool, or 5.0M at $1.00. The investor buys 5.0M new shares, so post-money ownership is founders 36%, pool 14% and investor 50%. Because the pool sits in the pre-money, its $1.4M of value comes entirely out of the founders' share, making their effective pre-money only $3.6M; founders should size the pool to an actual hiring plan or negotiate part of it into the post-money.",
+      "keyTakeaway": "An option pool inside the pre-money lowers the founders' effective valuation by the pool's value."
+    },
+    "sources": [
+      "[Foster: ENTRE 542] VCIC term sheet slides on option pools, preferences and anti-dilution",
+      "[Foster: ENTRE 557] Apex cap table and liquidation waterfall exercise",
+      "[Foster: ENTRE 542] Syllabus readings: Brad Feld and Jason Mendelson, Venture Deals"
+    ]
+  },
+  {
+    "id": "e557-12-unit-economics-ltv-cac",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 557",
+    "title": "Unit Economics: LTV, CAC, Payback & the Rule of 40",
+    "difficulty": "intermediate",
+    "tags": [
+      "unit economics",
+      "ltv",
+      "cac",
+      "rule of 40"
+    ],
+    "hook10k": "A startup that loses money on every customer cannot fix it with volume, and unit economics is how you find out which kind of startup you are. LTV, CAC and payback compress the whole business model into a few numbers investors check before anything else.",
+    "pareto20_80": {
+      "summary": "Customer lifetime value (LTV) is the gross margin a customer generates over their expected life, customer acquisition cost (CAC) is what it costs to win them, and CAC payback is how many months of gross margin it takes to earn CAC back. The Rule of 40 is a commonly cited heuristic that a software company's growth rate plus profit margin should reach 40%.",
+      "keyPoints": [
+        "Monthly LTV = ARPA × Gross margin % / Monthly churn rate, ignoring discounting and expansion.",
+        "CAC = Total sales and marketing cost / New customers acquired in the period.",
+        "CAC payback (months) = CAC / (ARPA × Gross margin %).",
+        "LTV/CAC above about 3 and payback under about 18 months are commonly cited benchmarks, not laws (illustrative).",
+        "Rule of 40: revenue growth % + free cash flow (or EBITDA) margin % ≥ 40, a heuristic for balancing growth and burn (illustrative)."
+      ],
+      "formulas": [
+        {
+          "name": "Customer lifetime value",
+          "expression": "LTV = ARPA × GM% / Churn"
+        },
+        {
+          "name": "CAC payback",
+          "expression": "Payback months = CAC / (ARPA × GM%)"
+        },
+        {
+          "name": "Rule of 40",
+          "expression": "Growth % + FCF margin % ≥ 40"
+        }
+      ]
+    },
+    "realityCheck": [
+      "LTV is extremely sensitive to the churn assumption, and early cohorts rarely have enough history to measure churn reliably.",
+      "Blended CAC hides that organic customers are cheap while paid customers are expensive, so compute paid CAC separately.",
+      "Gross margin often excludes onboarding, support and inference costs, which overstates LTV."
+    ],
+    "lenses": {
+      "history": "Customer lifetime value has roots in direct marketing and database marketing of the 1980s, and SaaS investors adopted it in the 2000s as subscription software spread. The Rule of 40 became popular among growth investors in the 2010s.",
+      "economics": "Unit economics separate the profitability of the marginal customer from the fixed cost of the platform. If LTV exceeds CAC by a healthy margin, growth is an investment with a positive return; if not, growth only burns cash faster.",
+      "behavioralScience": "Founders treat optimistic LTV estimates as facts, often because the churn rate came from the best early cohort. Investors respond by discounting LTV heavily and focusing on payback.",
+      "marketingNarrative": "Strong unit economics are the core of any growth-stage fundraising story, because they justify spending more on acquisition. Showing cohort curves is more persuasive than a single LTV/CAC ratio.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "LTV/CAC is a ratio of a guess to an accounting allocation, so payback and cohort retention are often more honest signals. Improving churn usually does more for unit economics than optimizing acquisition spend.",
+      "personalConnection": "Enterprise AI companies must include GPU inference cost in gross margin, because heavy users can turn a high-ARPA customer into a low-LTV one. PranaScan's unit economics depend on scans per user, cost per scan and subscription churn.",
+      "antiPattern": "Founders quote an LTV/CAC of 5 based on a churn rate measured over three months. Report cohort retention curves and CAC payback alongside LTV, and use conservative churn."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "How does contribution margin per customer feed customer lifetime value?"
+      },
+      {
+        "targetId": "a500-02-accrual-revenue-recognition",
+        "relationship": "builds-on",
+        "question": "How do billings, ARR and GAAP revenue differ in a subscription business?"
+      },
+      {
+        "targetId": "e557-13-runway-bridge",
+        "relationship": "drives",
+        "question": "How does CAC payback determine how much cash growth consumes?"
+      },
+      {
+        "targetId": "MKTG554",
+        "relationship": "applied-in",
+        "question": "How do pricing and packaging decisions change LTV and churn?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative B2B software startup unit economics",
+      "prompt": "A startup charges $500 per month per account with a 70% gross margin and 2% monthly churn, and its paid CAC is $10,500. It is growing revenue 60% a year with a −30% free cash flow margin. Assess its unit economics and Rule of 40 score.",
+      "cfoAnswer": "Monthly gross margin per account is $350, so LTV is $350 / 0.02 = $17,500 and LTV/CAC is about 1.7, with a CAC payback of 30 months, both weak against common benchmarks. Its Rule of 40 score is 60 − 30 = 30, below the heuristic. Halving churn to 1% would double LTV to $35,000 and lift LTV/CAC to about 3.3, so the CEO should prioritize retention and onboarding before scaling paid acquisition.",
+      "keyTakeaway": "Fix churn and payback before buying more growth."
+    },
+    "sources": [
+      "[Foster: ENTRE 557] Entrepreneurial finance session on unit economics and startup metrics",
+      "[Elite MBA: Stanford GSB] Venture-backed software metrics teaching on LTV, CAC and payback",
+      "[Elite MBA: HBS] Sunil Gupta and Donald Lehmann, Managing Customers as Investments"
+    ]
+  },
+  {
+    "id": "e557-13-runway-bridge",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 557",
+    "title": "Runway, Burn Multiple & Bridge Financing",
+    "difficulty": "foundation",
+    "tags": [
+      "runway",
+      "burn rate",
+      "burn multiple",
+      "bridge financing"
+    ],
+    "hook10k": "Runway is the number of months until a startup runs out of cash, and it is the clock every founder decision is really racing. Because fundraising takes months, the effective deadline arrives long before the bank balance hits zero.",
+    "pareto20_80": {
+      "summary": "Runway equals cash divided by net monthly burn, and the burn multiple measures how much cash is burned for each dollar of net new ARR. When a company cannot reach its next milestone before cash runs out, it cuts burn, raises a bridge from existing investors, or both.",
+      "keyPoints": [
+        "Runway (months) = Cash / Net monthly burn, where net burn = cash out − cash in.",
+        "Start fundraising with at least six to nine months of runway left, because rounds commonly take several months to close.",
+        "Burn multiple = Net burn / Net new ARR; lower is better, and above about 2 is a commonly cited warning sign (illustrative).",
+        "Default alive means reaching profitability on current cash at current growth; default dead means needing to raise to survive.",
+        "Bridge rounds, often convertible notes from insiders, buy time to hit a milestone but signal that the plan slipped."
+      ],
+      "formulas": [
+        {
+          "name": "Runway",
+          "expression": "Runway = Cash / Net monthly burn"
+        },
+        {
+          "name": "Burn multiple",
+          "expression": "Burn multiple = Net burn / Net new ARR"
+        },
+        {
+          "name": "Fundraise start date",
+          "expression": "Start = Cash-out date − Expected months to close − Safety buffer"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Burn usually rises after a raise as new hires start, so runway calculated on today's burn is often too long.",
+      "Insiders often attach harsher terms to bridge financing because they know the company has few alternatives."
+    ],
+    "lenses": {
+      "history": "The concept of default alive was popularized by Paul Graham of Y Combinator in 2015 as founders faced a tighter funding market. The burn multiple gained traction after the 2022 downturn, when investors shifted from growth at any cost to efficient growth.",
+      "economics": "Cash runway is a real option on the company's future: more runway buys more chances to hit the milestones that unlock financing. Burn efficiency determines how much of the company must be sold to buy that option.",
+      "behavioralScience": "Founders are overconfident about fundraising timelines and assume the next round will close quickly. Planning around a pessimistic timeline protects against the most common startup failure mode.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The most important number on a startup's dashboard is not revenue but the date it runs out of money. Every hiring and spending decision should be judged by how it moves that date versus the milestones it buys.",
+      "personalConnection": "An enterprise AI startup with heavy GPU commitments has less flexibility to cut burn quickly, because reserved compute contracts are fixed for months. PranaScan or a Carbon Robotics-style hardware company should plan runway around inventory and certification milestones that take longer than software releases.",
+      "antiPattern": "Founders start raising with three months of cash left and negotiate from weakness. Track the cash-out date monthly and set a trigger to begin fundraising at nine months of runway."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-05-cash-flow-fcf",
+        "relationship": "builds-on",
+        "question": "How is net burn derived from the statement of cash flows?"
+      },
+      {
+        "targetId": "a501-09-budgeting-forecasting",
+        "relationship": "builds-on",
+        "question": "How does a monthly cash budget forecast the cash-out date?"
+      },
+      {
+        "targetId": "e557-10-safe-caps-discounts",
+        "relationship": "applied-in",
+        "question": "How are bridge rounds usually structured as notes or SAFEs?"
+      },
+      {
+        "targetId": "ENTRE532",
+        "relationship": "applied-in",
+        "question": "How should a software founder decide between cutting burn and raising a bridge?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative Series A startup with a shrinking runway",
+      "prompt": "A startup has $6M of cash and burns a net $500k per month, adding $2M of net new ARR per year. A Series B would take about six months to close and requires stronger efficiency. What is the runway, burn multiple, and what should the CEO do?",
+      "cfoAnswer": "Runway is $6M / $0.5M = 12 months, so the fundraise must start within about six months. Annual net burn of $6M against $2M of net new ARR gives a burn multiple of 3.0, weak by common benchmarks. Cutting burn to $350k a month extends runway to about 17 months and lowers the burn multiple to about 2.1, giving time to improve growth before raising; an insider bridge is the fallback if milestones slip.",
+      "keyTakeaway": "Start fundraising early and improve burn efficiency before you need the money."
+    },
+    "sources": [
+      "[Foster: ENTRE 557] Entrepreneurial finance session on cash burn and financing strategy",
+      "[Elite MBA: Stanford GSB] Venture finance teaching on bridge rounds and insider financing",
+      "[Elite MBA: Y Combinator / Stanford] Paul Graham, Default Alive or Default Dead essay as used in startup finance courses"
+    ]
+  },
+  {
+    "id": "e542-14-vc-power-law-dpi-tvpi",
+    "pillarId": "P2",
+    "courseCode": "ENTRE 542",
+    "title": "VC Fund Math: Power Law, DPI, TVPI & IRR",
+    "difficulty": "advanced",
+    "tags": [
+      "venture capital",
+      "power law",
+      "dpi",
+      "tvpi"
+    ],
+    "hook10k": "In venture capital, a single breakout company usually returns more than the rest of the portfolio combined, so funds are built to find outliers rather than avoid losses. Understanding that power law explains why VCs ask whether a startup can return the whole fund, and why they report DPI and TVPI.",
+    "pareto20_80": {
+      "summary": "Venture returns follow a power law, with a few investments generating most of the gains. Fund performance is measured by DPI (cash distributed per dollar paid in), RVPI (remaining value per dollar paid in), TVPI (their sum) and IRR, with DPI the only measure of realized cash.",
+      "keyPoints": [
+        "DPI = Cumulative distributions / Paid-in capital; RVPI = Residual NAV / Paid-in capital; TVPI = DPI + RVPI.",
+        "Each investment should plausibly be able to return the entire fund, because most will return little or nothing.",
+        "Return-the-fund math: required exit value = Fund size / Expected ownership at exit.",
+        "Management fees and carried interest mean gross multiples must be well above net multiples for limited partners.",
+        "Early IRRs can look strong from markups, while DPI often stays below 1 for many years (the J-curve)."
+      ],
+      "formulas": [
+        {
+          "name": "Total value to paid-in",
+          "expression": "TVPI = (Distributions + Residual NAV) / Paid-in capital"
+        },
+        {
+          "name": "Distributions to paid-in",
+          "expression": "DPI = Distributions / Paid-in capital"
+        },
+        {
+          "name": "Return-the-fund exit",
+          "expression": "Required exit value = Fund size / Ownership at exit"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Residual NAV is based on the last round price, so TVPI can fall sharply when private valuations reset.",
+      "Top-quartile funds are often identified only after ten years, which makes manager selection based on early numbers unreliable."
+    ],
+    "lenses": {
+      "history": "Modern venture capital traces back to American Research and Development in 1946, whose investment in Digital Equipment Corporation returned most of its fund. That early pattern of one outlier carrying a fund has repeated through every venture cycle since.",
+      "economics": "When outcomes follow a power law, expected value is dominated by rare extreme results, so the optimal strategy is to maximize exposure to outliers rather than to minimize failures. That changes how VCs screen startups and how they size follow-on investments.",
+      "behavioralScience": "Investors overweight recent paper markups and underweight cash distributions, which makes TVPI look better than realized returns. Limited partners increasingly ask for DPI for that reason.",
+      "marketingNarrative": null,
+      "sociology": "Venture is a small, networked industry where access to top deals is concentrated among firms with strong reputations. That concentration partly explains why the same firms tend to stay in the top quartile.",
+      "firstPrinciplesContrarian": "A founder should pitch a story where the company can plausibly return the investor's fund, because that is the bar the investor must clear. Companies with solid but capped outcomes may be better served by other capital sources.",
+      "personalConnection": "An enterprise AI startup pitching a $150M fund must show a credible path to a multi-billion-dollar exit, because a modest acquisition cannot move that fund. PranaScan founders should match their likely outcome to the right investor type and fund size.",
+      "antiPattern": "Founders pitch a sensible $100M exit to a fund that needs billion-dollar outcomes, then wonder why they get passes. Estimate the investor's return-the-fund threshold before choosing whom to pitch."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "e557-09-startup-valuation-vc-method",
+        "relationship": "builds-on",
+        "question": "How do fund return targets set the multiples used in the VC method?"
+      },
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "builds-on",
+        "question": "How does staged financing let VCs manage a power-law portfolio?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "applied-in",
+        "question": "How do strategic acquirers value a startup at exit?"
+      },
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "drives",
+        "question": "Why do funds insist on preferences and pro rata rights given power-law returns?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative $150M fund in the style of the VCIC simulation (Foster ENTRE 542)",
+      "prompt": "A $150M fund has called $120M, distributed $60M and holds positions valued at $180M. It typically owns 10% of a company at exit. Compute DPI, RVPI and TVPI, and estimate the single exit needed to return the full fund.",
+      "cfoAnswer": "DPI = 60 / 120 = 0.5, RVPI = 180 / 120 = 1.5 and TVPI = 2.0, but only half of a paid-in dollar has come back as cash. To return the $150M fund from one company at 10% ownership, that company must exit for about $1.5B, and a 3x gross fund needs roughly $4.5B of exit value at that ownership. Limited partners should weight DPI heavily and ask how much of the residual value depends on a single company.",
+      "keyTakeaway": "Power-law returns mean one outlier must be able to return the fund, and DPI is the only realized measure."
+    },
+    "sources": [
+      "[Foster: ENTRE 542] Syllabus and VCIC simulation of a $150M venture fund",
+      "[Foster: ENTRE 542] Syllabus readings: Scott Kupor, Secrets of Sand Hill Road",
+      "[Elite MBA: HBS] Josh Lerner and Paul Gompers, The Venture Capital Cycle"
+    ]
+  }
+]

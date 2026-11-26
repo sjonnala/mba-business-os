@@ -176,7 +176,7 @@ export function MindMap({ mastery, selectedId, onSelectConcept }: MindMapProps) 
           <span className="bar-reviewed" style={{ width: `${(reviewed / CONCEPTS.length) * 100}%` }} />
         </div>
         <span>
-          ACCTG 500: <strong>{mastered}</strong> mastered · <strong>{reviewed}</strong> reviewed · {CONCEPTS.length - mastered - reviewed} new
+          Live concepts: <strong>{mastered}</strong> mastered · <strong>{reviewed}</strong> reviewed · {CONCEPTS.length - mastered - reviewed} new
           {filtering && <> · {matching.size} match</>}
         </span>
       </div>
@@ -191,7 +191,7 @@ export function MindMap({ mastery, selectedId, onSelectConcept }: MindMapProps) 
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
           role="img"
-          aria-label="Mind map of 5 pillars, 22 courses and ACCTG 500 concepts. Drag to pan, scroll to zoom."
+          aria-label="Mind map of 5 pillars, 22 courses and the live course concepts. Drag to pan, scroll to zoom."
         >
           <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
             {treeEdges.map((n) => {

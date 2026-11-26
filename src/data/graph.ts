@@ -1,9 +1,15 @@
-import rawConcepts from './pillar-1a-acctg500-financial.json';
+import rawA500 from './pillar-1a-acctg500-financial.json';
+import rawA501 from './pillar-1b-acctg501-managerial.json';
+import rawP2 from './pillar-2-fin502-entre557-entre542.json';
 import { COURSES, PILLARS } from './catalog';
 import { checkGraphIntegrity, parseConcepts, type ConceptNode } from '../schema/knowledgeGraph';
 
 /** All validated concept nodes. Parsing throws at load time if the JSON breaks a rule. */
-export const CONCEPTS: readonly ConceptNode[] = parseConcepts(rawConcepts);
+export const CONCEPTS: readonly ConceptNode[] = [
+  ...parseConcepts(rawA500),
+  ...parseConcepts(rawA501),
+  ...parseConcepts(rawP2),
+];
 
 export const INTEGRITY = checkGraphIntegrity(CONCEPTS, COURSES, PILLARS);
 

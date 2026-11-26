@@ -1,0 +1,858 @@
+[
+  {
+    "id": "a501-01-cost-behavior-operating-leverage",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Fixed vs Variable Costs & Operating Leverage",
+    "difficulty": "foundation",
+    "tags": [
+      "cost behavior",
+      "operating leverage",
+      "fixed costs",
+      "variable costs"
+    ],
+    "hook10k": "Two companies with identical revenue can have opposite futures, because one pays mostly fixed costs and the other mostly variable costs. Operating leverage tells you how violently profit swings when sales move, which is why it decides how much risk a business can carry.",
+    "pareto20_80": {
+      "summary": "Classify every cost by how it behaves when volume changes: variable costs move in proportion to units, fixed costs stay flat within a relevant range, and mixed costs have both parts. The degree of operating leverage (DOL) translates a percentage change in sales into a percentage change in operating income.",
+      "keyPoints": [
+        "Variable cost per unit is constant and total variable cost scales with volume; fixed cost in total is constant and per unit falls as volume rises.",
+        "Fixed costs are only fixed inside a relevant range: a second shift, a new GPU cluster or a new plant is a step up.",
+        "DOL = contribution margin / operating income, so a business close to breakeven has very high DOL and very fragile profits.",
+        "High fixed-cost businesses (software, chips, data centers) win big at scale and lose big in a downturn.",
+        "Split mixed costs with the high-low method or a regression of total cost on activity before building any forecast."
+      ],
+      "formulas": [
+        {
+          "name": "Total cost",
+          "expression": "TC = Fixed costs + Variable cost per unit × Units"
+        },
+        {
+          "name": "Degree of operating leverage",
+          "expression": "DOL = Contribution margin / Operating income"
+        },
+        {
+          "name": "Profit sensitivity",
+          "expression": "%Δ Operating income ≈ DOL × %Δ Sales"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Accounting systems classify costs by function (COGS, R&D, SG&A), not by behavior, so you usually have to rebuild the fixed-variable split yourself.",
+      "Many costs that look fixed, such as headcount and cloud commitments, are really step costs that management can cut with a lag.",
+      "DOL is a point estimate at today's volume, so it changes every time sales move and should not be quoted as a permanent trait."
+    ],
+    "lenses": {
+      "history": "Cost behavior analysis grew out of early 20th century industrial engineering, when railroads and steel mills discovered that idle capacity still had to be paid for. The breakeven chart became a standard management tool in the 1930s as firms tried to survive collapsing volumes.",
+      "economics": "Operating leverage is the business-model version of financial leverage: fixed costs act like a fixed claim that magnifies the return on each extra unit sold. Combining high operating leverage with high debt stacks two multipliers, which is how good companies fail in recessions.",
+      "behavioralScience": "Managers anchor on last year's cost base and treat fixed costs as untouchable, so cuts arrive late. Labelling a cost as fixed also makes teams stop asking whether it should exist at all.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Every cost is variable in the long run, so the real question is how quickly and at what price it can be changed. Cloud computing turned many fixed IT costs into variable ones, which is why lean startups can carry less operating leverage than their predecessors.",
+      "personalConnection": "A GPU inference business is a classic high operating leverage model: reserved clusters are fixed, while each extra enterprise customer adds little variable cost until the cluster fills up. Carbon Robotics faces the hardware version, with factory and engineering costs fixed and each LaserWeeder carrying roughly $35k of variable cost against a $120k price.",
+      "antiPattern": "Founders celebrate a jump in profit without noticing it came from operating leverage near breakeven, then panic when a small revenue dip wipes profit out. Always quote DOL alongside margin so the board sees the fragility."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-03-income-statement-gross-margin",
+        "relationship": "builds-on",
+        "question": "Why does a GAAP income statement hide the fixed-variable split you need for decisions?"
+      },
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "foundation-for",
+        "question": "How does knowing the cost split let you compute breakeven volume?"
+      },
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "contrasts-with",
+        "question": "How does operating leverage compound financial leverage in a downturn?"
+      },
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "drives",
+        "question": "Why do companies with high operating leverage tend to have higher equity betas?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative AI inference startup with a reserved GPU cluster",
+      "prompt": "An inference startup pays $600k per month for a reserved GPU cluster and staff (fixed) and $0.002 per request in variable cost, charging $0.006 per request. It serves 200 million requests per month. Compute DOL, and explain what happens to operating income if volume falls 10%.",
+      "cfoAnswer": "Contribution margin is $0.004 per request, so monthly contribution is $800k and operating income is $200k. DOL = 800 / 200 = 4.0, so a 10% fall in volume cuts operating income by about 40%, to $120k. Breakeven is 150 million requests, only 25% below today, so the board should either pre-sell capacity on committed contracts or move part of the cluster to on-demand pricing to convert fixed cost into variable cost.",
+      "keyTakeaway": "Near breakeven, operating leverage turns small revenue misses into large profit misses."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Cost behavior and cost-volume-profit sessions, managerial accounting course materials",
+      "[Elite MBA: HBS] Robert Kaplan and Robin Cooper, Cost and Effect: Using Integrated Cost Systems to Drive Profitability and Performance",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran on operating leverage as a driver of business risk and beta"
+    ]
+  },
+  {
+    "id": "a501-02-contribution-margin-breakeven",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Contribution Margin & Breakeven Analysis",
+    "difficulty": "foundation",
+    "tags": [
+      "contribution margin",
+      "breakeven",
+      "cvp",
+      "margin of safety"
+    ],
+    "hook10k": "Gross margin tells investors how a product is priced, but contribution margin tells managers what each extra sale actually earns. Divide fixed costs by it and you get the single most useful number in a business plan: how many units you must sell to stop losing money.",
+    "pareto20_80": {
+      "summary": "Contribution margin is price minus variable cost per unit, and it is the amount each unit contributes toward fixed costs and then profit. Breakeven volume equals fixed costs divided by unit contribution margin, and a target-profit volume adds the desired profit to the numerator.",
+      "keyPoints": [
+        "Unit CM = Price − Variable cost per unit; CM ratio = Unit CM / Price.",
+        "Breakeven units = Fixed costs / Unit CM; breakeven revenue = Fixed costs / CM ratio.",
+        "Margin of safety = (Actual sales − Breakeven sales) / Actual sales, a quick measure of downside cushion.",
+        "Gross margin includes fixed manufacturing overhead in COGS, so it is not the same as contribution margin.",
+        "After-tax target profit must be grossed up: required pre-tax profit = Target after-tax profit / (1 − tax rate)."
+      ],
+      "formulas": [
+        {
+          "name": "Unit contribution margin",
+          "expression": "CM = Price − Variable cost per unit"
+        },
+        {
+          "name": "Breakeven units",
+          "expression": "Q_BE = Fixed costs / CM per unit"
+        },
+        {
+          "name": "Target profit units",
+          "expression": "Q = (Fixed costs + Target operating income) / CM per unit"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Breakeven assumes a constant price and constant variable cost per unit, but discounts and volume rebates usually erode price as you chase volume.",
+      "In a startup, the fixed cost base keeps growing with each hire, so breakeven is a moving target unless headcount is frozen."
+    ],
+    "lenses": {
+      "history": "The breakeven chart was popularized by Walter Rautenstrauch at Columbia in the 1920s as a way for engineers to talk to financiers. It remains the first slide in almost every small-business loan application.",
+      "economics": "Contribution margin is the marginal revenue minus marginal cost of economics, measured per unit in accounting terms. Pricing above variable cost keeps a unit worth selling in the short run, even if the price does not yet cover full cost.",
+      "behavioralScience": null,
+      "marketingNarrative": "Investors hear contribution margin as proof that unit economics work and the business simply needs scale. Founders should show it beside the fixed cost base so the scale story stays honest.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Breakeven is a planning tool, not a goal: many great companies stay below accounting breakeven for years by choice because each unit has a strongly positive contribution. The real question is whether contribution per unit is positive and rising.",
+      "personalConnection": "For Carbon Robotics, a $120k LaserWeeder against roughly $35k of variable cost gives about $85k of contribution per robot before bundled service, so the fixed engineering and factory budget divided by $85k is the number of robots to sell. For PranaScan, contribution per subscriber is price minus app store fees and GPU inference cost per scan.",
+      "antiPattern": "Teams compute breakeven once in the pitch deck and never update it as the fixed cost base grows. Recompute breakeven every quarter with the current burn, not the burn from the seed round."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-01-cost-behavior-operating-leverage",
+        "relationship": "builds-on",
+        "question": "Which costs must be split into fixed and variable before breakeven is meaningful?"
+      },
+      {
+        "targetId": "a500-03-income-statement-gross-margin",
+        "relationship": "contrasts-with",
+        "question": "Why can gross margin be strong while contribution margin is weak?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "foundation-for",
+        "question": "How does contribution margin per customer become the core of LTV?"
+      },
+      {
+        "targetId": "MKTG554",
+        "relationship": "applied-in",
+        "question": "How should a product manager set price relative to variable cost and value?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Smith's Pub breakeven problem (Foster ACCTG 501 class problem)",
+      "prompt": "Smith's Pub sells beer at $3.50 per pint with a variable cost of $2.30 per pint and fixed costs of $10,000 per month. How many pints must it sell each month to break even, and how many to earn $2,400 of monthly operating income?",
+      "cfoAnswer": "Unit contribution margin is $3.50 − $2.30 = $1.20, a CM ratio of about 34%. Breakeven is $10,000 / $1.20 = 8,333.3, so the pub must sell 8,334 pints a month, or about $29,200 of beer revenue. To earn $2,400 it needs ($10,000 + $2,400) / $1.20 = 10,334 pints, so the owner should test whether a small price increase or a cheaper keg contract moves contribution margin more than a volume push.",
+      "keyTakeaway": "Breakeven equals fixed costs divided by unit contribution margin, so improving margin is often cheaper than chasing volume."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Smith's Pub cost-volume-profit class problem",
+      "[Foster: ACCTG 501] Contribution margin and breakeven session slides",
+      "[Elite MBA: Wharton] Managerial accounting core on cost-volume-profit analysis and the margin of safety"
+    ]
+  },
+  {
+    "id": "a501-03-cvp-sales-mix",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "CVP with Multiple Products & Sales Mix",
+    "difficulty": "intermediate",
+    "tags": [
+      "cvp",
+      "sales mix",
+      "weighted contribution margin",
+      "product portfolio"
+    ],
+    "hook10k": "A company that sells several products does not have one breakeven point; it has one for every possible mix. Shift customers toward low-margin products and the business can grow revenue while sliding into a loss.",
+    "pareto20_80": {
+      "summary": "Multi-product CVP treats a fixed basket of products as one composite unit with a weighted average contribution margin. Breakeven in composite units equals fixed costs divided by the weighted contribution margin, and changes in the mix change breakeven even if prices and costs stay the same.",
+      "keyPoints": [
+        "Weighted average CM per unit = Σ (mix share of units × unit CM of each product).",
+        "With a revenue mix, use the weighted CM ratio = Σ (revenue share × CM ratio) and divide fixed costs by it to get breakeven revenue.",
+        "A mix shift toward lower-CM products raises breakeven, which explains many earnings misses on flat revenue.",
+        "When a resource is constrained, rank products by contribution margin per unit of the scarce resource, not by CM per unit.",
+        "Free or loss-leader tiers belong in the mix, because their variable costs consume the contribution from paid tiers."
+      ],
+      "formulas": [
+        {
+          "name": "Weighted average contribution margin",
+          "expression": "CM_w = Σ (w_i × CM_i)"
+        },
+        {
+          "name": "Composite breakeven",
+          "expression": "Q_BE composite = Fixed costs / CM_w"
+        },
+        {
+          "name": "Constrained resource ranking",
+          "expression": "Rank = CM per unit / Scarce resource per unit"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Real sales mixes drift constantly, so a breakeven built on last year's mix can be wrong by the time it is presented.",
+      "Products share customers and cannibalize one another, so dropping a low-margin product can also lose the high-margin sales it pulled in."
+    ],
+    "lenses": {
+      "history": null,
+      "economics": "Sales mix analysis is the accounting version of portfolio optimization: each product earns a different return on the same fixed platform. Under a binding constraint, the optimal mix maximizes contribution per unit of the constraint, a result later formalized by linear programming.",
+      "behavioralScience": "Sales teams are usually paid on revenue, so they push whatever closes fastest even when it carries the lowest contribution margin. Paying commission on contribution rather than revenue changes the mix within a quarter.",
+      "marketingNarrative": "Good-better-best pricing tiers are designed to steer the mix: the middle tier is often priced to carry the best contribution margin. The top tier exists partly to make the middle one look reasonable.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Averages hide decisions, so the composite unit is a convenience for planning and a trap for strategy. The useful question is which customer and product combinations carry the platform, and which free-ride on it.",
+      "personalConnection": "An enterprise AI platform often sells a high-margin API tier alongside a GPU-heavy fine-tuning tier, so a shift toward fine-tuning can raise revenue while lowering weighted contribution margin. PranaScan's mix of free scans, paid subscriptions and clinic licenses needs the same weighted view before any breakeven claim.",
+      "antiPattern": "Leaders report blended margin and miss a mix shift until it is large. Report contribution margin by product and by customer segment every month, and show the mix next to it."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "How does single-product breakeven extend to a weighted composite unit?"
+      },
+      {
+        "targetId": "a501-04-activity-based-costing",
+        "relationship": "contrasts-with",
+        "question": "Why might a product look profitable on contribution margin but unprofitable after ABC?"
+      },
+      {
+        "targetId": "QMETH501",
+        "relationship": "applied-in",
+        "question": "How would linear programming choose the optimal product mix under a capacity limit?"
+      },
+      {
+        "targetId": "OPMGT502",
+        "relationship": "applied-in",
+        "question": "How does a bottleneck resource change which products deserve priority?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative two-tier AI software company",
+      "prompt": "A software company sells a Basic plan with $20 of monthly contribution and a Pro plan with $80, in a 75/25 unit mix, against $1.0M of fixed monthly costs. What is breakeven in subscribers, and what happens if the mix shifts to 90/10 with the same total subscriber count?",
+      "cfoAnswer": "Weighted contribution at 75/25 is 0.75 × $20 + 0.25 × $80 = $35, so breakeven is $1.0M / $35 ≈ 28,600 subscribers. At 90/10 the weighted contribution falls to $26, pushing breakeven to about 38,500, a 35% jump with no change in price or cost. The company should track mix as a KPI and design upgrade paths that move users from Basic to Pro.",
+      "keyTakeaway": "Breakeven depends on the sales mix, so a mix shift can destroy profit while revenue grows."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Multiple-product cost-volume-profit session and practice problems",
+      "[Elite MBA: HBS] Robert Kaplan, customer and product profitability analysis",
+      "[Elite MBA: MIT Sloan] Optimization of product mix under capacity constraints with linear programming"
+    ]
+  },
+  {
+    "id": "a501-04-activity-based-costing",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Activity-Based Costing (ABC) & Cost Drivers",
+    "difficulty": "intermediate",
+    "tags": [
+      "activity-based costing",
+      "overhead allocation",
+      "cost drivers",
+      "product profitability"
+    ],
+    "hook10k": "Traditional costing spreads overhead like peanut butter, so complex low-volume products look cheap and simple high-volume products look expensive. Activity-based costing traces overhead to the activities that cause it, and it routinely reveals that a fifth of products or customers destroy most of the profit.",
+    "pareto20_80": {
+      "summary": "ABC assigns overhead in two stages: first to activity cost pools such as setups, inspections or order handling, then to products or customers using cost drivers that measure how much of each activity they consume. The result is a more causal product and customer cost that changes pricing, mix and process decisions.",
+      "keyPoints": [
+        "Plantwide rates based on direct labor or machine hours distort cost when products differ in batch size, complexity or support needs.",
+        "Activity rate = Activity cost pool / Total driver volume; product overhead = Σ (activity rate × driver units used).",
+        "Activity hierarchy: unit-level, batch-level, product-sustaining and facility-level costs need different drivers.",
+        "Time-driven ABC simplifies the model by estimating the cost per minute of capacity and the minutes each transaction consumes.",
+        "ABC is a decision aid, not a cash-flow forecast: allocated fixed costs do not disappear when a product is dropped."
+      ],
+      "formulas": [
+        {
+          "name": "Activity rate",
+          "expression": "Rate_a = Cost pool_a / Driver volume_a"
+        },
+        {
+          "name": "ABC product overhead",
+          "expression": "Overhead_p = Σ_a (Rate_a × Driver units_p,a)"
+        },
+        {
+          "name": "Time-driven rate",
+          "expression": "Cost per minute = Cost of capacity supplied / Practical capacity in minutes"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Full ABC systems with dozens of activities are expensive to maintain, which is why many firms abandoned them and moved to time-driven ABC.",
+      "Facility-level costs such as rent are still allocated arbitrarily under ABC, so they should never drive a make-or-drop decision.",
+      "Driver data quality is often poor, and a precise-looking ABC cost can rest on rough interviews about how people spend their time."
+    ],
+    "lenses": {
+      "history": "Robert Kaplan and Robin Cooper popularized ABC in the late 1980s after studying manufacturers whose direct labor had shrunk to a small share of cost while overhead ballooned. Their cases showed that traditional cost systems were steering companies toward unprofitable product proliferation.",
+      "economics": "ABC is an attempt to approximate long-run marginal cost by tracing which activities scale with which products. Complexity has a real cost, and ABC makes it visible enough to price.",
+      "behavioralScience": "People resist ABC results that make their favorite product or customer look unprofitable, so ABC projects often fail politically rather than technically. Sharing the method before the numbers lowers that resistance.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "If overhead does not change when a product is dropped, reallocating it more precisely changes nothing in cash terms. ABC is valuable when it changes behavior, such as pricing small orders properly or simplifying a product line, not when it produces a more elaborate allocation.",
+      "personalConnection": "In an enterprise AI company, customer support, solution engineering and custom fine-tuning are activities that a few large customers consume heavily, so ABC by customer often reveals that the loudest accounts earn the least. PranaScan could use time-driven ABC to price clinic onboarding separately from self-serve subscriptions.",
+      "antiPattern": "Finance builds a beautiful ABC model, presents it once, and nothing changes. Tie every ABC review to a specific decision: a price change, a minimum order size or a product to sunset."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-07-inventory-valuation",
+        "relationship": "builds-on",
+        "question": "How does overhead allocation change the inventory value reported in financial statements?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "contrasts-with",
+        "question": "Why should allocated ABC overhead usually be excluded from a make-or-buy decision?"
+      },
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "foundation-for",
+        "question": "How does activity cost data feed target costing and price setting?"
+      },
+      {
+        "targetId": "OPMGT502",
+        "relationship": "applied-in",
+        "question": "Which process changes reduce the activities that drive overhead?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Noontime ABC class problem (Foster ACCTG 501)",
+      "prompt": "Noontime applies overhead at 245% of direct labor cost, and its accountants propose spreading a $127,170 activity pool across six activities instead. A low-volume custom product uses many setups and inspections but little direct labor. Which way will its cost move under ABC, and what should management do with the result?",
+      "cfoAnswer": "Under the 245% labor-based rate, the custom product is undercosted because its overhead is driven by setups and inspections, not labor, so its ABC cost will rise and the high-volume standard products will look cheaper. Management should check whether the custom product's price covers its ABC cost, consider setup fees or minimum batch sizes, and remember that only the activity costs that actually change with the decision are relevant cash costs.",
+      "keyTakeaway": "ABC moves overhead toward complex, low-volume products, which changes pricing and mix decisions."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Noontime activity-based costing class problem",
+      "[Foster: ACCTG 501] Activity-based costing session slides on cost pools and drivers",
+      "[Elite MBA: HBS] Robert Kaplan and Steven Anderson, Time-Driven Activity-Based Costing"
+    ]
+  },
+  {
+    "id": "a501-05-relevant-costs-make-vs-buy",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Relevant vs Sunk Costs & Build-vs-Buy (Including AI Models)",
+    "difficulty": "intermediate",
+    "tags": [
+      "relevant costs",
+      "sunk costs",
+      "make vs buy",
+      "opportunity cost"
+    ],
+    "hook10k": "The money you already spent is gone, and it should have no vote in what you do next. Relevant costing keeps only the future cash flows that differ between options, which is the discipline behind every build-versus-buy decision from components to AI models.",
+    "pareto20_80": {
+      "summary": "A cost or revenue is relevant only if it is in the future and differs between the alternatives. Sunk costs and unavoidable allocated overhead are irrelevant, while opportunity costs such as lost rent or displaced contribution are relevant even though they never appear in the ledger.",
+      "keyPoints": [
+        "Relevant = future + differential; ignore sunk costs and costs that are the same under every option.",
+        "Include opportunity costs: the contribution or rent you give up by using capacity for one option instead of another.",
+        "Allocated fixed overhead is irrelevant unless the decision actually eliminates or adds that cost.",
+        "For multi-year decisions, discount the differential cash flows and compare NPVs rather than annual totals.",
+        "Qualitative factors such as supplier reliability, IP control and strategic capability can outweigh a small cost difference."
+      ],
+      "formulas": [
+        {
+          "name": "Differential cash flow",
+          "expression": "ΔCF = CF_option A − CF_option B (future, avoidable items only)"
+        },
+        {
+          "name": "Make-or-buy test",
+          "expression": "Make if avoidable cost of making + opportunity cost < purchase price"
+        },
+        {
+          "name": "Incremental NPV",
+          "expression": "NPV_Δ = Σ ΔCF_t / (1 + r)^t"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams routinely include sunk design costs or allocated overhead in build-versus-buy spreadsheets, and that alone can flip the answer.",
+      "Opportunity costs are easy to forget because they are not recorded anywhere, so ask what else the space, people or GPUs would be doing.",
+      "Vendor quotes rise after you have dismantled your in-house capability, so a buy decision should price in switching costs and lock-in."
+    ],
+    "lenses": {
+      "history": "The sunk cost fallacy is often illustrated by the Concorde, whose British and French sponsors kept funding it long after the economics were clearly negative. Economists began calling the pattern the Concorde fallacy in the 1970s.",
+      "economics": "Rational choice compares marginal benefits and marginal costs of the options still open, so past outlays cannot change the ranking. Opportunity cost is the value of the best alternative forgone, and it belongs in the comparison even with no cash changing hands.",
+      "behavioralScience": "Loss aversion and the desire to justify past decisions make people throw good money after bad, especially when they championed the original project. Bringing in a reviewer who did not make the original call is one of the most reliable debiasing tools.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Build versus buy is rarely a pure cost question; it is a question of which capabilities must be proprietary for the company to win. Buy the commodity layers, build the differentiating ones, and use relevant costing to price the gap honestly.",
+      "personalConnection": "Enterprise AI teams now face build-versus-buy on models: fine-tuning and hosting an open model on owned GPUs versus paying a frontier API per token, where sunk training spend is irrelevant and idle GPU capacity is a real opportunity cost. For PranaScan, past spend on an in-house vision model is sunk, and only future inference cost, accuracy and IP control should drive the choice.",
+      "antiPattern": "A team defends an in-house build because the company has already invested heavily in it. Start every build-versus-buy review by striking out sunk costs and allocated overhead, then compare only the cash flows that change."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-04-activity-based-costing",
+        "relationship": "contrasts-with",
+        "question": "Which ABC-allocated costs disappear if you outsource, and which stay?"
+      },
+      {
+        "targetId": "f502-01-tvm-npv-irr",
+        "relationship": "builds-on",
+        "question": "How do you discount differential cash flows when a build-versus-buy decision spans several years?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "applied-in",
+        "question": "When is acquiring a capability the relevant alternative to building it?"
+      },
+      {
+        "targetId": "MGMT502",
+        "relationship": "applied-in",
+        "question": "Which capabilities are strategic enough to build even when buying is cheaper?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "HP buy-versus-build, Case 4.1 instructor solution (Foster ACCTG 501)",
+      "prompt": "In Case 4.1, HP must decide whether to build a component in-house or outsource it. The analysis includes a $500k design cost already spent, an ABC allocation of $5 per square foot of plant space, and $270k per year of rent HP could earn on that space if it outsources. Which items are relevant, and what does the instructor solution conclude at a 7.5% discount rate?",
+      "cfoAnswer": "The $500k design cost is sunk and the $5 per square foot ABC allocation does not change with the decision, so both are excluded. The $270k of yearly forgone rent is a relevant opportunity cost of building. On relevant cash flows, the present value of costs is about $13.01M to build versus $10.62M to outsource at 7.5%, an incremental NPV of building of roughly −$2.39M, so HP should outsource unless strategic factors justify paying that premium.",
+      "keyTakeaway": "Strip out sunk and allocated costs and add opportunity costs before comparing build and buy."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Case 4.1 HP Solution for students (instructor buy-versus-build analysis)",
+      "[Foster: ACCTG 501] NBC programming relevant-cost problem and Brannan make-versus-buy problem",
+      "[Real 10-K / Case] HP Case 4.1 make-versus-buy component decision",
+      "[Elite MBA: Stanford GSB] Decision analysis teaching on sunk costs and opportunity costs"
+    ]
+  },
+  {
+    "id": "a501-06-variance-analysis",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Standard Costing & Variance Analysis",
+    "difficulty": "intermediate",
+    "tags": [
+      "variance analysis",
+      "standard costing",
+      "flexible budget",
+      "price and quantity variances"
+    ],
+    "hook10k": "A budget miss is a symptom, and variance analysis is the diagnosis that tells you whether the problem was price, efficiency or volume. Without it, managers argue about whose fault the number is instead of fixing the process that caused it.",
+    "pareto20_80": {
+      "summary": "Variance analysis compares actual results with a flexible budget built at actual volume, then splits each cost variance into a price (rate) variance and a quantity (efficiency) variance. The difference between the static and flexible budgets is the sales-volume variance.",
+      "keyPoints": [
+        "Flex the budget to actual output first; comparing actual costs with a static budget mixes volume effects with efficiency effects.",
+        "Price variance = (Actual price − Standard price) × Actual quantity used.",
+        "Quantity variance = (Actual quantity used − Standard quantity allowed for actual output) × Standard price.",
+        "Favorable price variances can cause unfavorable quantity variances, such as cheap materials that create waste.",
+        "Investigate variances that are large, persistent or controllable, not every small deviation."
+      ],
+      "formulas": [
+        {
+          "name": "Materials price variance",
+          "expression": "MPV = (AP − SP) × AQ"
+        },
+        {
+          "name": "Materials quantity variance",
+          "expression": "MQV = (AQ − SQ) × SP, where SQ = standard quantity per unit × actual units"
+        },
+        {
+          "name": "Labor rate variance",
+          "expression": "LRV = (AR − SR) × AH"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Standards go stale quickly in fast-changing businesses, so a variance may reflect an outdated standard rather than a real problem.",
+      "Purchasing managers rewarded on price variances may buy in bulk or buy lower quality, shifting cost into inventory and scrap."
+    ],
+    "lenses": {
+      "history": "Standard costing was developed by industrial engineers in the scientific management movement around 1910, including Harrington Emerson, to control factory efficiency. It became the backbone of manufacturing cost control for most of the 20th century.",
+      "economics": "Separating price and quantity effects isolates which manager controls which part of a cost overrun, which supports accountability. Flexible budgets remove volume noise so performance is judged on efficiency at the output actually produced.",
+      "behavioralScience": "Managers pad standards to make favorable variances easy, a form of budgetary slack. Variances framed as blame produce gaming, while variances framed as learning produce process fixes.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "In software and AI businesses, the most important variances are not materials and labor but cloud cost per request, support tickets per customer and engineering hours per feature. The variance method still works once you define the standard unit cost of each driver.",
+      "personalConnection": "A GPU-heavy enterprise AI service can apply the same split to cloud spend: price variance from GPU hourly rates and quantity variance from GPU hours per thousand requests. Carbon Robotics can track laser module cost per robot against standard and separate supplier price changes from assembly scrap.",
+      "antiPattern": "Leaders compare actuals with the original static budget and blame the team for costs that rose simply because volume rose. Always flex the budget to actual volume before discussing efficiency."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-09-budgeting-forecasting",
+        "relationship": "builds-on",
+        "question": "How does the flexible budget differ from the static master budget?"
+      },
+      {
+        "targetId": "a500-07-inventory-valuation",
+        "relationship": "applied-in",
+        "question": "How are standard cost variances closed out to COGS and inventory?"
+      },
+      {
+        "targetId": "a501-01-cost-behavior-operating-leverage",
+        "relationship": "builds-on",
+        "question": "Why must costs be split into fixed and variable before a budget can be flexed?"
+      },
+      {
+        "targetId": "OPMGT502",
+        "relationship": "applied-in",
+        "question": "Which process improvements would reduce a recurring quantity variance?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "SW Products crystal usage problem (Foster ACCTG 501 class problem)",
+      "prompt": "SW Products budgeted 700,000 discs at a standard of 2.5 crystals per disc and $5.00 per crystal. It actually produced 685,000 discs and used 1,815,250 crystals, while paying labor $26.50 per hour against a $30 standard. Compute the materials quantity variance and explain what the labor rate result might be hiding.",
+      "cfoAnswer": "Standard crystals allowed for actual output are 685,000 × 2.5 = 1,712,500, so the plant used 102,750 extra crystals. The materials quantity variance is 102,750 × $5.00 = $513,750 unfavorable. The labor rate variance is favorable by $3.50 per actual hour, but cheaper, less experienced labor may be causing the excess crystal usage, so management should investigate the two variances together rather than praise one and punish the other.",
+      "keyTakeaway": "Read price and quantity variances together, because a favorable one often causes an unfavorable one."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] SW Products standard costing and variance class problem",
+      "[Foster: ACCTG 501] Flexible budgets and variance analysis session slides",
+      "[Elite MBA: Wharton] Managerial accounting core on flexible budgets and cost variance analysis"
+    ]
+  },
+  {
+    "id": "a501-07-transfer-pricing",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Transfer Pricing Between Divisions",
+    "difficulty": "advanced",
+    "tags": [
+      "transfer pricing",
+      "decentralization",
+      "divisional performance",
+      "goal congruence"
+    ],
+    "hook10k": "When one division sells to another, the price they agree on moves profit between managers but not a single dollar of cash for the company. Get the transfer price wrong and divisions make choices that each look smart locally while the company as a whole loses money.",
+    "pareto20_80": {
+      "summary": "A transfer price is the internal charge for goods or services between divisions, and it should lead each division to make the decision that is best for the whole company. The general rule sets the minimum transfer price at variable cost plus the opportunity cost of selling internally.",
+      "keyPoints": [
+        "Minimum transfer price = Variable cost per unit + Opportunity cost per unit (lost contribution on outside sales).",
+        "With idle capacity, the opportunity cost is zero, so any price above variable cost benefits the company if the buyer would otherwise pay more outside.",
+        "At full capacity, the seller should receive at least the market price, because internal sales displace outside sales.",
+        "Common methods are market-based, cost-based (variable or full cost, sometimes plus a markup) and negotiated prices.",
+        "Across borders, transfer prices shift taxable income between countries and must follow arm's length rules."
+      ],
+      "formulas": [
+        {
+          "name": "Minimum transfer price",
+          "expression": "TP_min = Variable cost + Opportunity cost"
+        },
+        {
+          "name": "Maximum transfer price",
+          "expression": "TP_max = Buyer's outside purchase price"
+        },
+        {
+          "name": "Company gain from internal transfer",
+          "expression": "Gain = Outside price − Seller variable cost (with idle capacity)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Divisional managers rarely accept a transfer price that makes their own division look worse, even when it helps the company, so incentives matter as much as the formula.",
+      "Tax authorities scrutinize international transfer prices, and the price that best motivates managers may not be the price allowed for tax."
+    ],
+    "lenses": {
+      "history": "Transfer pricing became a management problem when large companies such as General Motors decentralized into profit-center divisions in the 1920s. It became a tax problem as multinationals spread, and the OECD arm's length guidelines now govern it worldwide.",
+      "economics": "In theory the efficient transfer price equals the marginal cost to the company of supplying the unit, which includes any forgone outside contribution. With a competitive outside market, the market price usually achieves that result.",
+      "behavioralScience": "Managers anchor on full cost or on a fair split of profit, not on the company's opportunity cost, so negotiations often stall. Framing the discussion around the company's total gain helps divisions agree.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Many transfer pricing fights disappear if divisions are evaluated on contribution to company profit rather than divisional profit. Decentralization is worth its coordination cost only when local information is valuable.",
+      "personalConnection": "A cloud provider's internal GPU platform team charging AI product teams is a modern transfer pricing problem: price at full cost and product teams underuse idle GPUs, price at variable cost and the platform team cannot fund new capacity. Large enterprise vendors such as Cisco face the same issue when hardware and software units bundle into one customer deal.",
+      "antiPattern": "Executives let a division buy outside because the internal price is higher, while the selling division has idle capacity and a lower variable cost. Check the company-wide cash effect before approving any outside purchase that has an internal substitute."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "builds-on",
+        "question": "Why is an internal transfer decision really a make-or-buy decision at the company level?"
+      },
+      {
+        "targetId": "a501-08-eva-residual-income",
+        "relationship": "drives",
+        "question": "How do transfer prices change divisional ROI and EVA?"
+      },
+      {
+        "targetId": "a500-14-deferred-taxes",
+        "relationship": "applied-in",
+        "question": "How do international transfer prices shift taxable income between countries?"
+      },
+      {
+        "targetId": "MGMT550",
+        "relationship": "applied-in",
+        "question": "How should a board design divisional incentives so transfer pricing does not destroy value?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Better Birding transfer pricing problem (Foster ACCTG 501 class problem)",
+      "prompt": "Better Birding's Scope division sells scopes internally at $220, while an outside supplier offers the same scope to the buying division for $200. Scope's variable cost is $190 per unit and its fixed cost is $20 per unit of depreciation. If Scope has idle capacity, should the buying division be allowed to buy outside?",
+      "cfoAnswer": "From the company's view, buying outside costs $200 of cash while making internally costs only the $190 variable cost, because the $20 of depreciation is sunk and occurs either way. Buying outside therefore loses $10 per unit for the company. A transfer price anywhere between $190 and $200 makes both divisions better off, so management should set or negotiate a price in that range rather than let the buyer go outside.",
+      "keyTakeaway": "With idle capacity, the minimum transfer price is variable cost, and allocated fixed cost is irrelevant."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Better Birding transfer pricing class problem",
+      "[Foster: ACCTG 501] Decentralization and transfer pricing session slides",
+      "[Elite MBA: MIT Sloan] International tax teaching on the OECD Transfer Pricing Guidelines and the arm's length principle"
+    ]
+  },
+  {
+    "id": "a501-08-eva-residual-income",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "ROI, Residual Income & Economic Value Added (EVA)",
+    "difficulty": "advanced",
+    "tags": [
+      "roi",
+      "residual income",
+      "eva",
+      "divisional performance"
+    ],
+    "hook10k": "A division earning a 25% return can still destroy value if its capital costs 30%, and a manager judged on ROI may refuse a 20% project that would make shareholders richer. Residual income and EVA fix this by charging every manager for the capital they use.",
+    "pareto20_80": {
+      "summary": "ROI divides operating income by invested capital, residual income subtracts a capital charge (capital × required return) from operating income, and EVA refines residual income with economic adjustments such as capitalizing R&D or advertising and using after-tax operating profit and WACC.",
+      "keyPoints": [
+        "ROI = Operating income / Invested capital; residual income = Operating income − (Required return × Invested capital).",
+        "EVA = NOPAT − (WACC × Invested capital), often after capitalizing R&D, advertising or leases.",
+        "ROI can make managers reject projects that beat the cost of capital but lower their average ROI, while residual income avoids that.",
+        "Residual income favors large divisions in absolute terms, so compare it with prior years and targets, not just across divisions.",
+        "Capitalizing intangible investments stops managers from cutting R&D or brand spending to hit a short-term number."
+      ],
+      "formulas": [
+        {
+          "name": "Return on investment",
+          "expression": "ROI = Operating income / Invested capital"
+        },
+        {
+          "name": "Residual income",
+          "expression": "RI = Operating income − (r × Invested capital)"
+        },
+        {
+          "name": "Economic value added",
+          "expression": "EVA = NOPAT − (WACC × Invested capital)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "EVA adjustments are judgment calls, and companies have quietly changed them to hit bonus targets.",
+      "Book capital understates economic capital in older divisions with depreciated assets, which flatters their ROI and EVA.",
+      "Single-period EVA can still reward cutting investment, so multi-year targets or bonus banks are usually needed."
+    ],
+    "lenses": {
+      "history": "General Electric used residual income in the 1950s, and Stern Stewart trademarked and popularized EVA in the 1990s, signing up companies such as Coca-Cola. EVA faded from fashion, but its core idea now lives in ROIC-versus-WACC analysis.",
+      "economics": "Residual income is economic profit: accounting profit only creates value after the opportunity cost of capital is covered. The present value of expected future residual income plus book value equals firm value, which links performance measurement to valuation.",
+      "behavioralScience": "People optimize the metric they are paid on, so an ROI target creates a bias against good but below-average projects. Charging for capital makes the trade-off explicit and changes investment behavior quickly.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Most business units do not need a perfect EVA; they need to know that capital is not free. A simple capital charge on working capital and fixed assets captures most of the benefit with little of the complexity.",
+      "personalConnection": "Hyperscalers spending heavily on GPU data centers report rising profits, but the question investors ask is whether returns on that capital exceed its cost, which is an EVA question. A startup like PranaScan can apply the same test to every feature team by charging for cloud and GPU capacity used.",
+      "antiPattern": "Managers praise a division with a high ROI on a fully depreciated asset base. Compare ROI and EVA against replacement capital and a multi-year trend before declaring a division a star."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "builds-on",
+        "question": "How does DuPont analysis decompose the return side of ROI and EVA?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "foundation-for",
+        "question": "How does EVA connect to the ROIC-versus-WACC test of value creation?"
+      },
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "measured-by",
+        "question": "Which cost of capital should be used in each division's capital charge?"
+      },
+      {
+        "targetId": "MGMT550",
+        "relationship": "applied-in",
+        "question": "How should a board tie executive bonuses to economic profit rather than ROI?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Griffindor country divisions (Foster ACCTG 501 class problem)",
+      "prompt": "Griffindor reports ROI of 28.3% in Indonesia, 28.0% in the Philippines and 1.0% in Vietnam. Using a 20% cost of capital and capitalizing advertising over three years, EVA is $174.5k, $290.5k and −$90.2k respectively. Which division creates the most value, and why do ROI and EVA disagree?",
+      "cfoAnswer": "ROI ranks Indonesia first by a hair, but EVA ranks the Philippines first at $290.5k, because the Philippines earns a return above the 20% hurdle on a larger capital base once advertising is treated as an investment. Vietnam destroys about $90k of value a year despite a positive ROI, because 1% is far below the 20% cost of capital. Management should fund the Philippines' growth and either fix or exit Vietnam.",
+      "keyTakeaway": "ROI ranks percentages, while EVA ranks dollars of value created above the cost of capital."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Griffindor ROI and EVA class problem",
+      "[Foster: ACCTG 501] Ludlum and Casseli EVA problem and WalleyWorld ROI versus EVA final review problem",
+      "[Elite MBA: Corporate finance canon] G. Bennett Stewart (Stern Stewart), The Quest for Value",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran on economic value added and excess returns"
+    ]
+  },
+  {
+    "id": "a501-09-budgeting-forecasting",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Master Budgets, Rolling Forecasts & Driver-Based Planning",
+    "difficulty": "foundation",
+    "tags": [
+      "budgeting",
+      "forecasting",
+      "master budget",
+      "driver-based planning"
+    ],
+    "hook10k": "A budget is a promise about how the company will turn a strategy into cash, and a forecast is the honest update of that promise. Companies that confuse the two end up either sandbagging targets or missing them without warning.",
+    "pareto20_80": {
+      "summary": "The master budget chains a sales forecast into production, purchases, operating expense, capital and cash budgets, ending in budgeted financial statements. Rolling, driver-based forecasts update that plan regularly using the operational drivers that actually move cost and revenue.",
+      "keyPoints": [
+        "Start with the sales forecast, because every other budget (production, purchases, headcount, cash) depends on it.",
+        "The cash budget converts accrual plans into collections and payments, revealing financing gaps before they happen.",
+        "Driver-based models forecast from units such as customers, seats, requests or robots, not from last year's dollars plus a percentage.",
+        "Rolling forecasts extend the horizon every month or quarter, so the business always sees four to six quarters ahead.",
+        "Separate the target (stretch), the plan (commitment) and the forecast (best estimate) to avoid gaming."
+      ],
+      "formulas": [
+        {
+          "name": "Production budget",
+          "expression": "Units to produce = Budgeted sales + Desired ending inventory − Beginning inventory"
+        },
+        {
+          "name": "Cash budget",
+          "expression": "Ending cash = Beginning cash + Collections − Disbursements ± Financing"
+        },
+        {
+          "name": "Driver-based revenue",
+          "expression": "Revenue = Customers × Units per customer × Price"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Annual budgets are often out of date within months, and teams spend more time defending them than using them.",
+      "When bonuses depend on beating budget, managers negotiate easy targets, so budget accuracy and motivation work against each other."
+    ],
+    "lenses": {
+      "history": "Modern budgeting spread through US industry in the 1920s, with DuPont and General Motors using budgets to control decentralized divisions. The Beyond Budgeting movement of the late 1990s, led by Scandinavian firms such as Svenska Handelsbanken, challenged fixed annual budgets in favor of rolling forecasts.",
+      "economics": "A budget is a coordination device that allocates scarce capital and attention before the year begins. Its value is highest where interdependence is high and lowest where conditions change faster than the planning cycle.",
+      "behavioralScience": "The planning fallacy makes people underestimate time and cost, so bottom-up budgets are usually optimistic on milestones and padded on spend. Reference-class forecasting, using outcomes from similar past projects, corrects much of that bias.",
+      "marketingNarrative": null,
+      "sociology": "Budgets are political documents that encode power: the departments that negotiate best get the most resources. Transparent, driver-based models shift the debate from who wants more to what the drivers justify.",
+      "firstPrinciplesContrarian": "For a startup, the only budget that truly matters is the cash budget, because it sets the date the company must raise money or reach profitability. Everything else is a hypothesis to be updated monthly.",
+      "personalConnection": "An enterprise AI startup should forecast GPU spend from requests per customer and tokens per request, not as a percentage of revenue, because inference cost scales with usage. PranaScan's plan should drive cost from scans per active user and cost per scan.",
+      "antiPattern": "Leadership approves a top-down revenue target and lets each team back into its expense plan with no shared drivers. Build one driver tree that links customers, usage and headcount so every number traces to an operating assumption."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-05-cash-flow-fcf",
+        "relationship": "builds-on",
+        "question": "How does the cash budget connect to the statement of cash flows?"
+      },
+      {
+        "targetId": "a501-06-variance-analysis",
+        "relationship": "foundation-for",
+        "question": "How does the budget become the benchmark for variance analysis?"
+      },
+      {
+        "targetId": "e557-13-runway-bridge",
+        "relationship": "foundation-for",
+        "question": "How does a monthly cash budget determine a startup's runway?"
+      },
+      {
+        "targetId": "QMETH500",
+        "relationship": "applied-in",
+        "question": "How can regression and time-series methods improve a driver-based forecast?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative robotics startup planning its next four quarters",
+      "prompt": "A robotics startup plans to ship 40 robots next year at $120k each, with customers paying 50% on delivery and 50% one quarter later. It holds $8M of cash and spends $2.5M per quarter on fixed costs plus $35k of variable cost per robot paid at build. If shipments are 4, 8, 12 and 16 by quarter, does cash stay positive?",
+      "cfoAnswer": "Revenue totals $4.8M, but cash arrives on a lag: collections run $0.24M, $0.72M, $1.20M and $1.68M, leaving $0.96M still owed at year end, while spending runs about $2.64M, $2.78M, $2.92M and $3.06M. Cumulative net burn is about $7.56M against $8M of cash, leaving roughly $0.44M, less than two months of fixed costs, at year end. The CFO should raise or secure a credit line before Q3 and push for larger deposits rather than rely on the revenue plan.",
+      "keyTakeaway": "Build the cash budget from drivers and timing, because revenue growth can still drain cash."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Master budget and cash budget session materials",
+      "[Elite MBA: HBS] Michael Jensen, Corporate Budgeting Is Broken, Let's Fix It (Harvard Business Review)",
+      "[Elite MBA: Wharton] Driver-based planning and rolling forecast practice in corporate FP&A"
+    ]
+  },
+  {
+    "id": "a501-10-target-costing-pricing",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 501",
+    "title": "Target Costing, Cost-Plus & Value-Based Pricing",
+    "difficulty": "intermediate",
+    "tags": [
+      "target costing",
+      "pricing",
+      "cost-plus",
+      "value-based pricing"
+    ],
+    "hook10k": "Cost-plus pricing asks what a product costs and adds a margin, while target costing asks what customers will pay and forces the cost to fit. The second question is harder, and it is the one that wins markets.",
+    "pareto20_80": {
+      "summary": "Target costing starts from a competitive market price, subtracts the required profit margin to get an allowable cost, and then designs the product and process to meet that cost. Cost-plus pricing sets price as cost times a markup, and value-based pricing sets price from the customer's willingness to pay.",
+      "keyPoints": [
+        "Target cost = Target price − Required profit per unit.",
+        "Most product cost is locked in at the design stage, so target costing works through engineering and supplier choices before launch.",
+        "Cost-plus pricing is simple and defensible for contracts but ignores what customers value and what competitors charge.",
+        "Value-based pricing anchors on the economic value delivered to the customer, such as labor saved or yield gained.",
+        "Price must exceed variable cost in the short run and full cost including a capital return in the long run."
+      ],
+      "formulas": [
+        {
+          "name": "Target cost",
+          "expression": "Target cost = Target price × (1 − Target margin %)"
+        },
+        {
+          "name": "Cost-plus price",
+          "expression": "Price = Full cost per unit × (1 + Markup %)"
+        },
+        {
+          "name": "Value-based ceiling",
+          "expression": "Price ≤ Customer economic value − Customer switching cost"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Target costing requires deep cooperation between marketing, engineering and suppliers, and it fails in companies where those functions do not talk.",
+      "Cost-plus contracts reward inefficiency, because a higher cost base earns a higher absolute margin."
+    ],
+    "lenses": {
+      "history": "Target costing was developed by Japanese manufacturers such as Toyota in the 1960s and 1970s, where engineers designed cars to a price the market would accept. Western firms adopted it in the 1990s as global competition squeezed prices.",
+      "economics": "In competitive markets the price is set by the market, so a firm's only lever on margin is cost and differentiation. Value-based pricing captures part of the consumer surplus that cost-plus pricing leaves on the table.",
+      "behavioralScience": "Customers judge price against reference points, so the first price you announce anchors every later negotiation. Framing price as a share of the value delivered makes premium prices feel fair.",
+      "marketingNarrative": "A product priced on value tells a story of outcomes, not features: hours saved, crops protected or risks detected. That story makes the price feel like an investment rather than a cost.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Many startups price too low because they compute cost-plus from early, inefficient costs and fear losing deals. Starting from customer value and then engineering cost down usually produces both higher margins and faster learning about what customers truly value.",
+      "personalConnection": "Carbon Robotics priced the LaserWeeder at $120k against roughly $35k of variable cost, a price that makes sense only on value, such as hand-weeding labor saved, not on cost-plus. Enterprise AI vendors face the same choice between pricing per GPU hour (cost-plus) and per outcome, while PranaScan could price on the value of early detection rather than on inference cost.",
+      "antiPattern": "Founders set price as cost plus a standard markup and then wonder why customers would have paid double. Interview customers about the value they gain before you look at your own cost sheet."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "How does a price change shift contribution margin and breakeven volume?"
+      },
+      {
+        "targetId": "a501-04-activity-based-costing",
+        "relationship": "builds-on",
+        "question": "How does ABC cost data reveal whether a target cost is achievable?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "drives",
+        "question": "How does pricing power raise customer lifetime value?"
+      },
+      {
+        "targetId": "MKTG554",
+        "relationship": "applied-in",
+        "question": "How should a product manager run willingness-to-pay research before setting price?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative agricultural robot redesign to a target cost",
+      "prompt": "A farm robotics company learns that growers will pay at most $100k for a robot that replaces hand weeding, below its current $120k price. It wants a 65% gross margin and currently has $40k of unit cost. What is the target cost, and how should the team approach the gap?",
+      "cfoAnswer": "At $100k and a 65% margin, the target cost is $35k, so the team must remove about $5k per robot, or 12.5% of unit cost. The CFO should run target costing by component, asking suppliers and engineers to cut laser module, compute and chassis cost, and pair it with a value-based offer such as a service bundle priced on acres weeded to defend part of the old price.",
+      "keyTakeaway": "Target costing starts from the price customers accept and engineers cost down to fit the margin."
+    },
+    "sources": [
+      "[Foster: ACCTG 501] Pricing decisions and target costing session slides",
+      "[Elite MBA: HBS] Robin Cooper and Regine Slagmulder, Target Costing and Value Engineering",
+      "[Elite MBA: Wharton] Value-based pricing frameworks in the marketing and pricing strategy curriculum"
+    ]
+  }
+]

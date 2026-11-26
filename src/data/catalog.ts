@@ -46,11 +46,11 @@ export const PILLARS: readonly Pillar[] = [
 export const COURSES: readonly Course[] = [
   // Pillar 1: Accounting
   { id: 'ACCTG500', code: 'ACCTG 500', title: 'Financial Accounting', pillarId: 'P1', wave: 'M1', status: 'live' },
-  { id: 'ACCTG501', code: 'ACCTG 501', title: 'Managerial Accounting', pillarId: 'P1', wave: 'M2', status: 'coming' },
+  { id: 'ACCTG501', code: 'ACCTG 501', title: 'Managerial Accounting', pillarId: 'P1', wave: 'M2', status: 'live' },
   // Pillar 2: Finance, Valuation & VC
-  { id: 'FIN502', code: 'FIN 502', title: 'Business Finance', pillarId: 'P2', wave: 'M2', status: 'coming' },
-  { id: 'ENTRE557', code: 'ENTRE 557', title: 'Entrepreneurial Finance', pillarId: 'P2', wave: 'M2', status: 'coming' },
-  { id: 'ENTRE542', code: 'ENTRE 542', title: 'Venture Capital', pillarId: 'P2', wave: 'M2', status: 'coming' },
+  { id: 'FIN502', code: 'FIN 502', title: 'Business Finance', pillarId: 'P2', wave: 'M2', status: 'live' },
+  { id: 'ENTRE557', code: 'ENTRE 557', title: 'Entrepreneurial Finance', pillarId: 'P2', wave: 'M2', status: 'live' },
+  { id: 'ENTRE542', code: 'ENTRE 542', title: 'Venture Capital', pillarId: 'P2', wave: 'M2', status: 'live' },
   // Pillar 3: Economics, Strategy, Ops & Decision Science
   { id: 'BECON500', code: 'B ECON 500', title: 'Intro Business Economics', pillarId: 'P3', wave: 'M3', status: 'coming' },
   { id: 'BECON501', code: 'B ECON 501', title: 'Global Economic Conditions', pillarId: 'P3', wave: 'M3', status: 'coming' },
