@@ -1,0 +1,869 @@
+[
+  {
+    "id": "a500-01-accounting-equation",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "The Accounting Equation & Double-Entry Mental Model",
+    "difficulty": "foundation",
+    "tags": ["balance sheet", "double-entry", "transaction analysis", "retained earnings"],
+    "hook10k": "Every transaction a company makes must leave Assets equal to Liabilities plus Equity, which turns the balance sheet into a self-checking ledger of who funded what. Once you see each deal as two equal and opposite entries, you can trace any decision from the boardroom to the financial statements in your head.",
+    "pareto20_80": {
+      "summary": "Assets are resources the company controls, liabilities are the claims of outsiders, and equity is the residual claim of owners. Every transaction touches at least two accounts, so the equation always balances and revenue and expenses flow into equity through retained earnings.",
+      "keyPoints": [
+        "Debits increase assets and expenses; credits increase liabilities, equity and revenue (the DEALER mnemonic).",
+        "Revenue and expenses are temporary equity accounts that close into retained earnings at the end of each period.",
+        "Run every event through the transaction-analysis grid (Assets = Liabilities + Equity, with Revenue − Expenses feeding retained earnings) before touching T-accounts.",
+        "Adjusting entries (accruals, deferrals, depreciation) are what turn a cash log into accrual-basis statements."
+      ],
+      "formulas": [
+        { "name": "Accounting equation", "expression": "Assets = Liabilities + Equity" },
+        { "name": "Retained earnings roll-forward", "expression": "Ending RE = Beginning RE + Net income − Dividends" },
+        { "name": "Net income", "expression": "Net income = Revenue − Expenses" }
+      ]
+    },
+    "realityCheck": [
+      "A balanced balance sheet proves arithmetic, not truth: WorldCom's capitalized line costs balanced perfectly while overstating profit.",
+      "Book equity is a historical-cost residual, so HP's 2012 equity of $22.8B versus a $27.6B market value shows the equation says nothing about what the business is worth.",
+      "Many economic assets (brand, talent, proprietary data sets) never reach the balance sheet because they were built internally rather than bought."
+    ],
+    "lenses": {
+      "history": "Luca Pacioli codified double-entry bookkeeping in 1494 from Venetian merchant practice, and the core grid has barely changed since. It survived because it gives a distributed trading network a cheap, auditable consistency check.",
+      "economics": "Double-entry is an information technology that lowers the cost of trust between owners, lenders and managers. Capital markets price the claims on the right-hand side, so a credible ledger directly lowers a firm's cost of capital.",
+      "behavioralScience": "Engineers new to accounting tend to anchor on cash in the bank and miss obligations that have not been paid yet. Forcing every event through two sides counters that mental-accounting bias by making the hidden half of each trade visible.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Treat the balance sheet as a database with one integrity constraint, and every journal entry as a transaction that must commit atomically. If you can model a ledger as an append-only event log, you understand accounting better than many people who memorized debit and credit rules.",
+      "personalConnection": "As a domain-modeling engineer, treat each business event as an aggregate that emits a balanced journal entry, exactly like an event-sourced system. Paul Mikesell's Carbon Robotics seed pitch implicitly ran this grid: a $120k LaserWeeder sale creates cash or a receivable on one side and revenue plus a bundled service obligation on the other.",
+      "antiPattern": "Smart engineers often build financial models where cash is a hard-coded input instead of the output of the other two statements, so the balance sheet silently stops balancing. Always derive cash from the cash flow statement and treat any balance-check failure as a bug, not a rounding issue."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-02-accrual-revenue-recognition", "relationship": "foundation-for", "question": "How does an accrual turn a single cash event into two balanced entries in different periods?" },
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "foundation-for", "question": "Why must the change in cash on the balance sheet equal the bottom line of the cash flow statement?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "If the equation always balances, where can shenanigans still hide?" },
+      { "targetId": "ACCTG501", "relationship": "applied-in", "question": "How does managerial accounting reuse the same ledger to cost products instead of reporting to investors?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "HP fiscal 2012 (Foster ACCTG 500 HP case)",
+      "prompt": "HP reported total assets of $108,768M and total liabilities of $85,935M at October 31, 2012, a net loss of $12,650M, and retained earnings falling from $35,266M to $21,521M. Write HP's balance sheet equation and explain in 60 seconds why retained earnings fell by more than the net loss.",
+      "cfoAnswer": "Equity = 108,768 − 85,935 = $22,833M, so 108,768 = 85,935 + 22,833. Retained earnings fell $13,745M: the $12,650M loss (driven by goodwill and intangible impairments) plus about $1.1B of other reductions, consistent with the dividends HP kept paying despite the loss. The impairment hit assets and equity on the same day with no cash leaving the company, which is the equation in action.",
+      "keyTakeaway": "A non-cash impairment reduces assets and equity together: the equation balances while shareholder value is destroyed."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] TigerGlass transaction-analysis case and V1 Recording Transactions (Husky Consulting) self-study",
+      "[Foster: ACCTG 500] HP 2012 Annual Report case",
+      "[Elite MBA: Wharton] Brian Bushee, Introduction to Financial Accounting — transaction analysis",
+      "[Real 10-K / Case] HP fiscal 2012 Form 10-K (figures as used in the Foster case)"
+    ]
+  },
+  {
+    "id": "a500-02-accrual-revenue-recognition",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Accrual vs. Cash Accounting & Revenue Recognition (ASC 606 & SaaS Deferred Revenue)",
+    "difficulty": "foundation",
+    "tags": ["ASC 606", "deferred revenue", "SaaS", "billings", "accruals"],
+    "hook10k": "Revenue is recorded when a company satisfies a promise to a customer, not when cash arrives, so the income statement and the bank account tell different stories. For subscription and AI products, deferred revenue on the balance sheet is often the best leading indicator of next year's income statement.",
+    "pareto20_80": {
+      "summary": "ASC 606 decides how much revenue to book and when in five steps: identify the contract, identify the performance obligations, set the transaction price, allocate it by standalone selling price, and recognize revenue as each obligation is satisfied.",
+      "keyPoints": [
+        "Cash collected before delivery is a liability (deferred or unearned revenue), not revenue.",
+        "Billings are roughly revenue plus the change in deferred revenue, so a rising deferred balance means cash is running ahead of GAAP revenue.",
+        "Bundles (hardware plus multi-year service plus upgrades) are split by standalone selling price, and the service slice is recognized ratably.",
+        "Point-in-time versus over-time recognition is the biggest single judgment call in software, hardware-plus-service and usage-based AI pricing.",
+        "Usage-based AI APIs recognize revenue as tokens are consumed; prepaid credits sit in deferred revenue until used or expired (breakage)."
+      ],
+      "formulas": [
+        { "name": "Billings", "expression": "Billings = Revenue + (Ending deferred revenue − Beginning deferred revenue)" },
+        { "name": "Pro forma revenue without deferral", "expression": "Pro forma revenue = Reported revenue + Increase in unearned revenue" },
+        { "name": "Remaining performance obligation", "expression": "RPO = Contracted revenue not yet recognized (billed + unbilled)" }
+      ]
+    },
+    "realityCheck": [
+      "Microsoft began deferring part of Windows and Office revenue in fiscal 1996 for promised upgrades; the SEC later questioned how its reserves were managed, showing that conservative-looking deferrals can still be used to smooth earnings.",
+      "Bill-and-hold arrangements, side letters and multi-element bundles are classic places where revenue gets pulled forward.",
+      "RPO and deferred revenue definitions vary across companies (what counts as committed differs), so compare definitions before comparing numbers."
+    ],
+    "lenses": {
+      "history": "Before ASC 606 took effect for public companies in 2018, US software firms followed industry-specific rules such as SOP 97-2 that required vendor-specific objective evidence to split bundles. Convergence with IFRS 15 replaced hundreds of pieces of industry guidance with one principle-based five-step model.",
+      "economics": "Deferred revenue is interest-free financing from customers, which is why subscription businesses with annual upfront billing can grow with less outside capital. It also signals switching costs, because customers prepay only when they expect to stay.",
+      "behavioralScience": "Investors and managers anchor on headline revenue, so the timing choice shapes perception far more than its cash impact deserves. Smooth, predictable recognized revenue is rewarded even when the underlying billings are lumpy.",
+      "marketingNarrative": "SaaS companies tell their story through ARR, net revenue retention and RPO precisely because GAAP revenue lags bookings momentum. Translate each narrative metric back to a balance sheet account before trusting it.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Revenue recognition is a model of when the company's obligation to the customer is discharged, so ask what the customer could claim if the company vanished tomorrow. If the customer would be owed something back, the revenue has not been fully earned, whatever the invoice says.",
+      "personalConnection": "Carbon Robotics' seed pitch priced a LaserWeeder at $120k with three years of service included, which under ASC 606 means part of each sale is deferred and recognized over the service period. For PranaScan, annual subscriptions or prepaid scan credits would sit in deferred revenue, while inference costs would hit COGS only as scans are actually run.",
+      "antiPattern": "Engineers building dashboards often chart invoices or payment-processor payouts as revenue and then cannot reconcile to audited numbers. Model billings, revenue and deferred revenue as three separate time series linked by an explicit roll-forward."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-01-accounting-equation", "relationship": "builds-on", "question": "Which two accounts move when a customer prepays for a year of service?" },
+      { "targetId": "a500-03-income-statement-gross-margin", "relationship": "drives", "question": "How does deferral timing change reported gross margin in a given quarter?" },
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "contrasts-with", "question": "Why can operating cash flow exceed net income in a fast-growing subscription business?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "Which revenue recognition judgments are most often abused?" },
+      { "targetId": "ENTRE532", "relationship": "applied-in", "question": "How should a SaaS founder present billings, ARR and GAAP revenue to investors?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Microsoft fiscal 1996–1999 (Foster ACCTG 500 Microsoft case)",
+      "prompt": "Microsoft's year-end unearned revenue grew from $0 (1995) to $560M, $1,418M, $2,888M and $4,239M (1996–1999), while reported revenue was $9,050M, $11,936M, $15,262M and $19,747M. Estimate pro forma revenue without the deferral policy for each year and explain what the policy did to the three statements.",
+      "cfoAnswer": "Pro forma revenue = reported revenue + increase in unearned revenue: 1996 $9,610M (+560), 1997 $12,794M (+858), 1998 $16,732M (+1,470), 1999 $21,098M (+1,351). The policy lowered reported revenue and net income and raised liabilities (unearned revenue), while operating cash flow was unchanged because the cash had already been collected. It built a reservoir of future revenue that would flow into earnings as upgrades were delivered.",
+      "keyTakeaway": "Deferral moves revenue across time without changing cash, so always reconcile revenue to billings."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Microsoft's Financial Reporting Strategy case (revenue recognition questions)",
+      "[Foster: ACCTG 500] V4 Deferred Revenue (Flinga) template and Deferral spreadsheet",
+      "[Elite MBA: Columbia] Stephen Penman, Financial Statement Analysis and Security Valuation — revenue and earnings quality",
+      "[Real 10-K / Case] FASB ASC 606 Revenue from Contracts with Customers (five-step model)"
+    ]
+  },
+  {
+    "id": "a500-03-income-statement-gross-margin",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Income Statement Architecture & Gross Margin (Traditional Software vs. AI Inference COGS)",
+    "difficulty": "foundation",
+    "tags": ["income statement", "gross margin", "COGS", "AI inference", "unit economics"],
+    "hook10k": "The income statement is a waterfall from revenue to net income, and gross margin is its first and most honest cut: what is left after paying for the thing you sold. AI products break the old software assumption of 80%+ gross margins because every user query burns GPU time that lands in cost of revenue.",
+    "pareto20_80": {
+      "summary": "Revenue − COGS = gross profit; minus operating expenses (R&D, sales and marketing, G&A) = operating income; plus or minus interest and other items; minus taxes = net income. Classification between COGS and OpEx is a judgment that moves gross margin without changing profit.",
+      "keyPoints": [
+        "Gross margin measures unit economics, operating margin measures scale efficiency, and net margin adds financing and tax structure.",
+        "Software COGS covers hosting, third-party licenses, support and amortization of capitalized software; AI COGS adds inference compute, model API fees and human-in-the-loop labeling.",
+        "Contribution margin per user (price minus variable compute) matters more than blended gross margin for usage-priced AI.",
+        "Watch for costs moved below the gross line (support into sales and marketing, hosting into R&D) to flatter gross margin.",
+        "Hardware-plus-service businesses such as Cisco report product and service gross margins separately, so read both."
+      ],
+      "formulas": [
+        { "name": "Gross margin %", "expression": "(Revenue − COGS) / Revenue" },
+        { "name": "Operating margin %", "expression": "Operating income / Revenue" },
+        { "name": "Inference COGS per request", "expression": "GPU-hours per request × Cost per GPU-hour + Serving overhead" }
+      ]
+    },
+    "realityCheck": [
+      "Gross margin comparisons fail when classification differs: one firm's customer-success team is COGS, another's is sales and marketing.",
+      "AI startups sometimes quote gross margin excluding compute credits or free-tier usage, so insist on the fully loaded number.",
+      "Falling inference prices per token can raise gross margin while revenue per token also falls, so read margin and revenue trends together."
+    ],
+    "lenses": {
+      "history": "Traditional manufacturers lived on gross margins of 20–40%, and shrink-wrapped software in the 1990s pushed toward 90% because the marginal copy was nearly free. Cloud delivery pulled software margins back toward 70–80% by adding hosting costs, and AI inference is pulling some products lower again.",
+      "economics": "Gross margin is the budget that funds R&D, sales and profit, so it caps how fast a firm can reinvest. Thin-margin AI wrappers compete away their surplus to the model provider, which captures the margin upstream.",
+      "behavioralScience": null,
+      "marketingNarrative": "Founders love quoting software-like margins because investors pay higher revenue multiples for them. When the margins are not there yet, the narrative shifts to a margin-expansion roadmap, and your job is to check the cost curve behind it.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Ask what the marginal unit truly costs to serve, then rebuild gross margin bottom-up rather than accepting the reported line. A business with 50% gross margin and loyal users can beat one with 85% gross margin and heavy churn.",
+      "personalConnection": "Carbon Robotics' seed math showed about $35k of COGS against a $120k price, roughly a 71% product gross margin before the cost of the bundled three years of service, which is the hardware version of an AI unit-economics test. In enterprise AI, GPU inference cost per request is the line to model first, and for PranaScan on-device inference shifts that cost from COGS onto the user's phone.",
+      "antiPattern": "Engineers often price an AI feature off development cost and forget that every additional user adds inference cost forever. Model price, compute per task and expected usage per user before the first customer, not after the cloud bill arrives."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-02-accrual-revenue-recognition", "relationship": "builds-on", "question": "Which revenue belongs in this period's top line under ASC 606?" },
+      { "targetId": "a500-06-capex-depreciation", "relationship": "contrasts-with", "question": "When does GPU depreciation belong in COGS rather than operating expenses?" },
+      { "targetId": "a500-12-ratios-dupont", "relationship": "measured-by", "question": "How does gross margin flow into the profit-margin lever of DuPont ROE?" },
+      { "targetId": "ACCTG501", "relationship": "applied-in", "question": "How does contribution margin differ from gross margin for pricing decisions?" },
+      { "targetId": "MKTG554", "relationship": "applied-in", "question": "How should an AI product's pricing model reflect its inference cost curve?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Cisco fiscal 2020 (Foster class excerpt, modified for class purposes)",
+      "prompt": "Cisco's fiscal 2020 class excerpt shows product revenue of $35,978M with product cost of sales of $13,199M, service revenue of $13,323M with service cost of sales of $4,419M, and operating expenses of $18,063M. Compute product, service and total gross margin and operating margin. Then, in an illustrative scenario, estimate blended gross margin if 20% of revenue shifted to an AI service earning a 55% gross margin.",
+      "cfoAnswer": "Product gross margin ≈ 63.3% (22,779 / 35,978), service ≈ 66.8% (8,904 / 13,323), total ≈ 64.3% (31,683 / 49,301), and operating margin ≈ 27.6% (13,620 / 49,301). In the illustrative scenario, blended gross margin falls to about 62.4% (0.8 × 64.3% + 0.2 × 55%), roughly a two-point drop. The AI service must therefore earn its keep through growth, retention or pricing power; the shift is a teaching scenario, not a Cisco disclosure.",
+      "keyTakeaway": "Mix shift toward compute-heavy AI revenue lowers blended gross margin even when every product line is healthy."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Foster: ACCTG 500] Farm Winery income statement forecast case",
+      "[Elite MBA: HBS] Paul Healy and Krishna Palepu, Business Analysis and Valuation — profitability analysis",
+      "[Real 10-K / Case] Paul Mikesell, Carbon Robotics UW Entrepreneurship talk (Feb 2025) — seed-stage COGS and pricing slide"
+    ]
+  },
+  {
+    "id": "a500-04-balance-sheet-working-capital",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Balance Sheet Anatomy & Working Capital (DSO, DIO, DPO & Cash Conversion Cycle)",
+    "difficulty": "foundation",
+    "tags": ["balance sheet", "working capital", "DSO", "DIO", "DPO", "cash conversion cycle"],
+    "hook10k": "The balance sheet is a snapshot of what a company owns and owes, and working capital is the cash trapped in running the day-to-day business. Shorten the cash conversion cycle and growth funds itself; lengthen it and even a profitable company must keep raising money.",
+    "pareto20_80": {
+      "summary": "Current assets (cash, receivables, inventory) minus current liabilities (payables, accrued expenses, deferred revenue) is net working capital. DSO, DIO and DPO translate those balances into days, so companies of any size can be compared.",
+      "keyPoints": [
+        "Assets are ordered by liquidity and liabilities by maturity; the current and quick ratios test short-term solvency.",
+        "DSO = AR / Revenue × 365; DIO = Inventory / COGS × 365; DPO = AP / COGS × 365.",
+        "Cash conversion cycle = DSO + DIO − DPO; a negative CCC (Amazon, Costco) means suppliers and customers finance growth.",
+        "An increase in operating working capital is a use of cash on the cash flow statement.",
+        "Deferred revenue is a working capital liability that subscription companies use as customer-funded float."
+      ],
+      "formulas": [
+        { "name": "Cash conversion cycle", "expression": "CCC = DSO + DIO − DPO" },
+        { "name": "Current ratio", "expression": "Current assets / Current liabilities" },
+        { "name": "Cash impact of working capital", "expression": "−(ΔAR + ΔInventory − ΔAP − ΔDeferred revenue)" }
+      ]
+    },
+    "realityCheck": [
+      "Year-end balances can be window-dressed: companies push collections and delay payments just before the balance sheet date.",
+      "Stretching DPO flatters the ratio but can starve suppliers, later showing up as supply disruptions or as supplier-finance programs disclosed in footnotes.",
+      "A current ratio near 1.0 (HP was about 1.09 in 2012) is not alarming for a firm with reliable cash flow but can be fatal for one without access to credit."
+    ],
+    "lenses": {
+      "history": "Retailers such as Walmart and later Amazon turned working capital into a competitive weapon by negotiating long supplier terms while selling inventory fast. Supply-chain finance programs grew so large that the FASB began requiring their disclosure for fiscal years starting in 2023.",
+      "economics": "Working capital is an investment like a factory, and its return depends on how many days cash sits in receivables and inventory. Negative working capital is zero-cost financing that lets a business grow faster than its profits alone would allow.",
+      "behavioralScience": null,
+      "marketingNarrative": null,
+      "sociology": "Payment terms encode power: large buyers routinely impose 60–120 day terms on small suppliers, effectively borrowing from them. Founders selling to enterprises should expect to finance their customers' working capital unless they negotiate upfront billing.",
+      "firstPrinciplesContrarian": "Ask who finances the gap between paying for inputs and getting paid for outputs: you, your customers, your suppliers or your lender. The answer often matters more to survival than gross margin does.",
+      "personalConnection": "A hardware startup like Carbon Robotics buys chassis, batteries and lasers months before a grower pays, so DIO and DSO directly set how much venture capital the business consumes. Enterprise AI vendors selling to Cisco-scale buyers face long procurement cycles and net-60 terms, while PranaScan-style subscriptions billed upfront can run negative working capital.",
+      "antiPattern": "Engineers forecast revenue and margin carefully and then assume working capital is zero, which hides the cash a growing company burns. Forecast receivables, inventory and payables in days and let the cash flow statement show the cost."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "drives", "question": "How does a lengthening cash conversion cycle turn profit into negative operating cash flow?" },
+      { "targetId": "a500-07-inventory-valuation", "relationship": "foundation-for", "question": "How does the inventory cost-flow method change the DIO you compute?" },
+      { "targetId": "a500-08-receivables-allowance", "relationship": "foundation-for", "question": "Why should DSO be computed on gross or net receivables, and does it matter?" },
+      { "targetId": "OPMGT502", "relationship": "applied-in", "question": "How do operations decisions on batch size and lead time show up as DIO?" },
+      { "targetId": "FIN502", "relationship": "applied-in", "question": "How does the change in net working capital enter a free cash flow forecast?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Robotics hardware startup (illustrative numbers)",
+      "prompt": "A robotics startup has $24M of revenue, $14M of COGS, $6M of receivables, $5M of inventory and $2M of payables. Compute DSO, DIO, DPO and the cash conversion cycle. If revenue doubles next year at the same days, how much extra cash does working capital absorb?",
+      "cfoAnswer": "DSO ≈ 91 days (6 / 24 × 365), DIO ≈ 130 days (5 / 14 × 365) and DPO ≈ 52 days (2 / 14 × 365), so the CCC is about 170 days. Operating working capital is $9M (6 + 5 − 2); doubling revenue at the same days doubles it to $18M, absorbing about $9M of cash even if the company is profitable. The levers are deposits or upfront payment from growers, robot-as-a-service billing, and longer supplier terms.",
+      "keyTakeaway": "Growth with a long cash conversion cycle consumes cash in proportion to revenue."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] HP 2012 Annual Report case (current ratio)",
+      "[Foster: ACCTG 500] Review Session 2 inventory practice problem",
+      "[Elite MBA: Wharton] Brian Bushee, Introduction to Financial Accounting — working capital and liquidity ratios",
+      "[Real 10-K / Case] Amazon and Costco annual reports — negative cash conversion cycle pattern (qualitative)"
+    ]
+  },
+  {
+    "id": "a500-05-cash-flow-fcf",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Statement of Cash Flows & Free Cash Flow (Why Profitable Companies Go Bankrupt)",
+    "difficulty": "foundation",
+    "tags": ["cash flow statement", "free cash flow", "indirect method", "runway"],
+    "hook10k": "Net income is an opinion built on accruals, but cash is a fact, and companies die when they run out of it. The cash flow statement reconciles the two, showing whether profits are turning into cash and how the business funds itself.",
+    "pareto20_80": {
+      "summary": "Operating cash flow starts from net income, adds back non-cash charges (depreciation, amortization, stock-based compensation, impairments) and adjusts for working capital changes. Investing captures CapEx and acquisitions, and financing captures debt, equity, buybacks and dividends.",
+      "keyPoints": [
+        "Indirect method: CFO = Net income + D&A + other non-cash items − increase in operating working capital.",
+        "Simple free cash flow = CFO − CapEx; check whether management's definition also subtracts capitalized software, finance leases or acquisitions.",
+        "Profitable but cash-negative companies usually have rising receivables or inventory, heavy CapEx, or both.",
+        "Stock-based compensation is added back to CFO, which flatters FCF; treat it as a real cost in valuation.",
+        "The change in cash on the cash flow statement must equal the change in cash on the balance sheet, a built-in audit check."
+      ],
+      "formulas": [
+        { "name": "Free cash flow", "expression": "FCF = CFO − CapEx" },
+        { "name": "Operating cash flow (indirect)", "expression": "CFO = NI + D&A + SBC + Other non-cash − ΔNWC" },
+        { "name": "FCF conversion", "expression": "FCF / Net income" }
+      ]
+    },
+    "realityCheck": [
+      "Classification games such as factoring receivables, supplier finance and capitalizing costs move cash between operating, investing and financing sections without changing total cash.",
+      "Company-defined free cash flow frequently excludes acquisitions, finance-lease payments and stock compensation, so rebuild it yourself.",
+      "A single strong quarter of CFO can come from stretching payables, which reverses the next quarter."
+    ],
+    "lenses": {
+      "history": "US companies were not required to publish a full statement of cash flows until FAS 95 in 1987, after failures where reported profits masked cash shortfalls. The retailer WT Grant is the classic case: it reported profits for years while operating cash flow was negative, then collapsed in 1975.",
+      "economics": "Free cash flow is what owners can withdraw without shrinking the business, so it is the quantity that valuation models discount. The gap between earnings and FCF measures how much capital the business needs to grow.",
+      "behavioralScience": "Investors fixate on EPS because it is reported first and compared with consensus, which gives managers incentives to manage accruals. Cash flow is harder to massage, so a persistent gap between earnings and cash is one of the strongest red flags in the research on earnings management.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "With only the cash flow statement you could reconstruct most of the business story: how it earns, what it invests in and who funds it. Many analysts read it last; reading it first is often faster and more honest.",
+      "personalConnection": "Hyperscalers report strong net income while capital spending on GPU data centers consumes a large share of operating cash flow, so FCF tells a very different story than EPS. For a Mikesell-style hardware startup or for PranaScan, the cash flow statement is the runway calculator: months of runway equal cash divided by monthly negative free cash flow.",
+      "antiPattern": "Operators celebrate EBITDA or net income while ignoring rising receivables and CapEx, then get surprised by a cash crunch. Run a monthly bridge from net income to free cash flow and investigate any line that grows faster than revenue."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-04-balance-sheet-working-capital", "relationship": "builds-on", "question": "Which working capital lines explain the gap between net income and CFO?" },
+      { "targetId": "a500-06-capex-depreciation", "relationship": "builds-on", "question": "Why does CapEx hit cash today but profit only over the asset's useful life?" },
+      { "targetId": "a500-10-equity-sbc", "relationship": "contrasts-with", "question": "Should the SBC add-back count as cash generation when you value the business?" },
+      { "targetId": "FIN502", "relationship": "foundation-for", "question": "How does free cash flow become the numerator of a DCF valuation?" },
+      { "targetId": "ENTRE557", "relationship": "applied-in", "question": "How do founders compute runway and burn multiple from the cash flow statement?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "AI SaaS company (illustrative numbers)",
+      "prompt": "An AI SaaS company reports net income of $40M, D&A of $25M, stock-based compensation of $30M, a $35M increase in receivables, a $20M increase in deferred revenue and CapEx of $60M. Compute CFO and FCF, then FCF if stock compensation is treated as a cash-equivalent cost. Is the business really generating cash?",
+      "cfoAnswer": "CFO = 40 + 25 + 30 − 35 + 20 = $80M, and FCF = 80 − 60 = $20M. Treating stock compensation as a real cost, FCF is about −$10M, so shareholders are funding the business through dilution. The headline claim of positive FCF is true but depends on paying employees in stock and on customers prepaying through deferred revenue.",
+      "keyTakeaway": "Rebuild free cash flow yourself and decide explicitly how to treat stock-based compensation."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Review Session 2 cash flow problem",
+      "[Foster: ACCTG 500] Creating Financial Statements project (GreenGrubb case)",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — free cash flow to the firm and treatment of stock-based compensation",
+      "[Real 10-K / Case] FAS 95 (ASC 230) Statement of Cash Flows"
+    ]
+  },
+  {
+    "id": "a500-06-capex-depreciation",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "CapEx vs. OpEx, Depreciation & Amortization (Hyperscaler GPU Server Useful-Life Accounting)",
+    "difficulty": "intermediate",
+    "tags": ["CapEx", "depreciation", "useful life", "GPU", "hyperscalers", "PP&E"],
+    "hook10k": "Spending that creates multi-year benefit is capitalized and expensed gradually through depreciation, while spending consumed now hits the income statement immediately. The useful-life assumption is a quiet but powerful lever: hyperscalers changing server lives by a year or two move billions of dollars of reported profit.",
+    "pareto20_80": {
+      "summary": "Capitalized cost sits on the balance sheet as PP&E and flows to expense through depreciation over its useful life; net book value equals gross cost minus accumulated depreciation. Cash leaves on the purchase date (investing), while the expense arrives over years (operating).",
+      "keyPoints": [
+        "Straight-line depreciation = (Cost − Salvage) / Useful life; accelerated methods front-load the expense.",
+        "A change in useful life is a change in estimate applied prospectively, with no restatement of prior years.",
+        "Accumulated depreciation / Gross PP&E shows how worn the asset base is, and accumulated depreciation / annual depreciation approximates average asset age.",
+        "Gain or loss on disposal = Proceeds − Net book value; it is non-cash in CFO, and the proceeds appear in investing.",
+        "Capitalized software development and cloud implementation costs follow the same logic as physical CapEx."
+      ],
+      "formulas": [
+        { "name": "Straight-line depreciation", "expression": "(Cost − Salvage) / Useful life" },
+        { "name": "Net book value", "expression": "Gross PP&E − Accumulated depreciation" },
+        { "name": "Approximate asset age", "expression": "Accumulated depreciation / Depreciation expense" },
+        { "name": "Gain on sale", "expression": "Proceeds − Net book value" }
+      ]
+    },
+    "realityCheck": [
+      "Microsoft (fiscal 2023) and Alphabet (2023) extended server useful lives to six years, lowering depreciation, while Amazon shortened a subset of servers from six to five years from 2025, citing the faster pace of AI technology; verify exact figures against current filings.",
+      "GPU economic life may be shorter than accounting life if each new chip generation makes older ones uneconomic for frontier workloads, so reported margins can overstate durable profitability.",
+      "WorldCom's capitalization of ordinary line costs as CapEx in 2001–2002 is the canonical case of moving operating costs off the income statement to inflate earnings and operating cash flow."
+    ],
+    "lenses": {
+      "history": "Railroads in the 1800s forced the invention of depreciation accounting because track and locomotives lasted decades and expensing them upfront made every year's profit meaningless. The same problem returned with telecom fiber in the 1990s and returns again with AI data centers today.",
+      "economics": "Depreciation is the accounting proxy for economic obsolescence, and when technology improves fast, true obsolescence outruns the schedule. Capital-intensive businesses earn their cost of capital only if pricing covers both cash costs and the eventual replacement of the asset base.",
+      "behavioralScience": "Managers prefer longer useful lives because the earnings boost is immediate and the cost is pushed into an uncertain future. Analysts tend to under-react to estimate changes buried in footnotes, which is exactly why those changes work.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Ignore the schedule and ask how many years of revenue each dollar of GPU or machine will really produce before it must be replaced. If the honest answer is three years, mentally re-run the income statement with three-year depreciation.",
+      "personalConnection": "At Cisco scale, buying servers versus renting cloud capacity changes which line the cost lands on and how fast it hits profit, a trade-off every enterprise architect should be able to explain to a CFO. Carbon Robotics' growers capitalize a LaserWeeder and depreciate it, so the machine competes against weeding labor that is pure OpEx, which underpins the roughly three-year farm ROI in the seed pitch.",
+      "antiPattern": "Engineers comparing cloud with on-premises often set monthly cloud bills against the depreciation line and conclude owning is cheaper, forgetting upfront cash, power, staff and refresh cycles. Compare discounted total cash cost over the realistic economic life, not one year of accounting expense."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "drives", "question": "How does a CapEx surge depress free cash flow years before it depresses earnings?" },
+      { "targetId": "a500-03-income-statement-gross-margin", "relationship": "drives", "question": "How would shortening GPU useful lives change an AI company's gross margin?" },
+      { "targetId": "a500-09-debt-leases-leverage", "relationship": "contrasts-with", "question": "How does leasing the same asset change CapEx, EBITDA and reported leverage?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "How can capitalization policy be abused to inflate earnings?" },
+      { "targetId": "FIN502", "relationship": "applied-in", "question": "How do CapEx and depreciation enter a DCF forecast differently?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Kroger fiscal 2020 (Foster Kroger fixed assets and leases worksheet)",
+      "prompt": "Kroger's gross fixed assets were $46,023M with accumulated depreciation of $23,637M at fiscal 2020 year-end; annual depreciation was $2,747M; it sold assets with a net book value of $106M for $165M; and operating lease right-of-use assets were $6,796M. How depreciated and how old are Kroger's assets, what was the gain on sale, and how much larger would net fixed assets be including operating lease assets?",
+      "cfoAnswer": "Accumulated depreciation is about 51% of gross fixed assets (23,637 / 46,023), and average asset age is about 8.6 years (23,637 / 2,747). The disposal produced a $59M gain (165 − 106), which is subtracted in CFO while the $165M appears as an investing inflow. Adding $6,796M of right-of-use assets makes net fixed assets about 30% larger (6,796 / 22,386), which matters when comparing Kroger with a grocer that owns its stores.",
+      "keyTakeaway": "Asset age and useful-life assumptions tell you how much reinvestment is coming."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Kroger Fixed Assets and Leases worksheet (fiscal 2020)",
+      "[Foster: ACCTG 500] V10 Capitalized Software template and Citrix intangible assets final review slides",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — capitalizing R&D and adjusting for asset lives",
+      "[Real 10-K / Case] Microsoft, Alphabet and Amazon 10-K disclosures on server useful-life changes (verify current figures)"
+    ]
+  },
+  {
+    "id": "a500-07-inventory-valuation",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Inventory Valuation (FIFO, LIFO, Write-Downs & Hardware COGS — Mikesell Robotics Lens)",
+    "difficulty": "intermediate",
+    "tags": ["inventory", "FIFO", "LIFO", "write-downs", "hardware", "bill of materials"],
+    "hook10k": "Inventory is cash frozen into parts and products, and the cost-flow assumption decides which purchase prices reach COGS and which stay on the balance sheet. For hardware and robotics companies, inventory write-downs are where optimistic forecasts become visible losses.",
+    "pareto20_80": {
+      "summary": "Cost of goods available for sale equals beginning inventory plus purchases, and it is split between COGS and ending inventory using FIFO, LIFO (US GAAP only) or weighted average. Inventory is carried at the lower of cost and net realizable value, so obsolescence forces write-downs.",
+      "keyPoints": [
+        "In a period of rising prices, FIFO gives lower COGS and higher profit, while LIFO gives higher COGS, lower taxes and an understated balance sheet.",
+        "The LIFO reserve disclosure lets you convert a LIFO company to FIFO for comparison.",
+        "Write-downs hit COGS (or a separate line) immediately and are generally not reversed under US GAAP.",
+        "Purchase commitments for constrained components (GPUs, lasers, batteries) can create losses even before the inventory arrives.",
+        "Rising DIO and inventory growing faster than revenue are early warnings of demand problems."
+      ],
+      "formulas": [
+        { "name": "COGS", "expression": "Beginning inventory + Purchases − Ending inventory" },
+        { "name": "LIFO to FIFO", "expression": "FIFO inventory = LIFO inventory + LIFO reserve" },
+        { "name": "Inventory turnover", "expression": "COGS / Average inventory" }
+      ]
+    },
+    "realityCheck": [
+      "NVIDIA recorded large inventory and purchase-commitment charges in 2025 when US export rules changed for its China-specific data center chips, showing how policy shocks turn inventory into losses overnight; verify exact amounts in filings.",
+      "LIFO liquidations can boost profit when old, cheap cost layers flow into COGS, an earnings lift with no operational improvement.",
+      "Startups often carry prototype and early-batch parts at cost long after a design revision has made them worthless."
+    ],
+    "lenses": {
+      "history": "LIFO became popular in the US after it was allowed for tax purposes in 1939, because during inflation it lowers taxable income. IFRS prohibits LIFO, which is one reason US multinationals keep different inventory records for different jurisdictions.",
+      "economics": "Inventory is both a hedge against supply disruption and a bet on demand, so the right level depends on the cost of stocking out versus the cost of obsolescence. Semiconductor and AI hardware cycles swing between shortage and glut, which makes that bet unusually expensive.",
+      "behavioralScience": null,
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Inventory on the balance sheet is a forecast that customers will buy at a price above cost, not a fact. Treat every dollar of aged inventory as a question about demand rather than as an asset.",
+      "personalConnection": "Paul Mikesell's seed plan broke LaserWeeder COGS into about $10k of chassis, $15k of battery and $10k of componentry, exactly the bill of materials that becomes inventory, DIO and write-down risk once production scales. In enterprise AI infrastructure, GPU allocations and purchase commitments are inventory-like bets that can strand capital when a new chip generation ships.",
+      "antiPattern": "Engineers turned founders over-order parts to secure supply and lower unit cost, then a design change makes the stock obsolete. Tie purchase commitments to design-freeze milestones and track inventory age, not just quantity."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-03-income-statement-gross-margin", "relationship": "drives", "question": "How much of a hardware company's gross margin swing comes from the cost-flow method?" },
+      { "targetId": "a500-04-balance-sheet-working-capital", "relationship": "measured-by", "question": "What does a rising DIO tell you before revenue growth slows?" },
+      { "targetId": "a500-14-deferred-taxes", "relationship": "contrasts-with", "question": "Why would a company choose LIFO for taxes even though it lowers reported profit?" },
+      { "targetId": "ACCTG501", "relationship": "applied-in", "question": "How does standard costing value inventory for internal decisions?" },
+      { "targetId": "OPMGT502", "relationship": "applied-in", "question": "How do lead times and safety stock set the inventory level you must finance?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Robotics manufacturer (illustrative numbers)",
+      "prompt": "A robotics company starts the year with 10 units at $30k, buys 20 units at $35k and 10 units at $40k, and sells 30 units at $120k each. Compute COGS and gross margin under FIFO and LIFO. Then a design revision makes the 10 remaining units worth $15k each: what write-down is needed under each method?",
+      "cfoAnswer": "Revenue is $3.6M. FIFO COGS = 10 × 30 + 20 × 35 = $1.0M (gross margin 72.2%) with ending inventory of $400k, while LIFO COGS = 10 × 40 + 20 × 35 = $1.1M (gross margin 69.4%) with ending inventory of $300k. Writing the 10 units down to $150k costs $250k under FIFO and $150k under LIFO, so total cost across both events is identical ($1.25M) and only the timing differs.",
+      "keyTakeaway": "Cost-flow methods shift profit between periods; obsolescence eventually catches up either way."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Review Session 2 inventory practice problem and template",
+      "[Foster: ACCTG 500] Best Buy 2022 financial statement excerpts",
+      "[Elite MBA: Wharton] Brian Bushee, Introduction to Financial Accounting — inventory cost flows and the LIFO reserve",
+      "[Real 10-K / Case] Paul Mikesell, Carbon Robotics UW Entrepreneurship talk (Feb 2025) — seed-stage bill of materials"
+    ]
+  },
+  {
+    "id": "a500-08-receivables-allowance",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Accounts Receivable, Credit Risk & Allowance for Doubtful Accounts",
+    "difficulty": "intermediate",
+    "tags": ["accounts receivable", "allowance", "bad debt", "CECL", "credit risk"],
+    "hook10k": "Selling on credit turns revenue into a promise to pay, and the allowance for doubtful accounts is management's estimate of how many promises will be broken. Because the estimate runs straight through earnings, the allowance is one of the easiest dials for smoothing profit.",
+    "pareto20_80": {
+      "summary": "Under the allowance method, bad debt expense is estimated in the period of the sale, building a contra-asset allowance; actual write-offs later reduce both gross receivables and the allowance with no income statement effect. Since 2020, CECL has required estimates of expected lifetime credit losses.",
+      "keyPoints": [
+        "Net AR = Gross AR − Allowance for doubtful accounts.",
+        "Bad debt expense reduces equity and increases the allowance; a write-off reduces gross AR and the allowance with no effect on net AR or income.",
+        "Ending allowance = Beginning allowance + Provision − Write-offs + Recoveries.",
+        "Trends in allowance / gross AR and write-offs / provision reveal whether reserves keep pace with actual losses.",
+        "Financing receivables (vendor financing of customer purchases) carry credit risk that looks like lending, not selling."
+      ],
+      "formulas": [
+        { "name": "Net receivables", "expression": "Net AR = Gross AR − Allowance" },
+        { "name": "Allowance roll-forward", "expression": "Ending allowance = Beginning allowance + Bad debt expense − Write-offs" },
+        { "name": "Allowance coverage", "expression": "Allowance / Gross AR" }
+      ]
+    },
+    "realityCheck": [
+      "Sears faced rising credit card delinquencies in 1999, and the Foster case asks whether its allowance was adequate and which incentives could push management to under-reserve.",
+      "Over-reserving in good times creates cookie jars: releasing excess reserves later boosts earnings without any operational improvement.",
+      "Vendor financing (Cisco carries billions of dollars of financing receivables) can pull demand forward and hide customer credit weakness until a downturn."
+    ],
+    "lenses": {
+      "history": "Retailers like Sears were once among America's largest lenders through store credit cards, and credit income was a large share of their profit. The 2008 financial crisis showed that incurred-loss reserving waited too long, which led to the CECL expected-loss standard adopted in 2020.",
+      "economics": "Extending credit is a pricing decision: it increases sales but adds financing cost and default risk. The allowance is the expected-value adjustment that converts gross promises into economically realistic revenue.",
+      "behavioralScience": "Managers are optimistic about their own customers, so reserves tend to lag deteriorating credit until losses force a catch-up. Auditors and analysts watch reserve ratios precisely because this bias is predictable.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A sale to a customer who will never pay is not a sale, it is a marketing expense, so the honest question is whether credit should have been extended at all. High growth funded by lenient terms is often just pre-booked losses.",
+      "personalConnection": "Cisco's balance sheet carries large financing receivables because it helps customers fund network purchases, an enterprise-tech pattern that blurs selling and lending. A hardware startup like Carbon Robotics offering grower financing or seasonal payment terms would face the same allowance judgment on every machine sold.",
+      "antiPattern": "Founders celebrate a large signed deal and book revenue before checking whether the customer can pay, then write it off a year later. Credit-check meaningful customers and reserve for expected losses from day one so revenue reflects reality."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-02-accrual-revenue-recognition", "relationship": "builds-on", "question": "Under ASC 606, when does doubtful collectibility mean no contract exists at all?" },
+      { "targetId": "a500-04-balance-sheet-working-capital", "relationship": "measured-by", "question": "How does a rising DSO interact with a falling allowance coverage ratio?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "How do reserve releases create earnings management?" },
+      { "targetId": "QMETH500", "relationship": "applied-in", "question": "How would you estimate expected credit-loss rates statistically from aging data?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Cisco fiscal 2020 (Foster class excerpt, modified for class purposes)",
+      "prompt": "Cisco reported accounts receivable, net of $5,472M with an allowance of $143M at fiscal 2020 year-end, versus $5,491M net and a $136M allowance a year earlier. Compute gross receivables and allowance coverage for both years. If management wanted to beat earnings by $20M without changing operations, how could the allowance help, and how would you detect it?",
+      "cfoAnswer": "Gross AR = 5,472 + 143 = $5,615M (coverage 2.5%) in 2020 and 5,491 + 136 = $5,627M (coverage 2.4%) in 2019, so coverage rose slightly, consistent with higher credit risk in 2020. Booking a $20M smaller provision would raise pre-tax income by $20M while lowering coverage to about 2.2%. You detect it by tracking coverage, write-offs relative to provisions, and DSO against peers and against macro credit conditions.",
+      "keyTakeaway": "Small reserve changes move earnings, so track coverage ratios over time."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Sears, Roebuck & Co. accounting for uncollectible accounts case",
+      "[Foster: ACCTG 500] V5 AR Allowance (E6-33) template",
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: HBS] Paul Healy and Krishna Palepu, Business Analysis and Valuation — accounting analysis of reserves",
+      "[Real 10-K / Case] FASB ASC 326 (CECL) current expected credit losses"
+    ]
+  },
+  {
+    "id": "a500-09-debt-leases-leverage",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Debt, Leases (ASC 842) & Financial Leverage",
+    "difficulty": "intermediate",
+    "tags": ["debt", "leases", "ASC 842", "leverage", "covenants"],
+    "hook10k": "Debt magnifies returns to owners in good years and accelerates failure in bad ones, and since ASC 842 almost every lease shows up as a liability too. Reading leverage correctly means adding up all fixed claims on cash, not just the line labeled debt.",
+    "pareto20_80": {
+      "summary": "Debt is carried at amortized cost, with interest expense on the income statement and principal repayments in financing cash flow. ASC 842 puts operating and finance leases on the balance sheet as right-of-use assets and lease liabilities, but operating lease cost still appears as a single straight-line expense.",
+      "keyPoints": [
+        "Interest is tax-deductible, so the after-tax cost of debt = rate × (1 − tax rate).",
+        "Finance leases show depreciation plus interest (front-loaded), while operating leases show one straight-line lease cost in operating expenses.",
+        "Operating lease payments sit in CFO while finance lease principal sits in CFF, which distorts FCF comparisons.",
+        "Core leverage ratios are Debt / Equity, Net debt / EBITDA and interest coverage (EBIT / Interest expense).",
+        "Covenants turn accounting ratios into contractual tripwires, so accounting choices can trigger defaults."
+      ],
+      "formulas": [
+        { "name": "Financial leverage (DuPont)", "expression": "Assets / Equity" },
+        { "name": "Net debt", "expression": "Total debt + Lease liabilities − Cash and investments" },
+        { "name": "Interest coverage", "expression": "EBIT / Interest expense" }
+      ]
+    },
+    "realityCheck": [
+      "Before ASC 842 took effect in 2019, retailers and airlines kept large lease obligations off the balance sheet, so their leverage looked far lower than economic reality.",
+      "EBITDA under ASC 842 differs between operating and finance leases, so Net debt / EBITDA is not comparable across firms without adjustment.",
+      "Cisco's class excerpt shows short-term debt falling from $10,191M to $3,005M in one year, a reminder to read the maturity ladder, not just the totals."
+    ],
+    "lenses": {
+      "history": "Off-balance-sheet leasing grew for decades because accounting rules drew bright-line capital lease tests that companies structured around. Enron's 2001 collapse and the scrutiny of off-balance-sheet structures pushed standard-setters toward putting all lease obligations on the balance sheet.",
+      "economics": "Modigliani and Miller showed that capital structure is irrelevant in a frictionless world, so leverage matters only through taxes, distress costs and information problems. For capital-intensive AI infrastructure, cheap debt can fund GPUs, but only if the cash flows outlast the hardware.",
+      "behavioralScience": null,
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A lease is debt secured by a specific asset, so ask what fixed cash payments the company must make no matter what happens. Count leases, purchase commitments and take-or-pay contracts alongside bonds when judging survival risk.",
+      "personalConnection": "AI cloud providers and some hyperscalers now finance GPU fleets with debt and long-term leases, which turns rapidly obsolescing chips into fixed obligations, a direct link between ASC 842 and AI economics. For Carbon Robotics' customers, leasing a LaserWeeder instead of buying it changes the farm's balance sheet and its payback calculation.",
+      "antiPattern": "Engineers evaluating a company look at total debt and miss operating lease liabilities and purchase commitments disclosed in the footnotes. Build an all-in fixed-obligation schedule from the 10-K notes before calling a balance sheet strong."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-12-ratios-dupont", "relationship": "drives", "question": "How much of a company's ROE comes from leverage rather than operations?" },
+      { "targetId": "a500-06-capex-depreciation", "relationship": "contrasts-with", "question": "Should you compare a lessee and an owner on EBITDA, EBITDAR or free cash flow?" },
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "drives", "question": "Which lease payments reduce CFO and which reduce CFF?" },
+      { "targetId": "FIN502", "relationship": "foundation-for", "question": "How does leverage change the weighted average cost of capital?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Kroger fiscal 2020 (Foster Kroger fixed assets and leases worksheet)",
+      "prompt": "Kroger's net fixed assets were $22,386M and its operating lease right-of-use assets were $6,796M at fiscal 2020 year-end. Explain how ASC 842 changed Kroger's balance sheet, income statement and cash flow statement for those operating leases, and what an analyst should adjust when comparing Kroger with a grocer that owns its stores using debt.",
+      "cfoAnswer": "ASC 842 added the $6,796M right-of-use asset and a roughly matching lease liability, raising total assets and liabilities and lowering asset turnover and ROA while equity barely moved. Operating lease cost stays a single straight-line operating expense and the payments stay in operating cash flow, so Kroger's EBITDA and CFO look lower than a debt-financed owner's, whose equivalent costs sit in depreciation, interest and investing or financing cash flows. To compare, add lease liabilities to net debt and use EBITDAR, or capitalize both firms' leases consistently.",
+      "keyTakeaway": "Leases are debt in disguise, so normalize them before comparing companies."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Kroger Fixed Assets and Leases worksheet (fiscal 2020)",
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — converting operating leases into debt",
+      "[Real 10-K / Case] FASB ASC 842 Leases"
+    ]
+  },
+  {
+    "id": "a500-10-equity-sbc",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Stockholders' Equity, Retained Earnings & Stock-Based Compensation (SBC Dilution Reality Check)",
+    "difficulty": "intermediate",
+    "tags": ["equity", "retained earnings", "SBC", "buybacks", "dilution", "treasury stock"],
+    "hook10k": "Shareholders' equity records what owners put in and what the company has kept, and stock-based compensation quietly transfers part of that ownership to employees. In tech, SBC is often the largest real expense that never touches cash, so ignoring it overstates both profit and free cash flow.",
+    "pareto20_80": {
+      "summary": "Equity = Contributed capital (common stock + APIC) + Retained earnings + AOCI − Treasury stock. SBC is expensed at grant-date fair value over the vesting period, increasing APIC with no cash, and buybacks reduce equity and are often used to offset the resulting dilution.",
+      "keyPoints": [
+        "Shares authorized ≥ issued ≥ outstanding, and outstanding = issued − treasury shares.",
+        "Recording SBC expense lowers retained earnings through net income and raises APIC by the same amount, so total equity is unchanged.",
+        "Buybacks reduce cash and increase treasury stock (contra-equity); retiring the shares instead changes presentation, not total equity.",
+        "Dividends reduce retained earnings when declared and cash when paid.",
+        "Net dilution = shares issued for SBC − shares repurchased, and buyback dollars spent offsetting SBC are its cash cost."
+      ],
+      "formulas": [
+        { "name": "Retained earnings", "expression": "Ending RE = Beginning RE + Net income − Dividends" },
+        { "name": "Shares outstanding", "expression": "Shares issued − Treasury shares" },
+        { "name": "Net dilution %", "expression": "(Shares issued for SBC − Shares repurchased) / Beginning shares outstanding" }
+      ]
+    },
+    "realityCheck": [
+      "Non-GAAP earnings routinely add back SBC even though employees are paid with it; Warren Buffett's question still applies: if compensation is not an expense, what is it?",
+      "Buybacks that only offset SBC do not return capital to shareholders; they convert stock compensation into a cash cost.",
+      "Cisco's class excerpt shows an accumulated deficit despite strong profits, because years of buybacks and dividends exceeded cumulative earnings, so a negative equity component is not distress by itself."
+    ],
+    "lenses": {
+      "history": "Stock options were not expensed on US income statements until FAS 123R in 2006, after a long lobbying fight led by Silicon Valley. Dot-com era profits were inflated partly because option grants carried no expense.",
+      "economics": "SBC aligns employees with owners but transfers value from existing shareholders through dilution. Its economic cost is the fair value of what is given up, whether or not cash changes hands.",
+      "behavioralScience": "Employees often overvalue equity in their own employer, which lets startups pay below-market cash salaries. Investors show the mirror bias by underweighting a cost that never appears in cash flow.",
+      "marketingNarrative": "Companies frame SBC as non-cash and exclude it from adjusted metrics, which makes margins and free cash flow look stronger in investor presentations. Read the reconciliation table and reverse that framing when you model the business.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Imagine the company sold shares in the market and paid employees the proceeds in cash: the expense would be identical, and nobody would add it back. That thought experiment settles most SBC debates.",
+      "personalConnection": "Anyone who has held big-tech RSUs has seen SBC from the inside, and from the outside Cisco's buybacks partly exist to offset that dilution. For a Mikesell-style founder, every option-pool expansion before a round dilutes the founders, so cap-table math is equity accounting with personal stakes.",
+      "antiPattern": "Engineers comparing employers or acquisition targets look at adjusted margins that exclude SBC and conclude a company is far more profitable than it is. Subtract SBC, or the cash spent on offsetting buybacks, before comparing profitability or valuation multiples."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "contrasts-with", "question": "Why does the SBC add-back make operating cash flow look stronger than economic reality?" },
+      { "targetId": "a500-01-accounting-equation", "relationship": "builds-on", "question": "Which equity accounts move, and by how much, when SBC expense is recorded?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "When does excluding SBC from adjusted earnings cross into misleading reporting?" },
+      { "targetId": "ENTRE542", "relationship": "applied-in", "question": "How do option pools and SAFEs dilute founders across financing rounds?" },
+      { "targetId": "MGMT550", "relationship": "applied-in", "question": "How should a board set equity compensation and buyback policy together?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Large-cap software company (illustrative numbers)",
+      "prompt": "A software company with 1,000M shares outstanding issues 25M shares through SBC (expense of $3.0B) and spends $3.5B buying back 22M shares. Net income is $8.0B, and non-GAAP net income is $11.0B. What happened to share count, what is the real cost of SBC, and which earnings figure should you capitalize in valuation?",
+      "cfoAnswer": "Shares outstanding rise by 3M (25 − 22), about 0.3% dilution, even after $3.5B of buybacks, so the buyback mostly offset SBC rather than returning capital. The economic cost of SBC is about $3.0B a year, and the company is effectively paying it in cash through buybacks. Value the company on GAAP-like earnings ($8.0B), or on non-GAAP earnings minus SBC, not on the $11.0B figure that treats employee pay as free.",
+      "keyTakeaway": "Count SBC as a real expense; buybacks that merely offset it are not shareholder returns."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Session 19 Shareholders' Equity and Citrix 2018 final review questions",
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — valuing employee options and stock-based compensation",
+      "[Real 10-K / Case] FAS 123R (ASC 718) share-based payment"
+    ]
+  },
+  {
+    "id": "a500-11-earnings-quality",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Earnings Quality & Financial Shenanigans (Channel Stuffing, Capitalizing OpEx, Non-GAAP Adjustments)",
+    "difficulty": "advanced",
+    "tags": ["earnings quality", "shenanigans", "non-GAAP", "accruals ratio", "red flags"],
+    "hook10k": "Earnings quality asks whether reported profit is repeatable and backed by cash, or manufactured by aggressive estimates and timing. Most accounting blowups were visible years early in the gap between earnings and cash flow and in footnote changes nobody read.",
+    "pareto20_80": {
+      "summary": "Low-quality earnings come from pulling revenue forward, pushing expenses out (capitalization, long useful lives, thin reserves), one-time gains, and adjusted metrics that exclude recurring costs. The accruals ratio and cash conversion are fast quantitative screens.",
+      "keyPoints": [
+        "Revenue shenanigans include channel stuffing, bill-and-hold, side letters and round-tripping.",
+        "Expense shenanigans include capitalizing operating costs, extending useful lives, releasing reserves and under-accruing liabilities.",
+        "Non-GAAP adjustments that recur every year (restructuring, SBC, acquisition costs) are operating costs.",
+        "Red flags: DSO rising faster than revenue, inventory growing faster than sales, CFO persistently below net income, and auditor or CFO turnover.",
+        "Read the critical accounting estimates section and the revenue recognition footnote every year."
+      ],
+      "formulas": [
+        { "name": "Accruals ratio", "expression": "(Net income − CFO) / Average total assets" },
+        { "name": "Cash conversion", "expression": "CFO / Net income" },
+        { "name": "DSO drift", "expression": "DSO this year − DSO last year" }
+      ]
+    },
+    "realityCheck": [
+      "Accounting can be fully GAAP-compliant and still low quality, which is why a clean audit opinion (HP received one for 2012) does not rule out large later write-downs.",
+      "Shenanigan screens also flag healthy fast-growing companies whose receivables naturally grow, so combine ratios with business context.",
+      "Restatements usually arrive after the stock has already fallen, so the edge comes from reading footnotes before the news."
+    ],
+    "lenses": {
+      "history": "Enron, WorldCom and Tyco led to the Sarbanes-Oxley Act of 2002, which made CEOs and CFOs personally certify financial statements and required audits of internal controls. Two decades later, non-GAAP metrics became the new frontier of earnings management.",
+      "economics": "Accruals are useful because they match costs to revenues, but they also carry managerial discretion. Markets that cannot verify accrual quality demand a higher cost of capital, so credible reporting has real economic value.",
+      "behavioralScience": "Managers face strong incentives to meet or beat consensus by a penny, and research documents suspicious bunching of results just above targets. Investors show the mirror pattern, overreacting to small misses and rewarding smooth earnings.",
+      "marketingNarrative": "Earnings releases now lead with adjusted EBITDA or non-GAAP EPS, framing the story before investors see GAAP numbers. Treat the reconciliation table as the real headline.",
+      "sociology": "Shenanigans spread through organizations when quotas and bonuses reward hitting the quarter, and sales teams learn which deals can be pulled forward. Culture and tone at the top predict reporting quality better than any single rule.",
+      "firstPrinciplesContrarian": "The question is not whether a number follows the rules, but whether a smart owner running the business would believe it. If management would not run the company on that number privately, do not value the company on it publicly.",
+      "personalConnection": "AI startups face a new version of this temptation: counting pilot contracts as ARR, excluding inference credits from COGS, or capitalizing model training costs aggressively. A Mikesell-style founder earns investor trust by reporting unit economics conservatively, which is far cheaper than rebuilding credibility after a restatement.",
+      "antiPattern": "Engineers either trust audited numbers implicitly and skip footnotes, or assume all accounting is manipulated and ignore it. Use quantitative screens to decide where to look, then read the specific footnote that explains the anomaly."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-02-accrual-revenue-recognition", "relationship": "builds-on", "question": "Which revenue judgments are easiest to stretch at quarter end?" },
+      { "targetId": "a500-06-capex-depreciation", "relationship": "builds-on", "question": "How would you spot operating costs being capitalized?" },
+      { "targetId": "a500-08-receivables-allowance", "relationship": "builds-on", "question": "What does a falling allowance coverage ratio say during a credit downturn?" },
+      { "targetId": "a500-15-read-10k-routine", "relationship": "applied-in", "question": "Which footnotes should you read first to test earnings quality?" },
+      { "targetId": "MGMT550", "relationship": "applied-in", "question": "How does an audit committee oversee earnings quality in practice?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "AI startup diligence (illustrative numbers)",
+      "prompt": "An AI company reports revenue up 80%, net income of $50M, CFO of −$20M, receivables up 150%, capitalized software up 120%, and a non-GAAP gross margin of 78% that excludes promotional inference credits. Average total assets are $500M. Compute the accruals ratio and list the three questions you would ask management first.",
+      "cfoAnswer": "Accruals ratio = (50 − (−20)) / 500 = 14%, a high value showing earnings running far ahead of cash. First, why are receivables growing nearly twice as fast as revenue: extended terms, side letters or unpaid pilots? Second, what is being capitalized as software, and would expensing it erase the profit? Third, what is fully loaded gross margin including the promotional credits, and how many customers pay list price?",
+      "keyTakeaway": "When earnings outrun cash, look at receivables, capitalization and adjusted margins first."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Microsoft case (reserve management) and Sears allowance case",
+      "[Foster: ACCTG 500] Session 20 Corporate Governance materials",
+      "[Elite MBA: Columbia] Stephen Penman, Financial Statement Analysis and Security Valuation — earnings quality analysis",
+      "[Real 10-K / Case] SEC enforcement history: WorldCom capitalized line costs and the Microsoft reserves settlement (both 2002)"
+    ]
+  },
+  {
+    "id": "a500-12-ratios-dupont",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Financial Ratios & DuPont ROE Decomposition",
+    "difficulty": "intermediate",
+    "tags": ["ratios", "DuPont", "ROE", "ROA", "ROIC", "asset turnover"],
+    "hook10k": "DuPont analysis splits return on equity into profit margin, asset turnover and leverage, showing whether a company earns its returns by pricing, by efficiency or by borrowing. Two companies with the same ROE can have opposite business models and opposite risks.",
+    "pareto20_80": {
+      "summary": "ROE = Net income / Equity = (Net income / Sales) × (Sales / Assets) × (Assets / Equity). ROA isolates operating performance from financing, and ROIC uses after-tax operating profit over invested capital to compare businesses regardless of capital structure.",
+      "keyPoints": [
+        "High-margin, low-turnover businesses (luxury, software) and low-margin, high-turnover ones (Costco, grocers) can produce similar ROE.",
+        "Leverage-driven ROE is fragile: shrinking equity through buybacks can raise ROE without improving the business.",
+        "ROIC = NOPAT / Invested capital, and value is created only when ROIC exceeds the cost of capital.",
+        "Use averages of beginning and ending balances for ratios that mix flows with stocks.",
+        "Negative or tiny equity after large buybacks makes ROE meaningless, so switch to ROA or ROIC."
+      ],
+      "formulas": [
+        { "name": "DuPont ROE", "expression": "ROE = Profit margin × Asset turnover × Financial leverage" },
+        { "name": "DuPont components", "expression": "Profit margin = NI / Sales; Asset turnover = Sales / Assets; Leverage = Assets / Equity" },
+        { "name": "ROIC", "expression": "NOPAT / (Debt + Equity − Cash)" }
+      ]
+    },
+    "realityCheck": [
+      "Accounting choices distort every ratio: expensed R&D and brand building lower recorded assets and inflate turnover and ROE for intangible-heavy firms.",
+      "Goodwill from acquisitions inflates the asset base and depresses ROA relative to organic growers.",
+      "Cisco's class-excerpt equity of $37,920M includes a large accumulated deficit from buybacks, so its ROE of roughly 30% partly reflects financing policy rather than operations alone."
+    ],
+    "lenses": {
+      "history": "DuPont's finance staff developed the decomposition in the 1910s to manage a diversified chemicals business and compare divisions on one return metric. It spread to General Motors, in which DuPont held a large stake, and became the template for return-on-investment management.",
+      "economics": "In competitive markets, returns above the cost of capital attract entrants and get competed away, so persistently high ROIC is evidence of a moat. DuPont shows which part of the moat is doing the work: pricing power, operating efficiency or cheap financing.",
+      "behavioralScience": null,
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "ROE answers how much owners earned on book capital, but book capital is a historical artifact, so ROIC or cash returns on cash invested are more honest for most valuation questions. Use DuPont to diagnose, not to rank.",
+      "personalConnection": "Hyperscalers' huge GPU spending lowers asset turnover now in the hope of higher margins later, a DuPont trade-off investors debate every quarter. A Carbon Robotics-style hardware business must win on margin and turnover together, while a PranaScan-style app can run high turnover on almost no assets.",
+      "antiPattern": "Smart people compare ROE across industries or reward rising ROE without asking whether leverage drove it. Always decompose before concluding, and pair ROE with ROIC and interest coverage."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-03-income-statement-gross-margin", "relationship": "builds-on", "question": "Which income statement lines drive the profit-margin lever?" },
+      { "targetId": "a500-09-debt-leases-leverage", "relationship": "builds-on", "question": "How do lease liabilities change the leverage lever after ASC 842?" },
+      { "targetId": "a500-13-ma-goodwill", "relationship": "contrasts-with", "question": "How does acquired goodwill depress asset turnover compared with organic growth?" },
+      { "targetId": "FIN502", "relationship": "foundation-for", "question": "How does ROIC versus WACC determine whether growth creates value?" },
+      { "targetId": "MGMT502", "relationship": "applied-in", "question": "Which DuPont lever best reveals a durable competitive advantage?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Cisco fiscal 2020 (Foster class excerpt, modified for class purposes)",
+      "prompt": "Using Cisco's fiscal 2020 class-excerpt figures (net income $11,214M, revenue $49,301M, total assets $94,853M in 2020 and $97,793M in 2019, equity $37,920M and $33,571M), compute DuPont ROE using average balances. Which lever explains most of Cisco's ROE, and what would happen to ROE if Cisco used $10B of cash to buy back stock?",
+      "cfoAnswer": "Profit margin ≈ 22.7% (11,214 / 49,301), asset turnover ≈ 0.51 (49,301 / 96,323 average assets) and leverage ≈ 2.69 (96,323 / 35,746 average equity), so ROE ≈ 31% and ROA ≈ 11.6%. Margin does the heavy lifting, while turnover is low because goodwill and investments make up much of the asset base. A $10B buyback would cut assets and equity by $10B, pushing ROE on ending equity toward roughly 40% (11,214 / 27,920) with the operating business unchanged apart from lost interest income on the cash.",
+      "keyTakeaway": "Decompose ROE, because financing moves can raise it with no operating improvement."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Session 21 Financial Statement Analysis and final review DuPont slide",
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: HBS] Paul Healy and Krishna Palepu, Business Analysis and Valuation — ratio analysis and ROE decomposition",
+      "[Elite MBA: NYU Stern / Damodaran] Aswath Damodaran — return on invested capital versus cost of capital"
+    ]
+  },
+  {
+    "id": "a500-13-ma-goodwill",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "M&A Accounting, Goodwill & Intangible Impairment",
+    "difficulty": "advanced",
+    "tags": ["M&A", "goodwill", "impairment", "intangibles", "purchase price allocation"],
+    "hook10k": "When a company buys another, any price above the fair value of identifiable net assets is booked as goodwill, an asset that represents synergies, talent or simple overpayment. Goodwill is never amortized under US GAAP for public companies, so the bill for a bad deal arrives later as a sudden impairment.",
+    "pareto20_80": {
+      "summary": "The purchase price is allocated to identifiable assets (including intangibles such as customer relationships, technology and trademarks) and liabilities at fair value, and the residual is goodwill. Finite-life intangibles are amortized, while goodwill and indefinite-life intangibles are tested for impairment at least annually.",
+      "keyPoints": [
+        "Goodwill = Purchase price − Fair value of identifiable net assets.",
+        "Paying with stock instead of cash changes the funding side (equity versus cash) but not the goodwill calculation.",
+        "Amortization of acquired intangibles depresses GAAP earnings for years, which is why companies exclude it from non-GAAP results.",
+        "Impairments are non-cash and backward-looking: they confirm value already lost, usually after the stock has fallen.",
+        "Internally developed intangibles are mostly expensed, so acquirers look asset-heavy and organic builders look asset-light."
+      ],
+      "formulas": [
+        { "name": "Goodwill", "expression": "Purchase price − (Fair value of identifiable assets − Fair value of liabilities assumed)" },
+        { "name": "Goodwill share of assets", "expression": "Goodwill / Total assets" },
+        { "name": "Impairment loss", "expression": "Carrying value of reporting unit − Fair value (capped at goodwill)" }
+      ]
+    },
+    "realityCheck": [
+      "HP's 2012 loss was driven by goodwill and intangible impairments that included roughly $8.8B tied to its Autonomy acquisition, about a year after the deal closed; verify the exact components in the 10-K.",
+      "Goodwill was about 36% of Cisco's total assets in the fiscal 2020 class excerpt ($33,806M of $94,853M), so acquisition discipline is central to Cisco's balance sheet.",
+      "Impairment tests rely on management's own forecasts and discount rates, which gives wide latitude to delay write-downs."
+    ],
+    "lenses": {
+      "history": "Until 2001, US companies amortized goodwill over up to 40 years and could sometimes avoid it entirely with pooling-of-interests accounting. FAS 141 and 142 ended pooling and replaced amortization with impairment testing, which made write-downs lumpier and more revealing.",
+      "economics": "Many studies find that acquirers' shareholders earn little or negative returns on average, because targets capture the synergies through the premium. Goodwill on the balance sheet is a running record of premiums management promised to earn back.",
+      "behavioralScience": "CEO overconfidence and empire-building drive overpayment, and the winner's curse in competitive auctions makes it worse. Impairments get delayed because a write-down is a public admission of a mistake.",
+      "marketingNarrative": "Deals are sold with synergy targets and strategic narratives, while integration risk and goodwill size get a footnote. When the story fails, the impairment press release tends to blame market conditions.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Goodwill is not an asset you can sell; it is the capitalized cost of a bet, so treat it as sunk when judging today's business. Return on tangible capital shows how good the business is, and return including goodwill shows how good its deal-making has been.",
+      "personalConnection": "Cisco built much of its portfolio through acquisitions, so its goodwill balance is effectively a history of its M&A strategy. For an AI founder, acqui-hires and technology tuck-ins are common exits, and the acquirer's purchase price allocation decides how your product shows up in its financials.",
+      "antiPattern": "Engineers evaluating an acquisition focus on technology fit and ignore the premium, integration costs and the goodwill that must be earned back. Model the deal's required return on the full purchase price, goodwill included, before getting excited about synergies."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-12-ratios-dupont", "relationship": "contrasts-with", "question": "How should you adjust ROA when comparing a serial acquirer with an organic grower?" },
+      { "targetId": "a500-15-read-10k-routine", "relationship": "applied-in", "question": "Where in the 10-K do you find the purchase price allocation and impairment tests?" },
+      { "targetId": "ENTRE542", "relationship": "applied-in", "question": "How do strategic acquirers value a startup at exit, and how much becomes goodwill?" },
+      { "targetId": "MGMT502", "relationship": "applied-in", "question": "When does buying beat building as a strategic choice?" },
+      { "targetId": "MGMT550", "relationship": "applied-in", "question": "What should a board demand before approving a large acquisition?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "HP fiscal 2012 (Foster ACCTG 500 HP case)",
+      "prompt": "HP's fiscal 2012 revenue was $120,357M, but it reported a net loss of $12,650M driven largely by goodwill and intangible impairments, and its stock fell 11.9% on the day of its November 20, 2012 earnings release. Explain the effect of an $8.8B impairment on HP's three statements, and why the stock fell even though no cash left the company.",
+      "cfoAnswer": "The impairment reduced goodwill and intangibles (assets) and, through the loss, retained earnings (equity), with little tax benefit because goodwill impairments are often not deductible. On the cash flow statement it is added back in CFO because no cash moved; the cash left when HP paid for the acquisition. The stock fell because the write-down confirmed that management had overpaid and because the accompanying news and weak outlook lowered expected future cash flows, not because of the accounting entry itself.",
+      "keyTakeaway": "Impairments recognize value destroyed earlier; the market reacts to what they reveal about future cash flows."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Sessions 14–15 Intangible Assets and the Teavana acquisition case",
+      "[Foster: ACCTG 500] HP 2012 Annual Report case and Citrix–Sapho acquisition final review questions",
+      "[Foster: ACCTG 500] Intangibles and Acquisitions self-study",
+      "[Elite MBA: Wharton] Brian Bushee, Introduction to Financial Accounting — business combinations and goodwill",
+      "[Real 10-K / Case] HP fiscal 2012 Form 10-K (impairment charges; verify exact components)"
+    ]
+  },
+  {
+    "id": "a500-14-deferred-taxes",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "Deferred Taxes & Effective vs. Cash Tax Rate",
+    "difficulty": "advanced",
+    "tags": ["deferred taxes", "effective tax rate", "cash taxes", "NOLs", "valuation allowance"],
+    "hook10k": "Companies legally keep two sets of books, one for investors under GAAP and one for tax authorities, and deferred taxes are the bridge between them. The effective tax rate on the income statement can differ sharply from the cash taxes a company actually pays, and the gap reveals timing, location and future obligations.",
+    "pareto20_80": {
+      "summary": "Temporary differences (accelerated tax depreciation, revenue recognized at different times, stock compensation, reserves) create deferred tax liabilities or assets, while permanent differences and jurisdiction mix explain why the effective rate differs from the statutory rate.",
+      "keyPoints": [
+        "Tax expense = Current tax (roughly cash) + Deferred tax expense.",
+        "Accelerated tax depreciation creates a deferred tax liability: lower cash taxes now and higher later.",
+        "Deferred tax assets need a valuation allowance when future taxable profit is unlikely, which is common in loss-making startups with NOLs.",
+        "Effective tax rate = Tax expense / Pre-tax income, while cash tax rate = Cash taxes paid / Pre-tax income.",
+        "One-time items (tax reform, repatriation, valuation allowance releases) can swing reported tax expense dramatically."
+      ],
+      "formulas": [
+        { "name": "Effective tax rate", "expression": "Income tax expense / Pre-tax income" },
+        { "name": "Cash tax rate", "expression": "Cash taxes paid / Pre-tax income" },
+        { "name": "Deferred tax liability", "expression": "Temporary basis difference × Tax rate" }
+      ]
+    },
+    "realityCheck": [
+      "Cisco's fiscal 2018 tax provision was $12,929M on $13,039M of pre-tax income, leaving net income of just $110M, almost entirely because of one-time US tax reform charges rather than operations.",
+      "Startups with years of NOLs carry deferred tax assets offset by full valuation allowances, and releasing the allowance once profitable creates a one-time earnings jump.",
+      "US rules requiring R&D to be capitalized for tax purposes from 2022 raised cash taxes for many software firms even when GAAP profit was unchanged, and later legislation changed the rules again, so verify current law."
+    ],
+    "lenses": {
+      "history": "Book and tax accounting diverge because tax rules serve policy goals, like encouraging investment through accelerated depreciation, while GAAP aims to show economic performance. The 2017 Tax Cuts and Jobs Act cut the US corporate rate from 35% to 21% and forced companies to remeasure every deferred tax balance overnight.",
+      "economics": "A deferred tax liability from accelerated depreciation is an interest-free loan from the government that keeps rolling over as long as the company keeps investing. Growing capital-intensive companies may effectively never repay it.",
+      "behavioralScience": null,
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Valuation runs on cash taxes, not tax expense, so start from what the company actually paid and when it will pay more. Then ask which temporary differences reverse and which simply keep growing.",
+      "personalConnection": "AI infrastructure buildouts benefit from accelerated tax depreciation on servers, so hyperscalers' cash taxes can run below book taxes in heavy GPU investment years. For a PranaScan-stage startup, early losses create NOLs that can shelter future profits, but only if the company survives to use them.",
+      "antiPattern": "Engineers building financial models apply the statutory 21% rate to pre-tax income and call it cash taxes. Model cash taxes separately using NOLs, depreciation differences and jurisdiction mix, and sanity-check against the cash taxes paid disclosure."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-06-capex-depreciation", "relationship": "builds-on", "question": "How does accelerated tax depreciation on servers create a deferred tax liability?" },
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "drives", "question": "Why do deferred taxes appear as an adjustment in operating cash flow?" },
+      { "targetId": "a500-10-equity-sbc", "relationship": "builds-on", "question": "How do stock compensation tax deductions create deferred tax assets and windfalls?" },
+      { "targetId": "FIN502", "relationship": "applied-in", "question": "Which tax rate belongs in WACC, and which in a free cash flow forecast?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Cisco fiscal 2018–2020 (Foster class excerpt, modified for class purposes)",
+      "prompt": "Cisco's class-excerpt income statements show pre-tax income of $13,039M (2018), $14,571M (2019) and $13,970M (2020), with tax provisions of $12,929M, $2,950M and $2,756M. Compute each year's effective tax rate, explain the 2018 outlier, and say what it means for valuation.",
+      "cfoAnswer": "Effective tax rates were about 99.2% (2018), 20.2% (2019) and 19.7% (2020). The 2018 spike reflects one-time Tax Cuts and Jobs Act charges (the transition tax on accumulated foreign earnings and the remeasurement of deferred taxes), which cut GAAP net income to $110M even though operations were healthy. For valuation, normalize to the ongoing rate of roughly 20% and model the transition tax as a multi-year cash payment, visible in Cisco's long-term income taxes payable.",
+      "keyTakeaway": "Normalize one-time tax items and value the business on sustainable cash taxes."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Cisco 2020 annual report excerpts (modified for class purposes)",
+      "[Elite MBA: Wharton] Brian Bushee, Introduction to Financial Accounting — deferred taxes",
+      "[Real 10-K / Case] US Tax Cuts and Jobs Act of 2017 and IRC Section 174 research expense rules (verify current law)"
+    ]
+  },
+  {
+    "id": "a500-15-read-10k-routine",
+    "pillarId": "P1",
+    "courseCode": "ACCTG 500",
+    "title": "How to Read a Tech Company 10-K in 15 Minutes (Step-by-Step Executive Routine)",
+    "difficulty": "advanced",
+    "tags": ["10-K", "routine", "financial statement analysis", "footnotes", "executive skills"],
+    "hook10k": "A 10-K is long, but the answers to most investment, partnership and job questions sit in five places you can scan in fifteen minutes. A repeatable routine turns the filing from a wall of text into a diagnostic checklist.",
+    "pareto20_80": {
+      "summary": "Minutes 0–2: business and segments. Minutes 2–5: MD&A highlights and KPIs. Minutes 5–9: the three statements with quick ratios. Minutes 9–12: revenue recognition, critical estimates and segment notes. Minutes 12–15: risk-factor changes, the auditor's report, and the stock compensation and debt notes.",
+      "keyPoints": [
+        "Start with the cash flow statement to see how the company really makes and spends money.",
+        "Compare revenue growth with growth in receivables, deferred revenue, inventory and CapEx.",
+        "Read the critical accounting estimates to learn where management has the most discretion.",
+        "Check segment disclosures and remaining performance obligations to see where growth comes from.",
+        "Diff this year's risk factors and accounting policy notes against last year's for new language."
+      ],
+      "formulas": [
+        { "name": "Five-number snapshot", "expression": "Revenue growth, Gross margin, Operating margin, FCF margin, SBC as % of revenue" },
+        { "name": "Rule of 40 (SaaS)", "expression": "Revenue growth % + FCF margin %" },
+        { "name": "Capital intensity", "expression": "CapEx / Revenue" }
+      ]
+    },
+    "realityCheck": [
+      "Fifteen minutes finds the questions, not the answers; anything material deserves a full read of the relevant note and the earnings call.",
+      "Companies bury key changes in dense footnote language, so diffing against last year beats reading in isolation.",
+      "Non-GAAP metrics live in earnings releases and investor decks rather than the 10-K, so you need both to reconcile the story."
+    ],
+    "lenses": {
+      "history": "The Securities Exchange Act of 1934 created mandatory annual reporting after the 1929 crash revealed how little investors knew. EDGAR made filings free online in the 1990s, and inline XBRL now makes the numbers machine-readable.",
+      "economics": "Disclosure lowers information asymmetry between insiders and investors, which reduces the cost of capital for companies that disclose clearly. A fifteen-minute routine buys most of that information advantage cheaply.",
+      "behavioralScience": "Readers anchor on the first numbers they see, usually headline revenue and EPS, so a fixed routine that starts elsewhere fights that bias. A checklist also guards against confirmation bias when you already like a company.",
+      "marketingNarrative": "The shareholder letter and MD&A are the company's narrative, while the footnotes are its testimony. Read the narrative to learn what management wants you to believe, then test it against the notes.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Most people read a 10-K front to back and run out of attention before the footnotes, where the most important information lives. Reading in reverse order of polish, notes first and letter last, flips that problem.",
+      "personalConnection": "This routine is a bridge from engineer to AI PM or founder: NVIDIA's, Microsoft's or Cisco's 10-K tells you where AI spending is landing and who captures the margin. Paul Mikesell's pitch structure (TAM, why now, product, go-to-market) maps onto the 10-K business section, so the same routine helps you evaluate startups and incumbents alike.",
+      "antiPattern": "Engineers either skip filings and rely on headlines, or read every page with no question in mind and remember nothing. Start with three specific questions, run the routine, and write down one surprise per filing."
+    },
+    "threadsToPull": [
+      { "targetId": "a500-05-cash-flow-fcf", "relationship": "builds-on", "question": "What does the cash flow statement reveal that the income statement hides?" },
+      { "targetId": "a500-11-earnings-quality", "relationship": "builds-on", "question": "Which red-flag screens can you run in the first five minutes?" },
+      { "targetId": "a500-12-ratios-dupont", "relationship": "builds-on", "question": "Which three ratios give the fastest read on business model and risk?" },
+      { "targetId": "MGMT502", "relationship": "applied-in", "question": "How do segment and risk disclosures reveal a company's real strategy?" },
+      { "targetId": "ENTRE532", "relationship": "applied-in", "question": "How would you adapt the routine to diligence a private software startup?" }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Hyperscaler 10-K before an AI product pitch (scenario)",
+      "prompt": "You have fifteen minutes with a hyperscaler's latest 10-K before a meeting about selling it an AI product. Which five numbers do you pull, from where, and what single question do you bring to the meeting?",
+      "cfoAnswer": "Pull revenue growth by segment (segment note), cloud or AI segment operating margin (segment note and MD&A), CapEx and its growth (cash flow statement), the server useful-life policy and depreciation trend (PP&E note and critical estimates), and remaining performance obligations (revenue note). Together they show how much the company is spending on AI capacity, how fast it must monetize it, and how depreciation will pressure margins. Bring one question: which customer workloads must grow for this CapEx to earn its cost of capital, and how does your product accelerate or cheapen that?",
+      "keyTakeaway": "Go in with questions; the routine shows where to look in minutes."
+    },
+    "sources": [
+      "[Foster: ACCTG 500] Citrix 10-K (edited) final review financials and Session 21 Financial Statement Analysis",
+      "[Foster: ACCTG 500] Sample Exam 2 (2021) Snap and Mondelez financial statement excerpts",
+      "[Elite MBA: Columbia] Stephen Penman, Financial Statement Analysis and Security Valuation — reading financial statements",
+      "[Real 10-K / Case] SEC EDGAR filings and inline XBRL financial data"
+    ]
+  }
+]
