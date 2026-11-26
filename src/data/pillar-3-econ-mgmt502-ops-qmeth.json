@@ -1,0 +1,1507 @@
+[
+  {
+    "id": "be500-01-elasticity-pricing-power",
+    "pillarId": "P3",
+    "courseCode": "B ECON 500",
+    "title": "Price Elasticity and Pricing Power",
+    "difficulty": "foundation",
+    "tags": [
+      "elasticity",
+      "pricing",
+      "demand",
+      "microeconomics"
+    ],
+    "hook10k": "Price elasticity tells you how many customers walk away when you raise the price, and that single number decides whether a price increase grows revenue or shrinks it. Firms with pricing power face inelastic demand, which is why strategy is ultimately about making your demand curve steeper.",
+    "pareto20_80": {
+      "summary": "Elasticity measures the percentage change in quantity demanded for a one percent change in price. When demand is inelastic a price rise increases revenue, when it is elastic revenue falls, and the profit-maximizing markup over marginal cost shrinks as elasticity grows.",
+      "keyPoints": [
+        "Own-price elasticity E = %ΔQ / %ΔP; |E| > 1 is elastic and |E| < 1 is inelastic.",
+        "Revenue rises with price only while demand is inelastic, so a firm never prices in the inelastic range at its profit maximum.",
+        "Substitutes, budget share and time horizon drive elasticity; demand is more elastic in the long run than the short run.",
+        "The Lerner rule links markup to elasticity: (P − MC) / P = 1 / |E|.",
+        "Cross-price elasticity identifies substitutes (positive) and complements (negative), which defines the real competitive set."
+      ],
+      "formulas": [
+        {
+          "name": "Own-price elasticity",
+          "expression": "E = (ΔQ / Q) / (ΔP / P)"
+        },
+        {
+          "name": "Lerner markup rule",
+          "expression": "(P − MC) / P = 1 / |E|"
+        },
+        {
+          "name": "Revenue change",
+          "expression": "ΔR / R ≈ (1 + E) × ΔP / P"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most firms never estimate elasticity directly and instead copy competitors' prices, leaving money on the table when their own demand is less elastic.",
+      "Elasticity measured from a small price test can differ from the response to a large, public price change that triggers switching."
+    ],
+    "lenses": {
+      "history": "Alfred Marshall introduced elasticity of demand in his Principles of Economics in 1890. Abba Lerner later tied the markup a firm can sustain to that elasticity in 1934.",
+      "economics": "A firm facing a downward-sloping demand curve sets marginal revenue equal to marginal cost, and marginal revenue equals P × (1 + 1/E). The less elastic the demand, the larger the gap between price and marginal cost the firm can keep.",
+      "behavioralScience": "Customers judge prices against reference points, so a price rise feels like a loss and triggers a larger response than an equal cut. Anchoring on a list price is why discounts from a high anchor often outperform a lower everyday price.",
+      "marketingNarrative": "Branding, bundling and switching costs all exist to make demand less elastic. A story that makes a product feel unique moves the customer off price comparison and onto value.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Lowering price to win share only pays when demand is elastic and competitors do not follow. In a concentrated market with matching rivals, the realized elasticity is the industry's, which is usually far lower.",
+      "personalConnection": "GPU inference is priced per token, and hyperscaler price cuts test how elastic developer demand really is. Carbon Robotics sells a LaserWeeder against hand-weeding labor, so its pricing power rests on how few close substitutes a grower has.",
+      "antiPattern": "Teams set price as cost plus a fixed margin and never ask how customers respond. Start from willingness to pay and elasticity, then check that the price clears marginal cost."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "applied-in",
+        "question": "How does target costing start from the price the market will bear?"
+      },
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "foundation-for",
+        "question": "How does willingness to pay above cost become a lasting competitive advantage?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "drives",
+        "question": "How does a price change flow through to contribution margin and LTV?"
+      },
+      {
+        "targetId": "MKTG501",
+        "relationship": "applied-in",
+        "question": "How will marketing research measure willingness to pay for a new product?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative SaaS price increase",
+      "prompt": "A software product sells 10,000 seats at $50 per month with a variable cost of $10 per seat. Testing suggests elasticity of −0.6. The board asks whether a 10% price increase is a good idea and what it does to monthly contribution.",
+      "cfoAnswer": "With elasticity of −0.6, a 10% price rise cuts volume about 6%, to 9,400 seats. Price becomes $55, so contribution per seat rises from $40 to $45 and monthly contribution moves from $400,000 to about $423,000, up 5.8%. Revenue also rises because demand is inelastic, so the increase is worth doing, with a churn watch for the first two months.",
+      "keyTakeaway": "When demand is inelastic, a price rise lifts both revenue and contribution."
+    },
+    "sources": [
+      "[Foster: B ECON 500] Business economics sessions on demand, elasticity and pricing",
+      "[Foster: B ECON 500] Practice exam problems on elasticity and revenue",
+      "[Elite MBA: MIT Sloan] Pindyck and Rubinfeld, Microeconomics, elasticity and the Lerner index"
+    ]
+  },
+  {
+    "id": "be500-02-marginal-cost-diminishing-returns",
+    "pillarId": "P3",
+    "courseCode": "B ECON 500",
+    "title": "Marginal Cost and Diminishing Returns",
+    "difficulty": "foundation",
+    "tags": [
+      "marginal cost",
+      "diminishing returns",
+      "production",
+      "scale"
+    ],
+    "hook10k": "Adding one more worker or one more machine helps less and less once a fixed resource gets crowded, and eventually it hurts. Marginal cost, not average cost, is the number that tells you whether the next unit is worth producing.",
+    "pareto20_80": {
+      "summary": "Marginal cost is the change in total cost from producing one more unit, and it rises when a fixed input limits how much extra output each new variable input adds. Decisions on output, hiring and pricing should compare marginal cost with marginal revenue, while sunk and fixed costs stay out of the choice.",
+      "keyPoints": [
+        "Marginal product of labor falls as more workers share the same fixed capital, so marginal cost rises.",
+        "Output can fall when too many inputs crowd a fixed resource, which makes marginal product negative.",
+        "Produce up to the point where marginal revenue equals marginal cost; average cost does not decide the next unit.",
+        "Average cost falls while marginal cost is below it and rises once marginal cost is above it.",
+        "Economies of scale come from spreading fixed cost and specialization; diseconomies come from coordination load."
+      ],
+      "formulas": [
+        {
+          "name": "Marginal cost",
+          "expression": "MC = ΔTC / ΔQ"
+        },
+        {
+          "name": "Marginal product",
+          "expression": "MP_L = ΔQ / ΔL"
+        },
+        {
+          "name": "Cost per unit of labor output",
+          "expression": "MC = wage / MP_L"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Accounting systems report average cost, so managers often price or staff on averages that hide a steeply rising marginal cost.",
+      "Software teams rarely measure marginal output per engineer, yet adding people to a late project often slows it down."
+    ],
+    "lenses": {
+      "history": "David Ricardo described diminishing returns on farmland in 1817, when extra labor on fixed land yielded less grain. Fred Brooks found the same pattern in software in The Mythical Man-Month in 1975.",
+      "economics": "In the short run some inputs are fixed, so each added unit of a variable input yields less extra output and marginal cost rises. A competitive firm supplies where price equals marginal cost, which is why the supply curve slopes upward.",
+      "behavioralScience": "Managers feel visible headcount as progress, so adding people looks like action even when the marginal product is near zero. The sunk-cost fallacy then keeps them investing in a crowded effort.",
+      "marketingNarrative": null,
+      "sociology": "Each new team member adds communication paths that grow with the square of team size. Coordination overhead is the social mechanism behind diminishing returns in knowledge work.",
+      "firstPrinciplesContrarian": "Scale is not automatically an advantage, because past the efficient scale marginal cost rises again. The right question is where marginal cost bottoms out, not how big the operation can get.",
+      "personalConnection": "Adding GPUs to a training job shows diminishing returns once the interconnect, not compute, limits throughput. In enterprise engineering, as at Cisco, adding engineers to a late release raises marginal cost per feature as coordination grows.",
+      "antiPattern": "Leaders answer every delay with more headcount or more hardware. First find the fixed resource that crowds, then add capacity only where marginal output is still high."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-01-cost-behavior-operating-leverage",
+        "relationship": "builds-on",
+        "question": "How do fixed and variable costs shape the marginal cost curve?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "applied-in",
+        "question": "Why do only marginal, avoidable costs matter for a make-versus-buy decision?"
+      },
+      {
+        "targetId": "op502-01-process-flow-bottleneck",
+        "relationship": "foundation-for",
+        "question": "Which fixed resource in a process causes output to stop rising as inputs grow?"
+      },
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "contrasts-with",
+        "question": "How does the markup over marginal cost depend on how customers respond to price?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative engineering team staffing plan",
+      "prompt": "A team's weekly output rises from 60 to 75 features when staff grows from 5 to 6, then to 80 at 7 and 78 at 8 engineers. Each engineer costs $5,000 per week. The VP wants to hire the 8th engineer to hit a deadline. What do you advise?",
+      "cfoAnswer": "Marginal cost per feature is $5,000 / 15 ≈ $333 for the 6th engineer and $5,000 / 5 = $1,000 for the 7th. The 8th has a negative marginal product of −2 features, so hiring adds cost and reduces output. Do not hire; instead remove the shared constraint, such as review or test capacity, that crowds the team.",
+      "keyTakeaway": "When marginal product turns negative, more input means less output at higher cost."
+    },
+    "sources": [
+      "[Foster: B ECON 500] Production and cost spreadsheet on programmers and lines of code",
+      "[Foster: B ECON 500] Business economics sessions on short-run cost curves",
+      "[Elite MBA: MIT Sloan] Brooks, The Mythical Man-Month, on adding people to late projects"
+    ]
+  },
+  {
+    "id": "be501-01-gdp-business-cycle-multipliers",
+    "pillarId": "P3",
+    "courseCode": "B ECON 501",
+    "title": "GDP, the Business Cycle and Fiscal Multipliers",
+    "difficulty": "foundation",
+    "tags": [
+      "gdp",
+      "business cycle",
+      "fiscal policy",
+      "macroeconomics"
+    ],
+    "hook10k": "GDP is the economy's income statement, adding up consumption, investment, government spending and net exports. When the cycle turns, every company's revenue forecast turns with it, so a CFO needs to know which part of GDP their customers live in.",
+    "pareto20_80": {
+      "summary": "GDP measures the value of final goods and services produced, and it moves in cycles of expansion and recession. Government spending and tax changes shift aggregate demand with a multiplier effect, which is larger for spending than for tax cuts and smaller when the economy is near full capacity.",
+      "keyPoints": [
+        "Expenditure identity: Y = C + I + G + (X − M), with consumption the largest share in the US.",
+        "Investment is the most volatile component, so capital-goods suppliers feel the cycle first and hardest.",
+        "The simple spending multiplier is 1 / (1 − MPC); leakages to taxes and imports make the real multiplier smaller.",
+        "Estimates put the US spending multiplier around 1.5 to 2 in a slack economy and the tax multiplier near 0.5 to 1.",
+        "Real GDP removes inflation; nominal revenue growth in a boom can hide flat real demand."
+      ],
+      "formulas": [
+        {
+          "name": "Expenditure identity",
+          "expression": "Y = C + I + G + (X − M)"
+        },
+        {
+          "name": "Spending multiplier",
+          "expression": "ΔY / ΔG = 1 / (1 − MPC)"
+        },
+        {
+          "name": "Real GDP growth",
+          "expression": "g_real ≈ g_nominal − inflation"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Recessions are only dated after the fact, so plans built on official signals react months late.",
+      "Multipliers differ widely by country, timing and monetary response, so a single textbook value can mislead a forecast."
+    ],
+    "lenses": {
+      "history": "Simon Kuznets built the first US national income accounts in the 1930s to measure the Great Depression. John Maynard Keynes's General Theory in 1936 supplied the multiplier logic for fiscal policy.",
+      "economics": "One person's spending is another's income, so an initial injection circulates through the economy several times. Each round shrinks as households save part of new income, pay taxes and buy imports.",
+      "behavioralScience": "Business confidence swings with the news, so investment collapses faster than fundamentals justify in a downturn. Keynes called this animal spirits, and it amplifies the cycle.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A government spending boost does little when the economy is already at capacity, because it crowds out private investment and raises rates. The multiplier is a property of slack, not a constant.",
+      "personalConnection": "Enterprise IT budgets at Cisco-scale customers are investment spending, so they are cut early in a downturn and rebound late. A farm equipment buyer considering a Carbon Robotics LaserWeeder delays purchases when credit tightens and crop prices fall.",
+      "antiPattern": "Teams extrapolate boom-year growth into a five-year plan. Build a recession case tied to the GDP component your customers depend on."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-09-budgeting-forecasting",
+        "relationship": "applied-in",
+        "question": "How should a sales budget change when GDP growth slows?"
+      },
+      {
+        "targetId": "be501-02-rates-monetary-policy-cost-of-capital",
+        "relationship": "foundation-for",
+        "question": "How does the central bank respond when output falls below potential?"
+      },
+      {
+        "targetId": "a501-01-cost-behavior-operating-leverage",
+        "relationship": "risk-for",
+        "question": "Why does high operating leverage magnify a recession's hit to profit?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative infrastructure spending program",
+      "prompt": "The government announces $100B of new infrastructure spending in a slack economy where households spend 75 cents of each extra dollar. Your company sells construction equipment. Estimate the GDP effect and explain what it means for next year's sales plan.",
+      "cfoAnswer": "The simple multiplier is 1 / (1 − 0.75) = 4, but taxes and imports cut it to the 1.5 to 2 range that estimates support, so GDP rises roughly $150B to $200B. The first-round demand lands directly on construction, so our sales should lead the economy. Plan for higher volume in the program's spending window, but stage capacity additions because the effect fades as projects finish.",
+      "keyTakeaway": "Map fiscal programs to the GDP component your customers depend on, then plan for the fade."
+    },
+    "sources": [
+      "[Foster: B ECON 501] Global economic conditions sessions on GDP accounting and the business cycle",
+      "[Foster: B ECON 501] Lecture notes on fiscal policy and spending versus tax multipliers",
+      "[Elite MBA: Harvard Business School] Mankiw, Macroeconomics, aggregate demand and the multiplier"
+    ]
+  },
+  {
+    "id": "be501-02-rates-monetary-policy-cost-of-capital",
+    "pillarId": "P3",
+    "courseCode": "B ECON 501",
+    "title": "Interest Rates, Monetary Policy and the Cost of Capital",
+    "difficulty": "intermediate",
+    "tags": [
+      "interest rates",
+      "monetary policy",
+      "inflation",
+      "cost of capital"
+    ],
+    "hook10k": "When the central bank raises rates, every future cash flow is worth less today, which is why long-duration growth stocks fall hardest. Monetary policy is the dial that sets the risk-free rate inside every company's cost of capital.",
+    "pareto20_80": {
+      "summary": "Central banks set short-term policy rates to keep inflation near target and output near potential. Those rates pass into bond yields, borrowing costs and the risk-free rate in WACC, so policy shifts change valuations, investment hurdles and the funding climate for startups.",
+      "keyPoints": [
+        "The Taylor rule gives a policy rate from neutral rate, inflation gap and output gap.",
+        "Higher rates raise the risk-free rate and the cost of debt, so WACC and hurdle rates rise.",
+        "Long-duration assets with cash flows far in the future lose the most value when rates rise.",
+        "The Fisher relation separates real rates from expected inflation in nominal yields.",
+        "Automation and structural change can raise unemployment even as output grows, which complicates the policy trade-off."
+      ],
+      "formulas": [
+        {
+          "name": "Taylor rule",
+          "expression": "i = r* + π + 0.5 × (π − π*) + 0.5 × output gap"
+        },
+        {
+          "name": "Fisher relation",
+          "expression": "(1 + i) = (1 + r) × (1 + π)"
+        },
+        {
+          "name": "Duration price sensitivity",
+          "expression": "ΔP / P ≈ −Duration × Δy"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Policy works with long and variable lags, so the full effect of a rate rise often lands a year or more later.",
+      "Many companies leave their hurdle rate unchanged for years even after the risk-free rate has moved by several points."
+    ],
+    "lenses": {
+      "history": "The Volcker Federal Reserve raised policy rates near 20% in 1981 to break double-digit inflation. John Taylor proposed his rule in 1993 as a description of how central banks actually set rates.",
+      "economics": "Lower rates make borrowing cheap and raise asset prices, which lifts investment and consumption. Higher rates do the reverse, cooling demand and inflation at the cost of slower growth.",
+      "behavioralScience": "Investors extrapolate low rates as permanent and pay high multiples for distant growth. When rates rise, the same investors overreact and funding dries up for even sound businesses.",
+      "marketingNarrative": null,
+      "sociology": "Automation can displace routine jobs faster than workers retrain, creating structural unemployment that rate cuts cannot fix. Policy debates then shift from monetary to training and safety-net tools.",
+      "firstPrinciplesContrarian": "A startup's valuation can fall with no change in its business when the discount rate rises. Founders should judge progress by unit economics, not by how valuations move with rates.",
+      "personalConnection": "A GPU cluster financed with debt costs more to carry when rates rise, which tips the build-versus-rent choice toward cloud capacity. Carbon Robotics' growers often finance equipment, so higher rates lengthen the payback a LaserWeeder must beat.",
+      "antiPattern": "Teams keep a fixed 10% discount rate in every model regardless of the rate environment. Rebuild WACC from the current risk-free rate each planning cycle."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "drives",
+        "question": "How does a higher risk-free rate change the CAPM cost of equity and WACC?"
+      },
+      {
+        "targetId": "f502-01-tvm-npv-irr",
+        "relationship": "measured-by",
+        "question": "Why do long-dated cash flows lose the most present value when rates rise?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "risk-for",
+        "question": "How do rate cycles change venture fundraising and exit multiples?"
+      },
+      {
+        "targetId": "be501-01-gdp-business-cycle-multipliers",
+        "relationship": "builds-on",
+        "question": "How does the output gap enter the central bank's rate decision?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative growth company in a rising-rate year",
+      "prompt": "The central bank lifts the policy rate by 2 points and the 10-year yield rises from 3% to 5%. Your WACC was 9% with a 5% equity risk premium and beta of 1.2. The board asks how much the valuation of a business with most cash flows ten years out should change.",
+      "cfoAnswer": "The cost of equity rises about 2 points, so WACC moves from roughly 9% to near 11%. A cash flow ten years out is worth 1 / 1.11^10 ≈ 0.35 of face value versus 1 / 1.09^10 ≈ 0.42 before, a fall of about 17%. Expect a valuation drop of that order with no change in operations, and protect runway rather than chase growth at any cost.",
+      "keyTakeaway": "Rate rises hit long-duration businesses hardest, even when nothing operational changes."
+    },
+    "sources": [
+      "[Foster: B ECON 501] Global economic conditions sessions on monetary policy and interest rates",
+      "[Foster: B ECON 501] Session materials on automation, labor markets and structural unemployment",
+      "[Elite MBA: Stanford GSB] Taylor, Discretion versus policy rules in practice, 1993"
+    ]
+  },
+  {
+    "id": "m502-01-strategy-vs-operational-effectiveness",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Strategy versus Operational Effectiveness",
+    "difficulty": "foundation",
+    "tags": [
+      "strategy",
+      "trade-offs",
+      "positioning",
+      "operational effectiveness"
+    ],
+    "hook10k": "Doing the same things better than rivals is operational effectiveness, and it is necessary but rarely enough, because best practices spread. Strategy is choosing to do different things, or the same things differently, and accepting the trade-offs that make the position hard to copy.",
+    "pareto20_80": {
+      "summary": "Operational effectiveness means performing similar activities better than rivals, while strategy means a unique position built on a distinct set of activities. Trade-offs make a position defensible, and fit among activities makes it hard to imitate piece by piece.",
+      "keyPoints": [
+        "Competing on best practice alone leads to convergence, where every firm improves and no one gains a lasting edge.",
+        "A strategic position can rest on variety served, needs served or access to customers.",
+        "Trade-offs, choosing what not to do, protect a position from straddling competitors.",
+        "Fit across activities means a rival must copy the whole system, not one practice, to match performance.",
+        "A strategy statement names the objective, the scope and the advantage the firm will rely on."
+      ],
+      "formulas": [
+        {
+          "name": "Value created",
+          "expression": "Value = Willingness to pay − Supplier opportunity cost"
+        },
+        {
+          "name": "Strategy statement",
+          "expression": "Strategy = Objective + Scope + Advantage"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many strategic plans are budgets with growth targets attached, with no stated trade-off or choice of what not to do.",
+      "Operational improvement programs often get labeled as strategy, which hides the fact that rivals can copy them within a year."
+    ],
+    "lenses": {
+      "history": "Michael Porter's 1996 Harvard Business Review article What Is Strategy? drew the line between operational effectiveness and strategy. It responded to a decade in which Japanese firms won on quality and cost, then converged with one another.",
+      "economics": "If every firm adopts the same best practices, the gains are competed away and passed to customers as lower prices. Only a unique position lets a firm keep part of the value it creates.",
+      "behavioralScience": "Leaders avoid trade-offs because saying no to a customer segment feels like losing revenue. That loss aversion produces straddling strategies that serve everyone poorly.",
+      "marketingNarrative": "A clear position gives the brand a story customers can repeat, such as the cheapest fare or the safest car. Positioning that tries to be everything has nothing memorable to say.",
+      "sociology": "Industries develop shared recipes, and managers who read the same reports and hire the same consultants converge on the same moves. Institutional pressure toward imitation is a quiet enemy of distinct strategy.",
+      "firstPrinciplesContrarian": "Being the best at everything is not a strategy, because rivals can copy any single practice. Choose the customers and needs you will not serve, and design activities that only make sense together.",
+      "personalConnection": "Enterprise vendors like Cisco often straddle every segment, which leaves room for focused rivals. Carbon Robotics chose one job, laser weeding of high-value crops, and built hardware, software and service around it.",
+      "antiPattern": "A strategy deck lists goals like grow revenue 30% and become best in class. Replace it with a stated position, the trade-offs it requires and the activities that reinforce it."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-02-five-forces-industry-structure",
+        "relationship": "foundation-for",
+        "question": "Which industry forces decide how much profit any position can earn?"
+      },
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "How does a unique position show up as a wider gap between willingness to pay and cost?"
+      },
+      {
+        "targetId": "op502-03-variability-queueing-pooling",
+        "relationship": "contrasts-with",
+        "question": "When is operational excellence itself the source of a distinct position?"
+      },
+      {
+        "targetId": "a501-04-activity-based-costing",
+        "relationship": "measured-by",
+        "question": "How can activity-based costing reveal which activities truly support the strategy?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative regional airline facing a low-cost entrant",
+      "prompt": "A full-service regional airline sees a low-cost carrier enter its top routes. The CEO proposes launching a no-frills sub-brand on the same routes while keeping lounges, connections and assigned seating on the main brand. Should the board approve?",
+      "cfoAnswer": "Running both models on the same routes is a straddle: the sub-brand shares crews, gates and systems built for full service, so it cannot reach the entrant's cost. Past attempts of this kind have mostly been shut down after losses. Instead, compete on the connecting and business traffic the entrant does not serve, and cut cost through operational effectiveness where it does not dilute that position.",
+      "keyTakeaway": "Straddling two positions usually means matching neither rival's economics."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Business strategy syllabus and opening session on strategy as choice",
+      "[Foster: MGMT 502] Porter, What Is Strategy?, Harvard Business Review reading",
+      "[Elite MBA: Harvard Business School] Porter, What Is Strategy?, 1996, operational effectiveness versus strategy"
+    ]
+  },
+  {
+    "id": "m502-02-five-forces-industry-structure",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Five Forces and Industry Structure",
+    "difficulty": "foundation",
+    "tags": [
+      "five forces",
+      "industry analysis",
+      "profitability",
+      "competition"
+    ],
+    "hook10k": "Some industries earn high returns for decades while others destroy capital no matter who runs them, and the difference is structure, not management. The five forces explain who captures the value an industry creates: rivals, buyers, suppliers, substitutes or new entrants.",
+    "pareto20_80": {
+      "summary": "Industry profitability depends on five forces: rivalry among competitors, threat of new entrants, bargaining power of buyers, bargaining power of suppliers and threat of substitutes. Strong forces cap returns, so a strategist positions the firm where forces are weakest or reshapes them.",
+      "keyPoints": [
+        "Entry barriers include scale economies, switching costs, network effects, capital needs and access to channels.",
+        "Concentrated, price-sensitive buyers and concentrated suppliers with unique inputs both squeeze margins.",
+        "Substitutes cap price even when they come from outside the industry, as video calls did for business travel.",
+        "Rivalry is fiercest with many similar firms, slow growth, high fixed costs and high exit barriers.",
+        "Complements and government are not forces, but they shape how each force plays out."
+      ],
+      "formulas": [
+        {
+          "name": "Industry return test",
+          "expression": "Average ROIC − WACC across incumbents over a full cycle"
+        },
+        {
+          "name": "Buyer concentration",
+          "expression": "CR4 = Sum of the four largest buyers' share of purchases"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Analysts often list forces as high or low without tying them to margins, which turns the framework into a checklist instead of an explanation.",
+      "Industry boundaries are often drawn too narrowly, so substitutes from adjacent markets get missed until they take share."
+    ],
+    "lenses": {
+      "history": "Michael Porter published the five forces in Harvard Business Review in 1979, drawing on industrial organization economics. He updated it in 2008 with examples such as airlines and ready-to-eat cereal.",
+      "economics": "In a perfectly competitive market economic profit is zero, and each force is a reason a real industry departs from or moves toward that benchmark. Barriers to entry are what let incumbents earn returns above the cost of capital.",
+      "behavioralScience": "Executives overrate their own firm's skill and underrate structural forces, attributing a bad industry's results to poor management. That bias leads to entering attractive-looking markets where incumbents are already earning low returns.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "Growth does not make an industry attractive, because fast growth invites entry and can hide weak structure. Airlines grew for decades while destroying shareholder value, while slow-growing cereal earned high returns.",
+      "personalConnection": "In GPU compute, a concentrated supplier holds strong bargaining power over hyperscaler buyers, which is why hyperscalers design their own chips. Carbon Robotics sells to fragmented growers, so buyer power is low, but substitutes like herbicides and hand labor cap price.",
+      "antiPattern": "A team declares an industry attractive because the market is large and growing. Check incumbents' returns versus cost of capital and identify which force will capture the value."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-01-strategy-vs-operational-effectiveness",
+        "relationship": "builds-on",
+        "question": "How does a firm position itself where the five forces are weakest?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "measured-by",
+        "question": "Which forces explain why an industry's ROIC sits above or below WACC?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "contrasts-with",
+        "question": "How do network effects create entry barriers that the classic forces miss?"
+      },
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "measured-by",
+        "question": "How do margin and turnover ratios reveal buyer and supplier power?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative entry into commercial drone delivery",
+      "prompt": "The board is excited that commercial drone delivery could become a large market. Five well-funded startups are already in it, buyers are a handful of national retailers and airspace rules are still forming. Should the company enter?",
+      "cfoAnswer": "Size is not the issue; structure is. Concentrated retail buyers will push price down, five funded rivals mean heavy rivalry and the hardware is not yet a barrier to entry. Unless the company can own a scarce input, such as regulatory approvals or a dense route network, returns will likely fall below the cost of capital, so enter only with a plan to build that barrier.",
+      "keyTakeaway": "A big market with weak structure is a trap; enter only where you can build a barrier."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Session on industry analysis and the five competitive forces",
+      "[Foster: MGMT 502] Porter, The Five Competitive Forces That Shape Strategy, 2008 reading",
+      "[Elite MBA: Harvard Business School] Porter, Competitive Strategy, 1980, industry structure analysis"
+    ]
+  },
+  {
+    "id": "m502-03-competitive-advantage-wtp-cost-vrio",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Competitive Advantage: Willingness to Pay, Cost and VRIO",
+    "difficulty": "intermediate",
+    "tags": [
+      "competitive advantage",
+      "value creation",
+      "vrio",
+      "resources"
+    ],
+    "hook10k": "A firm has a competitive advantage when it widens the gap between what customers will pay and what its inputs cost more than rivals can. Resources that are valuable, rare, hard to imitate and organized for use are what keep that gap open.",
+    "pareto20_80": {
+      "summary": "Value created equals customer willingness to pay minus supplier opportunity cost, and a firm's advantage is creating more of that value than rivals. Advantage comes from higher willingness to pay, lower cost or both, and it lasts only when built on resources that pass the VRIO test.",
+      "keyPoints": [
+        "Draw the value stick: willingness to pay at the top, price, cost and supplier opportunity cost below it.",
+        "Customer surplus is WTP minus price; firm margin is price minus cost; supplier surplus is cost minus opportunity cost.",
+        "A differentiation advantage raises WTP faster than cost; a cost advantage lowers cost faster than WTP falls.",
+        "VRIO asks whether a resource is valuable, rare, inimitable and organized to capture value.",
+        "Economic profit, NOPAT minus a charge for capital, shows whether the advantage beats the cost of capital."
+      ],
+      "formulas": [
+        {
+          "name": "Value created",
+          "expression": "Value = WTP − Supplier opportunity cost"
+        },
+        {
+          "name": "Economic profit",
+          "expression": "EP = NOPAT − WACC × Invested capital"
+        },
+        {
+          "name": "Relative advantage",
+          "expression": "Advantage = (WTP − C)_firm − (WTP − C)_best rival"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Companies claim advantages that customers do not pay for, such as features that raise cost but not willingness to pay.",
+      "A resource that is valuable and rare can still fail the imitability test once a rival hires away the team behind it."
+    ],
+    "lenses": {
+      "history": "Brandenburger and Stuart formalized value-based strategy in 1996, and Ghemawat and Rivkin brought the value stick into MBA teaching. Jay Barney published the resource-based view in 1991, which became the VRIO test.",
+      "economics": "Economic profit above the cost of capital attracts imitation, so a lasting gap requires a barrier that blocks rivals from matching WTP or cost. Firms with large positive economic profit for years, such as a leading drug maker, have resources others cannot copy.",
+      "behavioralScience": "Engineers tend to value features by their difficulty rather than by what customers will pay for them. Customer interviews that test willingness to pay correct that bias before money is spent.",
+      "marketingNarrative": "Willingness to pay is partly built by narrative, through brand, trust and a clear promise. A strong story raises the top of the value stick without raising cost.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Low price is not a competitive advantage, because anyone can cut price. Only a lower cost position or higher willingness to pay lets a firm keep margin while pricing aggressively.",
+      "personalConnection": "Carbon Robotics' advantage sits in its proprietary crop-and-weed image data and models, which are valuable, rare and hard to imitate. In enterprise AI, raw GPU access is not rare, so advantage moves to data, workflow integration and trust.",
+      "antiPattern": "A team lists strengths such as great people and strong culture as its advantage. Tie each claimed advantage to a measurable gap in WTP or cost versus the best rival."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "builds-on",
+        "question": "How does willingness to pay shape the price a firm can charge?"
+      },
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "applied-in",
+        "question": "How does target costing hold cost below a price set by willingness to pay?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "measured-by",
+        "question": "How does ROIC above WACC confirm a real competitive advantage?"
+      },
+      {
+        "targetId": "m502-06-helmer-7-powers",
+        "relationship": "foundation-for",
+        "question": "Which kinds of power keep the value gap from being competed away?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative industrial robot maker",
+      "prompt": "Your robot sells for $100k, costs $60k to build and customers say they would pay up to $140k. A rival offers a similar robot at $90k built for $70k with willingness to pay of $115k. Who has the advantage, and where should you invest next?",
+      "cfoAnswer": "Your value created is $140k − $60k = $80k versus the rival's $115k − $70k = $45k, so you create $35k more value per unit. You hold the advantage on both sides of the stick. Invest in what keeps it, such as the data or know-how behind the higher willingness to pay, and resist cutting price to $90k when you can win while keeping a larger margin.",
+      "keyTakeaway": "Advantage is a wider WTP-minus-cost gap than the best rival, not a lower price."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Session on creating competitive advantage and the value stick",
+      "[Foster: MGMT 502] Reading on economic profit comparisons across companies",
+      "[Elite MBA: Harvard Business School] Ghemawat and Rivkin, Creating Competitive Advantage, note"
+    ]
+  },
+  {
+    "id": "m502-04-competitive-dynamics-game-theory",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Competitive Dynamics and Game Theory",
+    "difficulty": "intermediate",
+    "tags": [
+      "game theory",
+      "competitive dynamics",
+      "entry deterrence",
+      "pricing"
+    ],
+    "hook10k": "Every strategic move invites a response, so the right question is never what is best for us but what is best given what rivals will do next. Game theory turns that into a habit: map the players, their payoffs and their likely reactions before you move.",
+    "pareto20_80": {
+      "summary": "Competitive dynamics studies how firms move and respond, using game theory to predict rivals' reactions. Entry games, price wars and commitment show that credible commitments, small footholds that do not provoke a response and reading competitors' incentives often beat head-on attacks.",
+      "keyPoints": [
+        "Draw the game tree and solve it backward: find each player's best response at the last move first.",
+        "A threat only deters if it is credible, meaning the incumbent would actually carry it out once entry happens.",
+        "Price wars are often a prisoner's dilemma in which each firm's cut makes all firms worse off.",
+        "Judo strategy lets a small entrant avoid provoking a large incumbent by staying in segments the incumbent will not defend.",
+        "Competitor analysis looks at a rival's goals, assumptions, resources and current strategy to predict its moves."
+      ],
+      "formulas": [
+        {
+          "name": "Expected payoff",
+          "expression": "E[π] = Σ p_i × π_i over rival responses i"
+        },
+        {
+          "name": "Nash equilibrium test",
+          "expression": "No player gains by changing strategy alone: π_i(s_i*, s_−i*) ≥ π_i(s_i, s_−i*)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Plans often model the market as if competitors stand still, so forecast share gains assume no price or feature response.",
+      "Incumbents sometimes respond irrationally to protect pride or reputation, so a purely rational model can understate the reaction."
+    ],
+    "lenses": {
+      "history": "John von Neumann and Oskar Morgenstern founded game theory in 1944, and John Nash defined equilibrium in 1950. Thomas Schelling applied it to commitment and credible threats in The Strategy of Conflict in 1960.",
+      "economics": "In an oligopoly each firm's profit depends on rivals' choices, so equilibrium is where no firm wants to change its move alone. Commitments such as sunk capacity change the equilibrium by changing payoffs.",
+      "behavioralScience": "Managers anchor on their own plan and forget that rivals are also planning. Role-playing the competitor's leadership team is a simple way to break that blind spot.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The best move for an entrant is often to look small and unthreatening, not bold. A loud attack on an incumbent's core invites a response the entrant cannot survive.",
+      "personalConnection": "When a hyperscaler cuts GPU instance prices, rivals must decide whether to match, which is a classic pricing game. Carbon Robotics entered specialty crops that large equipment makers were not defending, a judo-style foothold.",
+      "antiPattern": "A team forecasts share gains from a price cut as if rivals will not react. Model at least two rival responses and check whether the move still pays."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-02-five-forces-industry-structure",
+        "relationship": "builds-on",
+        "question": "How does rivalry among existing firms shape the payoff of each move?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "contrasts-with",
+        "question": "Why do incumbents often choose not to respond to a disruptive entrant?"
+      },
+      {
+        "targetId": "a501-03-cvp-sales-mix",
+        "relationship": "applied-in",
+        "question": "How much volume must a price cut win to keep profit flat?"
+      },
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "applied-in",
+        "question": "How can staging an entry keep the option to retreat if the incumbent fights back?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative incumbent facing a low-price entrant",
+      "prompt": "An entrant launches at 20% below your price in your largest segment. Matching would cut your margin from 40% to 25% across all customers. Ignoring it risks losing perhaps 10% of volume. Which response do you recommend?",
+      "cfoAnswer": "Matching across the whole base costs 15 margin points on every unit to protect at most 10% of volume, so it destroys far more profit than it saves. A targeted response, such as a fighting product or discounts only for at-risk accounts, protects share without repricing loyal customers. Also signal capacity and commitment so the entrant sees that a broader attack would not pay.",
+      "keyTakeaway": "Respond where the entrant attacks, not by repricing your whole customer base."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Session on competitive dynamics, entry games and competitor analysis",
+      "[Foster: MGMT 502] Case discussion of a low-cost airline's entry and incumbent responses",
+      "[Elite MBA: Harvard Business School] Yoffie and Kwak, Judo Strategy, reading on small-entrant tactics"
+    ]
+  },
+  {
+    "id": "m502-05-corporate-scope-integration-alliances",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Corporate Scope: Vertical Integration, M&A and Alliances",
+    "difficulty": "advanced",
+    "tags": [
+      "vertical integration",
+      "mergers and acquisitions",
+      "alliances",
+      "corporate strategy"
+    ],
+    "hook10k": "Deciding what to own, what to buy and what to partner for is the most expensive strategic choice a company makes, and most acquirers overpay. Corporate strategy only creates value when the combined firm is worth more than the parts plus the premium paid.",
+    "pareto20_80": {
+      "summary": "Corporate scope covers which stages of the value chain and which businesses a firm owns. Vertical integration, acquisitions and alliances each solve coordination or hold-up problems, but they add cost, and acquisitions often transfer the synergy to the seller through the premium.",
+      "keyPoints": [
+        "Integrate vertically when specific assets, hold-up risk or tight coordination make market contracts fail.",
+        "Stay virtual when the needed capabilities exist in the market and innovation is autonomous rather than systemic.",
+        "An acquisition creates value only if synergies exceed the premium plus integration cost.",
+        "Alliances share risk and access capabilities without full ownership, but need governance and trust to last.",
+        "The better-off test asks whether each business is worth more inside the company than outside it."
+      ],
+      "formulas": [
+        {
+          "name": "Acquirer value created",
+          "expression": "ΔV = PV(synergies) − Premium − Integration cost"
+        },
+        {
+          "name": "Premium paid",
+          "expression": "Premium = Offer price − Pre-announcement market value"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Studies of large deals find that the acquirer's shareholders often lose value while the target's gain most of it through the premium.",
+      "Synergy estimates in deal models are rarely tracked after closing, so overpayment goes unnoticed until a write-down."
+    ],
+    "lenses": {
+      "history": "Ronald Coase asked in 1937 why firms exist at all, and Oliver Williamson built transaction cost economics on that question. Chesbrough and Teece's 1996 article When Is Virtual Virtuous? applied it to innovation.",
+      "economics": "Markets work well for standard inputs, but when assets are specific to one partner, each side can hold the other up after investing. Ownership removes the hold-up problem at the cost of weaker incentives and more bureaucracy.",
+      "behavioralScience": "CEOs overestimate their ability to run an acquired business, a pattern called hubris, and competitive auctions push bids higher. The winner's curse means the highest bidder is often the one who overestimated value the most.",
+      "marketingNarrative": "Deal announcements sell a synergy story to investors that is often vague. A credible narrative names the specific costs or revenues that will change and when.",
+      "sociology": "Merging two organizations means merging two cultures, and culture clash is a leading reason integrations fail. Alliances work when partners build trust and shared routines over repeated interaction.",
+      "firstPrinciplesContrarian": "Owning more of the value chain does not mean capturing more value. If a stage is commoditized, owning it ties up capital and adds coordination cost with little added return.",
+      "personalConnection": "Cisco grew through hundreds of acquisitions and learned to integrate small technology companies quickly, which is a capability in itself. Carbon Robotics builds its own lasers and vision stack because the integration of hardware and models is systemic, not modular.",
+      "antiPattern": "A team justifies an acquisition with revenue synergies and pays a premium that assumes all of them. Price the deal on cost synergies you control, and treat revenue synergies as upside."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "measured-by",
+        "question": "How does an acquisition premium show up as goodwill and later impairment?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "builds-on",
+        "question": "How does make-versus-buy logic scale up to vertical integration?"
+      },
+      {
+        "targetId": "f502-02-fcff-dcf",
+        "relationship": "applied-in",
+        "question": "How do you value synergies with a DCF before setting a bid?"
+      },
+      {
+        "targetId": "MGMT504",
+        "relationship": "foundation-for",
+        "question": "How do leadership and culture decide whether a merger integration succeeds?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative software acquisition",
+      "prompt": "A target trades at $800M. Bankers propose a $1.1B offer, citing $40M a year of cost synergies and $30M of revenue synergies, with $60M of integration cost. At a 10% discount rate with synergies treated as perpetual, should the board approve?",
+      "cfoAnswer": "Cost synergies are worth about $40M / 0.10 = $400M, and revenue synergies another $300M if fully realized. The premium is $300M plus $60M of integration, so value created is $400M − $360M = $40M on cost synergies alone, which is thin. Approve only if revenue synergies have a clear plan, or negotiate the price down, because a small miss on cost synergies would make the deal destroy value.",
+      "keyTakeaway": "Pay for synergies you control, and never pay away more than they are worth."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Session on corporate scope, vertical integration and diversification",
+      "[Foster: MGMT 502] Readings on acquisition premiums, overpaying and alliance capability",
+      "[Elite MBA: Harvard Business School] Chesbrough and Teece, When Is Virtual Virtuous?, 1996"
+    ]
+  },
+  {
+    "id": "m502-06-helmer-7-powers",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Hamilton Helmer's 7 Powers",
+    "difficulty": "advanced",
+    "tags": [
+      "7 powers",
+      "moats",
+      "durable advantage",
+      "strategy"
+    ],
+    "hook10k": "A business is only as valuable as its ability to keep earning more than its cost of capital once rivals notice, and Helmer argues there are just seven ways to do that. Each power pairs a benefit that lifts cash flow with a barrier that stops competitors from arbitraging it away.",
+    "pareto20_80": {
+      "summary": "Helmer defines power as the set of conditions that produce persistent differential returns. The seven powers are scale economies, network economies, counter-positioning, switching costs, branding, cornered resource and process power, and each requires both a benefit and a barrier to imitation.",
+      "keyPoints": [
+        "Scale economies: unit cost falls with volume, so a smaller rival cannot match cost without matching size.",
+        "Network economies: each user adds value for others, so the leader's lead compounds.",
+        "Counter-positioning: a new business model that incumbents will not copy because it would damage their existing business.",
+        "Switching costs and branding hold existing customers, while cornered resource and process power protect inputs and know-how.",
+        "Powers arrive in stages: counter-positioning and cornered resource early, scale and network economies at takeoff, branding and process power when stable."
+      ],
+      "formulas": [
+        {
+          "name": "Fundamental equation of strategy",
+          "expression": "Value = Market size × Long-term market share × Long-term differential margin"
+        },
+        {
+          "name": "Differential margin",
+          "expression": "Differential margin = Firm margin − Margin of the best rival without power"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams label any advantage a moat, but a benefit without a barrier, such as a temporary cost edge, is not power.",
+      "Network effects are often claimed for products where users gain little from each other, which overstates defensibility."
+    ],
+    "lenses": {
+      "history": "Hamilton Helmer published 7 Powers in 2016, building on years of investing and advising technology firms. His framework condensed decades of strategy research into a short list a team can test.",
+      "economics": "Without a barrier, economic profit attracts entry until returns fall to the cost of capital. Each power names a specific barrier that blocks that arbitrage and lets differential margin persist.",
+      "behavioralScience": "Branding power works because customers attach trust and identity to a name, so they pay more for the same function. Switching costs exploit inertia, since people stick with defaults even when better options exist.",
+      "marketingNarrative": "Branding is the one power built mainly through story and consistency over many years. It is also the slowest power to build and one of the most durable once earned.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Being better is not power, because better products get copied. Ask what stops a well-funded rival from matching you in three years, and if the answer is nothing, there is no power yet.",
+      "personalConnection": "Hyperscalers enjoy scale economies in GPU purchasing and data centers that a startup cannot match. Carbon Robotics' growing library of labeled field images is a candidate cornered resource that improves each LaserWeeder's models.",
+      "antiPattern": "A pitch deck lists six moats with no evidence. Pick the one power that fits the company's stage, name its benefit and barrier, and show the data that proves it."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "How does each power widen the gap between willingness to pay and cost?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "contrasts-with",
+        "question": "How does counter-positioning differ from Christensen's disruption?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "measured-by",
+        "question": "How long can a firm with power keep ROIC above WACC?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "drives",
+        "question": "Why do venture returns concentrate in companies that reach real power?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative AI developer-tools startup",
+      "prompt": "An AI coding-assistant startup has strong growth, but its product runs on third-party models anyone can license. The board asks which of the 7 Powers the company could realistically build in the next three years.",
+      "cfoAnswer": "Scale economies are weak because model access is rented at market prices, and network effects are limited unless users share code or prompts. The most realistic powers are switching costs, by embedding in teams' repositories and workflows, and a cornered resource in proprietary usage data that tunes the product. Fund those two explicitly and measure retention and data advantage, not just growth.",
+      "keyTakeaway": "Name the one or two powers your stage allows, then invest to build their barrier."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Business strategy sessions on sustaining competitive advantage",
+      "[Elite MBA: Stanford GSB] Helmer, 7 Powers: The Foundations of Business Strategy, 2016",
+      "[Elite MBA: Stanford GSB] Helmer, 7 Powers, chapter on the Power Progression by business stage"
+    ]
+  },
+  {
+    "id": "m502-07-disruption-platforms-network-effects",
+    "pillarId": "P3",
+    "courseCode": "MGMT 502",
+    "title": "Disruption, Platforms and Network Effects",
+    "difficulty": "advanced",
+    "tags": [
+      "disruptive innovation",
+      "platforms",
+      "network effects",
+      "ambidexterity"
+    ],
+    "hook10k": "Great incumbents fail not because they ignore new technology but because they listen too well to their best customers, who do not want the cheaper, simpler product yet. Platforms add a second threat: once network effects tip a market, the leader can take most of the value.",
+    "pareto20_80": {
+      "summary": "Disruption happens when a simpler, cheaper offering enters at the low end or in a new market and improves until it satisfies mainstream customers. Platforms create value by connecting groups of users, and network effects can tip markets to one leader, so incumbents need ambidextrous organizations to explore while they exploit.",
+      "keyPoints": [
+        "Low-end disruption targets overserved customers; new-market disruption serves people who were not buying at all.",
+        "Incumbents rationally ignore disruptors because their margins and customers point toward sustaining improvements.",
+        "Direct network effects link users of the same type; indirect effects link sides, such as buyers and sellers.",
+        "Platforms must solve the chicken-and-egg problem, often by subsidizing one side to attract the other.",
+        "Ambidextrous firms run separate units for exploration with their own metrics, linked by senior leadership."
+      ],
+      "formulas": [
+        {
+          "name": "Metcalfe network value",
+          "expression": "Network value ∝ n²"
+        },
+        {
+          "name": "Two-sided platform margin",
+          "expression": "Platform profit = Fees from side A + Fees from side B − Subsidies − Cost"
+        }
+      ]
+    },
+    "realityCheck": [
+      "The word disruption is used for any new competitor, but most new entrants are sustaining challengers that incumbents can beat.",
+      "Many marketplaces never reach liquidity on both sides, so the promised network effect never forms."
+    ],
+    "lenses": {
+      "history": "Clayton Christensen published The Innovator's Dilemma in 1997 after studying disk drive makers who lost to smaller drives. O'Reilly and Tushman described the ambidextrous organization in Harvard Business Review in 2004.",
+      "economics": "Network effects create demand-side economies of scale, so the value of joining rises with the number already on the platform. That makes markets winner-take-most and justifies early losses to buy share.",
+      "behavioralScience": "Managers weigh visible losses in today's core business more heavily than uncertain gains in a new one. That loss aversion makes incumbents slow to cannibalize themselves.",
+      "marketingNarrative": "A disruptor's story is usually good enough and far cheaper, aimed at people ignored by the leader. Incumbents dismiss that story because it sounds like a worse product.",
+      "sociology": "Organizations build routines, metrics and status around the current business, and those norms reject new models. Separate units with their own culture give exploration room to survive.",
+      "firstPrinciplesContrarian": "Listening to your best customers can be the path to failure, because they ask for better versions of today's product. The next market often starts with customers who look unattractive by current metrics.",
+      "personalConnection": "Cloud GPU rental disrupted on-premise servers by serving startups enterprise vendors ignored, then moved upmarket into large enterprises. Carbon Robotics offers growers a new way to weed that chemical incumbents cannot copy without hurting herbicide sales.",
+      "antiPattern": "An incumbent launches a new venture inside the core business and judges it by core margins in year one. Give exploration its own unit, budget and metrics."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-06-helmer-7-powers",
+        "relationship": "contrasts-with",
+        "question": "How is counter-positioning related to the incumbent's dilemma?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "measured-by",
+        "question": "How should unit economics be judged while a platform subsidizes one side?"
+      },
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "applied-in",
+        "question": "How can staged investment help an incumbent explore a disruptive market?"
+      },
+      {
+        "targetId": "ENTRE510",
+        "relationship": "foundation-for",
+        "question": "How do founders find the overlooked customers where disruption starts?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative enterprise software incumbent",
+      "prompt": "A startup offers a self-serve AI analytics tool at one tenth of your price, aimed at small teams you do not sell to. Your largest customers say they have no interest. The head of sales wants to ignore it. What should the board do?",
+      "cfoAnswer": "This is the classic disruption pattern: low price, overlooked customers and a product your best customers do not want yet. Ignoring it is rational for this year's numbers and dangerous for the next five. Fund a separate self-serve unit with its own pricing and metrics, or acquire a small player, so you learn the new model before it moves upmarket.",
+      "keyTakeaway": "When your best customers dismiss a cheap entrant, that is the signal to explore, not to ignore."
+    },
+    "sources": [
+      "[Foster: MGMT 502] Session on innovation, disruption and the ambidextrous organization",
+      "[Foster: MGMT 502] Readings on platform strategy and managing innovation at large firms",
+      "[Elite MBA: Harvard Business School] Christensen, The Innovator's Dilemma, 1997"
+    ]
+  },
+  {
+    "id": "op502-01-process-flow-bottleneck",
+    "pillarId": "P3",
+    "courseCode": "OPMGT 502",
+    "title": "Process Flow, Capacity and the Bottleneck",
+    "difficulty": "foundation",
+    "tags": [
+      "process analysis",
+      "bottleneck",
+      "capacity",
+      "throughput"
+    ],
+    "hook10k": "A process can only go as fast as its slowest step, so speeding up any other step adds cost and no output. Find the bottleneck first, because every hour lost there is an hour lost for the whole system.",
+    "pareto20_80": {
+      "summary": "Process analysis maps each step's service time and number of resources to find capacity. The station with the lowest capacity is the bottleneck, process capacity equals the bottleneck's capacity, and throughput is the lower of demand and process capacity.",
+      "keyPoints": [
+        "Station capacity = number of resources / service time; the bottleneck has the lowest capacity.",
+        "Throughput = min(demand rate, process capacity); if demand is lower, the process is demand-constrained.",
+        "Utilization = throughput / capacity; the bottleneck reaches 100% first when demand exceeds capacity.",
+        "Cycle time, the time between finished units, equals 1 / throughput.",
+        "Adding capacity to a non-bottleneck raises its idle time and leaves throughput unchanged."
+      ],
+      "formulas": [
+        {
+          "name": "Station capacity",
+          "expression": "Capacity_i = m_i / p_i"
+        },
+        {
+          "name": "Throughput",
+          "expression": "Th = min(λ, min_i Capacity_i)"
+        },
+        {
+          "name": "Utilization",
+          "expression": "u_i = Th / Capacity_i"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Managers often measure efficiency step by step, which rewards keeping every station busy even when that only builds inventory before the bottleneck.",
+      "The bottleneck can move with product mix or demand, so a one-time study goes stale as the business changes."
+    ],
+    "lenses": {
+      "history": "Henry Ford's moving assembly line in 1913 balanced work across stations so no step held up the line. Process flow analysis became a core MBA tool through operations courses built on that idea.",
+      "economics": "The bottleneck's hour is worth the margin of everything it could have produced, while a non-bottleneck hour is worth close to nothing. That difference should drive where a firm spends on capacity.",
+      "behavioralScience": "People equate busy with productive, so idle non-bottleneck workers feel like waste and get assigned extra work. That work becomes inventory piling up in front of the true constraint.",
+      "marketingNarrative": null,
+      "sociology": "Departments optimize their own metrics, so each station protects its local efficiency rather than system flow. Shared metrics on throughput align teams around the bottleneck.",
+      "firstPrinciplesContrarian": "A 100% utilized non-bottleneck is a sign of waste, not success. Only the bottleneck should run near full, and every other step should have spare capacity to absorb variation.",
+      "personalConnection": "In an AI inference service, the GPU stage is usually the bottleneck, so faster preprocessing on CPUs adds no requests per second. A Carbon Robotics assembly line is limited by its slowest station, such as laser calibration, not by the average speed of the line.",
+      "antiPattern": "A team speeds up the step it understands best and reports a local efficiency gain. Measure each step's capacity, find the lowest one and improve that first."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "op502-02-littles-law-lead-time-cycle-time",
+        "relationship": "foundation-for",
+        "question": "How do throughput and inventory together set lead time?"
+      },
+      {
+        "targetId": "op502-04-theory-of-constraints-the-goal",
+        "relationship": "builds-on",
+        "question": "How does the Theory of Constraints turn bottleneck analysis into a management routine?"
+      },
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "applied-in",
+        "question": "Why should product mix be ranked by contribution margin per bottleneck minute?"
+      },
+      {
+        "targetId": "be500-02-marginal-cost-diminishing-returns",
+        "relationship": "builds-on",
+        "question": "Why does adding input beyond the constrained resource yield no extra output?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative three-station sandwich line",
+      "prompt": "A sandwich shop has three stations: the starter takes 1 minute, the stuffer 1.5 minutes and the packer 0.5 minutes, one worker each. Demand is 50 customers per hour. The owner wants to buy a faster wrapping machine for the packer. Is that a good use of money?",
+      "cfoAnswer": "Capacities are 60, 40 and 120 per hour, so the stuffer is the bottleneck at 40 per hour and 10 customers an hour are lost. Utilization is about 67% for the starter, 100% for the stuffer and 33% for the packer. A faster packer adds nothing; add a second stuffer or move tasks off the stuffer, which raises capacity to the next limit of 60 and captures all 50 customers.",
+      "keyTakeaway": "Spend on the bottleneck; anything else only adds idle time."
+    },
+    "sources": [
+      "[Foster: OPMGT 502] Operations sessions on process analysis, capacity and the bottleneck",
+      "[Foster: OPMGT 502] Sandwich flow line example and process capacity exercises",
+      "[Elite MBA: Wharton] Cachon and Terwiesch, Matching Supply with Demand, process analysis chapter"
+    ]
+  },
+  {
+    "id": "op502-02-littles-law-lead-time-cycle-time",
+    "pillarId": "P3",
+    "courseCode": "OPMGT 502",
+    "title": "Little's Law, Lead Time and Cycle Time",
+    "difficulty": "foundation",
+    "tags": [
+      "littles law",
+      "lead time",
+      "work in process",
+      "flow"
+    ],
+    "hook10k": "The number of items inside a system equals how fast they leave times how long each one stays, and that holds for factories, hospitals and software backlogs alike. Little's Law means you cannot cut lead time without cutting work in process or raising throughput.",
+    "pareto20_80": {
+      "summary": "Little's Law states that average inventory equals throughput times average flow time, for any stable system. It links the three flow metrics so any two determine the third, and it turns inventory counts into lead-time estimates and working-capital numbers.",
+      "keyPoints": [
+        "WIP = Throughput × Lead time, for averages over a stable period, with no assumption about distributions.",
+        "Lead time = WIP / Throughput, so a growing queue at constant throughput means longer waits.",
+        "Inventory turns = Throughput / Average inventory = 1 / Lead time.",
+        "Minimum lead time is the sum of service times with no waiting; actual lead time adds queue time.",
+        "Capping work in process, as kanban does, caps lead time for a given throughput."
+      ],
+      "formulas": [
+        {
+          "name": "Little's Law",
+          "expression": "WIP = Th × LT"
+        },
+        {
+          "name": "Lead time",
+          "expression": "LT = WIP / Th"
+        },
+        {
+          "name": "Inventory turns",
+          "expression": "Turns = Th / Average inventory = 1 / LT"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams add work to the queue to look busy, then are surprised that every item takes longer to finish.",
+      "Little's Law needs consistent units and a stable period, so mixing a growing backlog with averages from a calm month gives wrong lead times."
+    ],
+    "lenses": {
+      "history": "John Little published the first formal proof of the law in 1961, though practitioners had used the relation earlier. It became the backbone of lean manufacturing and later of kanban in software.",
+      "economics": "Inventory ties up working capital, so Little's Law links flow time directly to the cash a business needs. Halving lead time at the same throughput halves the inventory investment.",
+      "behavioralScience": "Starting work feels like progress, so people start new items before finishing old ones. That raises work in process and quietly lengthens lead time for everything.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The fastest way to deliver sooner is often to start less, not to work harder. Limiting work in process cuts lead time even when nobody speeds up.",
+      "personalConnection": "An ML labeling queue holding 10,000 images with throughput of 2,000 a day has a five-day lead time, whatever the team believes. Enterprise release trains at Cisco scale carry large WIP, which is why lead time for a small fix can stretch to weeks.",
+      "antiPattern": "Managers try to speed delivery by starting more projects in parallel. Measure WIP and throughput, then cap WIP to bring lead time down."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "op502-01-process-flow-bottleneck",
+        "relationship": "builds-on",
+        "question": "Which station's capacity sets the throughput in Little's Law?"
+      },
+      {
+        "targetId": "a500-04-balance-sheet-working-capital",
+        "relationship": "measured-by",
+        "question": "How does lower inventory from shorter lead time free working capital?"
+      },
+      {
+        "targetId": "a500-07-inventory-valuation",
+        "relationship": "applied-in",
+        "question": "How do inventory turns from the balance sheet translate into days of flow time?"
+      },
+      {
+        "targetId": "op502-03-variability-queueing-pooling",
+        "relationship": "foundation-for",
+        "question": "Why does waiting time explode when utilization approaches 100%?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative ML data labeling operation",
+      "prompt": "A labeling vendor completes 2,000 images per day and has 14,000 images queued or in progress. A product team needs new labels within three days to hit a model release. What do you tell them, and what would fix it?",
+      "cfoAnswer": "By Little's Law, lead time is 14,000 / 2,000 = 7 days, so a three-day promise is impossible without change. To reach three days at the same throughput, WIP must fall to about 6,000, by prioritizing the release's images ahead of the queue. Otherwise throughput must rise to about 4,700 per day, which needs more labelers at the bottleneck review step.",
+      "keyTakeaway": "Lead time is WIP divided by throughput; change one of them to change the promise."
+    },
+    "sources": [
+      "[Foster: OPMGT 502] Operations sessions on flow time, inventory and Little's Law",
+      "[Foster: OPMGT 502] Lead time and work-in-process exercises from the process analysis module",
+      "[Elite MBA: MIT Sloan] Little, A Proof for the Queuing Formula L = λW, Operations Research, 1961"
+    ]
+  },
+  {
+    "id": "op502-03-variability-queueing-pooling",
+    "pillarId": "P3",
+    "courseCode": "OPMGT 502",
+    "title": "Variability, Queueing and Pooling",
+    "difficulty": "intermediate",
+    "tags": [
+      "queueing",
+      "variability",
+      "utilization",
+      "pooling"
+    ],
+    "hook10k": "Running a team or a server at 95% utilization feels efficient until you see the queue, because waiting time grows explosively as utilization approaches 100%. Variability in arrivals and service is what creates the queue, and pooling resources is one of the cheapest ways to shrink it.",
+    "pareto20_80": {
+      "summary": "Queues form whenever arrivals and service times vary, even when average capacity exceeds demand. Waiting time rises with service time, with variability in arrivals and service and steeply with utilization, so managers trade off the cost of extra capacity against the cost of waiting.",
+      "keyPoints": [
+        "Waiting time ≈ service time × utilization term × variability term, so each factor multiplies the others.",
+        "The utilization term u / (1 − u) for one server means going from 80% to 95% utilization roughly quadruples the wait.",
+        "Coefficients of variation Ca and Cs measure how irregular arrivals and service are; reducing either cuts waits.",
+        "Pooling separate queues into one shared queue with several servers cuts waiting time at the same utilization.",
+        "Priority rules such as c-mu serve the jobs with the highest waiting cost per unit of service time first."
+      ],
+      "formulas": [
+        {
+          "name": "Waiting time (Kingman/Sakasegawa)",
+          "expression": "Wq ≈ (p / m) × u^(√(2(m+1)) − 1) / (1 − u) × (Ca² + Cs²) / 2"
+        },
+        {
+          "name": "Utilization",
+          "expression": "u = λ × p / m"
+        },
+        {
+          "name": "Total cost of service",
+          "expression": "Total cost = Capacity cost + Waiting cost per hour × Average number waiting"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Capacity plans often size for average demand, which guarantees long queues at peaks because variability is ignored.",
+      "Organizations rarely put a cost on customer waiting time, so cutting staff looks like pure savings."
+    ],
+    "lenses": {
+      "history": "Agner Krarup Erlang founded queueing theory in 1909 while sizing Copenhagen telephone exchanges. John Kingman published his heavy-traffic approximation in 1961, linking waits to utilization and variability.",
+      "economics": "Capacity has a cost and waiting has a cost, so the right utilization minimizes their sum rather than maximizing busy time. Where waiting is expensive, as in an emergency room, the optimal utilization is far below 100%.",
+      "behavioralScience": "Unexplained, uncertain waits feel much longer than known ones of the same length. Showing expected wait times and progress lowers frustration even when the queue does not move faster.",
+      "marketingNarrative": null,
+      "sociology": "Single shared queues feel fairer than parallel lines because nobody gets stuck behind a slow customer while a neighbor line moves. Perceived fairness shapes satisfaction as much as actual wait.",
+      "firstPrinciplesContrarian": "High utilization is not efficiency when the queue has a cost. A server farm or support team kept at 98% busy will make customers wait far longer than one at 85%.",
+      "personalConnection": "GPU inference clusters run near full utilization see tail latency spike, which is why hyperscalers keep headroom and batch requests. Carbon Robotics field service crews pooled across a region cut grower wait times compared with crews assigned to single farms.",
+      "antiPattern": "Leaders push every team toward 100% utilization to cut cost. Set a target utilization from the cost of waiting, and reduce variability before adding capacity."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "op502-02-littles-law-lead-time-cycle-time",
+        "relationship": "builds-on",
+        "question": "How do longer waits show up as more work in process through Little's Law?"
+      },
+      {
+        "targetId": "op502-01-process-flow-bottleneck",
+        "relationship": "builds-on",
+        "question": "Why does the bottleneck station build the longest queue?"
+      },
+      {
+        "targetId": "qm500-01-hypothesis-testing-regression",
+        "relationship": "measured-by",
+        "question": "How do you estimate arrival and service variability from data?"
+      },
+      {
+        "targetId": "a501-01-cost-behavior-operating-leverage",
+        "relationship": "contrasts-with",
+        "question": "Why does spare capacity look like waste in cost accounting but reduce waiting cost?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative customer support center",
+      "prompt": "A support team handles one call every 6 minutes on average with one agent taking 5 minutes per call, so utilization is about 83%. Arrivals and service are both random, with Ca and Cs near 1. Leadership wants to cut a second shift agent who covers peaks. What happens to the wait?",
+      "cfoAnswer": "With one server, Wq ≈ 5 × 0.83 / 0.17 × 1 ≈ 25 minutes on average, already long. Removing peak coverage pushes peak utilization toward 95%, where the wait jumps to about 5 × 0.95 / 0.05 ≈ 95 minutes. Keep the coverage, or pool this team with another queue, because the waiting cost to customers far exceeds one agent's salary.",
+      "keyTakeaway": "Near full utilization, a small capacity cut causes a huge increase in waiting."
+    },
+    "sources": [
+      "[Foster: OPMGT 502] Operations sessions on variability, queueing and the waiting time formula",
+      "[Foster: OPMGT 502] Queueing spreadsheet exercises on utilization, pooling and priority rules",
+      "[Elite MBA: Wharton] Cachon and Terwiesch, Matching Supply with Demand, waiting time chapter"
+    ]
+  },
+  {
+    "id": "op502-04-theory-of-constraints-the-goal",
+    "pillarId": "P3",
+    "courseCode": "OPMGT 502",
+    "title": "Theory of Constraints (The Goal)",
+    "difficulty": "intermediate",
+    "tags": [
+      "theory of constraints",
+      "throughput accounting",
+      "the goal",
+      "continuous improvement"
+    ],
+    "hook10k": "In The Goal, a plant manager learns that his new robots raised efficiency 36% without shipping a single extra product or making any more money. The Theory of Constraints says the goal is to make money, and only improvements at the constraint move that goal.",
+    "pareto20_80": {
+      "summary": "The Theory of Constraints measures a system by throughput, inventory and operating expense, and ranks throughput first. Dependent events plus statistical fluctuations make slowness accumulate, so managers follow five focusing steps: identify, exploit, subordinate, elevate and repeat.",
+      "keyPoints": [
+        "Throughput is the rate the system generates money through sales; inventory is money tied up in things to sell; operating expense turns inventory into throughput.",
+        "Dependent events with random fluctuation accumulate delay, because a step cannot go faster than the one feeding it.",
+        "An hour lost at the bottleneck is an hour lost for the whole system; an hour saved at a non-bottleneck is a mirage.",
+        "Inspect quality before the bottleneck so it never spends time on parts that will be scrapped.",
+        "Smaller batches cut queue and wait time, which shortens lead time and improves responsiveness."
+      ],
+      "formulas": [
+        {
+          "name": "Net profit (throughput accounting)",
+          "expression": "NP = Throughput − Operating expense"
+        },
+        {
+          "name": "Return on investment",
+          "expression": "ROI = (Throughput − Operating expense) / Inventory"
+        },
+        {
+          "name": "Throughput per constraint minute",
+          "expression": "T per minute = (Price − Truly variable cost) / Constraint minutes per unit"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Cost-world metrics reward local efficiency, so plants keep non-bottleneck machines busy and pile up inventory that hides problems.",
+      "Once a constraint is elevated, the bottleneck moves, and teams that stop at step four keep optimizing the old one."
+    ],
+    "lenses": {
+      "history": "Eliyahu Goldratt published The Goal as a business novel in 1984 to teach his Theory of Constraints. Its matchstick game and scout hike made dependent events and fluctuation intuitive for managers.",
+      "economics": "Throughput accounting treats most costs as fixed in the short run and focuses on the contribution earned per unit of constraint time. That aligns with relevant cost logic: only revenue and truly variable cost change with the decision.",
+      "behavioralScience": "People resist leaving non-bottleneck resources idle because idleness feels like waste and looks bad in reports. Changing the metric, not exhorting people, is what changes behavior.",
+      "marketingNarrative": "Goldratt chose a novel rather than a textbook, and the story of a plant saved in ninety days spread the ideas far beyond operations. A narrative with stakes taught a technical method to millions of readers.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Cost cutting is not improvement if it does not raise throughput or cut inventory. Laying people off rarely increases sales, and it can starve the constraint.",
+      "personalConnection": "In software, throughput is shipped features customers pay for, and inventory is work in progress, which is why automated tests before manual QA protect the bottleneck. A Carbon Robotics LaserWeeder line should test lasers before final calibration, the likely constraint, so scrapped units never consume it.",
+      "antiPattern": "A team celebrates an efficiency gain at a step that is not the constraint. Ask whether the plant ships more, holds less inventory or spends less, and if not, the gain is not real."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "op502-01-process-flow-bottleneck",
+        "relationship": "builds-on",
+        "question": "How do you find which resource is the constraint?"
+      },
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "contrasts-with",
+        "question": "How does throughput accounting differ from contribution margin analysis?"
+      },
+      {
+        "targetId": "a501-06-variance-analysis",
+        "relationship": "risk-for",
+        "question": "How can efficiency variances push managers to overproduce at non-bottlenecks?"
+      },
+      {
+        "targetId": "op502-02-littles-law-lead-time-cycle-time",
+        "relationship": "applied-in",
+        "question": "How do smaller batches shorten lead time through lower work in process?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative plant with two products and one constraint",
+      "prompt": "Product A earns $60 of throughput per unit and uses 3 minutes of the constraint machine. Product B earns $40 and uses 1 minute. The constraint has 2,400 minutes a week and demand for both is unlimited. Sales wants to push A because it has the higher margin. What is the right mix?",
+      "cfoAnswer": "Throughput per constraint minute is $20 for A and $40 for B. Filling the constraint with B earns 2,400 × $40 = $96,000 a week versus $48,000 with A. Prioritize B, serve A only with leftover constraint time and then work on elevating the constraint, because unit margin misleads when one resource limits output.",
+      "keyTakeaway": "With a binding constraint, rank products by throughput per constraint minute, not unit margin."
+    },
+    "sources": [
+      "[Foster: OPMGT 502] The Goal study guide on throughput, inventory and operating expense",
+      "[Foster: OPMGT 502] Matchstick game exercise on dependent events and statistical fluctuation",
+      "[Elite MBA: Wharton] Goldratt and Cox, The Goal: A Process of Ongoing Improvement, 1984"
+    ]
+  },
+  {
+    "id": "qm500-01-hypothesis-testing-regression",
+    "pillarId": "P3",
+    "courseCode": "QMETH 500",
+    "title": "Hypothesis Testing and Regression",
+    "difficulty": "intermediate",
+    "tags": [
+      "statistics",
+      "hypothesis testing",
+      "regression",
+      "confidence intervals"
+    ],
+    "hook10k": "Every A/B test, forecast and pricing study rests on one question: is this difference real or just noise? Hypothesis tests and regression give a disciplined answer, as long as you remember that correlation in the data is not proof of cause.",
+    "pareto20_80": {
+      "summary": "Sampling distributions, via the central limit theorem, let us build confidence intervals and test hypotheses about averages and proportions. Regression estimates how an outcome changes with several drivers at once, and logistic regression handles yes-or-no outcomes such as whether a customer converts.",
+      "keyPoints": [
+        "The central limit theorem makes sample means roughly normal for large samples, with standard error σ / √n.",
+        "A 95% confidence interval is estimate ± 1.96 × standard error; a p-value below 0.05 rejects the null at that level.",
+        "ANOVA tests whether means differ across several groups, such as sales across shelf positions.",
+        "Multiple regression coefficients show the effect of one driver holding the others constant; R² shows fit, not causation.",
+        "Logistic regression models the probability of a binary outcome, such as whether a supplier contributes an innovation."
+      ],
+      "formulas": [
+        {
+          "name": "Standard error of the mean",
+          "expression": "SE = s / √n"
+        },
+        {
+          "name": "Confidence interval",
+          "expression": "CI = x̄ ± z × SE"
+        },
+        {
+          "name": "Linear regression",
+          "expression": "y = β0 + β1x1 + … + βkxk + ε"
+        },
+        {
+          "name": "Logistic regression",
+          "expression": "ln(p / (1 − p)) = β0 + β1x1 + … + βkxk"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams run many tests and report the one with p below 0.05, which inflates false positives.",
+      "A statistically significant effect can be too small to matter, so always report the size of the effect alongside its p-value."
+    ],
+    "lenses": {
+      "history": "Ronald Fisher developed significance testing and ANOVA at an agricultural research station in the 1920s. Francis Galton coined regression in the 1880s while studying the heights of parents and children.",
+      "economics": "Data has a cost, and a test's sample size should balance the cost of more observations against the cost of a wrong decision. Value of information analysis makes that trade-off explicit.",
+      "behavioralScience": "People see patterns in noise and trust small samples too much, which psychologists call the law of small numbers. A formal test protects decisions from that bias.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "A high R² does not mean you understand the business, because omitted variables can drive both the outcome and your predictor. Run an experiment when you need cause, not just correlation.",
+      "personalConnection": "Enterprise teams use A/B tests and regression to decide whether a new model version actually lowers GPU cost per request or just looked better on one day. Carbon Robotics can regress weed-kill rates on crop type, speed and lighting to see which conditions matter.",
+      "antiPattern": "A team declares a feature a success from a two-day lift on a small sample. Set the sample size and success metric before the test, and report the effect with its confidence interval."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-09-budgeting-forecasting",
+        "relationship": "applied-in",
+        "question": "How can regression improve a revenue or cost forecast?"
+      },
+      {
+        "targetId": "is500-01-sql-data-quality-decisions",
+        "relationship": "builds-on",
+        "question": "How does data quality decide whether a regression can be trusted?"
+      },
+      {
+        "targetId": "qm501-01-linear-integer-programming",
+        "relationship": "foundation-for",
+        "question": "How do estimated coefficients become inputs to an optimization model?"
+      },
+      {
+        "targetId": "MKTG554",
+        "relationship": "applied-in",
+        "question": "How will regression on customer data drive marketing decisions?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative pricing experiment",
+      "prompt": "An online test shows conversion of 5.4% at a new price versus 5.0% at the old one, with 10,000 visitors in each group. The product lead wants to roll out the new price company-wide. Is the difference real?",
+      "cfoAnswer": "The pooled standard error of the difference is about √(0.052 × 0.948 × 2 / 10,000) ≈ 0.31 points, so a 0.4-point gap is about 1.3 standard errors. That gives a p-value near 0.2, which is not significant at 5%. Keep the test running or enlarge the sample before rolling out, and check that revenue per visitor, not just conversion, improves.",
+      "keyTakeaway": "Check whether a difference exceeds noise before acting, and measure the metric that pays."
+    },
+    "sources": [
+      "[Foster: QMETH 500] Statistical analysis sessions on sampling, confidence intervals and hypothesis tests",
+      "[Foster: QMETH 500] ANOVA and logistic regression exercises on shelf position and supplier innovation",
+      "[Elite MBA: Harvard Business School] Kohavi, Tang and Xu, Trustworthy Online Controlled Experiments"
+    ]
+  },
+  {
+    "id": "qm501-01-linear-integer-programming",
+    "pillarId": "P3",
+    "courseCode": "QMETH 501",
+    "title": "Linear and Integer Programming for Decisions",
+    "difficulty": "intermediate",
+    "tags": [
+      "optimization",
+      "linear programming",
+      "integer programming",
+      "decision models"
+    ],
+    "hook10k": "Most resource decisions, from production mix to shipping routes to staff rosters, are puzzles with an objective and limits, and a solver can find the best answer faster than any spreadsheet guess. Linear programming also tells you what each constraint is worth, which is often the most valuable output.",
+    "pareto20_80": {
+      "summary": "A linear program chooses decision variables to maximize or minimize a linear objective subject to linear constraints. Integer programming adds whole-number or yes-or-no decisions such as opening a facility, and decision trees handle uncertainty by weighing outcomes by probability.",
+      "keyPoints": [
+        "Formulate in three parts: decision variables, objective function and constraints, then solve with a tool like Excel Solver.",
+        "Shadow prices show how much the objective improves per extra unit of a binding constraint.",
+        "Transportation models minimize shipping cost from plants to customers subject to capacity and demand.",
+        "Binary variables model fixed costs and either-or choices, such as whether to build a new plant.",
+        "Decision trees compute expected value by rolling back from outcomes, choosing the best branch at each decision node."
+      ],
+      "formulas": [
+        {
+          "name": "Linear program",
+          "expression": "max cᵀx subject to Ax ≤ b, x ≥ 0"
+        },
+        {
+          "name": "Shadow price",
+          "expression": "Shadow price_j = ∂(Optimal objective) / ∂b_j"
+        },
+        {
+          "name": "Expected value",
+          "expression": "EV = Σ p_i × Payoff_i"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Models fail most often in formulation, not solving, when a real constraint such as a labor rule is left out.",
+      "Integer programs can be slow to solve at scale, so practitioners often accept a near-optimal answer within a set gap."
+    ],
+    "lenses": {
+      "history": "George Dantzig invented the simplex method in 1947 to plan US Air Force logistics. Leonid Kantorovich had developed similar ideas for Soviet production planning in 1939.",
+      "economics": "Shadow prices are the economic value of scarce resources, the same idea as marginal value in microeconomics. They tell a manager how much to pay for one more machine hour or truck.",
+      "behavioralScience": "Managers anchor on last year's plan and adjust a little, missing better combinations that a solver finds. Seeing an optimal plan often reveals that a rule of thumb is costing real money.",
+      "marketingNarrative": null,
+      "sociology": null,
+      "firstPrinciplesContrarian": "The optimal answer is only as good as the model, so the real skill is formulation, not clicking solve. Test the model by asking whether its answer would survive a conversation with the plant manager.",
+      "personalConnection": "Scheduling training and inference jobs across a GPU fleet is an integer program with capacity, deadline and cost constraints, as hyperscalers solve continuously. Carbon Robotics could use a transport model to route LaserWeeders and service crews across farms during peak weeding season.",
+      "antiPattern": "Planners build a spreadsheet, tweak numbers by hand and call the best one they tried optimal. Formulate the problem and let a solver search, then sanity-check the answer."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-03-cvp-sales-mix",
+        "relationship": "applied-in",
+        "question": "How does linear programming choose a profit-maximizing sales mix under capacity limits?"
+      },
+      {
+        "targetId": "op502-04-theory-of-constraints-the-goal",
+        "relationship": "contrasts-with",
+        "question": "When does a simple throughput-per-constraint-minute rule match the LP solution?"
+      },
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "builds-on",
+        "question": "How do decision trees connect to valuing staged investments as real options?"
+      },
+      {
+        "targetId": "be500-02-marginal-cost-diminishing-returns",
+        "relationship": "builds-on",
+        "question": "How are shadow prices related to marginal cost and marginal value?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative two-product plant with limited assembly hours",
+      "prompt": "A plant makes two products. Product X earns $30 and needs 2 assembly hours; product Y earns $50 and needs 5 hours. Assembly has 400 hours a week, and demand caps X at 150 units. What mix maximizes profit, and what is one more assembly hour worth?",
+      "cfoAnswer": "X earns $15 per assembly hour and Y earns $10, so fill X first up to its demand cap of 150 units, using 300 hours. The remaining 100 hours make 20 units of Y, for total profit of 150 × $30 + 20 × $50 = $5,500 a week. The shadow price of assembly is $10 per hour, since each extra hour makes 0.2 more units of Y, so pay up to $10 an hour for overtime.",
+      "keyTakeaway": "Rank products by profit per unit of the binding resource, and read the shadow price to value more capacity."
+    },
+    "sources": [
+      "[Foster: QMETH 501] Decision support sessions on linear programming basics and Excel Solver",
+      "[Foster: QMETH 501] Transportation, expansion and integer programming exercises",
+      "[Elite MBA: MIT Sloan] Bertsimas and Freund, Data, Models, and Decisions, optimization chapters"
+    ]
+  },
+  {
+    "id": "is500-01-sql-data-quality-decisions",
+    "pillarId": "P3",
+    "courseCode": "I S 500",
+    "title": "Data Management, SQL and Data Quality",
+    "difficulty": "foundation",
+    "tags": [
+      "sql",
+      "data quality",
+      "data management",
+      "analytics"
+    ],
+    "hook10k": "Most bad business decisions made with data come from bad data, not bad math: duplicates, missing values and joins that silently drop rows. Knowing enough SQL to ask your own questions, and enough about data quality to distrust the answer, is now a core management skill.",
+    "pareto20_80": {
+      "summary": "Relational databases store data in related tables, and SQL retrieves, filters, joins and aggregates it. Data quality issues such as missing values, duplicates and inconsistent definitions decide whether an analysis can support a decision, so managers should check data before trusting a dashboard.",
+      "keyPoints": [
+        "SELECT, WHERE, GROUP BY and ORDER BY answer most business questions from a single table.",
+        "INNER JOIN keeps only matching rows, while LEFT JOIN keeps all rows from the first table, which changes counts.",
+        "NULL means unknown, so comparisons with NULL need IS NULL, and averages silently skip missing values.",
+        "Data quality has dimensions: accuracy, completeness, consistency, timeliness and uniqueness.",
+        "Define each metric once, in one place, so teams do not argue over different versions of revenue or active users."
+      ],
+      "formulas": [
+        {
+          "name": "Completeness rate",
+          "expression": "Completeness = Non-null values / Total rows"
+        },
+        {
+          "name": "Share of voice",
+          "expression": "Share = Mentions of brand / Total mentions in category"
+        },
+        {
+          "name": "Aggregate query shape",
+          "expression": "SELECT dim, SUM(metric) FROM fact JOIN dim_table USING (key) GROUP BY dim"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Dashboards often disagree because each team joins tables differently, and nobody notices until a board meeting.",
+      "Public datasets, such as polling aggregates, mix sources with different methods, so naive averages can mislead."
+    ],
+    "lenses": {
+      "history": "Edgar Codd proposed the relational model at IBM in 1970, and SQL followed later that decade. Relational databases still run most corporate finance, sales and operations systems.",
+      "economics": "Data is valuable only when it changes a decision, so spending on data quality should follow the value of the decisions it supports. Clean data is a shared asset whose benefits spread across every team.",
+      "behavioralScience": "People trust numbers on a polished dashboard more than they should, a form of automation bias. Asking how a number was built is the habit that catches errors.",
+      "marketingNarrative": null,
+      "sociology": "Data definitions are social agreements as much as technical ones, and teams defend the version of a metric that makes them look good. Governance is the process of reaching one shared definition.",
+      "firstPrinciplesContrarian": "More data does not mean better decisions if the data is wrong or biased. A small, clean dataset tied to a clear question beats a large lake nobody trusts.",
+      "personalConnection": "Enterprise AI projects at Cisco-scale companies often stall on data access and quality before any model is trained. For Carbon Robotics, mislabeled or duplicated field images would quietly degrade weed detection, so data checks protect the core asset.",
+      "antiPattern": "A manager takes a dashboard number into a board meeting without asking how it was joined or filtered. Trace one key metric to its source query and check row counts before relying on it."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "qm500-01-hypothesis-testing-regression",
+        "relationship": "foundation-for",
+        "question": "Which data checks must pass before a regression result can be trusted?"
+      },
+      {
+        "targetId": "a501-06-variance-analysis",
+        "relationship": "applied-in",
+        "question": "How do SQL queries pull actual versus budget data for variance analysis?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "measured-by",
+        "question": "How do you compute cohort retention and LTV from transaction tables?"
+      },
+      {
+        "targetId": "MKTG554",
+        "relationship": "foundation-for",
+        "question": "How will customer data management support marketing analytics?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative dashboard discrepancy",
+      "prompt": "The sales dashboard shows 12,000 active customers, but finance reports 10,500 paying accounts for the same month. The CEO wants to know which number goes in the investor update and why they differ.",
+      "cfoAnswer": "The gap likely comes from definitions and joins: sales may count any account with activity, including free trials, while finance counts accounts with paid invoices. A LEFT JOIN from accounts to invoices would show the 1,500 accounts with no payment. Report paying accounts to investors, define active customer once in a shared query and show both metrics with their definitions internally.",
+      "keyTakeaway": "When metrics disagree, check definitions and joins before choosing a number."
+    },
+    "sources": [
+      "[Foster: I S 500] Data management sessions on why SQL matters for managers",
+      "[Foster: I S 500] SQL reference and team project on polling data quality and share of voice",
+      "[Elite MBA: MIT Sloan] Redman, Data Driven: Profiting from Your Most Important Business Asset"
+    ]
+  }
+]

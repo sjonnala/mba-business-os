@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CapTableLab } from './components/CapTableLab';
+import { OpsBottleneckLab } from './components/OpsBottleneckLab';
 import { ConceptDrawer } from './components/ConceptDrawer';
 import { DcfStudio } from './components/DcfStudio';
 import { LinkerSandbox } from './components/LinkerSandbox';
@@ -20,13 +21,14 @@ import {
   type Theme,
 } from './lib/storage';
 
-type Tab = 'map' | 'linker' | 'dcf' | 'captable' | 'routine';
+type Tab = 'map' | 'linker' | 'dcf' | 'captable' | 'ops' | 'routine';
 
 const TABS: { id: Tab; label: string }[] = [
   { id: 'map', label: 'Mind map' },
   { id: 'linker', label: '3-statement linker' },
   { id: 'dcf', label: 'DCF & WACC studio' },
   { id: 'captable', label: 'Cap table lab' },
+  { id: 'ops', label: 'Ops bottleneck lab' },
   { id: 'routine', label: '5-min routine' },
 ];
 
@@ -87,7 +89,7 @@ export function App() {
     <div className="app">
       <header className="masthead">
         <div>
-          <p className="eyebrow">Wave M2 · Pillars 1-2 · ACCTG 500/501, FIN 502, ENTRE 557/542</p>
+          <p className="eyebrow">Wave M3 · Pillars 1-3 · Accounting, Finance & VC, Strategy, Economics, Operations, Analytics</p>
           <h1>MBA Business OS</h1>
         </div>
         <nav className="tabs" aria-label="Views">
@@ -107,6 +109,7 @@ export function App() {
         {tab === 'linker' && <LinkerSandbox />}
         {tab === 'dcf' && <DcfStudio />}
         {tab === 'captable' && <CapTableLab />}
+        {tab === 'ops' && <OpsBottleneckLab />}
         {tab === 'routine' && (
           <RoutineScratchpad entries={routine} onSave={saveEntry} onDelete={deleteEntry} initialConceptId={routineConcept} />
         )}
@@ -127,7 +130,7 @@ export function App() {
       </main>
 
       <footer className="colophon">
-        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502 and ENTRE 557/542 materials; verify current filings before relying on
+        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502, ENTRE 557/542, B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501 and I S 500 materials; verify current filings before relying on
         them.
       </footer>
     </div>
