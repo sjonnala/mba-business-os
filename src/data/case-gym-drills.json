@@ -1,14 +1,15 @@
 {
   "schemaVersion": "1.1.0",
-  "source": "M-402 case gym bank, reconciled in M-205 (Wave M5)",
-  "title": "50-Drill CFO and AI Founder Case Gym Bank",
-  "drillCount": 50,
+  "source": "M-402 case gym bank, reconciled in M-205 (Wave M5), extended by M-209 (Wave M7)",
+  "title": "59-Drill CFO and AI Founder Case Gym Bank",
+  "drillCount": 59,
   "minutesPerDrill": 3,
   "notes": [
     "Figures marked (illustrative) are teaching numbers, not disclosures.",
     "Figures marked as Foster class problem figures come from course problems recorded in Waves M1 to M4.",
     "Figures marked (public record) are widely reported public facts; verify before external reuse.",
-    "relatedConceptId values were reconciled in Wave M5 to real Pillar 1-5 concept ids; sourceConceptSlug keeps the M-402 slug for traceability. gym-p5-05 (MGMT 500, succession) links to the MGMT 550 succession concept because Pillar 5 covers succession there."
+    "relatedConceptId values were reconciled in Wave M5 to real Pillar 1-5 concept ids; sourceConceptSlug keeps the M-402 slug for traceability. gym-p5-05 (MGMT 500, succession) links to the MGMT 550 succession concept because Pillar 5 covers succession there.",
+    "Wave M7 (M-209) added 9 drills, one per new GSB and Economics gap concept: gym-p2-11, gym-p2-12, gym-p3-11 to gym-p3-15, gym-p5-11 and gym-p5-12. They had no M-402 slug, so sourceConceptSlug carries an m209- slug for traceability."
   ],
   "drills": [
     {
@@ -272,6 +273,32 @@
       "sourceConceptSlug": "entre542-04-vc-fund-math"
     },
     {
+      "id": "gym-p2-11",
+      "pillarId": "P2",
+      "courseCode": "FIN 502",
+      "title": "The comps table that flatters the target",
+      "difficulty": "intermediate",
+      "scenario": "A banker values your AI infrastructure startup at 18 times NTM revenue, the median of six software platforms. Your gross margin is 52% because of GPU costs, while the peers average 78%, and your growth is similar (illustrative).",
+      "question": "Is 18 times forward revenue a fair anchor, and what would you change in the comps?",
+      "cfoFounderAnswer": "Probably not. Revenue multiples assume similar margins, and at 52% gross margin each dollar of revenue carries far less gross profit than a peer's 78%. Re-run the comps on EV / NTM gross profit, or regress peer revenue multiples on gross margin and growth: 18 × (52 / 78) ≈ 12 times revenue is a fairer starting point. Then cross-check with a DCF and add infrastructure peers to the set.",
+      "antiPatternTrap": "Accepting a peer median because it gives the biggest number, or comparing EV/Revenue across businesses with very different margins. Normalize the denominator before you trust the multiple.",
+      "relatedConceptId": "f502-15-trading-comps-valuation-multiples",
+      "sourceConceptSlug": "m209-fin502-trading-comps-multiples"
+    },
+    {
+      "id": "gym-p2-12",
+      "pillarId": "P2",
+      "courseCode": "FIN 502",
+      "title": "Deficits push the 10-year up, and your WACC follows",
+      "difficulty": "advanced",
+      "scenario": "Larger government deficits and weaker demand at Treasury auctions lift the 10-year yield from 4.0% to 5.0%. Your Lab #2 model uses beta 1.3, an equity risk premium of 5% and 10% debt in the capital structure (illustrative).",
+      "question": "How much does WACC move, and what happens to a long-duration valuation?",
+      "cfoFounderAnswer": "The cost of equity rises one point with r_f, from 4% + 1.3 × 5% = 10.5% to 11.5%. With 90% equity, WACC rises about 0.9 to 1.0 point, and the after-tax cost of debt rises too. For cash flows a decade out, a one-point rise in the discount rate cuts present value by roughly 8% to 10%, with nothing changed in the business. Refresh r_f each cycle and tell the board the move is macro, not operational.",
+      "antiPatternTrap": "Keeping a hard-coded risk-free rate from an old model, or blaming the team for a valuation drop driven by the bond market. Separate macro moves from operating performance in board reporting.",
+      "relatedConceptId": "f502-16-capital-markets-emh-bond-duration",
+      "sourceConceptSlug": "m209-fin502-capital-markets-emh-duration"
+    },
+    {
       "id": "gym-p3-01",
       "pillarId": "P3",
       "courseCode": "B ECON 500",
@@ -400,6 +427,71 @@
       "antiPatternTrap": "Celebrating a metric jump that coincides with a pipeline or definition change.",
       "relatedConceptId": "is500-01-sql-data-quality-decisions",
       "sourceConceptSlug": "is500-01-data-quality-sql"
+    },
+    {
+      "id": "gym-p3-11",
+      "pillarId": "P3",
+      "courseCode": "B ECON 500",
+      "title": "Augment or replace: coding agents and the hiring plan",
+      "difficulty": "intermediate",
+      "scenario": "Your 50-engineer team pilots a coding agent. Pull requests per engineer rise 35%, but review time per pull request rises 20% and defect escapes are flat. Finance proposes cutting next year's hiring plan of 12 engineers to zero (illustrative).",
+      "question": "What does the marginal revenue product of an engineer look like now, and should the hiring plan go to zero?",
+      "cfoFounderAnswer": "Output per engineer rose, so each engineer's MRP likely rose, which argues for keeping engineers where demand for features is strong, not removing them. Net throughput after extra review is perhaps 20% to 25% higher, roughly 10 to 12 engineers' worth of capacity. Cut the plan to a few senior and junior hires rather than zero, keep a junior pipeline for future seniors, and re-measure in two quarters.",
+      "antiPatternTrap": "Treating a pilot's gross output gain as net savings and cutting every junior role, which hollows out the future senior bench. Measure net throughput after review and quality.",
+      "relatedConceptId": "be500-03-labor-economics-mrp-ai-automation",
+      "sourceConceptSlug": "m209-becon500-labor-mrp-ai-automation"
+    },
+    {
+      "id": "gym-p3-12",
+      "pillarId": "P3",
+      "courseCode": "B ECON 500",
+      "title": "The pricing page that anchors on the wrong tier",
+      "difficulty": "intermediate",
+      "scenario": "Your SaaS pricing page shows Basic at $19, Pro at $49 and Team at $99, left to right, and 70% of buyers pick Basic. A test that shows Team first and highlights Pro as most popular is proposed (illustrative).",
+      "question": "Which behavioral effects are at work, and what do you expect the test to do?",
+      "cfoFounderAnswer": "Anchoring and social proof. Leading with $99 makes $49 look moderate, and a most-popular tag uses herding, so expect a shift from Basic toward Pro and a higher average revenue per account. Run it as a proper A/B test, watch refund and churn rates by tier for a quarter, and keep the change only if engaged retention holds.",
+      "antiPatternTrap": "Declaring victory on first-week revenue while churn rises among buyers nudged into a tier they did not need. Judge nudges on retained revenue, not checkout revenue.",
+      "relatedConceptId": "be500-04-behavioral-economics-choice-architecture",
+      "sourceConceptSlug": "m209-becon500-behavioral-choice-architecture"
+    },
+    {
+      "id": "gym-p3-13",
+      "pillarId": "P3",
+      "courseCode": "B ECON 501",
+      "title": "The duration mismatch that sinks a bank",
+      "difficulty": "advanced",
+      "scenario": "A regional bank funds itself with $100B of mostly uninsured startup deposits and holds $80B of long-dated bonds bought when yields were 1.5%. Yields rise to 4.5%, and the bonds have duration near 6 (illustrative).",
+      "question": "How big is the hole, and why can a solvent-looking bank fail in a day?",
+      "cfoFounderAnswer": "A 3-point rise × duration 6 ≈ 18% loss, about $14B on $80B of bonds, which can wipe out a typical bank's equity at market value. Held to maturity, the loss is hidden on the balance sheet, but if uninsured depositors run, the bank must sell and realize it. Concentrated, connected depositors can run in hours, so liquidity, not book solvency, decides survival.",
+      "antiPatternTrap": "Assuming held-to-maturity accounting removes the risk, or that a bank with good book capital is safe for uninsured deposits. Price assets at market and check who the depositors are.",
+      "relatedConceptId": "be501-03-money-creation-fractional-reserve-qe",
+      "sourceConceptSlug": "m209-becon501-money-creation-qe-bank-runs"
+    },
+    {
+      "id": "gym-p3-14",
+      "pillarId": "P3",
+      "courseCode": "B ECON 501",
+      "title": "A 25% tariff and a single-source part",
+      "difficulty": "advanced",
+      "scenario": "Your edge-AI device uses a $40 module from one overseas supplier. A new 25% tariff applies to the module, and lead times stretch from 6 to 16 weeks. The device sells for $299 with a $120 bill of materials (illustrative).",
+      "question": "What is the margin hit, and what do you do about supply risk?",
+      "cfoFounderAnswer": "The tariff adds $10 per unit, taking the bill of materials to $130 and gross margin from about 60% to 57% before freight. Test how much you can pass through with a small price rise, since demand elasticity decides it. More important is the single source: qualify a second supplier in a different country, hold extra safety stock to cover the longer lead time, and price that buffer as insurance.",
+      "antiPatternTrap": "Absorbing the tariff quietly and ignoring the concentration risk that a lead-time spike just revealed. Fix the single point of failure, not only the price.",
+      "relatedConceptId": "be501-04-trade-tariffs-fx-supply-chain",
+      "sourceConceptSlug": "m209-becon501-trade-tariffs-fx-supply-chain"
+    },
+    {
+      "id": "gym-p3-15",
+      "pillarId": "P3",
+      "courseCode": "B ECON 501",
+      "title": "Is UPI a moat or a level playing field?",
+      "difficulty": "intermediate",
+      "scenario": "An India-first health app cuts payment costs from 2.5% to near zero and doubles trial conversion after adding UPI autopay. A competitor launches the same flow two months later (illustrative).",
+      "question": "What advantage remains, and where should the savings go?",
+      "cfoFounderAnswer": "The payment rail is public infrastructure, so the advantage was temporary once the competitor copied it. What remains is what the app built on top: trust with clinics, a growing data asset collected with DPDP-compliant consent and habit-forming product design. Reinvest the lower CAC into clinic partnerships and data quality, which a competitor cannot copy in two months.",
+      "antiPatternTrap": "Telling investors that access to a public rail is a moat. Rails lower everyone's costs; durable advantages come from assets competitors cannot replicate quickly.",
+      "relatedConceptId": "be501-05-development-institutions-dpi",
+      "sourceConceptSlug": "m209-becon501-development-institutions-dpi"
     },
     {
       "id": "gym-p4-01",
@@ -660,6 +752,32 @@
       "antiPatternTrap": "Accepting founder control terms because the last private round did, assuming public investors will too.",
       "relatedConceptId": "m550-02-dual-class-control-related-party",
       "sourceConceptSlug": "p5-mgmt550-02-control-related-party"
+    },
+    {
+      "id": "gym-p5-11",
+      "pillarId": "P5",
+      "courseCode": "MKTG 501",
+      "title": "Drawing the value curve against wearables",
+      "difficulty": "intermediate",
+      "scenario": "Wearable makers compete on sensor count, battery life, fashion and app features at $250 or more. A phone-camera vitals app considers matching them on features to look credible (illustrative).",
+      "question": "How would you use the ERRC grid to avoid a red-ocean fight, and which brand archetype fits?",
+      "cfoFounderAnswer": "Eliminate the device and fashion, reduce feature breadth to the few vitals people check, raise ease and access so a 30-second scan works on any phone, and create clinician-shared reports. That is a different value curve, not a cheaper wearable. Mental availability fits best: be the first thing people think of when they want a quick check, and reach them through clinics and health workers.",
+      "antiPatternTrap": "Copying the incumbents' feature list to look credible, which puts you on their value curve where they win. Compete on the factors they ignore.",
+      "relatedConceptId": "mk501-05-blue-ocean-brand-archetypes-channel-icp",
+      "sourceConceptSlug": "m209-mktg501-blue-ocean-brand-channel-icp"
+    },
+    {
+      "id": "gym-p5-12",
+      "pillarId": "P5",
+      "courseCode": "MGMT 500",
+      "title": "The brilliant lead whose team keeps leaving",
+      "difficulty": "foundation",
+      "scenario": "Your strongest engineering lead ships on time, but three of eight reports left in six months, and two cited public criticism in exit interviews. The lead says the team just needs higher standards (illustrative).",
+      "question": "How do you diagnose this with an EQ lens, and what do you do?",
+      "cfoFounderAnswer": "The pattern points to low self-regulation and empathy: high standards delivered in a way that drives people out. Three regretted leavers at roughly one salary each in replacement cost is a large, visible bill. Share the data directly, set expectations for private feedback and weekly one-on-ones, pair the lead with a coach, and review attrition and team survey results in a quarter, with a move out of people management if nothing changes.",
+      "antiPatternTrap": "Protecting a high performer because they deliver, while the team quietly empties. Count turnover cost and team health as part of the lead's results.",
+      "relatedConceptId": "m500-04-eq-servant-leadership-network-capital",
+      "sourceConceptSlug": "m209-mgmt500-eq-servant-leadership-network"
     }
   ]
 }

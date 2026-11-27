@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import rawGym from '../data/case-gym-50-drills.json';
+import rawGym from '../data/case-gym-drills.json';
 import { COURSES } from '../data/catalog';
 import { DRILLS } from '../data/caseGym';
 import { CONCEPTS, conceptById } from '../data/graph';
@@ -27,18 +27,20 @@ function memoryStore(): KeyValueStore {
 }
 
 describe('Case Gym drill bank', () => {
-  it('has 50 drills with unique ids, 10 per pillar, and a 3-minute timer', () => {
-    expect(DRILLS).toHaveLength(50);
-    expect(new Set(DRILLS.map((d) => d.id)).size).toBe(50);
-    for (const p of ['P1', 'P2', 'P3', 'P4', 'P5']) expect(DRILLS.filter((d) => d.pillarId === p), p).toHaveLength(10);
+  it('has 59 drills with unique ids, 10 to 15 per pillar after Wave M7, and a 3-minute timer', () => {
+    expect(DRILLS).toHaveLength(59);
+    expect(new Set(DRILLS.map((d) => d.id)).size).toBe(59);
+    const perPillar = { P1: 10, P2: 12, P3: 15, P4: 10, P5: 12 } as const;
+    for (const [p, n] of Object.entries(perPillar)) expect(DRILLS.filter((d) => d.pillarId === p), p).toHaveLength(n);
+    expect((rawGym as { drillCount: number }).drillCount).toBe(DRILLS.length);
     expect(DRILL_SECONDS).toBe(180);
     expect((rawGym as { minutesPerDrill: number }).minutesPerDrill).toBe(3);
   });
 
-  it('resolves 50 of 50 relatedConceptId links to real Pillar 1-5 concepts on the same pillar', () => {
+  it('resolves 59 of 59 relatedConceptId links to real Pillar 1-5 concepts on the same pillar', () => {
     const resolved = DRILLS.filter((d) => conceptById(d.relatedConceptId) !== undefined);
     expect(resolved.map((d) => d.id)).toEqual(DRILLS.map((d) => d.id));
-    expect(resolved).toHaveLength(50);
+    expect(resolved).toHaveLength(59);
     for (const d of DRILLS) expect(conceptById(d.relatedConceptId)?.pillarId, d.id).toBe(d.pillarId);
   });
 
@@ -53,8 +55,8 @@ describe('Case Gym drill bank', () => {
       expect(codes.has(d.courseCode), d.id).toBe(true);
       expect(d.sourceConceptSlug.length, d.id).toBeGreaterThan(0);
     }
-    expect(new Set(DRILLS.map((d) => d.relatedConceptId)).size).toBeGreaterThanOrEqual(48);
-    expect(CONCEPTS.length).toBe(90);
+    expect(new Set(DRILLS.map((d) => d.relatedConceptId)).size).toBeGreaterThanOrEqual(57);
+    expect(CONCEPTS.length).toBe(99);
   });
 
   it('rejects malformed drills with every problem listed', () => {
@@ -109,8 +111,8 @@ describe('SM-2 scheduling', () => {
   });
 
   it('filters by pillar, course and difficulty', () => {
-    expect(filterDrills(DRILLS, ALL_FILTER)).toHaveLength(50);
-    expect(filterDrills(DRILLS, { ...ALL_FILTER, pillar: 'P5' })).toHaveLength(10);
+    expect(filterDrills(DRILLS, ALL_FILTER)).toHaveLength(59);
+    expect(filterDrills(DRILLS, { ...ALL_FILTER, pillar: 'P5' })).toHaveLength(12);
     expect(filterDrills(DRILLS, { ...ALL_FILTER, course: 'MGMT 550' })).toHaveLength(2);
     const advancedP5 = filterDrills(DRILLS, { pillar: 'P5', course: 'all', difficulty: 'advanced' });
     expect(advancedP5.every((d) => d.pillarId === 'P5' && d.difficulty === 'advanced')).toBe(true);

@@ -15,11 +15,11 @@ import {
 const FILES = [
   { name: 'pillar-1a (ACCTG 500)', raw: rawA500, count: 15, pillar: 'P1', courses: ['ACCTG 500'] },
   { name: 'pillar-1b (ACCTG 501)', raw: rawA501, count: 10, pillar: 'P1', courses: ['ACCTG 501'] },
-  { name: 'pillar-2 (FIN 502, ENTRE 557, ENTRE 542)', raw: rawP2, count: 14, pillar: 'P2', courses: ['FIN 502', 'ENTRE 557', 'ENTRE 542'] },
+  { name: 'pillar-2 (FIN 502, ENTRE 557, ENTRE 542)', raw: rawP2, count: 16, pillar: 'P2', courses: ['FIN 502', 'ENTRE 557', 'ENTRE 542'] },
   {
     name: 'pillar-3 (B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501, I S 500)',
     raw: rawP3,
-    count: 18,
+    count: 23,
     pillar: 'P3',
     courses: ['B ECON 500', 'B ECON 501', 'MGMT 502', 'OPMGT 502', 'QMETH 500', 'QMETH 501', 'I S 500'],
   },
@@ -33,7 +33,7 @@ const FILES = [
   {
     name: 'pillar-5 (MKTG 501, MKTG 600, MGMT 500, MGMT 510 / B CMU 501, MGMT 504, MGMT 550)',
     raw: rawP5,
-    count: 17,
+    count: 19,
     pillar: 'P5',
     courses: ['MKTG 501', 'MKTG 600', 'MGMT 500', 'MGMT 510 / B CMU 501', 'MGMT 504', 'MGMT 550'],
   },
@@ -119,7 +119,7 @@ describe('Wave M3 cross-pillar wiring', () => {
     expect(targets.filter((id) => id.startsWith('a500-')).length).toBeGreaterThanOrEqual(3);
     expect(targets.filter((id) => id.startsWith('a501-')).length).toBeGreaterThanOrEqual(10);
     expect(targets.filter((id) => /^(f502|e557|e542)-/.test(id)).length).toBeGreaterThanOrEqual(10);
-    expect(p3.filter((n) => n.threadsToPull.some((t) => /^(a500|a501|f502|e557|e542)-/.test(t.targetId)))).toHaveLength(18);
+    expect(p3.filter((n) => n.threadsToPull.some((t) => /^(a500|a501|f502|e557|e542)-/.test(t.targetId)))).toHaveLength(23);
   });
 
   it('connects strategy, operations and analytics inside Pillar 3', () => {
@@ -202,7 +202,8 @@ describe('Wave M5 cross-pillar wiring', () => {
     }
     const intoP5 = earlierTargets.filter((id) => P5_PREFIX.test(id));
     expect(intoP5.length).toBeGreaterThanOrEqual(9);
-    expect(new Set(intoP5.map((id) => id.split('-')[0]))).toEqual(new Set(['m550', 'mk501', 'm500']));
+    // Wave M7 adds be500-04 (behavioral economics) -> m504-03 (ethics of nudges), so MGMT 504 now receives a thread too.
+    expect(new Set(intoP5.map((id) => id.split('-')[0]))).toEqual(new Set(['m550', 'mk501', 'm500', 'm504']));
   });
 
   it('never repeats a target inside one node', () => {

@@ -1,6 +1,6 @@
 # Case Gym concept mapping (Wave M5)
 
-The M-402 drill bank proposed concept slugs before the portal ids were checked. Wave M5 maps every one of the 50 drills to a real concept id, and `src/test/caseGym.test.ts` asserts that all 50 resolve.
+The M-402 drill bank proposed concept slugs before the portal ids were checked. Wave M5 maps every one of the 50 drills to a real concept id. Wave M7 (M-209) adds 9 drills written against the new gap-pack concepts, with `m209-` slugs, and `src/test/caseGym.test.ts` asserts that all 59 resolve.
 
 One link crosses courses: `gym-p5-05` is a MGMT 500 drill on succession, and it links to the MGMT 550 succession concept because Pillar 5 covers succession there.
 
@@ -56,3 +56,17 @@ One link crosses courses: `gym-p5-05` is a MGMT 500 drill on succession, and it 
 | gym-p5-08 | `p5-mgmt504-02-incentives-ethics` | `m504-02-incentives-ethical-breakdowns` |
 | gym-p5-09 | `p5-mgmt550-01-board-composition` | `m550-01-fiduciary-duties-board-composition` |
 | gym-p5-10 | `p5-mgmt550-02-control-related-party` | `m550-02-dual-class-control-related-party` |
+
+## Wave M7 additions (M-209)
+
+| Drill | Slug | Portal concept id |
+| --- | --- | --- |
+| gym-p2-11 | `m209-fin502-trading-comps-multiples` | `f502-15-trading-comps-valuation-multiples` |
+| gym-p2-12 | `m209-fin502-capital-markets-emh-duration` | `f502-16-capital-markets-emh-bond-duration` |
+| gym-p3-11 | `m209-becon500-labor-mrp-ai-automation` | `be500-03-labor-economics-mrp-ai-automation` |
+| gym-p3-12 | `m209-becon500-behavioral-choice-architecture` | `be500-04-behavioral-economics-choice-architecture` |
+| gym-p3-13 | `m209-becon501-money-creation-qe-bank-runs` | `be501-03-money-creation-fractional-reserve-qe` |
+| gym-p3-14 | `m209-becon501-trade-tariffs-fx-supply-chain` | `be501-04-trade-tariffs-fx-supply-chain` |
+| gym-p3-15 | `m209-becon501-development-institutions-dpi` | `be501-05-development-institutions-dpi` |
+| gym-p5-11 | `m209-mktg501-blue-ocean-brand-channel-icp` | `mk501-05-blue-ocean-brand-archetypes-channel-icp` |
+| gym-p5-12 | `m209-mgmt500-eq-servant-leadership-network` | `m500-04-eq-servant-leadership-network-capital` |

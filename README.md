@@ -1,15 +1,15 @@
 # mba-business-os
 
-A personal MBA knowledge portal: a pan-and-zoom mind map of the UW Foster MBA (5 pillars, 22 courses, 90 deep concept cards), a spaced-repetition Case Gym with 50 three-minute drills, a live 3-statement linker, a DCF and WACC studio, a cap table lab, an operations bottleneck lab, an AI product unit economics lab, and a 5-minute daily routine. It runs entirely in the browser; progress is saved in localStorage and nothing is sent anywhere.
+A personal MBA knowledge portal: a pan-and-zoom mind map of the UW Foster MBA (5 pillars, 22 courses, 99 deep concept cards), a spaced-repetition Case Gym with 59 three-minute drills, a live 3-statement linker, a DCF and WACC studio, a cap table lab, an operations bottleneck lab, an AI product unit economics lab, and a 5-minute daily routine. It runs entirely in the browser; progress is saved in localStorage and nothing is sent anywhere.
 
-Waves: M1 ACCTG 500 (15 concepts) · M2 ACCTG 501 and Pillar 2 Finance, Valuation & VC (24) · M3 Pillar 3 Strategy, Economics, Operations & Analytics (18) · M4 Pillar 4 SWE → AI Founder & Strategic PM (16) · **M5 Pillar 5 Marketing, Leadership, Ethics & Board Governance (17) plus the Case Gym**, for 90 live concepts across all 22 courses.
+Waves: M1 ACCTG 500 (15 concepts) · M2 ACCTG 501 and Pillar 2 Finance, Valuation & VC (24) · M3 Pillar 3 Strategy, Economics, Operations & Analytics (18) · M4 Pillar 4 SWE → AI Founder & Strategic PM (16) · M5 Pillar 5 Marketing, Leadership, Ethics & Board Governance (17) plus the Case Gym · M6 mind-map navigation polish · **M7 GSB + Economics gap pack (9 concepts and 9 drills)**, for 99 live concepts and 59 drills across all 22 courses.
 
 ## Quickstart (3 commands)
 
 Needs Node 20 or later (CI uses Node 22) and git.
 
 ```bash
-git clone -b feat/wave-m6-mindmap-ux-polish https://github.com/sjonnala/mba-business-os.git && cd mba-business-os
+git clone -b feat/wave-m7-gsb-and-econ-gap-pack https://github.com/sjonnala/mba-business-os.git && cd mba-business-os
 npm install
 npm run dev
 ```
@@ -40,11 +40,11 @@ The six waves are stacked draft PRs, each based on the one before it, so the Wav
             │                                     │
             ▼                                     ▼
   data/graph.ts · data/caseGym.ts  ───────►  React views (src/components)  ◄──►  lib/storage.ts
-  90 concepts, 50 drills                     App.tsx tabs + concept drawer        localStorage, try/catch
+  99 concepts, 59 drills                     App.tsx tabs + concept drawer        localStorage, try/catch
 ```
 
 - **Content is data.** Every concept and drill lives in JSON and is validated at load time and in tests, so a bad edit fails the build instead of shipping.
-- **Engines are pure TypeScript** with no React, which keeps them unit-testable (197 Vitest tests).
+- **Engines are pure TypeScript** with no React, which keeps them unit-testable (204 Vitest tests).
 - **State stays in the browser.** Mastery, routine logs, Case Gym schedules and theme use `localStorage` through `lib/storage.ts`, which keeps working in memory when storage is blocked.
 - **Static build.** `vite build` with a relative base produces a `dist/` folder that runs from any static host, including GitHub Pages.
 
@@ -73,7 +73,7 @@ npm run verify     # all four, the same checks CI runs
 5. **Cap table lab (Lab #3)**: founders and an existing pool, stacked post-money SAFEs (cap and discount), a Series A with the option pool shuffle inside the pre-money, the effective pre-money, and a 1x liquidation waterfall comparing non-participating and participating preferred at any exit. Ownership uses whole basis points (largest remainder), so it always totals exactly 100.00%.
 6. **Ops bottleneck lab (Lab #4)**: a 2–6 stage pipeline with presets for a robot assembly line, the OPMGT 502 sandwich flow line, an LLM inference service and an ML labeling pipeline. Arrival rate and variability plus each stage's resources, service time and variability drive capacity (m ÷ p), the bottleneck, throughput = min(demand, capacity), utilization, cycle time, Sakasegawa queue waits, lead time and Little's Law WIP. A seeded discrete-event simulation plays the queue buildup over time, and a "double this stage" table proves non-bottleneck capacity adds zero throughput.
 7. **Unit economics lab (Lab #5)**: per-account unit economics and customer payback for AI products, with presets for the Carbon Robotics LaserWeeder seed plan, PranaScan B2C, PranaScan B2B and an enterprise AI SaaS account. Up-front price and COGS, monthly price, platform fee, serving cost with an annual decline (the GPU inference cost curve), CAC, monthly churn, discount rate and horizon drive churn-weighted, discounted LTV, LTV/CAC, churn-adjusted and simple CAC payback, recurring and blended gross margin, customer payback and value capture. A cumulative cash curve marks the payback month, a ±20% tornado ranks which driver moves LTV/CAC most, and a solver finds the monthly price that reaches 3×.
-8. **Case Gym**: 50 three-minute drills, 10 per pillar, from the M-402 drill bank. Filter by pillar, course and difficulty, start the 3-minute countdown, answer out loud, then reveal the CFO or founder answer and the anti-pattern trap (the timer reveals both when it runs out). Grade yourself Again, Good or Easy: SM-2-style scheduling (intervals 1, 6, then interval × ease; Again resets and lowers ease, Easy adds a bonus) decides when each drill comes back, saved in this browser. An Up next list orders due drills first, and every drill links straight to its concept card on the mind map.
+8. **Case Gym**: 59 three-minute drills, 10 to 15 per pillar: 50 from the M-402 drill bank plus 9 from the Wave M7 gap pack. Filter by pillar, course and difficulty, start the 3-minute countdown, answer out loud, then reveal the CFO or founder answer and the anti-pattern trap (the timer reveals both when it runs out). Grade yourself Again, Good or Easy: SM-2-style scheduling (intervals 1, 6, then interval × ease; Again resets and lowers ease, Easy adds a bonus) decides when each drill comes back, saved in this browser. An Up next list orders due drills first, and every drill links straight to its concept card on the mind map.
 9. **5-minute routine**: a timer and four prompts per concept, saved in this browser, with one-click Markdown export.
 
 ## Layout
@@ -84,11 +84,11 @@ src/
   data/catalog.ts            5 pillars and 22 courses
   data/pillar-1a-acctg500-financial.json   15 ACCTG 500 concept nodes
   data/pillar-1b-acctg501-managerial.json  10 ACCTG 501 concept nodes
-  data/pillar-2-fin502-entre557-entre542.json  14 FIN 502 / ENTRE 557 / ENTRE 542 nodes
-  data/pillar-3-econ-mgmt502-ops-qmeth.json    18 B ECON / MGMT 502 / OPMGT 502 / QMETH / I S 500 nodes
+  data/pillar-2-fin502-entre557-entre542.json  16 FIN 502 / ENTRE 557 / ENTRE 542 nodes
+  data/pillar-3-econ-mgmt502-ops-qmeth.json    23 B ECON / MGMT 502 / OPMGT 502 / QMETH / I S 500 nodes
   data/pillar-4-entre-pm-mikesell.json         16 ENTRE 510 / ENTRE 532 / ENTRE 579 / MKTG 554 nodes
-  data/pillar-5-mktg-leadership-governance.json  17 MKTG 501 / MKTG 600 / MGMT 500 / MGMT 510 / B CMU 501 / MGMT 504 / MGMT 550 nodes
-  data/case-gym-50-drills.json  50 Case Gym drills with reconciled concept links
+  data/pillar-5-mktg-leadership-governance.json  19 MKTG 501 / MKTG 600 / MGMT 500 / MGMT 510 / B CMU 501 / MGMT 504 / MGMT 550 nodes
+  data/case-gym-drills.json  59 Case Gym drills with reconciled concept links
   data/caseGym.ts            validated drills
   data/graph.ts              validated concepts (parse fails loudly on bad data)
   lib/threeStatement.ts      linker engine, slider specs, seeded RNG
@@ -102,7 +102,7 @@ src/
   lib/routineMarkdown.ts     routine log → Markdown
   components/                MindMap, ConceptDrawer, CaseGym, LinkerSandbox, DcfStudio, CapTableLab, OpsBottleneckLab, UnitEconomicsLab, RoutineScratchpad
   test/                      schema, integrity, catalog, caseGym, engine, valuation, capTable, opsBottleneck, unitEconomics, unitEconomicsLab, storage, no-any
-docs/case-gym-concept-mapping.md   M-402 slug → portal concept id for all 50 drills
+docs/case-gym-concept-mapping.md   drill slug → portal concept id for all 59 drills
 scripts/check-no-any.mjs           zero-any guard used by CI
 .github/workflows/                 ci.yml and pages.yml
 ```
@@ -114,10 +114,12 @@ scripts/check-no-any.mjs           zero-any guard used by CI
 - Every thread resolves to a concept or a course; no self or duplicate links.
 - The linker balances to within 1e-6 across 100 seeded random slider states.
 - Wave M2 nodes each link outside their own course; Pillar 2 links back to the ACCTG 500 statements and ACCTG 501 links forward to Pillar 2.
-- Every Wave M3 node links to Pillar 1, Pillar 2 or a future course and outside its own course; all 18 link back into Pillars 1-2.
+- Every Wave M3 node links to Pillar 1, Pillar 2 or a future course and outside its own course; all 23 link back into Pillars 1-2.
 - Every Wave M4 node links back into Pillars 1-3 and to another Pillar 4 course; the earlier course-level threads to ENTRE 510, ENTRE 532 and MKTG 554 now point at specific Pillar 4 concepts.
 - Every Wave M5 node links back into Pillars 1-4 and to another Pillar 5 course; the earlier course-level threads to MGMT 550, MKTG 501 and MGMT 504 now point at specific Pillar 5 concepts, and no node repeats a target.
-- All 50 Case Gym drills resolve to a real concept on the same pillar (50/50), 10 per pillar; only `gym-p5-05` links across courses, by design. SM-2 intervals, ease floors, queue order and storage round-trips are tested.
+- Wave M7 adds 9 GSB and Economics gap concepts (FIN 502 ×2, B ECON 500 ×2, B ECON 501 ×3, MKTG 501, MGMT 500). Each links out to earlier concepts and receives at least one thread back from an earlier concept, and each has exactly one matching drill on its own course.
+- The outer ring keeps all 99 concept dots at least 45px apart (ring radius 740) and every label end inside the auto-fit view.
+- All 59 Case Gym drills resolve to a real concept on the same pillar (59/59), 10 to 15 per pillar; only `gym-p5-05` links across courses, by design. SM-2 intervals, ease floors, queue order and storage round-trips are tested.
 - The unit economics lab matches closed-form LTV (with and without discounting), churn-adjusted payback and serving-cost decline, reproduces the Carbon Robotics seed-plan margin (≈ 70.8%) and 36-month customer payback, and keeps LTV/CAC monotonic in price, churn and CAC across 200 seeded random inputs.
 - The ops lab reproduces the sandwich line (60 / 40 / 120 per hour, 67% / 100% / 33% utilization, 3-minute minimum lead time), matches M/M/1 waits, shows zero throughput gain from every non-bottleneck in every preset, and its simulation obeys Little's Law within 5%.
 - The DCF reproduces hand-computed FCFF and Gordon values, rejects WACC ≤ g, and the 5 × 5 grid moves the right way in both directions.
@@ -137,4 +139,6 @@ scripts/check-no-any.mjs           zero-any guard used by CI
 - Wave M5 draws on the allow-listed MKTG 501, MGMT 500 and MGMT 504 course folders, the MGMT 550 Executive Governance and Product Pricing Playbook (built from MGMT 550 and Corporate Governance Matters) and the M-402 drill bank. No MGMT 510 or B CMU 501 folder was found, and the MKTG 600 independent study folder was outside the allow-list, so those concepts cite the course by title and rest on public records and standard texts. Licensed cases and readings are cited by title only, and no student or TA names appear.
 - Public-record cases in Pillar 5 (Netflix 2011, Microsoft and Mojang 2014, Johnson & Johnson Tylenol 1982, Wells Fargo 2016, Theranos, WeWork 2019, Disney 2022–2024) are marked "verify before reuse".
 - The Case Gym drill bank proposed concept slugs before the portal ids existed; Wave M5 maps all 50 to real ids and keeps the original slug as `sourceConceptSlug` (see `docs/case-gym-concept-mapping.md`).
+- Wave M7 (M-209) closes gaps mapped from two public videos, *Everything I Learned at Stanford Business School in 28 Minutes* and *The Entire Economics Degree in 20 Minutes*. No MBA course folder was read for this wave, so its `[Foster: ...]` sources name the course whose scope each concept extends, and the content rests on standard texts and public records (SVB 2023, the 2022 UK gilt episode, US chip export controls, UPI and India's DPDP Act 2023), marked "verify before reuse". Cisco and NVIDIA appear only through public market history, and no student or TA names appear.
+- The 9 Wave M7 drills had no M-402 slug, so their `sourceConceptSlug` uses an `m209-` slug.
 - MGMT 510 and B CMU 501 share one course slot, which is how the catalog reaches 22 courses.

@@ -246,6 +246,11 @@
         "targetId": "BECON501",
         "relationship": "applied-in",
         "question": "How do interest rates and inflation move the risk-free rate in CAPM?"
+      },
+      {
+        "targetId": "f502-16-capital-markets-emh-bond-duration",
+        "relationship": "builds-on",
+        "question": "Which 10-year Treasury yield should feed r_f, and how do deficits and duration risk move it?"
       }
     ],
     "boardroomDrill": {
@@ -332,6 +337,11 @@
         "targetId": "a500-13-ma-goodwill",
         "relationship": "applied-in",
         "question": "How do exit multiples from acquisitions inform a terminal value?"
+      },
+      {
+        "targetId": "f502-15-trading-comps-valuation-multiples",
+        "relationship": "contrasts-with",
+        "question": "Does the exit multiple in the terminal value sit inside today's trading comps range for similar growth and ROIC?"
       }
     ],
     "boardroomDrill": {
@@ -587,6 +597,11 @@
         "targetId": "MGMT502",
         "relationship": "applied-in",
         "question": "Which competitive advantages let ROIC stay above WACC for decades?"
+      },
+      {
+        "targetId": "f502-15-trading-comps-valuation-multiples",
+        "relationship": "drives",
+        "question": "How much of a peer's premium multiple is explained by its ROIC spread over WACC?"
       }
     ],
     "boardroomDrill": {
@@ -685,6 +700,186 @@
       "[Foster: FIN 502] Business finance sessions on decision trees and real options",
       "[Elite MBA: MIT Sloan] Stewart Myers, Determinants of Corporate Borrowing (1977), origin of the real options concept",
       "[Elite MBA: Wharton] Avinash Dixit and Robert Pindyck, Investment under Uncertainty"
+    ]
+  },
+  {
+    "id": "f502-15-trading-comps-valuation-multiples",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Trading Comps and Valuation Multiples Calibration",
+    "difficulty": "intermediate",
+    "tags": [
+      "valuation",
+      "multiples",
+      "trading comps",
+      "EV/EBITDA",
+      "re-rating"
+    ],
+    "hook10k": "A multiple is a DCF in shorthand: it compresses growth, return on capital and risk into one number that the market will pay per dollar of earnings or revenue. Two companies in the same industry can deserve multiples two to three times apart, and the job is to explain why rather than average them.",
+    "pareto20_80": {
+      "summary": "Trading comps value a company by the prices investors pay today for similar public businesses. The skill is choosing the right denominator (earnings, EBITDA or forward revenue), picking peers with similar growth, margins and ROIC, and reconciling the comps range with an intrinsic DCF before anyone quotes a number.",
+      "keyPoints": [
+        "Use equity multiples (P/E) for equity value and enterprise multiples (EV/EBITDA, EV/Revenue) for firm value, and never mix the two.",
+        "Forward (NTM) multiples beat trailing ones for fast growers, because last year's earnings understate what the buyer is paying for.",
+        "Higher growth, higher ROIC and lower risk justify a higher multiple; a peer set that ignores these differences gives a meaningless median.",
+        "A company re-rates when the market changes which peer group it belongs to, as when a hardware maker becomes priced like a software platform.",
+        "Triangulate: a DCF anchors intrinsic value, comps show what the market pays now, and precedent deals add a control premium."
+      ],
+      "formulas": [
+        {
+          "name": "Enterprise value",
+          "expression": "EV = Equity value + Debt + Preferred + Minority interest − Cash"
+        },
+        {
+          "name": "Justified P/E (Gordon growth)",
+          "expression": "P/E = Payout ratio × (1 + g) / (r − g), where Payout = 1 − g / ROE"
+        },
+        {
+          "name": "Implied value from comps",
+          "expression": "Target EV = Peer median (EV / NTM EBITDA) × Target NTM EBITDA"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Bankers often pick the peer set after they know the answer they want, so always ask which companies were excluded and why.",
+      "Multiples are only comparable after the same adjustments: stock-based compensation, leases and one-off charges can move EBITDA by 20% or more between peers."
+    ],
+    "lenses": {
+      "history": "Benjamin Graham warned in the 1930s and 1940s against paying high multiples without a margin of safety, and the 1999 to 2000 dot-com peak showed why when many profitable leaders traded above 100 times earnings. Aswath Damodaran later formalized how each multiple maps back to growth, risk and cash flow.",
+      "economics": "A multiple is the present value of future cash flows divided by today's cash flow, so it rises with growth and return on capital and falls with the discount rate. Growth only earns a premium multiple when ROIC exceeds the cost of capital, which is why a fast grower with poor returns can trade below a slow compounder.",
+      "behavioralScience": "Investors anchor on the multiple a stock traded at last year and on round numbers like 10 times or 20 times. Narrative categories also matter: once a company is filed under AI platform rather than hardware, investors pay the category's multiple before the numbers prove it.",
+      "marketingNarrative": "Founders fight hard over which peers appear in the comps table, because the peer set is the story of what the company is. A deck that compares an AI infrastructure startup to software platforms rather than equipment makers is making a valuation argument in disguise.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "A cheap multiple is not a bargain if the business deserves it, and an expensive multiple is not a bubble if returns on capital are durable. The contrarian move is to back out the growth the market price implies and ask whether that growth is believable.",
+      "personalConnection": "NVIDIA's re-rating as AI demand surged is a public case of a chip company being repriced as a platform with software-like returns on capital. Enterprise networking leaders such as Cisco traded above 100 times earnings at the 2000 peak (public record), a reminder that category enthusiasm can run far ahead of cash flow.",
+      "antiPattern": "Taking the median EV/EBITDA of a lazily chosen peer group and applying it to a company with very different growth and margins. Regress peer multiples against growth and ROIC first, then place the target on that line."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-04-terminal-value-multiples",
+        "relationship": "builds-on",
+        "question": "How does the exit multiple in a terminal value cross-check against today's trading comps?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "drives",
+        "question": "Why does ROIC above WACC justify a premium multiple while growth alone does not?"
+      },
+      {
+        "targetId": "f502-02-fcff-dcf",
+        "relationship": "contrasts-with",
+        "question": "When the comps range and the DCF disagree, which assumption do you challenge first?"
+      },
+      {
+        "targetId": "a500-12-ratios-dupont",
+        "relationship": "measured-by",
+        "question": "Which DuPont drivers explain why one peer earns a higher P/E than another?"
+      },
+      {
+        "targetId": "m502-06-helmer-7-powers",
+        "relationship": "drives",
+        "question": "Which of the 7 Powers make a premium multiple durable rather than a temporary re-rating?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative fast-casual restaurant chain versus a mature coffee chain",
+      "prompt": "A fast-casual chain grows unit count 12% a year with restaurant-level ROIC near 40% and trades at 45 times earnings. A mature coffee chain grows 4% with ROIC near 20% and trades at 22 times (illustrative). A board member calls the first chain a bubble. How do you respond in two minutes?",
+      "cfoAnswer": "Back out what each price implies. At 45 times, the market is paying for roughly a decade of double-digit growth at high returns; at 22 times, it expects mid-single-digit growth. The gap is defensible if new units keep earning about 40% returns and the white space is real, so test unit-level paybacks and saturation rather than the headline multiple. The premium is a bet on reinvestment runway, not on the brand alone.",
+      "keyTakeaway": "Explain a multiple gap with growth, ROIC and runway before calling it mispricing."
+    },
+    "sources": [
+      "[Foster: FIN 502] Course scope on relative valuation and multiples alongside DCF (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Stanford GSB] Everything I Learned at Stanford Business School in 28 Minutes, valuation and comps segment (gap map source)",
+      "[Elite MBA: NYU Stern / Damodaran] Damodaran, The Dark Side of Valuation and Investment Valuation, chapters on relative valuation",
+      "[Real 10-K / Case] Public market history of networking and semiconductor multiples, 2000 and the AI re-rating; verify current figures before reuse"
+    ]
+  },
+  {
+    "id": "f502-16-capital-markets-emh-bond-duration",
+    "pillarId": "P2",
+    "courseCode": "FIN 502",
+    "title": "Capital Markets Mechanics: EMH, Bond Duration and Sovereign Debt",
+    "difficulty": "advanced",
+    "tags": [
+      "capital markets",
+      "efficient markets",
+      "bonds",
+      "duration",
+      "risk-free rate",
+      "derivatives"
+    ],
+    "hook10k": "Bond prices and yields move in opposite directions, and duration tells you how hard a price falls when yields rise. The 10-year Treasury yield that sits inside every WACC is set in this market, so government deficits and investor sentiment reach straight into a startup's valuation.",
+    "pareto20_80": {
+      "summary": "Capital markets price risk continuously. The Efficient Market Hypothesis says public prices quickly reflect available information, bond math links yields to prices through duration, derivatives let firms transfer specific risks, and the supply of government debt helps set the risk-free rate that anchors every discount rate.",
+      "keyPoints": [
+        "Weak, semi-strong and strong forms of EMH differ in which information prices already reflect; most evidence supports a semi-strong market with exceptions.",
+        "A bond's price is the present value of its coupons and principal, so a higher yield means a lower price, and longer duration means a bigger move.",
+        "Larger deficits increase Treasury supply and can push the term premium and the 10-year yield up, raising the risk-free rate in CAPM.",
+        "Forwards, futures, swaps and options transfer a defined risk such as rates, FX or commodity prices; they hedge exposure but cost premium or upside.",
+        "When the risk-free rate rises, every company's WACC rises with it, even with no change in operations."
+      ],
+      "formulas": [
+        {
+          "name": "Bond price",
+          "expression": "P = Σ C / (1 + y)^t + F / (1 + y)^T"
+        },
+        {
+          "name": "Modified duration approximation",
+          "expression": "ΔP / P ≈ −D_mod × Δy"
+        },
+        {
+          "name": "CAPM link to the risk-free rate",
+          "expression": "r_e = r_f + β × (E[r_m] − r_f)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Markets can be efficient at pricing public information and still swing far from fundamentals for years, as the 2000 and 2008 episodes showed.",
+      "Many corporate hedging programs lose money on paper because they hedge accounting volatility rather than the cash flows that actually threaten the business."
+    ],
+    "lenses": {
+      "history": "Eugene Fama's 1970 review set out the Efficient Market Hypothesis, and Robert Shiller's work on excess volatility challenged it; both shared the 2013 Nobel Prize. Rating agencies downgraded US sovereign debt in 2011 and again in 2023, putting fiscal deficits back into discussions of the risk-free rate.",
+      "economics": "A bond yield is the market price of lending money for a fixed term, combining expected short rates and a term premium for bearing duration risk. Heavy government borrowing competes for savings and can lift long yields, which raises hurdle rates for private investment.",
+      "behavioralScience": "Investors chase recent winners and sell in panics, creating momentum and overreaction that pure EMH struggles to explain. Treasury investors also extrapolate: after a decade of low yields, many treated 2% as normal and underpriced duration risk.",
+      "marketingNarrative": null,
+      "sociology": "Bond market reactions discipline governments, as when the United Kingdom reversed its 2022 mini-budget after gilt yields spiked and pension funds faced margin calls. Who holds the debt, domestic savers or foreign central banks, shapes how much fiscal room a country really has.",
+      "firstPrinciplesContrarian": "If markets are efficient, a founder's job is not to time public markets but to build cash flows the market will eventually price. The contrarian point is that the risk-free rate is not risk-free in real terms when inflation and fiscal risk rise.",
+      "personalConnection": "PranaScan's valuation model in Lab #2 uses a 10-year Treasury yield as r_f, so a one-point rise in yields lifts its WACC by about one point before any product change. Enterprise vendors that issue long-dated bonds, as many hyperscalers do, saw the market value of that debt fall when yields rose in 2022.",
+      "antiPattern": "Hard-coding the risk-free rate from an old model and hedging a cash flow you do not actually have. Refresh r_f each planning cycle and hedge only defined exposures with a clear owner."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "drives",
+        "question": "How much does a one-point rise in the 10-year yield move WACC in Lab #2?"
+      },
+      {
+        "targetId": "be501-02-rates-monetary-policy-cost-of-capital",
+        "relationship": "builds-on",
+        "question": "How do central bank policy rates pass into long-term Treasury yields?"
+      },
+      {
+        "targetId": "f502-05-capital-structure",
+        "relationship": "applied-in",
+        "question": "When should a company lock in fixed-rate debt rather than float with the market?"
+      },
+      {
+        "targetId": "be501-03-money-creation-fractional-reserve-qe",
+        "relationship": "contrasts-with",
+        "question": "How does quantitative easing change bond prices and the term premium?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative treasury portfolio at a growth-stage company",
+      "prompt": "Your company holds $200M of cash in 7-year Treasuries with modified duration near 6. Yields rise 2 points in a year. The audit committee asks what happened to the portfolio and whether the company is at risk.",
+      "cfoAnswer": "Duration says the price fell about 6 × 2% = 12%, so roughly $24M of mark-to-market loss. If the company can hold to maturity, it gets its principal back, but it cannot spend that $24M today if it needs liquidity. Match the duration of cash investments to the runway plan, keep near-term spend in short bills, and treat duration as a risk to manage rather than free yield.",
+      "keyTakeaway": "Duration turns yield changes into price losses, so match investment duration to when you need the cash."
+    },
+    "sources": [
+      "[Foster: FIN 502] Course scope on the cost of capital, the risk-free rate and market efficiency (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Stanford GSB] Everything I Learned at Stanford Business School in 28 Minutes, capital markets segment (gap map source)",
+      "[Elite MBA: Chicago Booth] Fama, Efficient Capital Markets: A Review of Theory and Empirical Work, 1970",
+      "[Real 10-K / Case] Public record of the 2022 UK gilt episode and the 2011 and 2023 US sovereign downgrades"
     ]
   },
   {
@@ -1104,6 +1299,11 @@
         "targetId": "e532-04-saas-financial-model-assumptions",
         "relationship": "applied-in",
         "question": "How deep is the cash trough in the operating plan, and should the founder cut burn or raise a bridge?"
+      },
+      {
+        "targetId": "be501-03-money-creation-fractional-reserve-qe",
+        "relationship": "risk-for",
+        "question": "Is your runway safe if your bank faces a run, and how much cash sits above the insured limit?"
       }
     ],
     "boardroomDrill": {

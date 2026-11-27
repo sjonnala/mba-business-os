@@ -244,6 +244,11 @@
         "targetId": "mk501-01-three-cs-stp-positioning",
         "relationship": "builds-on",
         "question": "How does the positioning statement define the associations a brand must own?"
+      },
+      {
+        "targetId": "mk501-05-blue-ocean-brand-archetypes-channel-icp",
+        "relationship": "foundation-for",
+        "question": "Which of the four brand moat archetypes fits this brand and its buyers?"
       }
     ],
     "boardroomDrill": {
@@ -330,6 +335,11 @@
         "targetId": "m504-01-crisis-response-stakeholder-trust",
         "relationship": "risk-for",
         "question": "When does a pricing decision become a trust crisis that leadership must manage?"
+      },
+      {
+        "targetId": "be500-04-behavioral-economics-choice-architecture",
+        "relationship": "builds-on",
+        "question": "How do anchoring and loss aversion change how customers read a price?"
       }
     ],
     "boardroomDrill": {
@@ -343,6 +353,104 @@
       "[Foster: MKTG 501] Curled Metal Inc. case on pricing an engineered product (title only)",
       "[Real 10-K / Case] Netflix 2011 shareholder letters and widely reported subscriber losses after the Qwikster announcement (public record; verify before reuse)",
       "[Elite MBA: Wharton] Nagle and Müller, The Strategy and Tactics of Pricing"
+    ]
+  },
+  {
+    "id": "mk501-05-blue-ocean-brand-archetypes-channel-icp",
+    "pillarId": "P5",
+    "courseCode": "MKTG 501",
+    "title": "Blue Ocean Strategy, Four Brand Moat Archetypes and Channel-ICP Fit",
+    "difficulty": "intermediate",
+    "tags": [
+      "blue ocean",
+      "value curve",
+      "brand",
+      "ideal customer profile",
+      "distribution channels",
+      "positioning"
+    ],
+    "hook10k": "The fastest way to beat competitors is to stop competing on their terms and redraw the value curve so the comparison no longer applies. Then a brand has to own a durable place in the customer's head, and the message has to reach that exact customer through the one channel where they already look.",
+    "pareto20_80": {
+      "summary": "Blue Ocean Strategy creates uncontested demand by eliminating and reducing what an industry over-serves while raising and creating what it ignores. Brands then defend that position through one of four plays, mental availability, values and purpose, aspirational content or prestige, and growth depends on matching hyper-specific ideal customer profile copy to the right distribution channel.",
+      "keyPoints": [
+        "Draw the strategy canvas: list the factors an industry competes on and plot each player's offering level.",
+        "Use the Eliminate, Reduce, Raise, Create grid to shift cost down and value up at the same time.",
+        "Mental availability (being easily recalled in buying moments) drives most brand growth for broad categories.",
+        "Values, aspirational content and prestige brands earn loyalty or price premiums but suit narrower audiences.",
+        "Channel-ICP fit: the same message fails in the wrong channel, so pick the channel where the ideal customer already decides, then write copy for that person only."
+      ],
+      "formulas": [
+        {
+          "name": "ERRC value shift",
+          "expression": "New value curve = Industry curve − Eliminate − Reduce + Raise + Create"
+        },
+        {
+          "name": "Channel efficiency",
+          "expression": "Channel CAC = Channel spend / Customers acquired from that channel"
+        },
+        {
+          "name": "Mental availability share",
+          "expression": "Share of buyers who recall the brand in category entry points / All category buyers"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most blue oceans turn red within a few years as competitors copy the new value curve, so the first-mover window must fund a durable advantage.",
+      "Startups often target an ideal customer profile so broad that no channel fits it, then blame the channel."
+    ],
+    "lenses": {
+      "history": "Chan Kim and Renée Mauborgne of INSEAD published Blue Ocean Strategy in 2005, using Cirque du Soleil, which dropped animal acts and star performers while adding theater and story. Byron Sharp's How Brands Grow in 2010 pushed marketers toward mental availability and broad reach.",
+      "economics": "A blue ocean raises willingness to pay while lowering cost, widening the value gap that Porter-style strategy says a firm can capture. Channel economics decide whether that value turns into profit, because acquisition cost in the wrong channel can exceed customer lifetime value.",
+      "behavioralScience": "Buyers choose from the few brands that come to mind in the moment, so being recalled beats being admired. Aspirational and prestige brands work through identity: customers buy what the brand says about them.",
+      "marketingNarrative": "A blue ocean story names the old trade-off and shows the product breaks it, as in clinical-grade vitals from a phone camera without a device. Each brand archetype needs a consistent voice: mental availability brands repeat distinctive assets, while values brands show proof of the cause.",
+      "sociology": "Communities adopt products through trusted channels such as clinicians, professional groups or online forums, and each has its own norms. A channel is a social setting, so copy that ignores its norms reads as spam.",
+      "firstPrinciplesContrarian": "If you cannot name the factor you are eliminating, you are not creating a blue ocean, only adding features. The contrarian move is to remove something customers say they want but rarely use, and lower the price.",
+      "personalConnection": "PranaScan can draw a strategy canvas against wearables: eliminate the device, reduce cost to near zero and create a 30-second check on any phone, then reach Indian users through clinicians and community health workers rather than paid social. Enterprise vendors that sell through partner channels learn the same lesson: the copy that works for a CIO fails for a developer in a forum.",
+      "antiPattern": "Claiming a blue ocean while matching competitors feature for feature, then spraying generic copy across every channel. Pick one ICP, one channel and one archetype, prove the economics, then expand."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-01-strategy-vs-operational-effectiveness",
+        "relationship": "builds-on",
+        "question": "Is a new value curve a real strategy or just operational effectiveness in disguise?"
+      },
+      {
+        "targetId": "mk554-02-pmf-needs-kano-jtbd",
+        "relationship": "applied-in",
+        "question": "Which Kano delighters belong in the Create column of the ERRC grid?"
+      },
+      {
+        "targetId": "mk501-03-brand-equity-iconic-brands",
+        "relationship": "drives",
+        "question": "Which of the four brand archetypes builds the most brand equity for this category?"
+      },
+      {
+        "targetId": "mk501-01-three-cs-stp-positioning",
+        "relationship": "builds-on",
+        "question": "How does the target segment narrow into an ideal customer profile a channel can reach?"
+      },
+      {
+        "targetId": "mk600-01-community-led-brand-after-acquisition",
+        "relationship": "contrasts-with",
+        "question": "When does a community channel beat paid reach for building mental availability?"
+      },
+      {
+        "targetId": "e579-02-value-proposition-ecosystem-map",
+        "relationship": "measured-by",
+        "question": "Which partners in the ecosystem map are also your best distribution channels?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative phone-camera vitals startup versus wearables",
+      "prompt": "Paid social brings users at a $14 CAC with 20% month-2 retention. A pilot with 30 community clinics brings users at $3 CAC with 55% retention (illustrative). The marketing lead wants to keep scaling paid social because it is faster. What do you decide?",
+      "cfoAnswer": "The clinic channel fits the ICP: users who already trust a clinician and need regular checks. Its CAC is under a quarter of paid social and retention is nearly three times higher, so its payback is many times faster. Shift budget to clinic partnerships and clinician-facing copy, keep a small paid test for learning, and measure CAC payback by channel monthly.",
+      "keyTakeaway": "Choose the channel where the ideal customer already decides, then write for that customer alone."
+    },
+    "sources": [
+      "[Foster: MKTG 501] Course scope on segmentation, positioning, brand and channel strategy (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Stanford GSB] Everything I Learned at Stanford Business School in 28 Minutes, strategy and marketing segment (gap map source)",
+      "[Elite MBA: INSEAD] Kim and Mauborgne, Blue Ocean Strategy, 2005",
+      "[Elite MBA: Ehrenberg-Bass Institute] Sharp, How Brands Grow, 2010"
     ]
   },
   {
@@ -494,6 +602,11 @@
         "targetId": "m510-02-feedback-difficult-conversations",
         "relationship": "applied-in",
         "question": "How do you give a new manager feedback they can act on?"
+      },
+      {
+        "targetId": "m500-04-eq-servant-leadership-network-capital",
+        "relationship": "foundation-for",
+        "question": "Which emotional intelligence skills does a first-time manager need most?"
       }
     ],
     "boardroomDrill": {
@@ -674,6 +787,94 @@
     ]
   },
   {
+    "id": "m500-04-eq-servant-leadership-network-capital",
+    "pillarId": "P5",
+    "courseCode": "MGMT 500",
+    "title": "Touchy-Feely EQ, Servant Leadership and Network Capital",
+    "difficulty": "foundation",
+    "tags": [
+      "emotional intelligence",
+      "servant leadership",
+      "one-on-ones",
+      "retention",
+      "networks",
+      "interpersonal dynamics"
+    ],
+    "hook10k": "The skills that look soft, noticing your own reactions, managing them and reading other people, show up hard on the P&L as turnover, stalled projects and lost deals. Leaders who serve their team's goals and invest in relationships build capital that compounds like interest.",
+    "pareto20_80": {
+      "summary": "Emotional intelligence, as framed here in four parts, self-awareness, self-regulation, empathy and inspiration, predicts how well leaders handle conflict and keep people. Servant leadership turns that into practice through one-on-ones that align each person's goals with the team's, and network capital grows from weak ties and generosity over years.",
+      "keyPoints": [
+        "Self-awareness: know your triggers and the impact you have, ideally from direct feedback rather than self-report.",
+        "Self-regulation: pause before reacting, so a bad moment does not become a bad decision.",
+        "Empathy and inspiration: understand what each person needs and connect their work to a purpose they care about.",
+        "Servant leadership: the leader's job is to remove blockers and grow people, measured by the team's results and growth.",
+        "Network capital compounds: weak ties bring new information and opportunities, and they decay without regular, generous contact."
+      ],
+      "formulas": [
+        {
+          "name": "Cost of regretted attrition",
+          "expression": "Annual cost = Regretted leavers × Salary × Replacement cost multiple (often 0.5 to 2.0)"
+        },
+        {
+          "name": "One-on-one coverage",
+          "expression": "Coverage = Direct reports with a 1:1 in the last 2 weeks / All direct reports"
+        },
+        {
+          "name": "Network reach",
+          "expression": "Reach ≈ Strong ties + Weak ties × Bridging probability"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Self-rated emotional intelligence correlates weakly with how others rate you, which is why feedback groups beat self-assessment.",
+      "Many managers skip one-on-ones when busy, which is exactly when small problems turn into resignations."
+    ],
+    "lenses": {
+      "history": "Stanford GSB's Interpersonal Dynamics elective, known as Touchy-Feely, has taught small-group feedback for decades and is one of the school's most requested courses. Robert Greenleaf coined servant leadership in his 1970 essay The Servant as Leader, and Daniel Goleman popularized emotional intelligence in 1995.",
+      "economics": "Replacing a skilled employee is commonly estimated at half to two times annual salary once hiring, ramp-up and lost output are counted. Leaders who cut regretted attrition by a few points save more than most cost programs, which makes EQ a financial lever.",
+      "behavioralScience": "Under stress, people react before they think, so self-regulation is a trained pause rather than a personality trait. People also share bad news only with leaders who react calmly, so a leader's temper sets how much truth reaches them.",
+      "marketingNarrative": "Inspiration means telling each person a story in which their work matters, not giving the same speech to everyone. A leader who can explain why a project matters to a customer earns effort that a deadline alone cannot buy.",
+      "sociology": "Mark Granovetter's 1973 paper The Strength of Weak Ties showed that people often find jobs through acquaintances rather than close friends. Networks that bridge groups give access to information the rest of the team never sees.",
+      "firstPrinciplesContrarian": "Being liked is not the goal; being trusted is, and trust sometimes requires telling people what they do not want to hear. Empathy without candor produces comfortable teams that miss targets.",
+      "personalConnection": "Engineers moving from senior individual contributor to lead in enterprise teams often struggle less with technology than with feedback, conflict and motivating others. Founders such as Paul Mikesell, who went from Isilon to Carbon Robotics, show how relationships built over a career become the first hires, investors and customers of the next company.",
+      "antiPattern": "Treating one-on-ones as status updates and networking as a job-search emergency. Use one-on-ones for each person's goals and blockers, and give help to your network long before you need any."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m500-01-first-time-manager-motivation",
+        "relationship": "builds-on",
+        "question": "How does self-regulation help a new manager stop rewarding heroics?"
+      },
+      {
+        "targetId": "m500-02-team-design-psych-safety-groupthink",
+        "relationship": "drives",
+        "question": "How does a leader's emotional reaction to bad news set the team's psychological safety?"
+      },
+      {
+        "targetId": "m510-02-feedback-difficult-conversations",
+        "relationship": "applied-in",
+        "question": "How do empathy and candor combine in a situation-behavior-impact conversation?"
+      },
+      {
+        "targetId": "mk554-01-pm-role-discovery-outcomes",
+        "relationship": "applied-in",
+        "question": "How does a product manager lead engineers and designers without formal authority?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative 120-person engineering org with rising attrition",
+      "prompt": "Regretted attrition rose from 8% to 15% in a year. Average salary is $180,000 and you estimate replacement cost at 1 times salary (illustrative). Exit interviews mention two managers who skip one-on-ones and react badly to bad news. The CEO asks what this costs and what you will do.",
+      "cfoAnswer": "Seven extra points on 120 people is about 8 more regretted leavers, roughly 8 × $180,000 ≈ $1.4M a year in replacement cost before lost output. Fund manager coaching and a feedback program, require weekly one-on-ones and track coverage, and move the two managers into coaching with clear expectations or out of people management. Report regretted attrition by team every quarter.",
+      "keyTakeaway": "Turnover makes leadership quality visible in dollars, so measure and manage it like any cost."
+    },
+    "sources": [
+      "[Foster: MGMT 500] Course scope on leadership, motivation and managing teams (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Stanford GSB] Interpersonal Dynamics (Touchy-Feely) elective, as described in Everything I Learned at Stanford Business School in 28 Minutes",
+      "[Elite MBA: Stanford] Granovetter, The Strength of Weak Ties, American Journal of Sociology, 1973",
+      "[Elite MBA: Harvard Business School] Goleman, What Makes a Leader?, Harvard Business Review, 1998"
+    ]
+  },
+  {
     "id": "m510-01-executive-communication-bottom-line-up-front",
     "pillarId": "P5",
     "courseCode": "MGMT 510 / B CMU 501",
@@ -822,6 +1023,11 @@
         "targetId": "m504-02-incentives-ethical-breakdowns",
         "relationship": "risk-for",
         "question": "What happens when no one gives feedback on a top performer who bends the rules?"
+      },
+      {
+        "targetId": "m500-04-eq-servant-leadership-network-capital",
+        "relationship": "builds-on",
+        "question": "How do self-regulation and empathy make hard feedback land?"
       }
     ],
     "boardroomDrill": {
