@@ -995,6 +995,127 @@ td.neg {
   font-size: 12px;
 }
 
+/* ---------- Case Gym ---------- */
+.gym {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.gym-card,
+.gym-queue {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.gym-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gym-stats {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.drill {
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+
+.drill h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  margin: 4px 0 10px;
+}
+
+.drill-scenario {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--ink-2);
+}
+
+.drill-reveal {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.drill-reveal h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.drill-reveal p {
+  margin: 0;
+}
+
+.drill-trap {
+  border-left: 3px solid var(--red);
+  padding-left: 10px;
+}
+
+.grade-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.grade-buttons .grade-again {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.grade-buttons .grade-good {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.grade-buttons .grade-easy {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.drill-concept {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.gym-queue h3 {
+  margin: 0 0 8px;
+}
+
+.gym-queue ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.gym-queue li {
+  display: grid;
+  gap: 2px;
+}
+
+.gym-queue li.on > button {
+  font-weight: 700;
+}
+
+.gym-queue li span {
+  font-size: 12px;
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 900px) {
   main.with-drawer {
@@ -1010,7 +1131,8 @@ td.neg {
     box-shadow: 0 -6px 24px rgb(0 0 0 / 0.18);
   }
 
-  .routine {
+  .routine,
+  .gym {
     grid-template-columns: 1fr;
   }
 }
@@ -1021,6 +1143,10 @@ td.neg {
   .colophon {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .gym-filters {
+    grid-template-columns: 1fr;
   }
 
   .tabs {
