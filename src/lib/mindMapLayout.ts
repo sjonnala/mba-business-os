@@ -31,16 +31,33 @@ export function shortLabel(title: string, max = 34): string {
   return base.length > max ? `${base.slice(0, max - 1).trimEnd()}…` : base;
 }
 
-/** Radial tree: root → 5 pillars → 22 courses → concepts of live courses. ACCTG 500 sits at the top. */
+/** Angular weight per concept and the minimum sector for a course with no live concepts, in degrees. */
+export const SECTOR = { perConcept: 8, minCourse: 6 } as const;
+
+/**
+ * Radial tree: root → 5 pillars → 22 courses → concepts of live courses. ACCTG 500 sits at the top.
+ * Each course gets an angular sector sized by its concept count (with a floor for coming courses),
+ * scaled to fill the circle, so concept fans of neighbouring live courses never overlap.
+ */
 export function layoutMindMap(
   pillars: readonly Pillar[],
   courses: readonly Course[],
   concepts: readonly ConceptNode[],
 ): MapLayout {
   const nodes: MapNode[] = [{ id: 'root', kind: 'root', label: 'MBA Business OS', x: 0, y: 0, angle: -90, parentId: null }];
-  const step = 360 / courses.length;
+  const owned = courses.map((c) => concepts.filter((k) => k.courseCode === c.code));
+  const widths = owned.map((own) => Math.max(SECTOR.minCourse, own.length * SECTOR.perConcept));
+  const total = widths.reduce((a, b) => a + b, 0);
+  const scale = total > 0 ? 360 / total : 1;
+  const spacing = SECTOR.perConcept * scale;
+
   const courseAngle = new Map<string, number>();
-  courses.forEach((c, i) => courseAngle.set(c.id, -90 + i * step));
+  let cursor = -90 - ((widths[0] ?? 0) * scale) / 2;
+  courses.forEach((c, i) => {
+    const w = (widths[i] ?? 0) * scale;
+    courseAngle.set(c.id, cursor + w / 2);
+    cursor += w;
+  });
 
   for (const p of pillars) {
     const angles = courses.filter((c) => c.pillarId === p.id).map((c) => courseAngle.get(c.id) ?? 0);
@@ -48,18 +65,16 @@ export function layoutMindMap(
     nodes.push({ id: p.id, kind: 'pillar', label: p.shortName, ...polar(RADII.pillar, angle), angle, parentId: 'root' });
   }
 
-  for (const c of courses) {
+  courses.forEach((c, ci) => {
     const angle = courseAngle.get(c.id) ?? 0;
     nodes.push({ id: c.id, kind: 'course', label: c.code, ...polar(RADII.course, angle), angle, parentId: c.pillarId });
-    const own = concepts.filter((k) => k.courseCode === c.code);
-    if (own.length === 0) continue;
-    const spacing = 11;
+    const own = owned[ci] ?? [];
     const span = spacing * (own.length - 1);
     own.forEach((k, i) => {
       const a = angle - span / 2 + i * spacing;
       nodes.push({ id: k.id, kind: 'concept', label: shortLabel(k.title), ...polar(RADII.concept, a), angle: a, parentId: c.id });
     });
-  }
+  });
 
   return { nodes, byId: new Map(nodes.map((n) => [n.id, n])) };
 }
