@@ -581,7 +581,7 @@
         "question": "How do international transfer prices shift taxable income between countries?"
       },
       {
-        "targetId": "MGMT550",
+        "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks",
         "relationship": "applied-in",
         "question": "How should a board design divisional incentives so transfer pricing does not destroy value?"
       }
@@ -667,7 +667,7 @@
         "question": "Which cost of capital should be used in each division's capital charge?"
       },
       {
-        "targetId": "MGMT550",
+        "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks",
         "relationship": "applied-in",
         "question": "How should a board tie executive bonuses to economic profit rather than ROI?"
       }

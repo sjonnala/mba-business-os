@@ -1,0 +1,1429 @@
+[
+  {
+    "id": "mk501-01-three-cs-stp-positioning",
+    "pillarId": "P5",
+    "courseCode": "MKTG 501",
+    "title": "The 3 Cs, Segmentation, Targeting and Positioning: Which Customers, What Offer, How to Win",
+    "difficulty": "foundation",
+    "tags": [
+      "marketing-strategy",
+      "segmentation",
+      "positioning",
+      "beachhead"
+    ],
+    "hook10k": "Marketing strategy answers three questions in order: which customers to serve, what bundle to offer them, and how to bring the two together better than competitors do. The 3 Cs (company, competition, customer) diagnose the situation, and STP (segmentation, targeting, positioning) turns that diagnosis into a choice of whom to ignore.",
+    "pareto20_80": {
+      "summary": "Run the 3 Cs first, then segment on the benefits customers seek rather than on demographics, target the segment where your strengths meet unmet needs that rivals serve poorly, and write a positioning statement that names the target, the need, the frame of reference, the point of difference and the reason to believe. The four Ps come last and must all serve that one position.",
+      "keyPoints": [
+        "Company analysis uses the resource-based view: name the specific capability and the evidence for it, not a vague strength like a good reputation.",
+        "Customer analysis digs into the benefits that drive behavior and how segments differ in what they seek, which is the opposite of mass marketing.",
+        "Targeting needs all three Cs together: a fit between your strengths and a segment's needs is not enough if a competitor already owns that segment.",
+        "A positioning statement follows a formula: for target T with need N, brand B is the frame of reference F that delivers point of difference D, because of reason R.",
+        "Tactics must work together: price, product, place and promotion each reinforce the same position or they quietly undo it."
+      ],
+      "formulas": [
+        {
+          "name": "Positioning statement",
+          "expression": "For [target] who [need], [brand] is the [frame of reference] that [point of difference], because [reason to believe]"
+        },
+        {
+          "name": "Segment attractiveness",
+          "expression": "Attractiveness ≈ size × growth × (fit with our strengths) ÷ (strength of competitors serving it)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Founders resist narrow targeting because every excluded segment feels like lost revenue, yet a position that tries to please everyone is remembered by no one and lengthens every sales cycle.",
+      "Segments drawn on demographics are easy to buy media against but often do not predict behavior; benefit-based segments are harder to size and more useful for product and pricing."
+    ],
+    "lenses": {
+      "history": "Wendell Smith introduced market segmentation as a strategy in 1956, and Al Ries and Jack Trout popularized positioning as a battle for a slot in the customer's mind in the 1970s and 1980s. The Foster case writeup format still forces the same order: 3 Cs, then STP, then the four Ps.",
+      "economics": "Segmentation is the marketing face of price discrimination and specialization: serving a narrow segment well lets a firm charge closer to that segment's willingness to pay. Focus also lowers acquisition cost because messages and channels concentrate on buyers already primed to respond.",
+      "behavioralScience": "Customers remember a brand by one or two associations, so a long list of benefits dilutes recall instead of adding to it. The frame of reference anchors comparison: a product framed as a spreadsheet replacement is judged against spreadsheets, not against enterprise suites.",
+      "marketingNarrative": "The positioning statement is internal strategy, not ad copy, yet it becomes the spine of every pitch, landing page and sales script. A crisp beachhead story such as finance teams losing days to month-end close is easier for investors and customers to repeat than a platform for everyone.",
+      "sociology": "Segments often form around communities and identities, so winning one reference group creates word of mouth inside it before spreading to adjacent groups. Diffusion runs through networks, which is why a dense beachhead beats a scattered customer base.",
+      "firstPrinciplesContrarian": "Strategy is mostly the choice of what not to do, so the most valuable line in a positioning statement is the target that excludes most of the market. The contrarian move is to pick a segment incumbents consider too small, then expand from a position of strength.",
+      "personalConnection": "An enterprise platform team selling internal developer tools faces the same choice: platform engineers, application developers and security teams want different benefits from one product. PranaScan would start with one beachhead, such as remote cardiac rehab programs, rather than consumers, clinics and insurers at once.",
+      "antiPattern": "Writing positioning as a feature list for every possible buyer to avoid closing doors. The result is a forgettable product, long sales cycles and a roadmap pulled in every direction."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "mk554-02-pmf-needs-kano-jtbd",
+        "relationship": "builds-on",
+        "question": "How do Kano and jobs to be done sharpen which benefit a segment actually pays for?"
+      },
+      {
+        "targetId": "e579-02-value-proposition-ecosystem-map",
+        "relationship": "applied-in",
+        "question": "Who in the target segment is the user, who is the buyer and who is the payer?"
+      },
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "Which positioning raises willingness to pay rather than just lowering price?"
+      },
+      {
+        "targetId": "mk501-04-value-based-pricing-price-communication",
+        "relationship": "foundation-for",
+        "question": "How should the chosen position set the price and the way it is communicated?"
+      },
+      {
+        "targetId": "m510-01-executive-communication-bottom-line-up-front",
+        "relationship": "applied-in",
+        "question": "How do you state a positioning choice in one sentence that a board will remember?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative AI productivity start-up",
+      "prompt": "A Series A start-up describes itself as an AI platform for productivity, analytics and collaboration for teams of every size. Win rates are under 15% and sales cycles run five months. The CEO wants to add two more verticals to grow the pipeline. What do you tell the board?",
+      "cfoAnswer": "Low win rates and long cycles are symptoms of no position, so adding verticals makes them worse. Pick one beachhead where the product wins clearly, such as finance teams at mid-size SaaS companies who lose days to month-end close, and write the positioning statement around that pain and the alternative it beats. Re-point the pipeline, sales scripts and pricing at that segment, track win rate and cycle length for two quarters, and expand only to adjacent segments once the beachhead is won.",
+      "keyTakeaway": "A narrow target is not a smaller business; it is the fastest way to become a remembered one."
+    },
+    "sources": [
+      "[Foster: MKTG 501] Syllabus: marketing strategy framework, case writeup guidelines (3 Cs, STP, four Ps) and the positioning statement assignment",
+      "[Foster: MKTG 501] Module on STP: market definition, segmentation and targeting note; Clean Edge Razor case (title only)",
+      "[Elite MBA: Wharton] Kotler and Keller, Marketing Management, segmentation and positioning chapters",
+      "[Elite MBA: Harvard Business School] Ries and Trout, Positioning: The Battle for Your Mind"
+    ]
+  },
+  {
+    "id": "mk501-02-customer-lifetime-value-breakeven",
+    "pillarId": "P5",
+    "courseCode": "MKTG 501",
+    "title": "Marketing Math: Breakeven Volume, Customer Lifetime Value and What a Customer Is Worth",
+    "difficulty": "intermediate",
+    "tags": [
+      "customer-lifetime-value",
+      "breakeven",
+      "retention",
+      "marketing-roi"
+    ],
+    "hook10k": "Every marketing decision is a bet that the customers it brings in will be worth more than they cost to win. Breakeven volume tells you how many sales a campaign must generate to pay for itself, and customer lifetime value tells you how much you can afford to spend acquiring one customer.",
+    "pareto20_80": {
+      "summary": "Breakeven volume is fixed marketing cost divided by unit contribution margin, and the breakeven share of market tells you whether that volume is plausible. Customer lifetime value is the present value of margin a customer generates while they stay, which depends far more on retention than on the first purchase.",
+      "keyPoints": [
+        "Contribution per unit is price minus variable cost, so a campaign's breakeven volume rises sharply when margins are thin.",
+        "Compare breakeven volume with the size of the target segment: a campaign that needs 40% share of a niche to pay back is a red flag.",
+        "With margin m per period, retention r and discount rate d, lifetime value grows quickly as retention approaches 100%, so small retention gains are worth more than small price gains.",
+        "Customer management means spending differently on segments with different lifetime values instead of treating every customer alike.",
+        "Commitment devices such as the stickK case show that retention is a design choice in the product, not only a marketing outcome."
+      ],
+      "formulas": [
+        {
+          "name": "Breakeven volume",
+          "expression": "BEV = fixed cost ÷ (price − variable cost per unit)"
+        },
+        {
+          "name": "Customer lifetime value",
+          "expression": "CLV = m × r ÷ (1 + d − r) for constant margin m, retention r and discount rate d, minus acquisition cost"
+        },
+        {
+          "name": "Breakeven market share",
+          "expression": "Required share = BEV ÷ segment size"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Retention rates in early-stage businesses are measured over a few cohorts, so lifetime value estimates are mostly extrapolation and should be shown as a range rather than one number.",
+      "Teams often compute lifetime value on revenue instead of contribution margin, which overstates what they can afford to spend on acquisition by the size of their cost of goods."
+    ],
+    "lenses": {
+      "history": "Direct marketers in catalog and credit card businesses built lifetime value models in the 1980s because they could track each customer's purchases over years. Subscription software later made the same math the default language of start-up boards.",
+      "economics": "Lifetime value is a discounted cash flow for a single customer, so it obeys the same rules as any DCF: cash, not revenue, and a discount rate that reflects risk. Acquisition spend is worth it only while the marginal customer's value exceeds the marginal cost of winning them.",
+      "behavioralScience": "Retention depends on habits and switching costs more than on satisfaction scores, which is why onboarding and early usage predict churn better than surveys. Commitment devices exploit present bias by letting customers bind their future selves.",
+      "marketingNarrative": "A breakeven slide turns a marketing request into an investment case that finance can evaluate. Telling the board that a campaign pays back at 3% of the segment is far more persuasive than promising awareness.",
+      "sociology": "High-value customers often cluster in communities that refer each other, so their lifetime value includes the customers they bring. Referral effects are a social multiplier that simple lifetime value formulas ignore.",
+      "firstPrinciplesContrarian": "Most of the value of a customer base sits in retention, yet most marketing budgets go to acquisition because acquisition is easier to measure. A contrarian budget moves money from the top of the funnel to keeping existing customers.",
+      "personalConnection": "Enterprise SaaS teams live by net revenue retention, which is lifetime value math applied to expansion and churn at the account level. PranaScan's B2B channel has a far higher lifetime value per contract than consumer subscriptions, which should shape where its first marketing dollars go.",
+      "antiPattern": "Approving a campaign on projected awareness or clicks with no breakeven volume and no lifetime value check. Ask what volume pays it back and whether that volume is plausible."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "How does the accounting breakeven formula become a marketing campaign test?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "foundation-for",
+        "question": "How do investors read LTV, CAC and payback together?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "applied-in",
+        "question": "How do falling inference costs change the lifetime value of an AI customer?"
+      },
+      {
+        "targetId": "mk501-01-three-cs-stp-positioning",
+        "relationship": "applied-in",
+        "question": "Which target segment has the highest lifetime value relative to its acquisition cost?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "risk-for",
+        "question": "How can acquisition targets tied to bonuses push teams to buy customers who never pay back?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative subscription fitness app",
+      "prompt": "The marketing lead asks for $600,000 for a national campaign. The app charges $15 a month with $4 of variable cost per subscriber, monthly retention is 90%, and the target segment has about 400,000 reachable users. Should the board approve it?",
+      "cfoAnswer": "Monthly contribution is $11, so with 90% retention and ignoring discounting, lifetime contribution is about 11 × 0.9 ÷ 0.1, roughly $99 per subscriber. The campaign must therefore win about 6,100 net subscribers to break even, around 1.5% of the reachable segment, which is plausible. Approve a staged version: spend a quarter of the budget first, measure cost per subscriber and early retention by cohort, and release the rest only if cost per subscriber stays well under $99.",
+      "keyTakeaway": "Translate every campaign into the number of retained customers it needs, then ask whether that number is believable."
+    },
+    "sources": [
+      "[Foster: MKTG 501] Syllabus: individual analytical exercise on breakeven and customer lifetime value",
+      "[Foster: MKTG 501] Module on customer lifetime value with the Customer Management note and the Making stickK Stick case (title only)",
+      "[Elite MBA: Harvard Business School] Note on Low-Tech Marketing Math",
+      "[Elite MBA: Wharton] Gupta and Lehmann, Managing Customers as Investments"
+    ]
+  },
+  {
+    "id": "mk501-03-brand-equity-iconic-brands",
+    "pillarId": "P5",
+    "courseCode": "MKTG 501",
+    "title": "Brand Equity: Why Customers Pay More for a Name and How Brands Are Built or Rejuvenated",
+    "difficulty": "intermediate",
+    "tags": [
+      "branding",
+      "brand-equity",
+      "loyalty",
+      "promotion"
+    ],
+    "hook10k": "Brand equity is the extra value customers attach to a product because of its name, and it shows up as a price premium, loyalty and lower cost to win each customer. Strong brands are built from consistent associations over years and can be lost in a quarter by a move that breaks customer trust.",
+    "pareto20_80": {
+      "summary": "Customer-based brand equity rests on awareness and on strong, favorable and unique associations, which together earn a price premium and resilience. Iconic brands are rejuvenated by returning to their core meaning while updating how it is expressed, and cult brands are built by designing the product, community and promotion around one identity.",
+      "keyPoints": [
+        "Brand equity can be measured as the price premium, share or retention a brand earns over an unbranded equivalent.",
+        "Associations must be strong, favorable and unique; generic associations shared with every competitor add no equity.",
+        "Rejuvenation keeps the core meaning, such as freedom for an iconic motorcycle brand, while reaching new segments with new expressions of it.",
+        "Promotion has to match the position: influencer and community marketing suit identity brands, while performance ads suit commodity offers.",
+        "Brand extensions borrow equity, so a poor extension can dilute the parent brand's meaning for its core customers."
+      ],
+      "formulas": [
+        {
+          "name": "Brand price premium",
+          "expression": "Premium % = (branded price − comparable unbranded price) ÷ unbranded price"
+        },
+        {
+          "name": "Brand equity proxy",
+          "expression": "Equity ≈ premium × volume + retention uplift × lifetime value, compared with a no-brand baseline"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Brand equity rarely appears on the balance sheet unless the brand was acquired, so internally built brands are invisible in the financial statements even when they drive most of the value.",
+      "Rejuvenating a brand for younger customers risks alienating the loyal core, and many attempts end up satisfying neither group."
+    ],
+    "lenses": {
+      "history": "Branding began as a mark of origin and quality on goods, and consumer packaged goods firms built brand management as a discipline in the twentieth century. Digital channels then let challenger brands build loyal communities without traditional mass media budgets.",
+      "economics": "A brand is an asset that lowers customers' search costs and risk, which is why they pay a premium for it. Its value comes from future cash flows, so spending to build it is investment even though accounting treats it as expense.",
+      "behavioralScience": "Familiar brands are processed more fluently and feel safer, which biases choice toward them when customers are uncertain. Identity brands also let customers signal who they are, which turns purchase into self-expression.",
+      "marketingNarrative": "Every touchpoint either reinforces or contradicts the brand story, from packaging to customer support. A cult brand such as a premium travel credit card is built by aligning product benefits, community and promotion around one aspiration.",
+      "sociology": "Brands become badges of group membership, as with motorcycle riders' clubs or communities of devoted users. Communities defend the brand when it is attacked, and punish it when it betrays their identity.",
+      "firstPrinciplesContrarian": "Most start-ups treat brand as a logo for later, yet the cheapest time to build a distinctive brand is when no one else is in the customer's mind. The contrarian view is that a strong brand is a moat that compounds, not a marketing expense to minimize.",
+      "personalConnection": "Enterprise buyers pay a premium for a trusted vendor name because the risk of a failed deployment falls on them personally. Mikesell's Carbon Robotics built credibility with farmers through field results and word of mouth, which is brand equity earned in a skeptical market.",
+      "antiPattern": "Cutting brand investment to hit a quarterly target, or stretching the name onto products that contradict its meaning. Equity lost to dilution is slow and expensive to rebuild."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "measured-by",
+        "question": "Why does brand value appear on the balance sheet only after an acquisition?"
+      },
+      {
+        "targetId": "m502-06-helmer-7-powers",
+        "relationship": "builds-on",
+        "question": "When does a brand become one of the seven powers rather than a marketing cost?"
+      },
+      {
+        "targetId": "mk600-01-community-led-brand-after-acquisition",
+        "relationship": "applied-in",
+        "question": "How do you protect a community-built brand after an acquisition?"
+      },
+      {
+        "targetId": "mk501-01-three-cs-stp-positioning",
+        "relationship": "builds-on",
+        "question": "How does the positioning statement define the associations a brand must own?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative premium developer tools brand",
+      "prompt": "A developer tools company with a loyal community and a 30% price premium over rivals faces a growth slowdown. The new CMO proposes a mass-market rebrand, a lower-priced tier under the same name and a large paid advertising push. What do you ask before approving it?",
+      "cfoAnswer": "First, measure the equity at risk: the price premium, retention and referral rates of the core community, and what share of revenue they drive. Ask whether the low tier would cannibalize core customers or dilute the meaning that justifies the premium, and whether a separate sub-brand could reach new segments without that risk. Approve a test in one new segment with a sub-brand, and protect the core brand's associations unless the data shows the premium is already eroding.",
+      "keyTakeaway": "Know what your brand premium is worth before you trade it for reach."
+    },
+    "sources": [
+      "[Foster: MKTG 501] Module on branding: Brands and Brand Equity note; Harley Davidson: Rejuvenating an Iconic Brand (title only)",
+      "[Foster: MKTG 501] Chase Sapphire: Creating a Millennial Cult Brand case and the promotion module (titles only)",
+      "[Elite MBA: Kellogg] Keller, Strategic Brand Management, customer-based brand equity",
+      "[Elite MBA: Harvard Business School] Holt, How Brands Become Icons"
+    ]
+  },
+  {
+    "id": "mk501-04-value-based-pricing-price-communication",
+    "pillarId": "P5",
+    "courseCode": "MKTG 501",
+    "title": "Value-Based Pricing and Price Communication: Capturing Value Without Breaking Trust",
+    "difficulty": "intermediate",
+    "tags": [
+      "pricing",
+      "value-based-pricing",
+      "price-change",
+      "customer-trust"
+    ],
+    "hook10k": "Price is the only one of the four Ps that brings money in, and it should be set by the value customers receive, not by what the product costs to make. How a price change is framed and rolled out matters almost as much as the number, because customers judge fairness as well as value.",
+    "pareto20_80": {
+      "summary": "Value-based pricing starts from the customer's next-best alternative and the extra value your offer creates, then sets price to share that value. Price communication manages the reference prices and fairness judgments that decide whether customers accept the price, which is why large increases need framing, notice and a migration path.",
+      "keyPoints": [
+        "Economic value to the customer equals the price of the next-best alternative plus the value of your differentiation.",
+        "The price should sit between cost and economic value, leaving the customer a clear surplus that motivates purchase.",
+        "Reference prices anchor fairness: an increase that customers notice and cannot explain feels like a loss and triggers backlash.",
+        "Grandfathering, phasing and adding visible value soften increases, while tests in segments reveal reactions before a full rollout.",
+        "The Netflix and Qwikster episode in 2011 showed that a sound strategic move can fail on price communication and brand confusion."
+      ],
+      "formulas": [
+        {
+          "name": "Economic value to the customer",
+          "expression": "EVC = reference value of next-best alternative + differentiation value"
+        },
+        {
+          "name": "Value split",
+          "expression": "Customer incentive = EVC − price; firm margin = price − variable cost"
+        },
+        {
+          "name": "Volume needed after a price cut",
+          "expression": "Required volume change % = −ΔP ÷ (contribution margin % + ΔP)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most firms still default to cost-plus or competitor matching because measuring economic value takes customer research that early teams rarely fund.",
+      "Customers often accept a higher price for a new product more readily than a higher price for something they already use, so the same increase can succeed on new users and fail on the installed base."
+    ],
+    "lenses": {
+      "history": "Industrial marketers formalized economic value to the customer in the 1980s to price engineered products against alternatives. Subscription businesses later learned that price changes for an installed base are public events, as the 2011 Netflix split showed.",
+      "economics": "Value-based pricing tries to capture part of the consumer surplus that cost-plus pricing leaves on the table. Because price changes flow straight to profit, a small increase in realized price often beats a large gain in volume.",
+      "behavioralScience": "Loss aversion makes a price increase hurt more than an equal cut pleases, and fairness judgments depend on whether the firm seems to be profiting at the customer's expense. Framing an increase around added value or rising costs changes how fair it feels.",
+      "marketingNarrative": "A price announcement is a story about what customers gain, and leading with the firm's needs reads as a cash grab. The Qwikster brand split added confusion to a price shock, turning one bad message into two.",
+      "sociology": "Price outrage spreads socially, through reviews and social media, so a change that a few vocal customers frame as unfair can define the story for everyone. Community norms about what is fair shape acceptance more than individual value calculations.",
+      "firstPrinciplesContrarian": "Underpricing is the more common and less visible mistake, because lost margin never shows up as a complaint. The contrarian move is to raise prices on customers who get the most value, while protecting those at the margin with a cheaper tier.",
+      "personalConnection": "Enterprise AI vendors moving from per-seat to usage pricing face the same trust problem: customers judge fairness by their bill, not by the vendor's GPU costs. PranaScan pricing for clinics should anchor on the cost of the in-person screening it replaces, not on what the model costs to run.",
+      "antiPattern": "Treating a price change as a finance decision and announcing it with no customer framing, notice or migration path. Test reactions in segments first and lead with what customers gain."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "mk554-04-pricing-wtp-packaging",
+        "relationship": "builds-on",
+        "question": "How do good-better-best tiers capture different willingness to pay without discounting?"
+      },
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "contrasts-with",
+        "question": "Where does cost-plus pricing still make sense, and where does it leave value on the table?"
+      },
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "builds-on",
+        "question": "How does price elasticity predict the volume response to a price change?"
+      },
+      {
+        "targetId": "m504-01-crisis-response-stakeholder-trust",
+        "relationship": "risk-for",
+        "question": "When does a pricing decision become a trust crisis that leadership must manage?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Netflix 2011 price split (public record)",
+      "prompt": "In 2011 Netflix split DVD and streaming into separately priced plans, about a 60% increase for customers who kept both, and announced a separate DVD brand called Qwikster. It lost roughly 800,000 subscribers in a quarter and dropped Qwikster within weeks. As a director, what would you have asked before the announcement?",
+      "cfoAnswer": "The strategic shift to streaming was defensible, so ask about execution: how many customers keep both services, what share are expected to cancel, and what the revenue effect is net of churn. Ask why the change is not phased or grandfathered, what added value customers are told they receive, and why a brand split that adds friction is needed now. Insist on a segment test and a communication plan that leads with customer benefits before a full rollout.",
+      "keyTakeaway": "A sound strategy can still fail on price communication; test and frame before you announce."
+    },
+    "sources": [
+      "[Foster: MKTG 501] Module on price: Marketing Analysis Toolkit: Pricing and Profitability Analysis, and Pricing: A Value Based Approach (titles only)",
+      "[Foster: MKTG 501] Curled Metal Inc. case on pricing an engineered product (title only)",
+      "[Real 10-K / Case] Netflix 2011 shareholder letters and widely reported subscriber losses after the Qwikster announcement (public record; verify before reuse)",
+      "[Elite MBA: Wharton] Nagle and Müller, The Strategy and Tactics of Pricing"
+    ]
+  },
+  {
+    "id": "mk600-01-community-led-brand-after-acquisition",
+    "pillarId": "P5",
+    "courseCode": "MKTG 600",
+    "title": "Community-Led Growth and Brand Stewardship After an Acquisition: The Mojang and Minecraft Lens",
+    "difficulty": "advanced",
+    "tags": [
+      "community-led-growth",
+      "creator-economy",
+      "acquisition",
+      "brand-stewardship"
+    ],
+    "hook10k": "Some products grow mainly through their players and creators rather than through paid marketing, and their brand belongs to the community as much as to the company. When a large acquirer buys such a product, the main marketing job is to protect the community engine while adding what scale does well.",
+    "pareto20_80": {
+      "summary": "Community-led growth runs on user-generated content, creators and word of mouth, so community health is a leading indicator of revenue. After an acquisition, the acquirer should keep the product's character and creator tools, avoid monetization that feels like a cash grab, and add distribution, education programs, platforms and licensing that the community welcomes.",
+      "keyPoints": [
+        "Microsoft bought Mojang, maker of Minecraft, in 2014 for about $2.5 billion, a product whose growth had come largely from players and creators (public record).",
+        "Community health metrics such as creator activity, content volume and engagement should sit beside revenue on the dashboard.",
+        "Monetization that rewards creators and respects players sustains the flywheel, while extraction weakens the engine that made the product valuable.",
+        "Scale advantages include new platforms, cross-platform play, education programs and licensed merchandise that extend the brand without changing it.",
+        "The acquirer's standard playbook can destroy value if it overrides the community's norms about fairness and ownership."
+      ],
+      "formulas": [
+        {
+          "name": "Community flywheel",
+          "expression": "More players → more creators → more content → more players, with growth ≈ content per creator × reach per piece"
+        },
+        {
+          "name": "Community health index",
+          "expression": "Health ≈ weighted mix of active creators, content shared and returning players, tracked alongside revenue"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Community metrics are noisy and easy to game, so leaders often fall back on revenue alone and miss early signs that creators are leaving.",
+      "Acquirers face pressure to justify the purchase price quickly, which pushes them toward monetization moves that pay off this year and cost trust over the next several."
+    ],
+    "lenses": {
+      "history": "Game communities built mods and servers long before platforms paid creators, and Minecraft became one of the best-selling games largely through such word of mouth. The 2014 Mojang acquisition tested whether a large platform company could steward a community-built brand.",
+      "economics": "User-generated content is labor the company does not pay for, so the community is a production asset as well as a customer base. Network effects among players and creators raise the product's value with every participant, which makes trust a balance-sheet issue.",
+      "behavioralScience": "Players who build in a game feel psychological ownership, so changes they did not choose feel like something taken from them. Recognition and status inside the community often motivate creators more than money.",
+      "marketingNarrative": "The brand story is told mainly by players and creators, so the company's role shifts from narrator to steward. Official marketing works best when it amplifies community creations rather than replacing them.",
+      "sociology": "Communities develop their own norms, status systems and sense of fairness, and they react collectively when an outsider changes the rules. Education and family audiences extend the brand into new social settings with different expectations.",
+      "firstPrinciplesContrarian": "The most valuable marketing asset in a community-led product is restraint: the moves you do not make to extract short-term revenue. The contrarian view is that integration should be slower for community brands, not faster.",
+      "personalConnection": "Enterprise developer platforms grow the same way, through open-source contributors and community plugins, and an acquirer that locks down the ecosystem can lose them. If PranaScan built an open SDK for researchers, its community would be an asset to protect in any partnership or acquisition.",
+      "antiPattern": "Applying the parent company's standard monetization and integration playbook to a community-built brand on day one. Measure community health first and change one lever at a time."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "builds-on",
+        "question": "How do network effects make a community both a moat and a fragile asset?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "risk-for",
+        "question": "How would a loss of community trust show up as goodwill impairment for the acquirer?"
+      },
+      {
+        "targetId": "mk501-03-brand-equity-iconic-brands",
+        "relationship": "builds-on",
+        "question": "How is a community-owned brand different from a company-built one?"
+      },
+      {
+        "targetId": "m500-03-culture-schein-leading-change",
+        "relationship": "applied-in",
+        "question": "How do you integrate an acquired studio's culture without destroying what made it work?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Microsoft and Mojang, 2014 (public record)",
+      "prompt": "Your company has just bought a game studio for about $2.5 billion. Its hit game grew through players and creators rather than paid marketing. Finance wants to add aggressive in-game monetization and fold the studio's marketing into the parent's team within a year. As the marketing lead, what do you protect and what do you change?",
+      "cfoAnswer": "Protect the community engine: the game's character, creator tools, cross-platform play and the studio's voice with players, and avoid monetization that feels like a cash grab. Change what scale improves, such as new platforms, education programs and licensed products, and design any marketplace so creators share in the revenue. Put community health metrics such as active creators and returning players on the same dashboard as revenue, and change one lever at a time with clear success lines.",
+      "keyTakeaway": "In a community-led brand, the community is the asset you bought; integration should protect it before it extracts from it."
+    },
+    "sources": [
+      "[Foster: MKTG 600] Independent study on Mojang marketing (course title only; the study folder was outside this wave's allow-list and was not opened)",
+      "[Foster: MKTG 501] Branding and promotion modules, including the influencer marketing reading (titles only)",
+      "[Real 10-K / Case] Microsoft's 2014 announcement of the Mojang acquisition for about $2.5 billion (public record; verify before reuse)",
+      "[Elite MBA: Harvard Business School] Fournier and Lee, Getting Brand Communities Right"
+    ]
+  },
+  {
+    "id": "m500-01-first-time-manager-motivation",
+    "pillarId": "P5",
+    "courseCode": "MGMT 500",
+    "title": "From Star Individual Contributor to Manager: Motivation, Expectancy Theory and the Folly of Rewarding A While Hoping for B",
+    "difficulty": "foundation",
+    "tags": [
+      "management",
+      "motivation",
+      "incentives",
+      "delegation"
+    ],
+    "hook10k": "A new manager's output is the team's output, so the skills that made someone a star engineer can make them a bottleneck as a lead. Motivating people means making effort lead to performance, performance lead to rewards, and rewards match what each person actually values.",
+    "pareto20_80": {
+      "summary": "Performance is a function of ability, opportunity and motivation, and motivation has direction, intensity and persistence. Vroom's expectancy theory says motivation is high only when effort leads to performance, performance leads to rewards, and those rewards are valued, while Kerr's folly warns that incentives get the behavior they reward, not the behavior leaders hope for.",
+      "keyPoints": [
+        "Maier's formula: performance = ability × opportunity × motivation, so a motivation fix cannot rescue missing skills or blocked opportunity.",
+        "Expectancy theory: motivational force = expectancy × the sum of instrumentality × valence across the rewards that follow performance.",
+        "Extrinsic incentives raise effort on measurable tasks and signal priorities, but misaligned ones displace bigger goals and invite gaming.",
+        "The folly of rewarding A while hoping for B: rewarding quarterly numbers while hoping for long-term growth, or individual effort while hoping for teamwork.",
+        "A first-time manager must hand off critical work, delegate decision rights and hold regular one-on-ones, measured by team throughput and retention."
+      ],
+      "formulas": [
+        {
+          "name": "Maier's formula",
+          "expression": "Performance = f(ability × opportunity × motivation)"
+        },
+        {
+          "name": "Vroom's expectancy theory",
+          "expression": "Motivational force = E(effort → performance) × Σ [I(performance → reward) × V(reward)]"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Companies routinely promote their best individual contributors into management and then judge them on personal output, which teaches them to keep doing the work themselves.",
+      "Pay dispersion and individual bonuses can divide a team that has to collaborate, and a raise often motivates for only a short time before it becomes the new baseline."
+    ],
+    "lenses": {
+      "history": "Frederick Taylor argued a century ago that workers want high wages above all, and the psychologist Skinner's behaviorism made rewards and consequences the core of motivation. Later research on intrinsic motivation and justice showed the limits of carrots and sticks for complex work.",
+      "economics": "Incentive design is a principal-agent problem: the manager wants outcomes the employee controls only partly and that are hard to measure. Paying for a measurable proxy invites effort on the proxy at the expense of everything unmeasured.",
+      "behavioralScience": "People work hardest when they believe effort will pay off and the reward matters to them, so unclear standards or unvalued rewards drain motivation. Recognition, autonomy and mastery often move knowledge workers more than money.",
+      "marketingNarrative": "A new manager has to sell a new identity to themselves and their former peers: from the person with the answers to the person who grows others. Naming the shift explicitly in a one-on-one makes it easier to adopt.",
+      "sociology": "Promotion from within changes relationships overnight, as peers become reports and old alliances become questions of fairness. Perceived favoritism or unequal treatment erodes the justice that teams need to cooperate.",
+      "firstPrinciplesContrarian": "If the manager is still the team's best coder, the team's capacity is capped at one person's hours. The contrarian measure of a good new manager is how much critical work happens without them.",
+      "personalConnection": "Enterprise engineering orgs often promote their strongest engineer to lead, and the common failure is a lead who reviews every pull request and owns every hard problem. A dual ladder that lets senior engineers stay technical, as in many enterprise and GPU platform teams, avoids forcing great builders into management.",
+      "antiPattern": "Promoting the best individual contributor, keeping them on personal output targets, and rewarding heroics while hoping for a self-sufficient team. Reward delegation, development and team results instead."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "mk554-01-pm-role-discovery-outcomes",
+        "relationship": "contrasts-with",
+        "question": "How is managing people different from leading a product through influence without authority?"
+      },
+      {
+        "targetId": "a501-08-eva-residual-income",
+        "relationship": "measured-by",
+        "question": "How can a performance measure like ROI push managers to make the wrong decision?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "risk-for",
+        "question": "When do targets and incentives turn into pressure to cut ethical corners?"
+      },
+      {
+        "targetId": "m510-02-feedback-difficult-conversations",
+        "relationship": "applied-in",
+        "question": "How do you give a new manager feedback they can act on?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative engineering team lead",
+      "prompt": "Your best engineer was promoted to lead a team of six. Three months in, they still write most of the critical code, every review waits on them, and two people have asked to transfer. Their own output is excellent. What do you tell them in your next one-on-one?",
+      "cfoAnswer": "Name the shift: their output is now the team's output, and the current pattern is capping it. Agree on a plan to hand off critical code paths through pairing, delegate review authority to two senior engineers, and start weekly one-on-ones with each report. Change how you measure them to team throughput, quality and retention, check in monthly, and offer a senior individual contributor track if they would rather stay technical.",
+      "keyTakeaway": "Measure a new manager by what the team ships without them, not by what they ship themselves."
+    },
+    "sources": [
+      "[Foster: MGMT 500] Session 5, extrinsic motivation: Maier's formula, Vroom's expectancy theory, Kerr's folly of rewarding A while hoping for B, and the Blue Square case",
+      "[Foster: MGMT 500] Session 6, intrinsic motivation and justice, with The Case of the Temperamental Talent (title only)",
+      "[Elite MBA: Harvard Business School] Hill, Becoming a Manager: How New Managers Master the Challenges of Leadership",
+      "[Elite MBA: Stanford] Kerr, On the Folly of Rewarding A, While Hoping for B"
+    ]
+  },
+  {
+    "id": "m500-02-team-design-psych-safety-groupthink",
+    "pillarId": "P5",
+    "courseCode": "MGMT 500",
+    "title": "Designing Teams That Work: Size, Composition, Psychological Safety and Avoiding Groupthink",
+    "difficulty": "intermediate",
+    "tags": [
+      "teams",
+      "psychological-safety",
+      "groupthink",
+      "decision-making"
+    ],
+    "hook10k": "Adding people to a team adds coordination cost faster than it adds capacity, which is why small teams with shared goals often beat large ones. The best teams also argue about the task without fighting about each other, and they build habits that stop everyone from agreeing too early.",
+    "pareto20_80": {
+      "summary": "Keep teams under ten and ideally around five or six, staff them for high ability and conscientiousness, and build shared mental models of goals, roles and norms. Psychological safety lets members raise problems, task conflict improves decisions when trust is high, and reflexive habits such as pre-mortems and after-action reviews counter groupthink.",
+      "keyPoints": [
+        "The team scaling fallacy: as size grows, coordination links grow roughly with the square of headcount while social loafing rises.",
+        "Composition: more cognitive ability, emotional intelligence and conscientiousness help, while a mix of personalities helps on extraversion.",
+        "Shared mental models about goals, roles and norms let members coordinate without constant meetings.",
+        "Task conflict helps when trust is high and turns into relationship conflict when trust is low.",
+        "Groupthink fixes: share information before any straw poll, appoint a devil's advocate, and run pre-mortems before big decisions."
+      ],
+      "formulas": [
+        {
+          "name": "Coordination links",
+          "expression": "Links = n × (n − 1) ÷ 2 for a team of n people"
+        },
+        {
+          "name": "Team effectiveness",
+          "expression": "Effectiveness ≈ (ability × shared mental model × psychological safety) − (coordination cost + process loss)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Under deadline pressure leaders add people to late projects, which usually slows them further as new members need context and coordination.",
+      "Psychological safety is often mistaken for comfort, yet safe teams still hold high standards; safety without accountability produces pleasant underperformance."
+    ],
+    "lenses": {
+      "history": "Irving Janis coined groupthink in 1972 after studying policy fiascos such as the Bay of Pigs, and Bruce Tuckman described forming, storming, norming and performing in 1965. Amy Edmondson's research on psychological safety later explained why some teams learn from errors and others hide them.",
+      "economics": "Each added member brings capacity but also coordination cost, so the marginal person eventually adds negative value. Social loafing is a free-rider problem, which is why individual accountability inside the team still matters.",
+      "behavioralScience": "Members anchor on early opinions, especially the leader's, and stay silent to avoid looking wrong, which hides information the group needs. Pre-mortems help because imagining a failure that has already happened makes it easier to voice doubts.",
+      "marketingNarrative": "A team charter that states the goal, roles and how disagreements get settled is a story the team tells itself. Leaders who share their own mistakes first make it safer for others to raise theirs.",
+      "sociology": "Teams develop norms quickly, and early behavior such as who speaks and whether bad news is welcome becomes the culture. Faultlines along function or seniority can split a team into subgroups that stop sharing information.",
+      "firstPrinciplesContrarian": "The best way to speed up a team is often to make it smaller and give it clearer ownership, not to add people. The contrarian leader rewards the person who disagrees in the meeting, not the one who agrees fastest.",
+      "personalConnection": "Hyperscaler and enterprise infrastructure teams often organize as small two-pizza teams that own a service end to end, which applies the scaling fallacy directly. A PranaScan founding team would need a clinician who is safe to say the model is not ready, which is psychological safety with patient risk at stake.",
+      "antiPattern": "Adding headcount to a late project and running decisions by a quick show of hands after the leader speaks. Shrink the team, share information first and appoint a devil's advocate."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "op502-04-theory-of-constraints-the-goal",
+        "relationship": "builds-on",
+        "question": "Why does adding people to a non-bottleneck step fail to speed up the whole system?"
+      },
+      {
+        "targetId": "mk554-03-experiment-design-evidence-ladder",
+        "relationship": "applied-in",
+        "question": "How do pre-registered experiments protect a product team from groupthink?"
+      },
+      {
+        "targetId": "m504-03-psychology-ethical-decisions-ai-bias",
+        "relationship": "builds-on",
+        "question": "Which biases about the world and ourselves show up in team decisions?"
+      },
+      {
+        "targetId": "m500-03-culture-schein-leading-change",
+        "relationship": "foundation-for",
+        "question": "How do team norms scale up into an organization's culture?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative platform engineering group",
+      "prompt": "A platform group grew from 6 to 18 engineers in a year to hit a launch date. Velocity per engineer has halved, standups take 45 minutes, and incident reviews have turned into blame sessions. The VP wants to hire 6 more. What do you recommend?",
+      "cfoAnswer": "Do not hire into a coordination problem. Split the group into three teams of about six, each owning a clear service with its own goals and on-call rotation, and define interfaces between them. Replace blame-focused incident reviews with blameless after-action reviews, have the VP model admitting mistakes, and track throughput per team and time to resolve incidents for a quarter before deciding on new hires.",
+      "keyTakeaway": "Small teams with clear ownership and safe candor beat big teams with more people."
+    },
+    "sources": [
+      "[Foster: MGMT 500] Session 9 on teams: team size and the scaling fallacy, composition, shared mental models, psychological safety, conflict, reflexivity and groupthink",
+      "[Foster: MGMT 500] Readings Why Teams Don't Work and How Management Teams Can Have a Good Fight (titles only)",
+      "[Elite MBA: Harvard Business School] Edmondson, The Fearless Organization: Creating Psychological Safety in the Workplace",
+      "[Elite MBA: Yale] Janis, Groupthink: Psychological Studies of Policy Decisions and Fiascoes"
+    ]
+  },
+  {
+    "id": "m500-03-culture-schein-leading-change",
+    "pillarId": "P5",
+    "courseCode": "MGMT 500",
+    "title": "Organizational Culture and Leading Change: Schein's Three Layers and the Levers Leaders Actually Control",
+    "difficulty": "intermediate",
+    "tags": [
+      "culture",
+      "change-management",
+      "leadership",
+      "integration"
+    ],
+    "hook10k": "Culture is the set of shared assumptions that tells people how things are really done when no one is watching. Leaders cannot decree a new culture, but they can shape it through who they hire, what they reward, what they pay attention to and the symbols they choose.",
+    "pareto20_80": {
+      "summary": "Schein's model has three layers: visible artifacts, espoused values and the underlying assumptions that actually drive behavior. Strong cultures align behavior and correlated with returns in classic research, yet they resist change, so leading change means working the levers of people, symbols, information and rewards until new behavior becomes the new assumption.",
+      "keyPoints": [
+        "Artifacts such as office layout and rituals are easy to see and easy to misread without knowing the assumptions underneath.",
+        "Espoused values are what leaders say; underlying assumptions are what people believe gets rewarded, and the gap between them predicts cynicism.",
+        "The attraction-selection-attrition cycle means organizations drift toward people who fit the existing culture, for better or worse.",
+        "Culture strength was correlated with return on capital at about r = .51 in a classic study, which also means strong cultures resist needed change.",
+        "Change sticks when leaders change rewards, promotions and their own visible behavior, not just the values poster."
+      ],
+      "formulas": [
+        {
+          "name": "Culture gap",
+          "expression": "Cynicism ∝ (espoused values − behavior that is actually rewarded)"
+        },
+        {
+          "name": "Change levers",
+          "expression": "Culture shift ≈ people (hire, promote, exit) + symbols + information + rewards, applied consistently over time"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most culture change programs start with a values statement and a launch event, and stall because promotions and incentives keep rewarding the old behavior.",
+      "In acquisitions the acquirer's culture usually wins by default, which can drive out the very people and habits that made the target worth buying."
+    ],
+    "lenses": {
+      "history": "Edgar Schein's model of culture as artifacts, values and assumptions came out of decades of organizational research and consulting from the 1980s. Turnarounds such as Microsoft's shift toward a growth mindset under new leadership in 2014 are now standard cases in leading change.",
+      "economics": "Culture is an informal contract that lowers monitoring costs, because people do the right thing without a rule for every case. It is also an asset competitors cannot buy, which makes it a source of advantage that resists imitation.",
+      "behavioralScience": "People infer the real rules from what leaders reward, punish and pay attention to, not from what they announce. Social proof makes new behavior spread once enough visible people adopt it, which is why early adopters of a change matter.",
+      "marketingNarrative": "Leaders tell culture through stories about heroes and failures, and the stories repeated in onboarding become the real values. A change effort needs new stories that show the new behavior winning.",
+      "sociology": "Culture lives in groups, so subcultures by function or location can diverge sharply from the official culture. Rituals, language and symbols mark who belongs, which is why changing them signals change faster than memos do.",
+      "firstPrinciplesContrarian": "Culture is not a mission statement; it is the sum of thousands of small decisions about whom to hire, promote and let go. The contrarian move is to change one promotion decision visibly rather than launching a culture campaign.",
+      "personalConnection": "Enterprise software companies moving from licensed products to cloud services had to change their culture from shipping releases to running services, which meant changing on-call ownership and rewards. Cisco and other enterprise vendors faced the same shift as they moved toward subscriptions.",
+      "antiPattern": "Launching a values campaign while promotions, bonuses and leadership behavior keep rewarding the old way. People believe what gets rewarded, not what gets announced."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-01-strategy-vs-operational-effectiveness",
+        "relationship": "builds-on",
+        "question": "How does culture determine whether a strategy can actually be executed?"
+      },
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "risk-for",
+        "question": "How can a culture clash after an acquisition turn into a goodwill write-down?"
+      },
+      {
+        "targetId": "e579-03-founder-leverage-specific-knowledge",
+        "relationship": "applied-in",
+        "question": "How do a founder's early hiring choices set the culture for years?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "risk-for",
+        "question": "When does a high-performance culture tip into one that tolerates cutting corners?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative enterprise software shift to cloud",
+      "prompt": "A 20-year-old enterprise software company is moving from annual licensed releases to a cloud service. Engineers are rewarded for shipping features, operations is a separate team, and outages are blamed on operations. The CEO launches a new values statement about customer obsession. Six months later nothing has changed. What would you advise?",
+      "cfoAnswer": "The values statement failed because the reward system still pays for the old behavior. Change the levers: make feature teams own their services in production including on-call, put reliability and customer adoption into engineering goals and promotions, and have leaders review outages blamelessly in public. Pick a few visible promotions of people who model the new behavior, measure uptime and customer adoption per team, and expect the culture to follow the incentives over several quarters.",
+      "keyTakeaway": "Change what gets rewarded and promoted, and culture follows."
+    },
+    "sources": [
+      "[Foster: MGMT 500] Session 12 on organizational culture: Schein's three layers, attraction-selection-attrition, culture strength and returns, and shaping culture through people, symbols, information and rewards",
+      "[Foster: MGMT 500] Readings Leading by Leveraging Culture and Leadership for Change, and the next-session change case on a growth mindset at Microsoft (titles only)",
+      "[Elite MBA: MIT Sloan] Schein, Organizational Culture and Leadership",
+      "[Elite MBA: Harvard Business School] Kotter, Leading Change: Why Transformation Efforts Fail"
+    ]
+  },
+  {
+    "id": "m510-01-executive-communication-bottom-line-up-front",
+    "pillarId": "P5",
+    "courseCode": "MGMT 510 / B CMU 501",
+    "title": "Executive Communication: Bottom Line Up Front and Telling a Board Bad News",
+    "difficulty": "foundation",
+    "tags": [
+      "communication",
+      "board-reporting",
+      "bad-news",
+      "executive-presence"
+    ],
+    "hook10k": "Executives and boards read the first few lines and decide whether to keep going, so the conclusion and the ask belong at the top. Bad news delivered early, plainly and with a plan builds more trust than good news delivered late.",
+    "pareto20_80": {
+      "summary": "Lead with the answer, then the two or three reasons that support it, then the ask, which is the pyramid principle applied to memos, slides and meetings. For bad news, state the miss and its size in the first sentence, own it, explain the root cause briefly, show the recovery plan with dates and say what you need from the board.",
+      "keyPoints": [
+        "Bottom line up front: the first sentence carries the conclusion or the decision needed, not the background.",
+        "The pyramid principle groups supporting points under one governing idea so a reader can stop at any level and still understand.",
+        "A one-page executive summary first, as the MKTG 501 case memo format requires, works the same way in any board deck.",
+        "Bad news structure: what happened and how big, why, what we are doing, what it means for the forecast, and what we need.",
+        "Avoid surprises: tell the board chair before the meeting so the board hears bad news from you, not from someone else."
+      ],
+      "formulas": [
+        {
+          "name": "Pyramid principle",
+          "expression": "Message = governing idea → 3 supporting arguments → evidence for each"
+        },
+        {
+          "name": "Bad-news briefing",
+          "expression": "Miss and size → root cause → actions with owners and dates → revised forecast → ask"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Managers bury bad news in slide 14 or in a long narrative because they hope it will be noticed less, which makes boards trust every later slide less.",
+      "Engineers and analysts tend to write in the order they did the work, starting with method, so their conclusions are often missed by readers who stop early."
+    ],
+    "lenses": {
+      "history": "Military writing popularized bottom line up front, and consultants spread Barbara Minto's pyramid principle from the 1970s onward. Board reporting has grown more formal since governance reforms made directors personally answerable for oversight.",
+      "economics": "Executive attention is the scarce resource, so a message that costs less attention to understand is more likely to change a decision. Withholding bad news raises agency costs because the board must spend more to verify everything management says.",
+      "behavioralScience": "Readers anchor on what they see first, so leading with background frames the issue before the conclusion arrives. People trust a messenger more when they disclose negative information about themselves early and plainly.",
+      "marketingNarrative": "A board update is a story with one point, and every chart should support that point or be cut. Owning a miss in the first sentence turns a defensive story into a credible one about a team in control.",
+      "sociology": "Boards develop norms about candor, and a single surprise can shift a board from coaching management to auditing it. Pre-meeting calls with the chair respect the board's own hierarchy and avoid public embarrassment.",
+      "firstPrinciplesContrarian": "The goal of a board update is a decision or a shared understanding, not a record of everything the team did. The contrarian habit is to cut the deck in half and put the hardest slide first.",
+      "personalConnection": "Engineering leaders in enterprise and hyperscaler organizations write incident summaries that state customer impact in the first line, which is bottom line up front under pressure. A PranaScan founder reporting a delayed regulatory milestone to investors would use the same five-part bad-news structure.",
+      "antiPattern": "Opening with background and method, and saving the miss for the end of the deck. Put the conclusion, the size of the problem and the ask first."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-06-variance-analysis",
+        "relationship": "builds-on",
+        "question": "How does variance analysis turn a miss into a root cause the board can act on?"
+      },
+      {
+        "targetId": "e532-01-pitch-narrative-four-beliefs",
+        "relationship": "contrasts-with",
+        "question": "How is persuading investors in a pitch different from updating a board on bad news?"
+      },
+      {
+        "targetId": "m550-01-fiduciary-duties-board-composition",
+        "relationship": "applied-in",
+        "question": "What does a board's duty of candor require management to disclose?"
+      },
+      {
+        "targetId": "m510-02-feedback-difficult-conversations",
+        "relationship": "builds-on",
+        "question": "How do the same skills help in one-on-one difficult conversations?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative SaaS quarterly board meeting",
+      "prompt": "Revenue came in 25% below plan this quarter because two large deals slipped and churn rose in the mid-market segment. You have five minutes at the start of tomorrow's board meeting. How do you structure it?",
+      "cfoAnswer": "Call the board chair today so there are no surprises. Open with one sentence: revenue was 25% below plan, driven by two slipped enterprise deals and higher mid-market churn, and here is the plan and the revised forecast. Spend a minute on root causes with numbers, two minutes on actions with owners and dates such as the deal recovery plan and a churn task force, a minute on the revised full-year forecast, and end with the specific decision or support you need.",
+      "keyTakeaway": "Say the miss in the first sentence, then show you are in control with a plan and an ask."
+    },
+    "sources": [
+      "[Foster: B CMU 501] Professional Communication (course title only; no course folder was found in the allowed Drive locations)",
+      "[Foster: MKTG 501] Case writeup guidelines: executive summary first, recommendations stated plainly, two-page limit",
+      "[Elite MBA: Harvard Business School] Minto, The Pyramid Principle: Logic in Writing and Thinking",
+      "[Elite MBA: Stanford] Guidance on writing for busy readers from the Graduate School of Business management communication courses"
+    ]
+  },
+  {
+    "id": "m510-02-feedback-difficult-conversations",
+    "pillarId": "P5",
+    "courseCode": "MGMT 510 / B CMU 501",
+    "title": "Feedback and Difficult Conversations: Situation, Behavior, Impact and Performance Reviews That Change Behavior",
+    "difficulty": "intermediate",
+    "tags": [
+      "feedback",
+      "performance-reviews",
+      "difficult-conversations",
+      "coaching"
+    ],
+    "hook10k": "Feedback changes behavior only when it is specific, timely and about what someone did rather than who they are. Most managers avoid hard conversations until the problem is large, which turns a coachable issue into a crisis.",
+    "pareto20_80": {
+      "summary": "Describe the situation, the observable behavior and its impact, then ask for the other person's view before agreeing next steps. Performance reviews work best as a summary of feedback already given, with no surprises, and difficult conversations go better when the manager separates what happened, feelings and identity.",
+      "keyPoints": [
+        "Situation, behavior, impact: name when it happened, what the person did that anyone could observe, and the effect on the team or customer.",
+        "Ask before telling: the person's view often reveals a cause the manager missed, such as unclear goals or blocked resources.",
+        "Feedback given close to the event is more useful than a list saved for the annual review.",
+        "A good appraisal interview has no surprises and spends more time on development and next steps than on the rating.",
+        "Difficult conversations have three layers: what happened, the feelings involved and what the conversation means for each person's identity."
+      ],
+      "formulas": [
+        {
+          "name": "SBI feedback",
+          "expression": "Feedback = situation + observable behavior + impact, followed by a question and an agreed next step"
+        },
+        {
+          "name": "Feedback ratio",
+          "expression": "Regular specific feedback ≫ annual review; aim for no surprises at review time"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Managers often soften feedback so much that the person never realizes there is a problem, then are surprised when a low rating causes a sense of betrayal.",
+      "Star performers with difficult behavior are the hardest case, because the business depends on their output and managers fear losing them."
+    ],
+    "lenses": {
+      "history": "Annual appraisals spread with large corporations in the twentieth century, and many firms later moved to continuous feedback because the yearly cycle came too late to change behavior. Harvard Negotiation Project research shaped the three-layer model of difficult conversations.",
+      "economics": "Feedback is information that lets people adjust effort and direction, so withholding it wastes capacity. Tolerating a high performer's bad behavior can cost more in team turnover than the individual's output is worth.",
+      "behavioralScience": "Criticism of character triggers defensiveness, while feedback about specific behavior is easier to hear and act on. People see their own intentions and others' impact, so asking for their view closes that gap.",
+      "marketingNarrative": "How feedback is framed decides whether it lands as help or as attack, so tying it to the person's goals matters. A development plan tells a forward-looking story instead of a list of past failures.",
+      "sociology": "Feedback norms vary across cultures, from direct to highly indirect, so the same words can feel harsh or vague depending on the audience. Teams notice whether a manager holds everyone, including stars, to the same standards.",
+      "firstPrinciplesContrarian": "Kindness is clarity: vague feedback feels kind in the moment and is unkind when it ends in a surprise rating or a firing. The contrarian manager gives small, frequent feedback so the big conversation is never needed.",
+      "personalConnection": "Senior engineers in enterprise and GPU infrastructure teams who are brilliant but abrasive in code reviews are a classic case of the temperamental talent. A PranaScan lead would need to give clinicians and engineers feedback across very different professional cultures.",
+      "antiPattern": "Saving feedback for the annual review and diluting it until the message is lost. Give specific, timely feedback about behavior and impact, and ask for the other person's view."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m500-01-first-time-manager-motivation",
+        "relationship": "builds-on",
+        "question": "How does feedback raise the expectancy that effort leads to performance?"
+      },
+      {
+        "targetId": "mk554-01-pm-role-discovery-outcomes",
+        "relationship": "applied-in",
+        "question": "How does a product manager give feedback to people who do not report to them?"
+      },
+      {
+        "targetId": "m500-02-team-design-psych-safety-groupthink",
+        "relationship": "builds-on",
+        "question": "How does psychological safety make feedback easier to give and receive?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "risk-for",
+        "question": "What happens when no one gives feedback on a top performer who bends the rules?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative star engineer with team friction",
+      "prompt": "Your most productive engineer ships twice as much as anyone, but their code review comments are harsh, two junior engineers have asked to move teams, and the annual review is in two weeks. The engineer has never been told this is a problem. What do you do?",
+      "cfoAnswer": "Do not save it for the review, and do not let the rating be the first signal. Meet this week and use situation, behavior, impact: name specific review comments, the effect on junior engineers and the transfer requests, then ask for their view. Agree on concrete changes such as reviewing tone and pairing with juniors, check in every two weeks, and reflect progress honestly in the review, making clear that how they work counts alongside what they ship.",
+      "keyTakeaway": "Specific, early feedback about behavior and impact prevents surprises and keeps stars and teams together."
+    },
+    "sources": [
+      "[Foster: MGMT 510] Developing Leader Skills (course title only; no course folder was found in the allowed Drive locations)",
+      "[Foster: MGMT 500] Readings Conducting a Performance Appraisal Interview, The Case of the Temperamental Talent and Rob Parson at Morgan Stanley (titles only)",
+      "[Elite MBA: Harvard Business School] Stone, Patton and Heen, Difficult Conversations: How to Discuss What Matters Most",
+      "[Elite MBA: Stanford] Interpersonal Dynamics course themes on feedback and behavior-based communication"
+    ]
+  },
+  {
+    "id": "m504-01-crisis-response-stakeholder-trust",
+    "pillarId": "P5",
+    "courseCode": "MGMT 504",
+    "title": "Crisis Leadership and Stakeholder Trust: Why Tylenol Became the Benchmark and Wells Fargo the Warning",
+    "difficulty": "intermediate",
+    "tags": [
+      "crisis-management",
+      "ethics",
+      "stakeholders",
+      "trust"
+    ],
+    "hook10k": "In a crisis, leaders choose between protecting this quarter's numbers and protecting the trust that every future quarter depends on. The companies that recover act fast, put the people at risk first, take visible responsibility and fix the system, not just the headline.",
+    "pareto20_80": {
+      "summary": "Johnson & Johnson's 1982 Tylenol response, recalling about 31 million bottles after seven deaths from tampering, became the benchmark because it put public safety ahead of cost and then led on tamper-resistant packaging. Wells Fargo's 2016 fake-accounts scandal became the warning because early responses blamed employees rather than the sales targets that drove the behavior.",
+      "keyPoints": [
+        "Act fast on safety: the cost of an over-broad recall is small next to the cost of being seen to protect profit over people.",
+        "Take visible responsibility from the top, and communicate facts, actions and next updates on a schedule.",
+        "Fix root causes in systems and incentives, not only the individuals caught, or the problem returns.",
+        "Wells Fargo paid a $185 million fine in 2016, and the count of potentially unauthorized accounts later rose from about 2 million to about 3.5 million (public record).",
+        "A stakeholder view weighs customers, employees, regulators and communities, not just shareholders, in the first hours of a crisis."
+      ],
+      "formulas": [
+        {
+          "name": "Crisis decision test",
+          "expression": "Choose the action you would defend if every stakeholder saw the full facts tomorrow (the sunshine test)"
+        },
+        {
+          "name": "Trust cost",
+          "expression": "Long-run cost ≈ direct cost of action + lost trust × future revenue at risk; delay raises the second term"
+        }
+      ]
+    },
+    "realityCheck": [
+      "In the first hours facts are incomplete, legal teams advise saying little, and leaders fear admitting liability, all of which push toward delay and minimizing.",
+      "Boards often learn of systemic misconduct late because metrics showed strong results and the warning signs sat in complaint and whistleblower channels no director reviewed."
+    ],
+    "lenses": {
+      "history": "The 1982 Tylenol poisonings in Chicago led to a nationwide recall and to tamper-evident packaging becoming standard. The 2016 Wells Fargo scandal led to fines, the chief executive's departure and a regulatory cap on the bank's asset growth.",
+      "economics": "Trust is an intangible asset whose value shows up in prices, customer retention and regulatory freedom, and a mishandled crisis writes it down quickly. Short-term savings from a narrow response are usually small compared with the long-run cost of lost trust.",
+      "behavioralScience": "Leaders under threat fall into motivated reasoning, believing the problem is smaller and more isolated than it is. Discounting the future and misjudging low-probability risks, as the MGMT 504 decision biases warn, make delay feel safe.",
+      "marketingNarrative": "A crisis is when a brand's real values become visible, so the response is the most important marketing the company will ever do. Clear, regular updates from the chief executive tell stakeholders someone is in charge.",
+      "sociology": "Public outrage depends on whether the company seems to put itself ahead of people, and social media now spreads that judgment within hours. Employees watch how leaders treat whistleblowers and frontline staff, which shapes whether they report the next problem.",
+      "firstPrinciplesContrarian": "The cheapest moment to take responsibility is the first one, because every day of delay adds to the cost and the story. The contrarian view is that over-reacting on safety is almost never the expensive mistake.",
+      "personalConnection": "Enterprise and hyperscaler outages are small crises where customer trust depends on fast, honest status updates and a public root-cause review. PranaScan would face a true crisis if its model gave unsafe readings, and a fast, safety-first recall decision would decide its future.",
+      "antiPattern": "Minimizing the problem, blaming a few employees and waiting for full facts before acting. Protect people first, take responsibility early and fix the system that caused it."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-08-receivables-allowance",
+        "relationship": "measured-by",
+        "question": "How do recall costs and legal reserves show up in the financial statements?"
+      },
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "risk-for",
+        "question": "How does lost trust change customers' price sensitivity after a scandal?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "foundation-for",
+        "question": "What incentive designs create the conditions for a crisis like Wells Fargo?"
+      },
+      {
+        "targetId": "m550-01-fiduciary-duties-board-composition",
+        "relationship": "applied-in",
+        "question": "What does the board's oversight duty require when early warning signs appear?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Johnson & Johnson Tylenol recall, 1982 (public record)",
+      "prompt": "In 1982 seven people in the Chicago area died after taking Tylenol capsules laced with cyanide. Tampering appeared limited to one region, and a nationwide recall of about 31 million bottles would cost tens of millions of dollars. As a director, do you support a nationwide recall?",
+      "cfoAnswer": "Yes. The tampering source is unknown, so the risk cannot be bounded to one region, and protecting customers is the only position the company can defend publicly. The recall cost is a one-time charge while the brand's trust is the asset behind most of the product's future value. Pair the recall with clear public updates, cooperation with authorities and a plan to relaunch in tamper-resistant packaging, which turns the crisis into a lasting safety standard.",
+      "keyTakeaway": "When safety and trust are at stake, the fast and broad response is usually the cheaper one."
+    },
+    "sources": [
+      "[Foster: MGMT 504] Syllabus sessions on ethical breakdowns, the Challenger case and whistleblowing (titles only)",
+      "[Foster: MGMT 504] Day 6 deck: decision biases about the world, including discounting the future and misjudging risk, and the sunshine test",
+      "[Real 10-K / Case] Johnson & Johnson 1982 Tylenol recall and Wells Fargo 2016 consent orders and later account estimates (public record; verify before reuse)",
+      "[Elite MBA: Harvard Business School] Case on Johnson & Johnson's Tylenol crisis response"
+    ]
+  },
+  {
+    "id": "m504-02-incentives-ethical-breakdowns",
+    "pillarId": "P5",
+    "courseCode": "MGMT 504",
+    "title": "How Incentives Cause Ethical Breakdowns: Goals Gone Wild, Wells Fargo and Designing Targets People Will Not Game",
+    "difficulty": "advanced",
+    "tags": [
+      "ethics",
+      "incentive-design",
+      "goal-setting",
+      "compliance"
+    ],
+    "hook10k": "Most corporate misconduct is not caused by a few bad people but by ordinary people responding to targets that reward the wrong thing. Leaders who set aggressive goals without watching how they are met are designing the ethical failure themselves.",
+    "pareto20_80": {
+      "summary": "Narrow, aggressive and individually tied targets push people to meet the number by any means, as when Wells Fargo staff opened millions of accounts customers did not request. Good incentive design balances outcome measures with quality and conduct measures, watches for gaming, protects whistleblowers and makes leaders accountable for how results are achieved.",
+      "keyPoints": [
+        "Goals that are too specific, too hard or too short-term narrow attention and raise the temptation to cheat.",
+        "Pair every growth metric with a quality or conduct metric, such as accounts opened with accounts actually used.",
+        "Gaming shows up first in anomalies: results that are too good, complaint spikes and sudden changes in patterns.",
+        "Moral disengagement lets people rationalize harm by blaming the system, minimizing the impact or saying everyone does it.",
+        "Whistleblower channels only work if the people who use them are protected and visibly heard by leadership."
+      ],
+      "formulas": [
+        {
+          "name": "Balanced target",
+          "expression": "Reward = f(outcome metric, quality metric, conduct metric) with clawback for misconduct"
+        },
+        {
+          "name": "Gaming risk",
+          "expression": "Gaming risk ∝ target pressure × narrowness of metric ÷ (monitoring + speak-up safety)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Leaders often celebrate the units that hit the hardest targets without asking how, which tells everyone else what the real priority is.",
+      "Compliance teams tend to sit far from the sales incentive design process, so conflicts between targets and rules are found only after harm is done."
+    ],
+    "lenses": {
+      "history": "Researchers documented goals gone wild in cases from the Ford Pinto to Sears auto centers long before Wells Fargo's cross-selling scandal in 2016. Each case showed the same pattern of aggressive targets, weak monitoring and leaders who did not ask how numbers were met.",
+      "economics": "Incentives are contracts on measurable outcomes, and agents optimize what is measured, so narrow metrics invite effort on the metric rather than on value. Kerr's folly of rewarding A while hoping for B applies with legal and reputational stakes.",
+      "behavioralScience": "Goal pressure narrows attention and increases cheating, especially when people are close to a threshold. Moral disengagement and ethical fading let people stop seeing a choice as ethical at all once it is framed as hitting a number.",
+      "marketingNarrative": "Internal slogans such as eight is great at Wells Fargo became the story employees lived by, and they told staff what really mattered. Leaders shape conduct through the targets they celebrate as much as the values they publish.",
+      "sociology": "When cutting corners becomes common in a branch or team, it becomes the norm and newcomers learn it as how the job is done. Pressure from managers and peers can make refusing feel like disloyalty.",
+      "firstPrinciplesContrarian": "If a target can only be hit by bending rules, the target is the problem, not the people. The contrarian leader treats unusually strong results as a reason to audit, not only to celebrate.",
+      "personalConnection": "Enterprise sales teams with quarter-end quotas face the same pressure to pull deals forward or promise features that do not exist. Cisco and other enterprise vendors manage this with deal desks and revenue recognition reviews, which are conduct metrics beside the quota.",
+      "antiPattern": "Setting stretch targets tied to bonuses with no quality or conduct checks and celebrating whoever hits them. Balance metrics, audit outliers and protect people who speak up."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-02-accrual-revenue-recognition",
+        "relationship": "risk-for",
+        "question": "How do sales incentives create pressure to recognize revenue too early?"
+      },
+      {
+        "targetId": "a500-11-earnings-quality",
+        "relationship": "measured-by",
+        "question": "Which earnings quality red flags reveal results achieved by gaming?"
+      },
+      {
+        "targetId": "m500-01-first-time-manager-motivation",
+        "relationship": "builds-on",
+        "question": "How does the folly of rewarding A while hoping for B scale into misconduct?"
+      },
+      {
+        "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks",
+        "relationship": "foundation-for",
+        "question": "How should clawbacks and pay design hold executives accountable for how results were achieved?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Wells Fargo cross-selling, 2016 (public record)",
+      "prompt": "Regulators fined Wells Fargo $185 million in 2016 after finding that employees had opened about 2 million accounts customers may not have authorized, a figure later raised to about 3.5 million. The bank initially fired thousands of employees. As a new director, what do you push for?",
+      "cfoAnswer": "Treat it as a system failure, not a few bad employees. Eliminate the product sales targets that drove the behavior and replace them with measures of customer use and satisfaction, review complaint and whistleblower data at the board level, and hold senior leaders accountable through pay clawbacks. Commission an independent review of how warning signs were missed, remediate affected customers, and report progress publicly to rebuild trust with regulators and customers.",
+      "keyTakeaway": "When many people break the rules the same way, fix the incentives and hold leaders accountable."
+    },
+    "sources": [
+      "[Foster: MGMT 504] Syllabus sessions on ethical breakdowns, conflicts of interest, moral disengagement and whistleblowing (titles only)",
+      "[Foster: MGMT 500] Session 5: Kerr's folly of rewarding A while hoping for B and the information and selection effects of incentives",
+      "[Real 10-K / Case] Wells Fargo 2016 regulatory consent orders and later independent board investigation report (public record; verify before reuse)",
+      "[Elite MBA: Harvard Business School] Ordóñez, Schweitzer, Galinsky and Bazerman, Goals Gone Wild"
+    ]
+  },
+  {
+    "id": "m504-03-psychology-ethical-decisions-ai-bias",
+    "pillarId": "P5",
+    "courseCode": "MGMT 504",
+    "title": "The Psychology of Ethical Decisions: Bounded Ethicality, Blind Spots and Bias in AI Systems",
+    "difficulty": "advanced",
+    "tags": [
+      "ethics",
+      "decision-biases",
+      "ai-bias",
+      "responsible-ai"
+    ],
+    "hook10k": "Most unethical decisions are made by people who believe they are acting ethically, because predictable blind spots hide the ethical dimension of the choice. AI systems can scale those blind spots, so leaders now have to design fairness into products rather than hope for it.",
+    "pareto20_80": {
+      "summary": "Bounded ethicality means we misjudge the world, other people and ourselves in predictable ways: we ignore low-probability harms, search too few stakeholders, stereotype others and overrate our own fairness. The same patterns enter AI through biased data and narrow objectives, so leaders need data over hunches, contrarian voices, broad stakeholder review and audits for disparate impact.",
+      "keyPoints": [
+        "Theories about the world: ignoring unintended consequences and low-probability events, limited stakeholder search and discounting the future.",
+        "Theories about others: favoring our own group and relying on stereotypes, which shape hiring, lending and product decisions.",
+        "Theories about ourselves: illusions of superiority, optimism and control make us overconfident that we are fair.",
+        "AI models trained on historical data learn historical bias, and a single accuracy metric can hide very different error rates across groups.",
+        "Best practices: use data rather than hunches, include contrarians, map stakeholders widely, audit outcomes by group and apply the sunshine test."
+      ],
+      "formulas": [
+        {
+          "name": "Disparate impact check",
+          "expression": "Adverse impact ratio = selection rate of group A ÷ selection rate of highest group; flag if below about 0.8"
+        },
+        {
+          "name": "Ethics by design",
+          "expression": "Review = stakeholder map + harm scenarios + subgroup error rates + human appeal path, before launch"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams under launch pressure treat fairness reviews as a compliance box at the end, when changing the data or objective is most expensive.",
+      "Removing a sensitive attribute from a model rarely removes bias, because other variables such as location or school act as proxies for it."
+    ],
+    "lenses": {
+      "history": "Behavioral ethics grew from decision research in the 1990s and 2000s, with scholars such as Messick and Bazerman showing how ordinary biases distort moral choices. Cases such as biased hiring algorithms and the White House blueprint for an AI bill of rights brought the same ideas to technology.",
+      "economics": "Biased decisions misallocate resources, such as overlooking qualified candidates or creditworthy borrowers, which leaves profit and talent on the table. Bias in AI also creates legal and regulatory liabilities that grow with the system's scale.",
+      "behavioralScience": "Ethical fading makes the moral side of a choice disappear when it is framed as a business or technical decision. Overconfidence and the illusion of control make leaders believe their own judgment is fair, so they skip checks they would demand of others.",
+      "marketingNarrative": "Trust in AI products depends on whether customers believe they will be treated fairly and can appeal mistakes. Publishing how a model is tested for fairness is becoming part of the product's value proposition.",
+      "sociology": "Bias in data reflects past social patterns such as who was hired, lent to or policed, so models can lock in historical inequality. Diverse teams notice blind spots that homogeneous teams miss, which is one practical case for diversity.",
+      "firstPrinciplesContrarian": "Assume your model is biased until subgroup testing shows otherwise, because the default outcome of learning from historical data is learning its unfairness. The contrarian leader rewards the engineer who finds a fairness bug before launch.",
+      "personalConnection": "Enterprise AI platforms running on GPU clusters can push one model to millions of decisions a day, so a small bias becomes a large harm quickly. PranaScan's vital-sign readings must be validated across skin tones and ages, since camera-based measurement can perform differently across groups.",
+      "antiPattern": "Shipping an AI system judged on overall accuracy with no subgroup testing, stakeholder review or appeal path. Audit error rates by group and design for fairness before launch."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "qm500-01-hypothesis-testing-regression",
+        "relationship": "measured-by",
+        "question": "How do you test statistically whether a model's error rates differ across groups?"
+      },
+      {
+        "targetId": "is500-01-sql-data-quality-decisions",
+        "relationship": "builds-on",
+        "question": "How does data quality and sampling bias flow into model bias?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "contrasts-with",
+        "question": "How do fairness requirements change the cost and payback of an AI product?"
+      },
+      {
+        "targetId": "m500-02-team-design-psych-safety-groupthink",
+        "relationship": "applied-in",
+        "question": "How do contrarian voices on a team counter bounded ethicality?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative AI hiring screen",
+      "prompt": "Your company built an AI resume screen trained on ten years of hiring decisions. It cuts recruiter time by 60% and matches past hiring choices 92% of the time. HR wants to roll it out company-wide next month. As a director, what do you ask before approving it?",
+      "cfoAnswer": "Matching past decisions 92% of the time means it also copies past bias, so ask for selection rates by gender, race and age and whether any group falls below about 80% of the top group's rate. Ask which features drive scores and whether proxies such as school or postcode stand in for protected traits, and whether candidates can request human review. Approve a limited pilot with humans reviewing all rejections, independent fairness audits and legal review, and roll out only if subgroup outcomes pass.",
+      "keyTakeaway": "An AI trained on past decisions inherits their bias unless you test and design against it."
+    },
+    "sources": [
+      "[Foster: MGMT 504] Day 6 deck: theories about the world, others and ourselves, and best practices including data over hunches, contrarians and the sunshine test",
+      "[Foster: MGMT 504] Syllabus sessions on AI and discrimination and the psychology of decision making (readings by title only)",
+      "[Elite MBA: Harvard Business School] Bazerman and Tenbrunsel, Blind Spots: Why We Fail to Do What's Right and What to Do about It",
+      "[Elite MBA: MIT Sloan] Research on algorithmic fairness and auditing machine learning systems for disparate impact"
+    ]
+  },
+  {
+    "id": "m550-01-fiduciary-duties-board-composition",
+    "pillarId": "P5",
+    "courseCode": "MGMT 550",
+    "title": "Fiduciary Duties and Board Composition: Care, Loyalty, Independence and Why Theranos Had the Wrong Board",
+    "difficulty": "foundation",
+    "tags": [
+      "corporate-governance",
+      "board-of-directors",
+      "fiduciary-duty",
+      "oversight"
+    ],
+    "hook10k": "Directors owe shareholders duties of care, loyalty and candor, and the business judgment rule protects honest, informed decisions even when they turn out badly. A board can only meet those duties if it has the right mix of independence, industry knowledge and financial skill to question management.",
+    "pareto20_80": {
+      "summary": "The duty of care requires informed decisions, the duty of loyalty forbids putting personal interest ahead of the company, and the business judgment rule shields good-faith decisions made on adequate information. Effective boards are sized to the company, staffed with a skills matrix, led by independent committees for audit, compensation and nominations, and willing to challenge management.",
+      "keyPoints": [
+        "Care means being informed and engaged; loyalty means no self-dealing; candor means honest disclosure to shareholders.",
+        "The business judgment rule protects directors who decide in good faith, on adequate information and without conflicts.",
+        "Start-up boards often have about three members, while public company boards average about eleven, with committee work done by independent directors.",
+        "The audit committee needs at least three independent, financially literate directors, and a skills matrix shows gaps in expertise.",
+        "Theranos had a board of prominent former officials with little medical or laboratory expertise, which weakened oversight of its claims."
+      ],
+      "formulas": [
+        {
+          "name": "Business judgment rule",
+          "expression": "Protected if decision is informed + in good faith + free of conflicts + rational business purpose"
+        },
+        {
+          "name": "Board skills matrix",
+          "expression": "Required skills × current directors → gaps that drive the next search"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Founders often fill early boards with friends and investors who share their view, which feels efficient until the company needs someone to challenge the chief executive.",
+      "Prominent names add credibility with investors and regulators but do not replace directors who understand the technology and the numbers."
+    ],
+    "lenses": {
+      "history": "Fiduciary duties come from trust law and were developed for corporations largely by Delaware courts, where most large companies are incorporated. Scandals from Enron to Theranos led to stronger expectations for independent directors and audit committees.",
+      "economics": "Boards exist to reduce agency costs, the losses that arise when managers act in their own interest rather than shareholders'. Governance research estimates that undetected corporate fraud destroys a large share of affected firms' equity value, so oversight has a real economic payoff.",
+      "behavioralScience": "Directors defer to charismatic or founder chief executives, especially when they lack the expertise to challenge technical claims. Social ties between directors and management make dissent feel like betrayal, which mutes the candor boards exist to provide.",
+      "marketingNarrative": "A board roster signals credibility to investors and customers, which is why companies recruit famous names. That signal becomes a liability when the story is later revealed to have had no expert oversight behind it.",
+      "sociology": "Boards are small elite groups with norms of collegiality, and new directors learn quickly whether challenging management is welcome. Board diversity in background and expertise broadens the questions the group asks.",
+      "firstPrinciplesContrarian": "A board's value is the hard questions it asks, so a board that always agrees is not adding value. The contrarian founder recruits a director who will tell them they are wrong.",
+      "personalConnection": "Enterprise technology companies building AI infrastructure need directors who understand GPU supply, data center capital spending and model risk, not only general management. A PranaScan board would need medical device regulatory and clinical expertise early, which is exactly what Theranos lacked.",
+      "antiPattern": "Filling the board with famous names and loyal insiders who lack expertise to challenge management. Use a skills matrix, real independence and expert directors on the issues that matter most."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-15-read-10k-routine",
+        "relationship": "applied-in",
+        "question": "What should a director look for in the proxy statement about board composition and independence?"
+      },
+      {
+        "targetId": "e532-02-seed-memo-terms-that-matter",
+        "relationship": "builds-on",
+        "question": "How do seed and Series A terms set board seats and control?"
+      },
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "builds-on",
+        "question": "How do protective provisions and board seats in a term sheet shift control to investors?"
+      },
+      {
+        "targetId": "m550-02-dual-class-control-related-party",
+        "relationship": "foundation-for",
+        "question": "How does founder control through dual-class shares limit what a board can do?"
+      },
+      {
+        "targetId": "m504-01-crisis-response-stakeholder-trust",
+        "relationship": "foundation-for",
+        "question": "How does a board's oversight duty shape its response when a crisis breaks?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Theranos board composition (public record)",
+      "prompt": "A blood-testing start-up valued in the billions has a board made up mainly of former government officials and military leaders, with no directors who have laboratory medicine or diagnostics expertise. The founder controls the company's voting power. As an investor, what governance changes do you ask for?",
+      "cfoAnswer": "Ask for a skills matrix and add independent directors with clinical laboratory, regulatory and diagnostics expertise, plus a financially literate audit committee chair. Require independent validation of the core technology and regular board review of regulatory interactions and quality data. If founder voting control blocks these changes, treat that as a serious risk to your investment and price it accordingly or walk away.",
+      "keyTakeaway": "A board needs directors who can test management's core claims, not just lend their names."
+    },
+    "sources": [
+      "[Foster: MGMT 550] CEO and Board Governance course themes: fiduciary duties, business judgment rule, board size, committees and skills matrix, as summarized in the Executive Governance and Product Pricing Playbook",
+      "[Foster: MGMT 550] Corporate Governance Matters (3rd edition) textbook on agency costs and board oversight",
+      "[Real 10-K / Case] Theranos board composition and later fraud charges (public record; verify before reuse)",
+      "[Elite MBA: Stanford] Larcker and Tayan, Corporate Governance Matters"
+    ]
+  },
+  {
+    "id": "m550-02-dual-class-control-related-party",
+    "pillarId": "P5",
+    "courseCode": "MGMT 550",
+    "title": "Founder Control, Dual-Class Shares and Related-Party Transactions: Lessons from the WeWork IPO",
+    "difficulty": "advanced",
+    "tags": [
+      "corporate-governance",
+      "dual-class",
+      "related-party-transactions",
+      "ipo"
+    ],
+    "hook10k": "Dual-class shares let founders keep control while raising outside capital, which can protect long-term vision or shield poor decisions from accountability. When control is combined with transactions between the company and its founder, outside investors bear the risk of conflicts they cannot stop.",
+    "pareto20_80": {
+      "summary": "Super-voting shares, sometimes as high as 20 votes per share, concentrate control in founders, and sunset clauses that convert them over time are the main safeguard. WeWork's 2019 IPO filing revealed super-voting control, leases on buildings the founder partly owned and a payment for the We trademark, and investors' reaction collapsed its private valuation of about $47 billion and the IPO.",
+      "keyPoints": [
+        "Dual-class structures trade accountability for founder control, and investors price that trade at IPO.",
+        "Time-based or event-based sunsets convert super-voting shares to ordinary shares, limiting perpetual control.",
+        "Related-party transactions require disclosure, independent committee approval and arm's-length terms.",
+        "WeWork's filing showed founder-linked leases and a trademark payment, which turned a growth story into a governance story.",
+        "Index providers and large investors increasingly push back on unequal voting rights, which can affect demand for the shares."
+      ],
+      "formulas": [
+        {
+          "name": "Control wedge",
+          "expression": "Control wedge = founder voting share − founder economic ownership share"
+        },
+        {
+          "name": "Related-party test",
+          "expression": "Acceptable if disclosed + approved by independent directors + priced at arm's length + reviewed periodically"
+        }
+      ]
+    },
+    "realityCheck": [
+      "In hot markets investors accept weak governance terms to get allocations, then discover the cost when growth slows and they cannot influence management.",
+      "Related-party arrangements often start small and informal in a company's early years and are never unwound before an IPO exposes them."
+    ],
+    "lenses": {
+      "history": "Dual-class shares have long existed in family media companies and spread among technology firms such as Google and Meta. WeWork's withdrawn 2019 IPO became the case study for how governance terms can sink an offering.",
+      "economics": "The control wedge lets founders capture private benefits of control at outside shareholders' expense, which raises the cost of capital. Sunsets reduce this cost because the benefits of founder vision fade while entrenchment risk grows over time.",
+      "behavioralScience": "Investors swept up in a charismatic founder's story discount governance risks, a form of overconfidence and halo effect. Founders with full control rarely hear dissent, which feeds their own overconfidence.",
+      "marketingNarrative": "WeWork marketed itself as a technology company with a mission to elevate the world's consciousness, and the filing's governance details undercut that narrative. Governance terms in a prospectus are part of the investment story whether founders intend it or not.",
+      "sociology": "Founder-led companies develop cultures centered on one person, so dissent from employees or directors is socially costly. Institutional investors coordinate through governance norms, which is how pressure against dual-class structures spreads.",
+      "firstPrinciplesContrarian": "Founder control is valuable when the founder is right and very expensive when they are wrong, and no one can know which in advance. The contrarian investor asks not whether they trust the founder today but whether the structure works if they stop trusting them.",
+      "personalConnection": "Enterprise and AI start-ups raising large rounds face the same trade-off between keeping founder control for long-term bets and giving investors protections. A PranaScan founder should avoid any arrangement where they personally own an asset the company pays for, since it complicates every future round.",
+      "antiPattern": "Accepting super-voting shares with no sunset and founder-linked transactions with no independent approval because the growth story is exciting. Insist on sunsets, independent review and arm's-length terms."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "builds-on",
+        "question": "How do protective provisions in venture terms prefigure control rights at IPO?"
+      },
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "measured-by",
+        "question": "How do long-term leases, including related-party ones, show up as liabilities on the balance sheet?"
+      },
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "measured-by",
+        "question": "How does weak governance raise a company's cost of equity?"
+      },
+      {
+        "targetId": "m550-01-fiduciary-duties-board-composition",
+        "relationship": "builds-on",
+        "question": "How does the duty of loyalty apply to related-party transactions?"
+      },
+      {
+        "targetId": "m510-01-executive-communication-bottom-line-up-front",
+        "relationship": "applied-in",
+        "question": "How should a prospectus and roadshow explain founder control to investors plainly?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "WeWork IPO filing, 2019 (public record)",
+      "prompt": "A fast-growing company valued at about $47 billion privately files for an IPO. The filing shows super-voting shares giving the founder control, leases on buildings partly owned by the founder, and a payment to a founder-controlled entity for the company's trademark. As an independent director, what do you require before the roadshow?",
+      "cfoAnswer": "Unwind or renegotiate the founder-linked leases and the trademark payment at arm's length, approved by an independent committee, or remove them entirely. Reduce the super-voting ratio and add a sunset, add independent directors including a lead independent director, and separate the chair and chief executive roles if possible. Tell the bankers to test investor demand on those terms, and be ready to delay the IPO and accept a lower valuation rather than list with governance terms investors will punish.",
+      "keyTakeaway": "Governance terms are part of the price; fix conflicts and control terms before the market prices them for you."
+    },
+    "sources": [
+      "[Foster: MGMT 550] Course themes on dual-class shares, super-voting ratios and sunsets, as summarized in the Executive Governance and Product Pricing Playbook",
+      "[Foster: MGMT 550] Corporate Governance Matters (3rd edition) textbook on control, related-party transactions and agency costs",
+      "[Real 10-K / Case] WeWork 2019 Form S-1 filing and withdrawn IPO (public record; verify before reuse)",
+      "[Elite MBA: Harvard Business School] Bebchuk and Kastiel, The Untenable Case for Perpetual Dual-Class Stock"
+    ]
+  },
+  {
+    "id": "m550-03-ceo-pay-say-on-pay-clawbacks",
+    "pillarId": "P5",
+    "courseCode": "MGMT 550",
+    "title": "CEO Pay Design: Base, Bonus, Long-Term Incentives, Say on Pay and Clawbacks",
+    "difficulty": "advanced",
+    "tags": [
+      "executive-compensation",
+      "say-on-pay",
+      "clawbacks",
+      "incentive-design"
+    ],
+    "hook10k": "Executive pay is the board's main tool for aligning the chief executive with long-term shareholder value, and badly designed pay rewards short-term moves that destroy it. Good pay plans mix salary, annual incentives and multi-year equity tied to measures the executive can influence, with clawbacks if results prove false.",
+    "pareto20_80": {
+      "summary": "A CEO package typically includes base salary, benefits, an annual incentive tied to yearly goals and long-term incentives such as performance shares vesting over about three years. Say-on-pay votes under Dodd-Frank give shareholders an advisory voice, and clawbacks let boards recover pay awarded on results that were later restated or achieved through misconduct.",
+      "keyPoints": [
+        "Most pay should be at risk and long-term, so the executive gains only when shareholders do over several years.",
+        "Choose metrics that link to value creation, such as return on invested capital above cost of capital, rather than revenue alone.",
+        "Peer group benchmarking ratchets pay upward when every board targets above-median pay.",
+        "Say on pay is advisory, but a low vote signals shareholder anger that boards ignore at their peril.",
+        "Clawbacks recover incentive pay after restatements and, in stronger policies, after misconduct."
+      ],
+      "formulas": [
+        {
+          "name": "Pay mix",
+          "expression": "Total pay = base + benefits + annual incentive + long-term incentive; at-risk share = (annual + long-term) ÷ total"
+        },
+        {
+          "name": "Value-linked metric",
+          "expression": "Economic profit = (ROIC − WACC) × invested capital"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Compensation committees rely heavily on consultants and peer benchmarks, which tends to raise pay regardless of performance.",
+      "Executives can hit earnings-per-share targets through buybacks or cost cuts that weaken the business, so a single metric invites gaming."
+    ],
+    "lenses": {
+      "history": "Stock options became the dominant form of executive pay in the 1990s, contributing to short-termism and accounting scandals. The Dodd-Frank Act of 2010 introduced say-on-pay votes and required clawback policies, which listing rules later strengthened.",
+      "economics": "Executive pay is a principal-agent contract meant to align management's interests with shareholders', and its design determines which decisions the executive finds rewarding. Paying on economic profit rewards growth only when returns exceed the cost of capital.",
+      "behavioralScience": "Executives anchor on peer pay and see it as fair recognition, so below-median packages feel insulting even when generous. Large option grants can encourage excessive risk-taking because the downside is limited.",
+      "marketingNarrative": "The proxy statement's compensation discussion is a story the board tells shareholders about why pay matches performance. When the story and the numbers diverge, say-on-pay votes and the press tell a different story.",
+      "sociology": "Pay gaps between executives and employees affect morale and public trust, and disclosed pay ratios have made them visible. Boards and executives move in overlapping circles, which can soften negotiations that should be arm's length.",
+      "firstPrinciplesContrarian": "The question is not how much the chief executive is paid but what behavior the plan rewards. The contrarian committee pays less for hitting annual targets and more for multi-year value creation.",
+      "personalConnection": "Enterprise technology leaders often receive large equity grants vesting over four years, which ties their wealth to long-term share performance. Cisco and hyperscaler proxy statements are good real examples to read for how pay mix and metrics are explained to shareholders.",
+      "antiPattern": "Paying mostly on one short-term metric such as earnings per share and benchmarking to above-median peers every year. Tie long-term pay to value creation and include strong clawbacks."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "measured-by",
+        "question": "How does stock-based compensation show up as an expense and dilute shareholders?"
+      },
+      {
+        "targetId": "f502-07-roic-vs-wacc",
+        "relationship": "measured-by",
+        "question": "Why is ROIC above WACC a better pay metric than revenue growth?"
+      },
+      {
+        "targetId": "f502-06-capital-allocation-buybacks",
+        "relationship": "risk-for",
+        "question": "How can buybacks inflate EPS-based bonuses without creating value?"
+      },
+      {
+        "targetId": "m504-02-incentives-ethical-breakdowns",
+        "relationship": "builds-on",
+        "question": "How do pay plans that reward the wrong things invite misconduct at the top?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative public company compensation committee",
+      "prompt": "Your CEO's annual bonus is tied entirely to earnings per share growth, and long-term pay is time-vesting stock. EPS rose 12% this year, mostly from buybacks funded by debt, while return on capital fell. Shareholders gave say on pay only 58% support. As compensation committee chair, what do you change?",
+      "cfoAnswer": "Stop paying for EPS growth that comes from financial engineering. Redesign the annual incentive around operating measures and return on invested capital, convert most long-term pay to performance shares vesting over three years based on ROIC above WACC and relative shareholder return, and adopt a strong clawback covering restatements and misconduct. Engage major shareholders to explain the changes before next year's vote.",
+      "keyTakeaway": "Pay for value creation over years, not for metrics management can move with buybacks."
+    },
+    "sources": [
+      "[Foster: MGMT 550] Course themes on CEO pay components, long-term incentives, Dodd-Frank say on pay and clawbacks, as summarized in the Executive Governance and Product Pricing Playbook",
+      "[Foster: MGMT 550] Corporate Governance Matters (3rd edition) textbook on executive compensation",
+      "[Real 10-K / Case] Dodd-Frank Act say-on-pay provisions and listing exchange clawback rules (public record; verify before reuse)",
+      "[Elite MBA: Harvard Business School] Bebchuk and Fried, Pay Without Performance"
+    ]
+  },
+  {
+    "id": "m550-04-ceo-succession-activism",
+    "pillarId": "P5",
+    "courseCode": "MGMT 550",
+    "title": "CEO Succession and Activist Investors: Disney's Return of a Former CEO and the Proxy Fight That Followed",
+    "difficulty": "advanced",
+    "tags": [
+      "ceo-succession",
+      "activism",
+      "proxy-fight",
+      "board-of-directors"
+    ],
+    "hook10k": "Choosing and replacing the chief executive is the board's single most important decision, and boards that treat succession as an emergency rather than a process often get it wrong. When performance slips, activist investors may step in and force the issue through a public proxy fight.",
+    "pareto20_80": {
+      "summary": "Succession works best as a continuous process of plan, profile, identify, develop, assess, select and transition, with internal candidates developed years in advance. Disney's board brought back its former chief executive in November 2022 after a failed succession, then faced an activist proxy fight that cost about $70 million, which shareholders resolved strongly in the board's favor.",
+      "keyPoints": [
+        "CEO tenure averages about nine years, yet a meaningful share of new chief executives leave within the first few years, so succession risk is constant.",
+        "A strong process builds a profile from the strategy, develops several internal candidates and assesses outsiders as benchmarks.",
+        "An emergency plan names who leads if the chief executive leaves suddenly.",
+        "Activists target companies with weak returns or governance and use proxy fights, public letters and settlements to win board seats or changes.",
+        "In the 2024 Disney contest, shareholders supported the board's nominees overwhelmingly after a contest costing about $70 million."
+      ],
+      "formulas": [
+        {
+          "name": "Succession process",
+          "expression": "Plan → profile → identify → develop → assess → select → transition"
+        },
+        {
+          "name": "Activism target screen",
+          "expression": "Risk ∝ underperformance versus peers + governance weakness + undervalued assets ÷ board credibility"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many boards discuss succession only once a year and defer to the sitting chief executive, who may not want a strong successor visible.",
+      "Bringing back a former chief executive can steady a company in the short term but signals that the board's succession pipeline failed."
+    ],
+    "lenses": {
+      "history": "Shareholder activism grew from corporate raiders in the 1980s into a large hedge fund strategy by the 2010s. High-profile succession failures and comebacks, such as Disney's in 2022, put succession planning at the top of board agendas.",
+      "economics": "A poor succession destroys value through strategy drift, talent loss and the cost of a second search, so investing in a pipeline has a high return. Activists profit by closing the gap between a company's market value and what they believe better management could achieve.",
+      "behavioralScience": "Boards favor candidates who resemble the departing chief executive or are already familiar, a similarity and availability bias. Sitting executives often overestimate how long they should stay, delaying succession.",
+      "marketingNarrative": "A proxy fight is a public persuasion campaign, with both sides courting large index funds and proxy advisors through letters, presentations and media. The board wins by telling a credible story of strategy, progress and a succession plan.",
+      "sociology": "Institutional investors and proxy advisors have become a governance constituency whose votes decide contests. Within the company, succession politics can split executives into camps around candidates.",
+      "firstPrinciplesContrarian": "The best time to plan a succession is when the chief executive is succeeding, not when they are failing or leaving. The contrarian board meets an activist's ideas on the merits before a fight, sometimes adopting the good ones.",
+      "personalConnection": "Enterprise technology companies such as Cisco have gone through planned chief executive transitions that show the value of developing internal leaders years ahead. A founder-led start-up like PranaScan would eventually need its board to plan for the founder's successor, which founders rarely want to discuss.",
+      "antiPattern": "Treating succession as a once-a-year agenda item controlled by the sitting chief executive, then scrambling when they leave. Run a continuous process with developed internal candidates and an emergency plan."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-13-ma-goodwill",
+        "relationship": "risk-for",
+        "question": "How can acquisitions approved under a departing CEO lead to write-downs that attract activists?"
+      },
+      {
+        "targetId": "f502-06-capital-allocation-buybacks",
+        "relationship": "contrasts-with",
+        "question": "Why do activists often demand buybacks or spin-offs, and when are they wrong?"
+      },
+      {
+        "targetId": "m502-04-competitive-dynamics-game-theory",
+        "relationship": "applied-in",
+        "question": "How does game theory explain settlements versus fights between boards and activists?"
+      },
+      {
+        "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks",
+        "relationship": "builds-on",
+        "question": "How should a successor's pay package be designed to reward long-term results?"
+      },
+      {
+        "targetId": "m500-03-culture-schein-leading-change",
+        "relationship": "applied-in",
+        "question": "How does a new chief executive change culture without losing the people who made the company work?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Disney succession and proxy contest, 2022 to 2024 (public record)",
+      "prompt": "Two years after naming a successor, a media company's board ousts that chief executive and brings back the former one in November 2022 for a two-year term. An activist investor then launches a proxy fight for board seats, citing poor succession and returns. As a director, how do you respond?",
+      "cfoAnswer": "Acknowledge the succession failure and announce a credible process with a dedicated committee, a clear timeline, internal candidates being developed and outside benchmarks. Engage the activist and major shareholders on the strategy, cost and capital allocation plan, and adopt good ideas rather than fighting on principle. If the contest proceeds, make the case through results and the succession plan, and keep talking to shareholders after the vote whatever the outcome.",
+      "keyTakeaway": "A credible, continuous succession process is the best defense against both a failed handover and an activist."
+    },
+    "sources": [
+      "[Foster: MGMT 550] Course themes on CEO succession process and tenure, activism and the Disney proxy contest, as summarized in the Executive Governance and Product Pricing Playbook",
+      "[Foster: MGMT 550] Corporate Governance Matters (3rd edition) textbook on succession planning and shareholder activism",
+      "[Real 10-K / Case] Disney November 2022 leadership change and 2024 proxy contest results (public record; verify before reuse)",
+      "[Elite MBA: Stanford] Larcker and Tayan, research on CEO succession planning practices"
+    ]
+  }
+]

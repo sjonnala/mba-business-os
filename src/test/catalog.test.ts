@@ -16,11 +16,12 @@ describe('catalog', () => {
     for (const c of COURSES) expect(ids.has(c.pillarId)).toBe(true);
   });
 
-  it('has Wave M1 to M4 courses live, with 73 concepts', () => {
+  it('has all 22 courses live after Wave M5, with 90 concepts', () => {
     expect(COURSES.filter((c) => c.status === 'live').map((c) => c.code)).toEqual([
       'ACCTG 500', 'ACCTG 501', 'FIN 502', 'ENTRE 557', 'ENTRE 542',
       'B ECON 500', 'B ECON 501', 'MGMT 502', 'OPMGT 502', 'QMETH 500', 'QMETH 501', 'I S 500',
       'ENTRE 510', 'ENTRE 532', 'ENTRE 579', 'MKTG 554',
+      'MKTG 501', 'MKTG 600', 'MGMT 500', 'MGMT 510 / B CMU 501', 'MGMT 504', 'MGMT 550',
     ]);
     expect(CONCEPTS.filter((c) => c.courseCode === 'ACCTG 500')).toHaveLength(15);
     expect(CONCEPTS.filter((c) => c.courseCode === 'ACCTG 501')).toHaveLength(10);
@@ -29,7 +30,9 @@ describe('catalog', () => {
     expect(CONCEPTS.filter((c) => c.courseCode === 'MGMT 502')).toHaveLength(7);
     expect(CONCEPTS.filter((c) => c.pillarId === 'P4')).toHaveLength(16);
     expect(CONCEPTS.filter((c) => c.courseCode === 'MKTG 554')).toHaveLength(5);
-    expect(CONCEPTS).toHaveLength(73);
+    expect(CONCEPTS.filter((c) => c.pillarId === 'P5')).toHaveLength(17);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'MGMT 550')).toHaveLength(4);
+    expect(CONCEPTS).toHaveLength(90);
   });
 
   it('has a live concept under every live course and none under coming courses', () => {
@@ -40,9 +43,10 @@ describe('catalog', () => {
     }
   });
 
-  it('labels coming courses with their wave', () => {
+  it('labels every course Live once Wave M5 ships, and still labels a coming course with its wave', () => {
+    for (const c of COURSES) expect(comingLabel(c), c.code).toBe('Live');
     const marketing = COURSES.find((c) => c.id === 'MKTG501');
-    expect(marketing && comingLabel(marketing)).toBe('Coming in Wave M5');
+    expect(marketing && comingLabel({ ...marketing, status: 'coming' })).toBe('Coming in Wave M5');
     const venture = COURSES.find((c) => c.id === 'ENTRE510');
     expect(venture && comingLabel(venture)).toBe('Live');
     const econ = COURSES.find((c) => c.id === 'BECON500');
@@ -53,17 +57,17 @@ describe('catalog', () => {
 });
 
 describe('mind map layout', () => {
-  it('places root, 5 pillars, 22 courses and 73 concepts', () => {
+  it('places root, 5 pillars, 22 courses and 90 concepts', () => {
     const layout = layoutMindMap(PILLARS, COURSES, CONCEPTS);
     const count = (k: string) => layout.nodes.filter((n) => n.kind === k).length;
-    expect([count('root'), count('pillar'), count('course'), count('concept')]).toEqual([1, 5, 22, 73]);
+    expect([count('root'), count('pillar'), count('course'), count('concept')]).toEqual([1, 5, 22, 90]);
     for (const n of layout.nodes) if (n.parentId) expect(layout.byId.has(n.parentId)).toBe(true);
   });
 
   it('keeps concept fans apart and ACCTG 500 at the top', () => {
     const layout = layoutMindMap(PILLARS, COURSES, CONCEPTS);
     const angles = layout.nodes.filter((n) => n.kind === 'concept').map((n) => n.angle).sort((a, b) => a - b);
-    // Neighbouring concept dots stay at least 45px apart along the outer ring (about 4.3 degrees at r = 600).
+    // Neighbouring concept dots stay at least 45px apart along the outer ring (about 3.8 degrees at r = 680, with 90 concepts at 4 degrees each).
     const minArc = (deg: number) => (deg * Math.PI * RADII.concept) / 180;
     for (let i = 1; i < angles.length; i += 1) expect(minArc((angles[i] ?? 0) - (angles[i - 1] ?? 0))).toBeGreaterThan(45);
     expect((angles[angles.length - 1] ?? 0) - (angles[0] ?? 0)).toBeLessThan(360);

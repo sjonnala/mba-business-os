@@ -562,7 +562,7 @@
       { "targetId": "a500-01-accounting-equation", "relationship": "builds-on", "question": "Which equity accounts move, and by how much, when SBC expense is recorded?" },
       { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "When does excluding SBC from adjusted earnings cross into misleading reporting?" },
       { "targetId": "ENTRE542", "relationship": "applied-in", "question": "How do option pools and SAFEs dilute founders across financing rounds?" },
-      { "targetId": "MGMT550", "relationship": "applied-in", "question": "How should a board set equity compensation and buyback policy together?" }
+      { "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks", "relationship": "applied-in", "question": "How should a board set equity compensation and buyback policy together?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "Large-cap software company (illustrative numbers)",
@@ -620,7 +620,7 @@
       { "targetId": "a500-06-capex-depreciation", "relationship": "builds-on", "question": "How would you spot operating costs being capitalized?" },
       { "targetId": "a500-08-receivables-allowance", "relationship": "builds-on", "question": "What does a falling allowance coverage ratio say during a credit downturn?" },
       { "targetId": "a500-15-read-10k-routine", "relationship": "applied-in", "question": "Which footnotes should you read first to test earnings quality?" },
-      { "targetId": "MGMT550", "relationship": "applied-in", "question": "How does an audit committee oversee earnings quality in practice?" }
+      { "targetId": "m550-01-fiduciary-duties-board-composition", "relationship": "applied-in", "question": "How does an audit committee oversee earnings quality in practice?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "AI startup diligence (illustrative numbers)",
@@ -736,7 +736,7 @@
       { "targetId": "a500-15-read-10k-routine", "relationship": "applied-in", "question": "Where in the 10-K do you find the purchase price allocation and impairment tests?" },
       { "targetId": "ENTRE542", "relationship": "applied-in", "question": "How do strategic acquirers value a startup at exit, and how much becomes goodwill?" },
       { "targetId": "MGMT502", "relationship": "applied-in", "question": "When does buying beat building as a strategic choice?" },
-      { "targetId": "MGMT550", "relationship": "applied-in", "question": "What should a board demand before approving a large acquisition?" }
+      { "targetId": "m550-01-fiduciary-duties-board-composition", "relationship": "applied-in", "question": "What should a board demand before approving a large acquisition?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "HP fiscal 2012 (Foster ACCTG 500 HP case)",

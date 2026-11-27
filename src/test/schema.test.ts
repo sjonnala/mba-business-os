@@ -4,6 +4,7 @@ import rawA501 from '../data/pillar-1b-acctg501-managerial.json';
 import rawP2 from '../data/pillar-2-fin502-entre557-entre542.json';
 import rawP3 from '../data/pillar-3-econ-mgmt502-ops-qmeth.json';
 import rawP4 from '../data/pillar-4-entre-pm-mikesell.json';
+import rawP5 from '../data/pillar-5-mktg-leadership-governance.json';
 import {
   LENS_KEYS,
   countSentences,
@@ -28,6 +29,13 @@ const FILES = [
     count: 16,
     pillar: 'P4',
     courses: ['ENTRE 510', 'ENTRE 532', 'ENTRE 579', 'MKTG 554'],
+  },
+  {
+    name: 'pillar-5 (MKTG 501, MKTG 600, MGMT 500, MGMT 510 / B CMU 501, MGMT 504, MGMT 550)',
+    raw: rawP5,
+    count: 17,
+    pillar: 'P5',
+    courses: ['MKTG 501', 'MKTG 600', 'MGMT 500', 'MGMT 510 / B CMU 501', 'MGMT 504', 'MGMT 550'],
   },
 ] as const;
 
@@ -156,6 +164,52 @@ describe('Wave M4 cross-pillar wiring', () => {
     const unitEcon = p4.find((n) => n.id === 'mk554-05-ai-product-unit-economics-payback');
     expect(playbook?.threadsToPull.map((t) => t.targetId)).toContain('mk554-05-ai-product-unit-economics-payback');
     expect(unitEcon?.threadsToPull.map((t) => t.targetId)).toContain('e532-03-mikesell-deep-tech-risk-retirement');
+  });
+});
+
+describe('Wave M5 cross-pillar wiring', () => {
+  const p5 = parseConcepts(rawP5);
+  const p5Targets = p5.flatMap((n) => n.threadsToPull.map((t) => t.targetId));
+  const earlier = [
+    ...parseConcepts(rawA500),
+    ...parseConcepts(rawA501),
+    ...parseConcepts(rawP2),
+    ...parseConcepts(rawP3),
+    ...parseConcepts(rawP4),
+  ];
+  const P5_PREFIX = /^(mk501|mk600|m500|m510|m504|m550)-/;
+  const EARLIER_PREFIX = /^(a500|a501|f502|e557|e542|be500|be501|m502|op502|qm500|qm501|is500|e510|e532|e579|mk554)-/;
+
+  it('links every Pillar 5 node back into Pillars 1-4 and to another Pillar 5 course', () => {
+    for (const n of p5) {
+      const ownCourse = n.id.split('-')[0];
+      expect(n.threadsToPull.some((t) => EARLIER_PREFIX.test(t.targetId)), n.id).toBe(true);
+      expect(n.threadsToPull.some((t) => P5_PREFIX.test(t.targetId) && !t.targetId.startsWith(`${ownCourse}-`)), n.id).toBe(true);
+    }
+  });
+
+  it('wires Pillar 5 into accounting, finance and VC, strategy and analytics, and Pillar 4', () => {
+    expect(p5Targets.filter((id) => /^(a500|a501)-/.test(id)).length).toBeGreaterThanOrEqual(8);
+    expect(p5Targets.filter((id) => /^(f502|e557|e542)-/.test(id)).length).toBeGreaterThanOrEqual(6);
+    expect(p5Targets.filter((id) => /^(be500|be501|m502|op502|qm500|qm501|is500)-/.test(id)).length).toBeGreaterThanOrEqual(8);
+    expect(p5Targets.filter((id) => /^(e510|e532|e579|mk554)-/.test(id)).length).toBeGreaterThanOrEqual(8);
+  });
+
+  it('retargets every earlier course-level thread to a specific Pillar 5 concept', () => {
+    const earlierTargets = earlier.flatMap((n) => n.threadsToPull.map((t) => t.targetId));
+    for (const code of ['MKTG501', 'MKTG600', 'MGMT500', 'MGMT510-BCMU501', 'MGMT504', 'MGMT550']) {
+      expect(earlierTargets).not.toContain(code);
+    }
+    const intoP5 = earlierTargets.filter((id) => P5_PREFIX.test(id));
+    expect(intoP5.length).toBeGreaterThanOrEqual(9);
+    expect(new Set(intoP5.map((id) => id.split('-')[0]))).toEqual(new Set(['m550', 'mk501', 'm500']));
+  });
+
+  it('never repeats a target inside one node', () => {
+    for (const n of [...earlier, ...p5]) {
+      const ids = n.threadsToPull.map((t) => t.targetId);
+      expect(new Set(ids).size, n.id).toBe(ids.length);
+    }
   });
 });
 

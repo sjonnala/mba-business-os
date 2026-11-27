@@ -65,19 +65,19 @@ export const COURSES: readonly Course[] = [
   { id: 'ENTRE579', code: 'ENTRE 579', title: 'Special Topics in Entrepreneurship', pillarId: 'P4', wave: 'M4', status: 'live' },
   { id: 'MKTG554', code: 'MKTG 554', title: 'Strategic Product Management', pillarId: 'P4', wave: 'M4', status: 'live' },
   // Pillar 5: Marketing, Leadership & Board Governance
-  { id: 'MKTG501', code: 'MKTG 501', title: 'Marketing Management', pillarId: 'P5', wave: 'M5', status: 'coming' },
-  { id: 'MKTG600', code: 'MKTG 600', title: 'Independent Study (Mojang)', pillarId: 'P5', wave: 'M5', status: 'coming' },
-  { id: 'MGMT500', code: 'MGMT 500', title: 'Management & Leadership', pillarId: 'P5', wave: 'M5', status: 'coming' },
+  { id: 'MKTG501', code: 'MKTG 501', title: 'Marketing Management', pillarId: 'P5', wave: 'M5', status: 'live' },
+  { id: 'MKTG600', code: 'MKTG 600', title: 'Independent Study (Mojang)', pillarId: 'P5', wave: 'M5', status: 'live' },
+  { id: 'MGMT500', code: 'MGMT 500', title: 'Management & Leadership', pillarId: 'P5', wave: 'M5', status: 'live' },
   {
     id: 'MGMT510-BCMU501',
     code: 'MGMT 510 / B CMU 501',
     title: 'Developing Leader Skills / Professional Communication',
     pillarId: 'P5',
     wave: 'M5',
-    status: 'coming',
+    status: 'live',
   },
-  { id: 'MGMT504', code: 'MGMT 504', title: 'Ethical Leadership', pillarId: 'P5', wave: 'M5', status: 'coming' },
-  { id: 'MGMT550', code: 'MGMT 550', title: 'CEO & Board Governance', pillarId: 'P5', wave: 'M5', status: 'coming' },
+  { id: 'MGMT504', code: 'MGMT 504', title: 'Ethical Leadership', pillarId: 'P5', wave: 'M5', status: 'live' },
+  { id: 'MGMT550', code: 'MGMT 550', title: 'CEO & Board Governance', pillarId: 'P5', wave: 'M5', status: 'live' },
 ];
 
 export function comingLabel(course: Course): string {
