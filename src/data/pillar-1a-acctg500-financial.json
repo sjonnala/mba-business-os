@@ -98,7 +98,7 @@
       { "targetId": "a500-03-income-statement-gross-margin", "relationship": "drives", "question": "How does deferral timing change reported gross margin in a given quarter?" },
       { "targetId": "a500-05-cash-flow-fcf", "relationship": "contrasts-with", "question": "Why can operating cash flow exceed net income in a fast-growing subscription business?" },
       { "targetId": "a500-11-earnings-quality", "relationship": "risk-for", "question": "Which revenue recognition judgments are most often abused?" },
-      { "targetId": "ENTRE532", "relationship": "applied-in", "question": "How should a SaaS founder present billings, ARR and GAAP revenue to investors?" }
+      { "targetId": "e532-04-saas-financial-model-assumptions", "relationship": "applied-in", "question": "How should a SaaS founder present billings, ARR and GAAP revenue to investors?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "Microsoft fiscal 1996–1999 (Foster ACCTG 500 Microsoft case)",
@@ -156,7 +156,7 @@
       { "targetId": "a500-06-capex-depreciation", "relationship": "contrasts-with", "question": "When does GPU depreciation belong in COGS rather than operating expenses?" },
       { "targetId": "a500-12-ratios-dupont", "relationship": "measured-by", "question": "How does gross margin flow into the profit-margin lever of DuPont ROE?" },
       { "targetId": "ACCTG501", "relationship": "applied-in", "question": "How does contribution margin differ from gross margin for pricing decisions?" },
-      { "targetId": "MKTG554", "relationship": "applied-in", "question": "How should an AI product's pricing model reflect its inference cost curve?" }
+      { "targetId": "mk554-05-ai-product-unit-economics-payback", "relationship": "applied-in", "question": "How should an AI product's pricing model reflect its inference cost curve?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "Cisco fiscal 2020 (Foster class excerpt, modified for class purposes)",
@@ -851,7 +851,7 @@
       { "targetId": "a500-11-earnings-quality", "relationship": "builds-on", "question": "Which red-flag screens can you run in the first five minutes?" },
       { "targetId": "a500-12-ratios-dupont", "relationship": "builds-on", "question": "Which three ratios give the fastest read on business model and risk?" },
       { "targetId": "MGMT502", "relationship": "applied-in", "question": "How do segment and risk disclosures reveal a company's real strategy?" },
-      { "targetId": "ENTRE532", "relationship": "applied-in", "question": "How would you adapt the routine to diligence a private software startup?" }
+      { "targetId": "e532-02-seed-memo-terms-that-matter", "relationship": "applied-in", "question": "How would you adapt the routine to diligence a private software startup?" }
     ],
     "boardroomDrill": {
       "companyOrScenario": "Hyperscaler 10-K before an AI product pitch (scenario)",

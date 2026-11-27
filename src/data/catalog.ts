@@ -60,10 +60,10 @@ export const COURSES: readonly Course[] = [
   { id: 'QMETH501', code: 'QMETH 501', title: 'Decision Support Models', pillarId: 'P3', wave: 'M3', status: 'live' },
   { id: 'IS500', code: 'I S 500', title: 'Data Management & Analytics', pillarId: 'P3', wave: 'M3', status: 'live' },
   // Pillar 4: SWE -> AI Founder & Strategic PM
-  { id: 'ENTRE510', code: 'ENTRE 510', title: 'Entrepreneurial Strategy', pillarId: 'P4', wave: 'M4', status: 'coming' },
-  { id: 'ENTRE532', code: 'ENTRE 532', title: 'Software Entrepreneurship', pillarId: 'P4', wave: 'M4', status: 'coming' },
-  { id: 'ENTRE579', code: 'ENTRE 579', title: 'Special Topics in Entrepreneurship', pillarId: 'P4', wave: 'M4', status: 'coming' },
-  { id: 'MKTG554', code: 'MKTG 554', title: 'Strategic Product Management', pillarId: 'P4', wave: 'M4', status: 'coming' },
+  { id: 'ENTRE510', code: 'ENTRE 510', title: 'Entrepreneurial Strategy', pillarId: 'P4', wave: 'M4', status: 'live' },
+  { id: 'ENTRE532', code: 'ENTRE 532', title: 'Software Entrepreneurship', pillarId: 'P4', wave: 'M4', status: 'live' },
+  { id: 'ENTRE579', code: 'ENTRE 579', title: 'Special Topics in Entrepreneurship', pillarId: 'P4', wave: 'M4', status: 'live' },
+  { id: 'MKTG554', code: 'MKTG 554', title: 'Strategic Product Management', pillarId: 'P4', wave: 'M4', status: 'live' },
   // Pillar 5: Marketing, Leadership & Board Governance
   { id: 'MKTG501', code: 'MKTG 501', title: 'Marketing Management', pillarId: 'P5', wave: 'M5', status: 'coming' },
   { id: 'MKTG600', code: 'MKTG 600', title: 'Independent Study (Mojang)', pillarId: 'P5', wave: 'M5', status: 'coming' },

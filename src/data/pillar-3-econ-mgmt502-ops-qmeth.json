@@ -888,9 +888,9 @@
         "question": "How can staged investment help an incumbent explore a disruptive market?"
       },
       {
-        "targetId": "ENTRE510",
+        "targetId": "e510-03-nascent-markets-parallel-play",
         "relationship": "foundation-for",
-        "question": "How do founders find the overlooked customers where disruption starts?"
+        "question": "How do founders win the overlooked customers and new categories where disruption starts?"
       }
     ],
     "boardroomDrill": {
@@ -1317,9 +1317,9 @@
         "question": "How do estimated coefficients become inputs to an optimization model?"
       },
       {
-        "targetId": "MKTG554",
+        "targetId": "mk554-03-experiment-design-evidence-ladder",
         "relationship": "applied-in",
-        "question": "How will regression on customer data drive marketing decisions?"
+        "question": "How do significance and regression decide whether a product experiment worked?"
       }
     ],
     "boardroomDrill": {
@@ -1487,9 +1487,9 @@
         "question": "How do you compute cohort retention and LTV from transaction tables?"
       },
       {
-        "targetId": "MKTG554",
+        "targetId": "mk554-01-pm-role-discovery-outcomes",
         "relationship": "foundation-for",
-        "question": "How will customer data management support marketing analytics?"
+        "question": "How does clean customer data give a product manager reliable product insight?"
       }
     ],
     "boardroomDrill": {

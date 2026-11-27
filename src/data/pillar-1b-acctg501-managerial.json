@@ -153,7 +153,7 @@
         "question": "How does contribution margin per customer become the core of LTV?"
       },
       {
-        "targetId": "MKTG554",
+        "targetId": "mk554-04-pricing-wtp-packaging",
         "relationship": "applied-in",
         "question": "How should a product manager set price relative to variable cost and value?"
       }
@@ -838,7 +838,7 @@
         "question": "How does pricing power raise customer lifetime value?"
       },
       {
-        "targetId": "MKTG554",
+        "targetId": "mk554-04-pricing-wtp-packaging",
         "relationship": "applied-in",
         "question": "How should a product manager run willingness-to-pay research before setting price?"
       }

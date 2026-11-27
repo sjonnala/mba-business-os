@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CapTableLab } from './components/CapTableLab';
 import { OpsBottleneckLab } from './components/OpsBottleneckLab';
+import { UnitEconomicsLab } from './components/UnitEconomicsLab';
 import { ConceptDrawer } from './components/ConceptDrawer';
 import { DcfStudio } from './components/DcfStudio';
 import { LinkerSandbox } from './components/LinkerSandbox';
@@ -21,7 +22,7 @@ import {
   type Theme,
 } from './lib/storage';
 
-type Tab = 'map' | 'linker' | 'dcf' | 'captable' | 'ops' | 'routine';
+type Tab = 'map' | 'linker' | 'dcf' | 'captable' | 'ops' | 'unitecon' | 'routine';
 
 const TABS: { id: Tab; label: string }[] = [
   { id: 'map', label: 'Mind map' },
@@ -29,6 +30,7 @@ const TABS: { id: Tab; label: string }[] = [
   { id: 'dcf', label: 'DCF & WACC studio' },
   { id: 'captable', label: 'Cap table lab' },
   { id: 'ops', label: 'Ops bottleneck lab' },
+  { id: 'unitecon', label: 'Unit economics lab' },
   { id: 'routine', label: '5-min routine' },
 ];
 
@@ -89,7 +91,7 @@ export function App() {
     <div className="app">
       <header className="masthead">
         <div>
-          <p className="eyebrow">Wave M3 · Pillars 1-3 · Accounting, Finance & VC, Strategy, Economics, Operations, Analytics</p>
+          <p className="eyebrow">Wave M4 · Pillars 1-4 · Accounting, Finance & VC, Strategy, Economics, Operations, Analytics, Entrepreneurship & Product</p>
           <h1>MBA Business OS</h1>
         </div>
         <nav className="tabs" aria-label="Views">
@@ -110,6 +112,7 @@ export function App() {
         {tab === 'dcf' && <DcfStudio />}
         {tab === 'captable' && <CapTableLab />}
         {tab === 'ops' && <OpsBottleneckLab />}
+        {tab === 'unitecon' && <UnitEconomicsLab />}
         {tab === 'routine' && (
           <RoutineScratchpad entries={routine} onSave={saveEntry} onDelete={deleteEntry} initialConceptId={routineConcept} />
         )}
@@ -130,7 +133,7 @@ export function App() {
       </main>
 
       <footer className="colophon">
-        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502, ENTRE 557/542, B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501 and I S 500 materials; verify current filings before relying on
+        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502, ENTRE 557/542, B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501, I S 500, ENTRE 510/532/579 and MKTG 554 materials; verify current filings before relying on
         them.
       </footer>
     </div>
