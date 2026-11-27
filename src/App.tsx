@@ -7,9 +7,13 @@ import { ConceptDrawer } from './components/ConceptDrawer';
 import { DcfStudio } from './components/DcfStudio';
 import { LinkerSandbox } from './components/LinkerSandbox';
 import { MindMap } from './components/MindMap';
+import { OverviewDrawer } from './components/OverviewDrawer';
 import { RoutineScratchpad } from './components/RoutineScratchpad';
 import { DRILLS } from './data/caseGym';
+import { COURSES, PILLARS } from './data/catalog';
 import { conceptById } from './data/graph';
+import { MAP_LAYOUT } from './data/mapLayout';
+import { EMPTY_SELECTION, selectNode, type MapSelection, type NodeRef } from './lib/mapNavigation';
 import { schedule, type Grade, type GymProgress } from './lib/caseGym';
 import {
   loadGymProgress,
@@ -54,7 +58,7 @@ export function App() {
   const [mastery, setMastery] = useState<MasteryMap>(() => loadMastery());
   const [routine, setRoutine] = useState<RoutineEntry[]>(() => loadRoutine());
   const [gym, setGym] = useState<GymProgress>(() => loadGymProgress());
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selection, setSelection] = useState<MapSelection>(EMPTY_SELECTION);
   const [routineConcept, setRoutineConcept] = useState<string | null>(null);
 
   useEffect(() => {
@@ -99,19 +103,30 @@ export function App() {
     });
   };
 
+  const selectMapNode = useCallback((node: NodeRef) => setSelection((prev) => selectNode(prev, node, MAP_LAYOUT)), []);
+  const navigateConcept = useCallback((id: string) => selectMapNode({ kind: 'concept', id }), [selectMapNode]);
+
   const openConcept = (conceptId: string) => {
-    setSelectedId(conceptId);
+    setSelection({ conceptId, overview: null });
     setTab('map');
   };
 
-  const closeDrawer = useCallback(() => setSelectedId(null), []);
-  const selected = selectedId ? conceptById(selectedId) : undefined;
+  // Closing a concept opened from an overview returns to that overview; closing the overview clears the focus.
+  const closeConcept = useCallback(() => setSelection((prev) => ({ ...prev, conceptId: null })), []);
+  const closeOverview = useCallback(() => setSelection(EMPTY_SELECTION), []);
+  const selected = selection.conceptId ? conceptById(selection.conceptId) : undefined;
+  const overview = selection.overview;
+  const backLabel =
+    overview?.kind === 'course'
+      ? (COURSES.find((c) => c.id === overview.id)?.code ?? 'course')
+      : (PILLARS.find((p) => p.id === overview?.id)?.shortName ?? 'pillar');
+  const drawerOpen = tab === 'map' && (selected !== undefined || overview !== null);
 
   return (
     <div className="app">
       <header className="masthead">
         <div>
-          <p className="eyebrow">Wave M5 · Pillars 1-5 · 22 courses · Accounting, Finance & VC, Strategy & Operations, Entrepreneurship & Product, Marketing, Leadership & Governance</p>
+          <p className="eyebrow">Wave M6 · Pillars 1-5 · 22 courses · Accounting, Finance & VC, Strategy & Operations, Entrepreneurship & Product, Marketing, Leadership & Governance</p>
           <h1>MBA Business OS</h1>
         </div>
         <nav className="tabs" aria-label="Views">
@@ -126,8 +141,8 @@ export function App() {
         </button>
       </header>
 
-      <main className={selected && tab === 'map' ? 'with-drawer' : undefined}>
-        {tab === 'map' && <MindMap mastery={mastery} selectedId={selectedId} onSelectConcept={setSelectedId} />}
+      <main className={drawerOpen ? 'with-drawer' : undefined}>
+        {tab === 'map' && <MindMap mastery={mastery} selection={selection} onSelectNode={selectMapNode} />}
         {tab === 'gym' && <CaseGym drills={DRILLS} progress={gym} onGrade={gradeDrill} onOpenConcept={openConcept} />}
         {tab === 'linker' && <LinkerSandbox />}
         {tab === 'dcf' && <DcfStudio />}
@@ -143,12 +158,24 @@ export function App() {
             concept={selected}
             level={mastery[selected.id] ?? 'new'}
             onToggleMastery={(target) => toggleMastery(selected.id, target)}
-            onNavigate={setSelectedId}
+            onNavigate={navigateConcept}
             onLogRoutine={(id) => {
               setRoutineConcept(id);
               setTab('routine');
             }}
-            onClose={closeDrawer}
+            onClose={closeConcept}
+            {...(overview ? { backLabel: `Back to ${backLabel} overview`, onBack: closeConcept } : {})}
+          />
+        )}
+        {tab === 'map' && !selected && overview && (
+          <OverviewDrawer
+            key={`${overview.kind}-${overview.id}`}
+            target={overview}
+            mastery={mastery}
+            onOpenConcept={navigateConcept}
+            onOpenCourse={(id) => selectMapNode({ kind: 'course', id })}
+            onOpenPillar={(id) => selectMapNode({ kind: 'pillar', id })}
+            onClose={closeOverview}
           />
         )}
       </main>
