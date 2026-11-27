@@ -17,7 +17,7 @@ interface View {
   k: number;
 }
 
-const VIEWBOX = 1500;
+const VIEWBOX = 1620;
 const MIN_K = 0.4;
 const MAX_K = 4;
 const INITIAL_VIEW: View = { x: 0, y: 40, k: 0.95 };

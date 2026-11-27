@@ -1,0 +1,1378 @@
+[
+  {
+    "id": "e510-01-entrepreneurial-strategy-compass",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 510",
+    "title": "The Entrepreneurial Strategy Compass: Collaborate or Compete, Control or Execute",
+    "difficulty": "foundation",
+    "tags": [
+      "entrepreneurial-strategy",
+      "strategy-compass",
+      "go-to-market",
+      "lock-in"
+    ],
+    "hook10k": "A startup's first strategic choices, whom to sell to, what to own and whether to fight or partner with incumbents, create lock-ins that are expensive to reverse. The strategy compass forces a founder to sketch all four viable paths before committing to one, because a startup that sees only one future usually has no business.",
+    "pareto20_80": {
+      "summary": "Gans, Scott and Stern frame start-up strategy as two trade-offs: collaborate with incumbents or compete against them, and invest in control (build a moat) or in execution (storm a hill). The four combinations give the IP, value-chain, architectural and disruption strategies, each with different customers, technology, identity and competitors.",
+      "keyPoints": [
+        "IP strategy (collaborate + control) licenses a protected asset to incumbents, the way Dolby and Qualcomm monetize patents.",
+        "Value-chain strategy (collaborate + execution) becomes the best supplier inside an incumbent's chain, which is how Foxconn and Peapod survived where Webvan did not.",
+        "Architectural strategy (compete + control) builds a new platform with its own standard, like OpenTable signing a critical mass of top restaurants city by city.",
+        "Disruption strategy (compete + execution) enters an overlooked niche fast and avoids poking the incumbent until it is too late to respond.",
+        "The real choices are customers, technology, identity and competitors, and they must be consistent with each other and with the founders' purpose."
+      ],
+      "formulas": [
+        {
+          "name": "Strategy test",
+          "expression": "Viable paths ≥ 2 before commit; chosen path = argmax(fit with founders' purpose)"
+        },
+        {
+          "name": "Lock-in cost",
+          "expression": "Cost to switch quadrant ≈ sunk assets + partner commitments + identity rework"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most founders discover their quadrant by accident when the first partner deal or first big customer locks them in, rather than by choosing it deliberately.",
+      "Better Place spent roughly a billion dollars building a battery-swap ecosystem in one shot, while Tesla moved stepwise, and the stepwise path survived."
+    ],
+    "lenses": {
+      "history": "Christensen's disruption theory and Teece's work on complementary assets both fed the compass, which Gans, Scott and Stern published in HBR in 2018. It reframed start-up strategy from a business plan exercise into a small set of irreversible choices.",
+      "economics": "Collaboration trades upside for capital efficiency, because incumbents already own distribution and complementary assets. Control strategies earn more per unit only if the moat holds long enough to recover the investment that built it.",
+      "behavioralScience": "Founders anchor on the first strategy that feels exciting and then search for evidence that confirms it. Mapping all four quadrants on paper is a debiasing tool that makes the alternatives concrete.",
+      "marketingNarrative": "Each quadrant implies a different identity story: a licensor sells trust, a supplier sells reliability, a platform sells a new standard and a disruptor sells an underdog mission. Investors and recruits respond to the story that matches the choices.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "If only one viable vision of the future exists, the founder probably has a feature rather than a company. The contrarian move is to generate the paths you dislike and ask what would have to be true for them to win.",
+      "personalConnection": "Paul Mikesell could have licensed a laser-weeding module to tractor makers (IP) or sold to farms directly (disruption), and Carbon Robotics chose direct sales after John Deere called lasers unviable. For PranaScan, the same map asks whether to license the phone-based measurement to clinics and insurers or to own the consumer relationship.",
+      "antiPattern": "Picking a quadrant by copying the last famous startup in the space. Choose the path whose customers, technology, identity and competitors fit your own assets and purpose."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "Which VRIO resource makes the chosen quadrant defensible?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "builds-on",
+        "question": "When does the disruption quadrant beat the architectural quadrant for a platform play?"
+      },
+      {
+        "targetId": "e557-09-startup-valuation-vc-method",
+        "relationship": "drives",
+        "question": "How does the chosen quadrant change the exit value a VC assumes?"
+      },
+      {
+        "targetId": "e532-03-mikesell-deep-tech-risk-retirement",
+        "relationship": "applied-in",
+        "question": "Which quadrant did Carbon Robotics choose, and what did that lock in?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative AI diagnostics startup",
+      "prompt": "A phone-based health screening startup has two term sheets: a strategic deal with a device maker that wants an exclusive license, and a seed round to sell directly to consumers. The founders ask the board which future to pick.",
+      "cfoAnswer": "Map both onto the compass. The license is IP strategy: cheap distribution and faster revenue, but the partner owns the customer and caps the upside. The direct path is disruption: slower and more cash-hungry, but it keeps the data and the brand. Pick the license only if the measurement is protectable and the partner's channel reaches customers you cannot reach alone.",
+      "keyTakeaway": "Draw all four quadrants before signing the deal that locks you into one."
+    },
+    "sources": [
+      "[Foster: ENTRE 510] Session 1, Making Entrepreneurial Strategy, and the Strategy for Start-ups reading",
+      "[Elite MBA: MIT Sloan] Gans, Scott and Stern, Strategy for Start-ups, Harvard Business Review, 2018",
+      "[Foster: ENTRE 510] Critical Success Factors final project, compass quadrant question",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics early seed-pitch slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e510-02-hypothesis-driven-mvp-sequencing",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 510",
+    "title": "Hypothesis-Driven Entrepreneurship: MVPs, Cost versus Fidelity and Test Sequencing",
+    "difficulty": "intermediate",
+    "tags": [
+      "lean-startup",
+      "mvp",
+      "experimentation",
+      "pivot"
+    ],
+    "hook10k": "Lean does not mean cheap: it means buying the most information per dollar by turning the vision into falsifiable hypotheses and testing the riskiest ones first. A founder who sequences tests well pivots once or twice before running out of runway, while one who builds first discovers the fatal assumption after the money is gone.",
+    "pareto20_80": {
+      "summary": "Hypothesis-driven entrepreneurship translates a vision into falsifiable claims across value proposition, go-to-market, technology and cash flow, then tests them with a sequence of minimum viable products. Some assumptions are necessary conditions, so test the ones that avoid sunk costs or make others moot first, choosing test platforms that balance cost against fidelity.",
+      "keyPoints": [
+        "A good hypothesis can fail: 'our viral coefficient will exceed 0.5 within a year' beats 'customers will spread the word'.",
+        "An MVP is minimum because it tests only one or a few critical assumptions, and viable because it still gives true positive and true negative signals.",
+        "Smoke tests, concierge service and mechanical-Turk back ends test demand before the product exists, as Dropbox's video and Rent the Runway's trunk shows did.",
+        "After each test, persevere, pivot or perish; Ries redefines runway as the number of pivots the company can still afford.",
+        "Premature scaling burns runway and agility, so scale only after the value and growth hypotheses are validated."
+      ],
+      "formulas": [
+        {
+          "name": "Information per dollar",
+          "expression": "Test priority ∝ P(assumption wrong) × cost avoided if caught early ÷ test cost"
+        },
+        {
+          "name": "Runway in pivots",
+          "expression": "Pivots left = cash ÷ (monthly burn × months per build-measure-learn loop)"
+        },
+        {
+          "name": "Viral coefficient",
+          "expression": "k = invites per user × conversion per invite; k > 1 grows without paid acquisition"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Founders routinely run tests designed to pass, such as surveys of friends, which produce false positives and delay the hard falsifying test.",
+      "Lean methods fit poorly where mistakes are catastrophic or cycles are long, such as medical devices or space hardware, where staged engineering gates matter more."
+    ],
+    "lenses": {
+      "history": "Toyota's lean manufacturing taught small batches and waste reduction, and Steve Blank's customer development and Eric Ries's Lean Startup carried those ideas to software around 2008 to 2011. Eisenmann, Ries and Dillard then codified the method for business schools.",
+      "economics": "Each test buys information whose value is the expected loss it avoids, so cheap tests on high-uncertainty, high-cost assumptions dominate. Parallel tests trade possible waste for time to market when the window is closing.",
+      "behavioralScience": "Optimism bias, the planning fallacy, confirmation bias and sunk-cost thinking all push founders to escalate commitment to a failing plan. Pre-registered pass or fail thresholds are the cure, because they force a decision before the data arrives.",
+      "marketingNarrative": "Investors read a sequenced test plan as evidence that the team can learn faster than competitors. A story of three disciplined pivots is more fundable than a perfect plan that has never touched a customer.",
+      "sociology": "Customer development turns the founder into an anthropologist who learns the norms and workarounds of a community before selling to it. Revealed behavior inside that community beats stated preferences in a survey.",
+      "firstPrinciplesContrarian": "Speed of learning, not speed of building, is the scarce resource. A company that ships less but tests the right assumption first can beat a better-funded team that ships everything at once.",
+      "personalConnection": "Carbon Robotics retired risk in stages, a push cart, then a radio-controlled vehicle, then autonomy, before Paul Mikesell scaled manufacturing. PranaScan's equivalent first gate is phone-only measurement accuracy on a small validation set, before any app polish or enterprise sales.",
+      "antiPattern": "Building the full product and calling the launch an experiment. Write the hypothesis and the kill threshold first, then build only what the test needs."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "f502-08-real-options-stage-gate",
+        "relationship": "builds-on",
+        "question": "How does each MVP act as a cheap real option on the next investment?"
+      },
+      {
+        "targetId": "e557-13-runway-bridge",
+        "relationship": "drives",
+        "question": "How many pivots does the current burn rate leave before a bridge is needed?"
+      },
+      {
+        "targetId": "mk554-03-experiment-design-evidence-ladder",
+        "relationship": "foundation-for",
+        "question": "Which pretotype gives the strongest evidence for the riskiest assumption?"
+      },
+      {
+        "targetId": "e579-01-customer-discovery-interviews",
+        "relationship": "applied-in",
+        "question": "Which interview questions falsify the value hypothesis fastest?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Ceres Imaging style crop analytics plan",
+      "prompt": "A team plans to build a drone with a hyperspectral camera and custom software before selling crop-health reports to farms, at an estimated cost of two million dollars. The board asks for a cheaper way to learn whether growers will pay.",
+      "cfoAnswer": "Rent the camera, rent a plane or helicopter and hand-process the images into the same report growers would get from the drone. It costs a small fraction of the build, gives the same report fidelity and tests the real assumption, which is willingness to pay for the insight. It also revealed that crop-duster fleets already fly the fields, a cheaper channel than owning drones.",
+      "keyTakeaway": "Test the customer's willingness to pay with the cheapest artifact that still gives a true signal."
+    },
+    "sources": [
+      "[Foster: ENTRE 510] Session 2, Lean Startups and Customer Development slides",
+      "[Elite MBA: Harvard Business School] Eisenmann, Ries and Dillard, Hypothesis-Driven Entrepreneurship: The Lean Startup (HBS 812-095)",
+      "[Elite MBA: Stanford] Ries, The Lean Startup, 2011, and Blank's customer development model",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics prototype and phased plan slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e510-03-nascent-markets-parallel-play",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 510",
+    "title": "Nascent Markets: Parallel Play, Borrowing Business Models and the Regulatory Vacuum",
+    "difficulty": "advanced",
+    "tags": [
+      "nascent-markets",
+      "category-creation",
+      "business-model",
+      "regulation"
+    ],
+    "hook10k": "In a brand-new category the five forces have not settled, so differentiating against peers too early wastes effort that should go into beating the old substitute. Winning founders borrow from rivals, test many business models, commit to one template and treat regulators and customers as co-authors of the market's rules.",
+    "pareto20_80": {
+      "summary": "McDonald and Eisenhardt find that winners in new markets practice parallel play: they borrow freely from peers, compete against the existing substitute rather than each other, test relentlessly before committing to one value-creation and capture template, and pause to leave the model purposely undetermined. Nascent ventures also face dual liabilities of being new and different, including regulatory uncertainty.",
+      "keyPoints": [
+        "Borrow, do not differentiate early: Google adopted pay-per-click from GoTo.com and Lyft copied Sidecar's peer model before differentiating.",
+        "Play the course, not the players: the real competitor is the taxi, the print ad or the hand-weeding crew, not the other start-ups.",
+        "Test many templates, then commit to one; Instagram stripped Burbn down to three clicks while Evernote split its focus and stalled.",
+        "Regulation is part of the product in a new category, and customers are often the best allies for changing outdated rules.",
+        "Ventures in unconventional positions build external roles such as sales and customer success earlier than internal process roles."
+      ],
+      "formulas": [
+        {
+          "name": "Substitute-first value",
+          "expression": "Value gap = customer cost with old substitute − (price + switching cost) of new product"
+        },
+        {
+          "name": "Category share",
+          "expression": "Your revenue = category size × your share; early on, growing the category dominates share gains"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many founders spend their first year on competitor feature grids while the customer is still comparing them to doing nothing or using the old method.",
+      "Regulators in a vacuum tend to protect incumbents, so a startup that ignores policy can be legislated out of a market it created."
+    ],
+    "lenses": {
+      "history": "Cultured meat moved from a Dutch government-funded proof of concept in 2013 to Silicon Valley start-ups and then to regulatory approval in the US in 2022 and 2023, followed by a funding crash. Fantasy sports, drones and consumer genomics all went through similar fights over which existing rules applied.",
+      "economics": "Before standards settle, the returns to category growth exceed the returns to share, so knowledge spillovers among peers are a net benefit. Once a dominant template appears, normal economics of scale, network effects and differentiation take over.",
+      "behavioralScience": "Customers cannot evaluate a product with no category label, so they fall back on the nearest familiar substitute as an anchor. Borrowing the vocabulary of a known category lowers that cognitive cost.",
+      "marketingNarrative": "The founder's job in a nascent market is evangelism: naming the category and telling a story about why the old way is broken. Neutral industry advocacy that does not pick winners can legitimize the whole field.",
+      "sociology": "Legitimacy comes from coalitions of customers, advocates and early regulators, not from a single firm. Avoid advocacy traps where one company's lobbying makes the whole category look self-serving.",
+      "firstPrinciplesContrarian": "Copying a rival's model can be the smart move when the market is young, because the enemy is the substitute and shared learning grows the pie. Differentiation can wait until customers know what the category is.",
+      "personalConnection": "Carbon Robotics competed against herbicide and hand-weeding budgets, not other robot makers, which is why Paul Mikesell priced against the grower's per-acre cost. PranaScan sits in a nascent, regulated category, so its first enterprise or clinic partners double as allies for clarifying how phone-based screening is classified.",
+      "antiPattern": "Burning cash on differentiation and patents against three peer start-ups while nobody has bought the category yet. Win the substitute first, then fight for share."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-02-five-forces-industry-structure",
+        "relationship": "contrasts-with",
+        "question": "Why do the five forces mislead when a market's boundaries are still forming?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "builds-on",
+        "question": "When does a nascent category tip into a platform winner-take-most market?"
+      },
+      {
+        "targetId": "e510-01-entrepreneurial-strategy-compass",
+        "relationship": "builds-on",
+        "question": "Which compass quadrant fits a market whose rules are still being written?"
+      },
+      {
+        "targetId": "mk554-02-pmf-needs-kano-jtbd",
+        "relationship": "measured-by",
+        "question": "How do you measure product-market fit before the category even has a name?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative consumer health screening app",
+      "prompt": "Three start-ups offer phone-based vital-sign screening, each claiming a better algorithm. Your team wants to spend the next quarter's budget on a competitor comparison campaign. The board asks whether that is the right fight.",
+      "cfoAnswer": "No. Most target users still rely on occasional clinic visits or nothing at all, so the substitute is the status quo, not the other apps. Spend the quarter proving accuracy against the clinic reading, winning a payer or employer pilot and helping define how regulators treat the category. Differentiate against peers once buyers know what the category is.",
+      "keyTakeaway": "In a new category, beat the old way first and the rivals later."
+    },
+    "sources": [
+      "[Foster: ENTRE 510] Session 6, Making Nascent Markets slides",
+      "[Elite MBA: Stanford] McDonald and Eisenhardt, The New-Market Conundrum, Harvard Business Review, 2020",
+      "[Foster: ENTRE 510] Session 5, Disruptive Innovation, Netflix and Blockbuster business model comparison",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics herbicide cost and why-now slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e510-04-first-mover-advantages-scope-endgames",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 510",
+    "title": "First-Mover Advantages, Scope Choice and Start-up End Games",
+    "difficulty": "advanced",
+    "tags": [
+      "first-mover",
+      "scope",
+      "game-theory",
+      "network-effects",
+      "switching-costs"
+    ],
+    "hook10k": "Only three advantages truly protect a pioneer from price and quality competition: firm-level learning curves, network effects and necessary switching costs. Everything else founders call a head start gets copied, and broad scope often traps rivals in a diversify-or-die end game that erodes everyone's profit.",
+    "pareto20_80": {
+      "summary": "A true first-mover advantage shields the firm even while it charges high prices or offers lower quality, which only tacit learning curves, network effects and necessary switching costs do. Scope is the first strategic decision: broad scope looks like a bigger TAM but leaves less room to differentiate from copycats, while narrow scope can itself be a barrier.",
+      "keyPoints": [
+        "Deterring rivals with low prices or high quality is not an advantage, because it gives the value away to customers.",
+        "Learning curves count only when the knowledge is tacit and held by the firm, not by employees who can leave.",
+        "Arbitrary switching costs such as termination fees are economically the same as a price increase and get competed away.",
+        "If everyone knows an advantage exists, the race to get it erodes the profit, producing network-effect losers and learning-curve overcapacity.",
+        "Nasty Gal and Karmaloop grew revenue fast, broadened scope into stores, categories and warehouses, and went bankrupt after burning investor money."
+      ],
+      "formulas": [
+        {
+          "name": "Switching-cost profit",
+          "expression": "Incumbent price ≤ rival price + switching cost; competition for new buyers bids first-period price down by the same amount"
+        },
+        {
+          "name": "Scope game",
+          "expression": "Payoffs (specialize, specialize) = (1, 1); (diversify, diversify) = (0, 0); with broad capabilities, both diversify"
+        },
+        {
+          "name": "Network-effect value",
+          "expression": "Willingness to pay rises with installed base; max CAC = LTV × (1 + network uplift)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Pitch decks list 'first to market' as a moat far more often than the business has any of the three real sources of advantage.",
+      "Second movers often win by learning from the pioneer's mistakes after the pioneer has educated customers and cleared regulation."
+    ],
+    "lenses": {
+      "history": "Lieberman and Montgomery's 1988 paper on first-mover advantages launched decades of research showing pioneers often lose. Porter added that the essence of strategy is choosing what not to do, which ENTRE 510 applies to scope.",
+      "economics": "Switching costs let an incumbent charge up to a rival's price plus the cost of switching, but competition for new buyers transfers that rent back to customers up front. Network effects raise willingness to pay with installed base, which justifies a higher acquisition cost only if the network is proprietary.",
+      "behavioralScience": "Founders overestimate lead time and confuse a large user base with a network effect, such as newspapers moving online. Escalation of commitment then pushes them into adjacent categories to keep the growth story alive.",
+      "marketingNarrative": "A broad-scope story sells a larger TAM to investors, which is why it is tempting. A narrow, defensible story is harder to pitch but easier to defend against a copycat.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "Being first matters less than choosing which game to play, because the first strategic decision is the payoff structure itself. A narrow scope that rivals cannot profitably copy can beat a broad land grab.",
+      "personalConnection": "Carbon Robotics' fleet of laser weeders improves its plant models with every field, a firm-level learning curve that Paul Mikesell's team can defend, unlike a simple head start. Enterprise AI vendors selling against hyperscalers face the opposite problem: arbitrary lock-in gets competed away, so only data, workflow integration and learning that compounds inside the firm will hold.",
+      "antiPattern": "Expanding into every adjacent category because the TAM slide gets bigger. Ask whether each move adds one of the three real advantages or just invites a profit-eroding race."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-04-competitive-dynamics-game-theory",
+        "relationship": "builds-on",
+        "question": "How does the Nash equilibrium of a scope game predict where rivals end up?"
+      },
+      {
+        "targetId": "m502-06-helmer-7-powers",
+        "relationship": "contrasts-with",
+        "question": "Which of Helmer's 7 Powers map to the three true first-mover advantages?"
+      },
+      {
+        "targetId": "op502-04-theory-of-constraints-the-goal",
+        "relationship": "risk-for",
+        "question": "How does over-broad scope add operational constraints faster than revenue?"
+      },
+      {
+        "targetId": "e532-03-mikesell-deep-tech-risk-retirement",
+        "relationship": "contrasts-with",
+        "question": "Is a robotics fleet's data flywheel a true learning curve or just a head start?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative online fashion retailer",
+      "prompt": "Revenue grew from zero to about 85 million dollars, and management proposes physical stores, a large fulfilment center and two new product categories, funded by a new round. Sales just dipped 9% year over year. What should the board ask?",
+      "cfoAnswer": "Ask which of the three real advantages each move creates. Stores and new categories add fixed cost and complexity but no learning curve, network effect or necessary switching cost, so copycats can follow. With revenue already slipping, broad scope risks a cash trough the company cannot fund. Narrow the focus to the core customer and fix contribution margin before adding scope.",
+      "keyTakeaway": "Broad scope is a cost, not a moat, unless it adds a real first-mover advantage."
+    },
+    "sources": [
+      "[Foster: ENTRE 510] Session 9, Competitive Dynamics, First-Mover Advantages and Endgames slides",
+      "[Elite MBA: Harvard Business School] Eisenmann, Business Model Analysis for Entrepreneurs (HBS 812-096), switching-cost and network-effect appendices",
+      "[Foster: ENTRE 510] Nasty Gal case discussion",
+      "[Elite MBA: Stanford] Lieberman and Montgomery, First-Mover Advantages, Strategic Management Journal, 1988"
+    ]
+  },
+  {
+    "id": "e532-01-pitch-narrative-four-beliefs",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 532",
+    "title": "The Pitch: Team, Product, Market, Model, Timing and the Four Beliefs Behind a Yes",
+    "difficulty": "foundation",
+    "tags": [
+      "pitch-deck",
+      "fundraising",
+      "storytelling",
+      "investor-frameworks"
+    ],
+    "hook10k": "Investors fund a story they can believe in four parts: an important problem in a large market, a differentiated solution with a moat, customers who say they will pay and a team built for this exact problem. A ten-slide deck is just the order in which those beliefs get earned, and storytelling is the most underrated skill of great start-ups.",
+    "pareto20_80": {
+      "summary": "Software venture investors weigh team, product, market, business model and timing, with team first, and Thiel adds questions on engineering, monopoly, distribution, durability and secrets. A deck-first strategy writes the story before the plan, then earns four beliefs in order: problem and market, differentiated solution, willingness to pay with an acquisition path, and team fit.",
+      "keyPoints": [
+        "The traditional ten slides are title, problem, solution with demo, business model, technology, go-to-market, competition, team, financials and use of funds.",
+        "Why now is the timing test: a founder plus a major trend, such as cheap robotics parts and deep learning in 2018.",
+        "Narrow the opportunity to what you can be best in the world at by the end of the quarter, then expand.",
+        "Evidence of willingness to pay, even a small ad test with real click and sign-up rates, beats any market size slide.",
+        "An elevator pitch states customer, problem, solution, benefit, special sauce, traction and the ask in about twenty seconds."
+      ],
+      "formulas": [
+        {
+          "name": "Ownership sold",
+          "expression": "Investor % = investment ÷ (pre-money + investment)"
+        },
+        {
+          "name": "Ask sizing",
+          "expression": "Raise = monthly burn × (months to next milestone + 6-month buffer)"
+        },
+        {
+          "name": "Funnel proof",
+          "expression": "Signups = impressions × CTR × click-to-signup rate"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most decks over-invest in the market size slide and under-invest in evidence that a specific customer will pay a specific price.",
+      "Investors often decide in the first few minutes based on the team and the problem framing, so the later slides mostly confirm or break that impression."
+    ],
+    "lenses": {
+      "history": "Arthur Rock's line that he invests in people, not ideas, shaped venture capital from the 1960s. Guy Kawasaki's 10-20-30 rule and Sequoia's deck template made the ten-slide format standard in the 2000s.",
+      "economics": "A seed investor buys a call option on a power-law outcome, so the pitch must show a credible path to a very large exit, not a safe small one. Investor ownership equals the investment divided by the post-money valuation, which anchors every negotiation.",
+      "behavioralScience": "Narrative transportation makes listeners suspend critical judgment while they follow a good story, which is why a concrete customer story outperforms abstract statistics. Social proof from known customers or investors reduces perceived risk.",
+      "marketingNarrative": "Companies are stories: the founder's personal reason, the villain of the old way and the turning point of why now are the arc. A several-word tagline that a listener can repeat is the test of a clear story.",
+      "sociology": "Venture networks run on warm introductions and reputation, so who vouches for the team often matters as much as the deck. Pitch norms such as no recording let guests speak candidly and build trust in the community.",
+      "firstPrinciplesContrarian": "A great pitch for a weak business is a liability, because it raises money on beliefs the company cannot keep. The best deck is honest about which of the four beliefs is still unproven and how the money will prove it.",
+      "personalConnection": "Paul Mikesell's seed pitch for Carbon Robotics showed the grower's per-acre herbicide cost, the COGS and price, and a three-year farm payback, which is the willingness-to-pay belief made concrete. A PranaScan or enterprise AI pitch earns the same belief with one paying pilot and its payback math.",
+      "antiPattern": "Leading with technology and a TAM number while the willingness-to-pay slide is blank. Earn the four beliefs in order with evidence, not adjectives."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "e557-09-startup-valuation-vc-method",
+        "relationship": "drives",
+        "question": "How does the exit story in the pitch set the pre-money in the VC method?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "builds-on",
+        "question": "Why must a seed pitch show a path to a fund-returning outcome?"
+      },
+      {
+        "targetId": "e532-02-seed-memo-terms-that-matter",
+        "relationship": "foundation-for",
+        "question": "How does an investor turn the pitch into a written memo and terms?"
+      },
+      {
+        "targetId": "e579-02-value-proposition-ecosystem-map",
+        "relationship": "builds-on",
+        "question": "Which value proposition sentence becomes the deck's opening line?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative immigration services start-up",
+      "prompt": "A founder asks for a 3.5 million dollar seed round. A 400 dollar ad test produced 19,005 impressions, 781 clicks and 202 email sign-ups, and the deck claims a conservative lifetime value of 1,200 dollars per customer. The partner asks whether the traction slide is strong enough.",
+      "cfoAnswer": "The test shows a 4.1% click-through rate and about 26% of clicks leaving an email, so acquisition cost per sign-up is roughly 2 dollars. That proves interest, not payment. The missing evidence is conversion from sign-up to a paid application at the 400 dollar fee. Fund it if the plan uses the round to prove paid conversion and the lifetime value assumption within twelve months.",
+      "keyTakeaway": "Interest is cheap to prove; the pitch must show how the money buys proof of payment."
+    },
+    "sources": [
+      "[Foster: ENTRE 532] Entrepreneurship overview slides, investor frameworks and deck building",
+      "[Foster: ENTRE 532] Syllabus, pitch assignments and Pitch Day specification",
+      "[Elite MBA: Stanford] Thiel and Masters, Zero to One, 2014",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics seed pitch pricing and farm ROI slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e532-02-seed-memo-terms-that-matter",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 532",
+    "title": "The Seed Investment Memo and the Terms That Matter",
+    "difficulty": "intermediate",
+    "tags": [
+      "term-sheet",
+      "investment-memo",
+      "valuation",
+      "governance"
+    ],
+    "hook10k": "A seed investment memo forces an investor to write down the recommendation, the reasons and the exact terms, including an opening and a walk-away pre-money valuation. For founders, the few terms that matter are price, liquidation preference, board control, protective provisions and vesting, and everything else is noise.",
+    "pareto20_80": {
+      "summary": "The ENTRE 532 memo template asks for a one-sentence recommendation, a rationale across team, product, market, model and timing, and terms covering pre-money valuation, control provisions and board composition. Seed deals are usually leaner than a full Series A: non-participating preference, no redemption, light anti-dilution and a small board.",
+      "keyPoints": [
+        "Investor ownership is investment divided by post-money, so 1 million dollars on a 3 million pre-money buys 25%.",
+        "Liquidation preference is usually 1x non-participating at seed, and participating preferences shift exit proceeds sharply toward investors at modest outcomes.",
+        "A typical seed board is one founder, one investor and one independent, which keeps control balanced.",
+        "Protective provisions give preferred holders a veto over new senior stock, sale of the company and charter changes.",
+        "Founder vesting with a one-year cliff protects co-founders from each other as much as from investors."
+      ],
+      "formulas": [
+        {
+          "name": "Post-money",
+          "expression": "Post = pre + investment; investor % = investment ÷ post"
+        },
+        {
+          "name": "Non-participating preference",
+          "expression": "Investor payout = max(investment × multiple, ownership % × exit value)"
+        },
+        {
+          "name": "Walk-away price",
+          "expression": "Max pre-money = expected exit × ownership needed ÷ target multiple − investment"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Founders often negotiate hard on valuation and then accept a board or preference structure that costs them far more at a modest exit.",
+      "Many seed investors never write a real memo, which is why their portfolio decisions drift toward whoever pitched most recently."
+    ],
+    "lenses": {
+      "history": "Venture term sheets standardized in the 1990s and 2000s around the NVCA model documents, with West Coast and Washington style differing on details such as no-shop clauses. Feld and Mendelson's Venture Deals turned the jargon into a founder's handbook.",
+      "economics": "Preferences and participation reallocate value between investors and common holders across exit outcomes, so the same headline valuation can mean very different founder payoffs. The option pool created before the round dilutes founders, not new investors.",
+      "behavioralScience": "Founders anchor on the headline pre-money because it is a single, comparable number, while the terms that hurt are buried in definitions. Writing a walk-away price before negotiating guards against that anchoring.",
+      "marketingNarrative": "A clean, founder-friendly term sheet is itself a signal to future investors about the quality of the lead. Investors compete on reputation as much as on price at seed.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "A higher valuation is not always better, because it raises the bar for the next round and can force a down round. The right price is one the company can grow into by the next milestone.",
+      "personalConnection": "Carbon Robotics raised roughly 900 thousand dollars at seed and then larger rounds tied to proven milestones, so Paul Mikesell kept terms simple while technical risk was falling. An enterprise AI or PranaScan seed memo should name the milestone each tranche of money buys and the walk-away valuation before talking price.",
+      "antiPattern": "Accepting a participating preference or an investor-controlled board to win a higher headline price. Model the founder payoff at a modest exit before signing."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "builds-on",
+        "question": "How do the option pool shuffle and anti-dilution change the effective price?"
+      },
+      {
+        "targetId": "e557-10-safe-caps-discounts",
+        "relationship": "contrasts-with",
+        "question": "When is a SAFE simpler and safer than a priced seed round?"
+      },
+      {
+        "targetId": "a500-15-read-10k-routine",
+        "relationship": "applied-in",
+        "question": "How do you adapt a filing-reading routine to diligence a private start-up's financials?"
+      },
+      {
+        "targetId": "e510-02-hypothesis-driven-mvp-sequencing",
+        "relationship": "builds-on",
+        "question": "Which validated hypotheses justify the next round's price?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative seed round for a classmate's start-up",
+      "prompt": "You are asked to invest 1 million dollars. The founders propose a 5 million dollar pre-money, 1x participating preference and two investor board seats out of three. Write the terms you would offer.",
+      "cfoAnswer": "At 5 million pre the investor owns 16.7%, but participation and board control matter more. Offer a 4 million pre-money, which buys 20%, with 1x non-participating preference and a three-seat board of one founder, one investor and one independent. That protects the downside without punishing founders at a modest exit, and the walk-away is 5 million pre with clean terms.",
+      "keyTakeaway": "Price is one term; preference and board control decide who wins at a modest exit."
+    },
+    "sources": [
+      "[Foster: ENTRE 532] Syllabus, investment memo assignment and term sheet session",
+      "[Foster: ENTRE 532] Annotated Series A term sheet template",
+      "[Elite MBA: Stanford] Feld and Mendelson, Venture Deals",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics seed and growth funding slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e532-03-mikesell-deep-tech-risk-retirement",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 532",
+    "title": "The Mikesell Playbook: Insider Pairing, Staged Risk Retirement and ROI Pricing in Deep Tech",
+    "difficulty": "advanced",
+    "tags": [
+      "deep-tech",
+      "founder-playbook",
+      "risk-retirement",
+      "roi-pricing",
+      "agtech"
+    ],
+    "hook10k": "Paul Mikesell turned distributed-systems skill into an AI robotics company by pairing with a third-generation farmer, retiring technical risk in cheap stages and pricing the machine against the grower's existing weeding budget. The playbook is a template for any engineer founder: find a pain with money attached, an insider partner and a payback the customer can feel.",
+    "pareto20_80": {
+      "summary": "Carbon Robotics started from a domain Mikesell did not know, agriculture, and asked whether it was a good space: a need for automation, dependence on scarce manual labor, rising herbicide resistance and growers with budgets. The 2018 plan priced a 35 thousand dollar COGS machine at 120 thousand dollars with three years of service, a roughly three-year farm payback, and staged the build from push cart to radio control to autonomy.",
+      "keyPoints": [
+        "A pain with money attached: growers spent roughly 900 to 1,500 dollars per acre a year on hand weeding and sprays, with yield losses on top.",
+        "An insider co-founder supplied credibility, fields to test in and the grower's language, which a pure engineering team lacks.",
+        "Staged risk retirement proved the weed finder and the laser on a push cart before spending on a vehicle or autonomy.",
+        "ROI pricing set the price from the customer's payback, giving an implied gross margin near 71% on the 2018 plan.",
+        "Every machine collects plant images, so the fleet becomes a data flywheel that improves models across crops."
+      ],
+      "formulas": [
+        {
+          "name": "Gross margin",
+          "expression": "GM = (price − COGS) ÷ price = (120,000 − 35,000) ÷ 120,000 ≈ 70.8%"
+        },
+        {
+          "name": "Customer payback",
+          "expression": "Payback years = price ÷ (acres × savings per acre per year)"
+        },
+        {
+          "name": "Breakeven acres",
+          "expression": "Acres = price ÷ (savings per acre × target payback years)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Incumbent experts told the team lasers were not viable, which is common feedback for deep tech and is only a signal if the physics, not the business model, is wrong.",
+      "Margins, churn and unit counts are not public, so outside analysis of Carbon Robotics unit economics rests on the early pitch and press-reported totals."
+    ],
+    "lenses": {
+      "history": "Mikesell co-founded Isilon, sold to EMC for 2.25 billion dollars in 2010, then Clustrix, then led infrastructure engineering at Uber before starting Carbon Robotics in 2018. Agricultural robotics had failed repeatedly, but cheap components and deep learning changed the cost curve.",
+      "economics": "Pricing against an existing budget line lets the vendor capture part of a large, visible saving while the customer still pays back in a few years. As the machine improved, the reported price rose roughly tenfold toward 1.4 million dollars while payback stayed short, which is value-based pricing at work.",
+      "behavioralScience": "Growers are loss averse and trust neighbors, so a demo on a fellow farmer's field beats any spec sheet. Bank operating leases that leave growers cash-positive from the first month remove the up-front loss that blocks adoption.",
+      "marketingNarrative": "The founding story is a software veteran learning where food comes from, with a farmer partner and a contrarian bet on lasers. That narrative made a hardware company fundable by software investors.",
+      "sociology": "Farming communities spread adoption through local networks and co-ops, so the go-to-market moved from the co-founder's fields to nearby farms to the wider market. Social proof inside that community did the selling.",
+      "firstPrinciplesContrarian": "When the biggest incumbent says your approach is not viable, ask whether they object to the physics or to their own business model. Chips on shoulders, as Mikesell put it, can become chips in pockets when the skeptics are defending a legacy.",
+      "personalConnection": "This is the template for an engineer moving from Cisco-style enterprise infrastructure into an AI venture: find the domain partner, retire the riskiest technical assumption first and price on customer ROI. For PranaScan, the questions are who plays the farmer-partner role, what the push-cart accuracy gate is and whose existing spend line the product replaces.",
+      "antiPattern": "Starting with the technology and looking for a market, or treating the 2018 plan's numbers as the answer instead of a hypothesis. Close the loop from data to kill rate to customer ROI before claiming a data moat."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-07-inventory-valuation",
+        "relationship": "risk-for",
+        "question": "How do hardware COGS and inventory write-downs threaten a robotics gross margin?"
+      },
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "What is the maximum machine price that keeps the grower's payback under three years?"
+      },
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "applied-in",
+        "question": "How do bank operating leases change the grower's cash flow and the vendor's revenue timing?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "measured-by",
+        "question": "How do the Lab #5 presets turn the Carbon Robotics pitch into LTV and payback?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Carbon Robotics 2018 seed plan",
+      "prompt": "A laser weeder costs 35 thousand dollars to build and sells for 120 thousand dollars including three years of service. Growers spend about 1,200 dollars per acre a year on weeding, and the machine cuts that cost by about 80%. How many acres does a grower need for a three-year payback, and what is the gross margin?",
+      "cfoAnswer": "Savings are about 960 dollars per acre per year, so three years of savings is 2,880 dollars per acre, and 120,000 divided by 2,880 is about 42 acres. That sits inside the 26 to 44 acre range on the seed slide. Gross margin is 85,000 over 120,000, or about 71%, before service costs. Any grower with more than about 42 acres of the target crop clears a three-year payback.",
+      "keyTakeaway": "Price from the customer's payback, then check your own margin, not the other way round."
+    },
+    "sources": [
+      "[Foster: ENTRE 532] Deep tech session with Paul Mikesell of Carbon Robotics",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics idea, prototype, herbicide, product and pricing slides (non-confidential section only)",
+      "[Real 10-K / Case] Paul Mikesell SWE to AI Founder case study v2, Satish's study note citing press-reported funding totals",
+      "[Elite MBA: Harvard Business School] Eisenmann, Business Model Analysis for Entrepreneurs (HBS 812-096), profit formula"
+    ]
+  },
+  {
+    "id": "e532-04-saas-financial-model-assumptions",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 532",
+    "title": "The Start-up Financial Model: Driver-Based Assumptions, ARR and the Cash Trough",
+    "difficulty": "intermediate",
+    "tags": [
+      "financial-model",
+      "saas-metrics",
+      "cash-flow",
+      "forecasting"
+    ],
+    "hook10k": "A start-up financial model is judged by the reasonableness of its assumptions, not the size of its numbers. Build it monthly for the first year and yearly for three, from drivers such as leads, conversion, churn and price, and use it to find how deep the cash trough goes and when it bottoms out.",
+    "pareto20_80": {
+      "summary": "ENTRE 532 asks for a monthly plan for twelve months and yearly figures for three years, built from a SaaS template, and cares more about defensible assumptions than outcomes. The profit formula ties revenue drivers to variable costs, fixed costs and growth investment, and the key output is the depth and timing of the cash-flow trough that the raise must cover.",
+      "keyPoints": [
+        "Revenue comes from drivers: new customers from funnel math, minus churn, times average revenue per account.",
+        "ARR, billings and GAAP revenue differ, and investors want all three reconciled rather than one flattering number.",
+        "Fixed costs are mostly headcount, so the hiring plan is the expense forecast.",
+        "Working capital and up-front hardware spending deepen the trough even when the income statement looks healthy.",
+        "Three scenarios with named assumptions beat one hockey stick, because investors test the assumptions, not the total."
+      ],
+      "formulas": [
+        {
+          "name": "Profit formula",
+          "expression": "Cash flow = revenue − revenue × (VC ÷ revenue) − fixed costs − Δrevenue × (investment ÷ revenue)"
+        },
+        {
+          "name": "Ending ARR",
+          "expression": "ARR_end = ARR_start + new ARR + expansion − churned ARR"
+        },
+        {
+          "name": "Cash trough",
+          "expression": "Raise needed ≥ max cumulative cash deficit × (1 + safety margin)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most start-up models assume conversion and churn rates the company has never measured, so the forecast is a wish expressed in a spreadsheet.",
+      "Founders often model revenue on bookings while cash arrives later, so a growing company can run out of money while hitting its revenue plan."
+    ],
+    "lenses": {
+      "history": "Spreadsheet models spread with VisiCalc and Lotus in the 1980s, and SaaS metrics such as ARR, net retention and the magic number became standard in the 2000s and 2010s. Investors now ask for driver-based models because top-down market share forecasts proved meaningless.",
+      "economics": "The profit formula shows that fast growth consumes cash when each dollar of new revenue needs up-front investment, so the cash trough deepens with growth before it recovers. Contribution margin and payback decide whether growth eventually funds itself.",
+      "behavioralScience": "Planning fallacy and optimism bias make founders underestimate how long sales cycles take and overestimate conversion. Anchoring every driver to a measured rate or an external benchmark is the defense.",
+      "marketingNarrative": "The model is a narrative in numbers: each assumption tells the investor what the founder believes about customers. A clear assumptions tab persuades more than a polished chart.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "The best model is wrong but useful, because its job is to show which assumption matters most, not to predict revenue. Sensitivity analysis tells you which experiment to run next.",
+      "personalConnection": "Carbon Robotics' hardware model has a deep early trough from building machines before revenue, while an enterprise AI SaaS model has a shallower trough but ongoing GPU inference costs in COGS. PranaScan's model should separate per-scan serving cost from fixed engineering, because that split decides whether growth funds itself.",
+      "antiPattern": "A three-year hockey stick with no assumptions tab. Show the drivers, the measured rates behind them and the cash trough the raise has to cover."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-02-accrual-revenue-recognition",
+        "relationship": "builds-on",
+        "question": "How do billings, ARR and GAAP revenue differ in a SaaS model?"
+      },
+      {
+        "targetId": "a501-09-budgeting-forecasting",
+        "relationship": "builds-on",
+        "question": "How does driver-based budgeting translate into a start-up operating plan?"
+      },
+      {
+        "targetId": "e557-13-runway-bridge",
+        "relationship": "drives",
+        "question": "How deep is the cash trough, and does the plan cut burn or raise a bridge first?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "measured-by",
+        "question": "How do per-account unit economics roll up into the company model?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative enterprise AI SaaS start-up",
+      "prompt": "The model shows 3 million dollars of ARR in year two, from 50 enterprise accounts at 60 thousand dollars each. The sales team has closed 6 accounts in twelve months with two account executives. The board asks whether the plan is credible.",
+      "cfoAnswer": "Six accounts a year from two sellers is three per seller per year. Reaching 50 accounts by year two needs about 44 new logos, so roughly seven to eight sellers ramped for a full year, which the hiring plan does not show. Either hire earlier and raise more to fund a deeper trough, or rebuild the plan at 15 to 20 accounts and an honest ARR target.",
+      "keyTakeaway": "Test the plan against the measured rate per seller before you test the total."
+    },
+    "sources": [
+      "[Foster: ENTRE 532] Financial model session and SaaS template",
+      "[Foster: ENTRE 532] Pitch Day specification for monthly and yearly financial plans",
+      "[Elite MBA: Harvard Business School] Eisenmann, Business Model Analysis for Entrepreneurs (HBS 812-096), profit formula and cash trough",
+      "[Real 10-K / Case] Public SaaS filings that report ARR alongside GAAP revenue"
+    ]
+  },
+  {
+    "id": "e579-01-customer-discovery-interviews",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 579",
+    "title": "Customer Discovery Interviews: Validate the Problem, Not Your Product",
+    "difficulty": "foundation",
+    "tags": [
+      "customer-discovery",
+      "interviews",
+      "i-corps",
+      "validation"
+    ],
+    "hook10k": "The most common reason start-ups fail is building something nobody needs, and the cheapest cure is talking to dozens of potential customers before writing code. A discovery interview is not a sales pitch: its job is to validate the problem and how customers solve it today, so you ask about their past behavior and stay quiet about your idea.",
+    "pareto20_80": {
+      "summary": "I-Corps style discovery runs about 25 interviews over six weeks, each testing a written hypothesis about the customer, the problem and the value. Good questions ask what, how and why about recent real incidents, avoid yes-or-no, leading and biased questions, and separate the user who uses the product from the customer who pays for it.",
+      "keyPoints": [
+        "Find a hundred names through your network, LinkedIn and the places your audience gathers, and do not worry about geography.",
+        "Ask about the last time they faced the problem, what they did and what it cost, because past behavior predicts better than opinions about the future.",
+        "Avoid 'do you think this is a problem' and 'we are thinking about this idea, what do you think', which invite polite false positives.",
+        "Log each interview: who, hypothesis, result, action and advice needed, then update the Lean Canvas weekly.",
+        "End by summarizing what you heard, asking what you missed and asking for referrals, which are themselves a small form of validation."
+      ],
+      "formulas": [
+        {
+          "name": "Interview yield",
+          "expression": "Validated hypotheses = interviews × share of interviews with a falsifiable test"
+        },
+        {
+          "name": "Problem intensity",
+          "expression": "Pain score = frequency × cost per incident × share already paying for a workaround"
+        },
+        {
+          "name": "Weekly cadence",
+          "expression": "25 interviews ≈ 3 + 3 + 4 + 5 + 5 + 5 over six weeks"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams often count conversations with friends and family as interviews, which produce compliments rather than evidence.",
+      "In an I-Corps kickoff survey of failed start-ups, no market need was the top reason cited, at about 42%, ahead of running out of money."
+    ],
+    "lenses": {
+      "history": "The NSF launched I-Corps in 2011 to push university scientists out of the lab and into customer conversations, building on Steve Blank's customer development course at Stanford. Rob Fitzpatrick's The Mom Test later codified how to ask questions people cannot lie about.",
+      "economics": "An interview is the cheapest experiment a start-up can run, costing hours instead of engineering months, so its return on information is very high. The expected cost of skipping it is building a product nobody buys.",
+      "behavioralScience": "People want to be kind and will praise an idea to avoid awkwardness, so stated enthusiasm is a weak signal. Asking about specific past events and money already spent bypasses social desirability bias.",
+      "marketingNarrative": "Interviews also gather the customer's own words, which become the problem slide, the landing page headline and the sales script. Founders who skip discovery end up describing the product in their language, not the buyer's.",
+      "sociology": "Customers sit in ecosystems of users, buyers, payers, influencers and saboteurs, and each role has different incentives. An interview program that talks only to users misses who signs the check and who can block the deal.",
+      "firstPrinciplesContrarian": "The goal is not to validate your product but to find out whether your problem is real and painful. Being proven wrong early is the best possible outcome of a discovery week.",
+      "personalConnection": "Paul Mikesell spent late 2018 learning about farming before committing to Carbon Robotics, which is discovery done by immersion. For PranaScan or an enterprise AI tool, the equivalent is twenty-five conversations with clinicians, payers or IT buyers about how they handle the problem today and what it costs them.",
+      "antiPattern": "Pitching the product in every interview and counting nods as validation. Ask about their life and their last incident, and resist talking about your idea."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "qm500-01-hypothesis-testing-regression",
+        "relationship": "builds-on",
+        "question": "How do you turn interview findings into a hypothesis you can test statistically?"
+      },
+      {
+        "targetId": "e510-02-hypothesis-driven-mvp-sequencing",
+        "relationship": "foundation-for",
+        "question": "Which interview insight decides the next MVP test?"
+      },
+      {
+        "targetId": "e579-02-value-proposition-ecosystem-map",
+        "relationship": "drives",
+        "question": "How do interview results reshape the ecosystem map and value proposition?"
+      },
+      {
+        "targetId": "mk554-02-pmf-needs-kano-jtbd",
+        "relationship": "applied-in",
+        "question": "How do jobs-to-be-done interviews map the steps where customers struggle most?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative university spin-out applying for a gap fund",
+      "prompt": "A research team has a working prototype for faster ultrasound image analysis and wants grant money to build a product. They have interviewed four radiologists, all of whom liked the demo. The panel asks whether the problem is validated.",
+      "cfoAnswer": "Not yet. Four friendly users who saw a demo is praise, not validation, and none of them is the buyer. Interview at least twenty more people across users, hospital buyers, payers and IT, asking how image analysis is done today, what delays cost and who controls the budget. Fund the product only once a buyer describes the problem as costly enough to pay for.",
+      "keyTakeaway": "Validate the problem with the people who pay, not the product with the people who like you."
+    },
+    "sources": [
+      "[Foster: ENTRE 579] I-Corps summer workshop workbook and kickoff slides",
+      "[Foster: ENTRE 579] Customer discovery worksheet and guide from the CoMotion Innovation Gap Fund",
+      "[Elite MBA: Stanford] Blank, customer development, and Fitzpatrick, The Mom Test",
+      "[Real 10-K / Case] Fishbein, The Ultimate List of Customer Development Questions"
+    ]
+  },
+  {
+    "id": "e579-02-value-proposition-ecosystem-map",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 579",
+    "title": "Value Proposition, Lean Canvas and the Ecosystem Map of Users, Buyers and Payers",
+    "difficulty": "intermediate",
+    "tags": [
+      "value-proposition",
+      "lean-canvas",
+      "ecosystem-map",
+      "jobs-pains-gains"
+    ],
+    "hook10k": "A strong value proposition is relevant, quantified and differentiated, and it names the customer, the job, the pain removed and the gain created against the alternative. The ecosystem map then shows that the person who uses a product is often not the person who pays, and that someone else may be threatened enough to block it.",
+    "pareto20_80": {
+      "summary": "The I-Corps toolkit pairs a nine-box Lean Canvas with customer point-of-view hypotheses (job, pain, gain) and an ecosystem map of users, buyers, payers, influencers, saboteurs, competitors and regulators. The value proposition template states the solution, the segment, the job, the pain reduced and the gain enabled, unlike the competing alternative.",
+      "keyPoints": [
+        "Lean Canvas boxes: problem, customer segment, unique value proposition, solution, channels, revenue streams, cost structure, key metrics and unfair advantage.",
+        "Job, pain and gain hypotheses take the form 'the customer is trying to do X because of Y', each one testable in interviews.",
+        "A value proposition must be relevant to a real job, quantified in time or money and differentiated from what customers use today.",
+        "In health care and enterprise sales, users, buyers and payers are usually different people with different success metrics.",
+        "Saboteurs, those threatened by the product, and regulators can stop adoption even when users love it."
+      ],
+      "formulas": [
+        {
+          "name": "Value proposition",
+          "expression": "Our [solution] helps [segment] who want to [job] by reducing [pain] and enabling [gain], unlike [alternative]"
+        },
+        {
+          "name": "Quantified value",
+          "expression": "Customer value per year = time saved × loaded hourly cost + avoided spend + revenue gained"
+        },
+        {
+          "name": "Deal path",
+          "expression": "P(close) ≈ P(user wants) × P(buyer approves) × P(payer funds) × P(no saboteur veto)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most early value propositions describe features rather than a quantified change in the customer's time, money or risk.",
+      "Founders often discover late that the payer, such as an insurer or a central IT budget, has goals that conflict with the user's."
+    ],
+    "lenses": {
+      "history": "Osterwalder's Business Model Canvas appeared in 2010, and Ash Maurya adapted it into the Lean Canvas for start-ups facing more uncertainty. The value proposition canvas added jobs, pains and gains drawn from Christensen's jobs-to-be-done thinking.",
+      "economics": "Value is created only when the customer's gain exceeds price plus switching and adoption costs, and captured only if the payer agrees to fund it. Quantifying value lets the founder price from the customer's economics rather than from cost.",
+      "behavioralScience": "Customers weigh losses more than equal gains, so a proposition framed as removing a pain usually beats one promising a new gain. Quantified claims are more credible than adjectives because they can be checked.",
+      "marketingNarrative": "The template's 'unlike' clause is positioning: it names the alternative the customer would otherwise use and makes the comparison for them. That sentence often becomes the deck's opening line.",
+      "sociology": "Ecosystem roles reflect organizational power: in a hospital, a clinician's enthusiasm can be overruled by procurement, compliance or an insurer. Mapping those roles is a sociology of who gets to say yes.",
+      "firstPrinciplesContrarian": "The person who loves your product may have no budget and no authority. Sometimes the best go-to-market sells to the payer first and lets the user follow.",
+      "personalConnection": "Carbon Robotics' proposition was quantified in dollars per acre and payback years, aimed at the grower who both uses and pays, which kept its ecosystem simple. PranaScan's map is harder: patients use it, clinicians influence, and employers or insurers may pay, so each role needs its own quantified gain.",
+      "antiPattern": "A value proposition full of features with no number and no named alternative. State the job, the pain in dollars or hours and what the customer uses today."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "How does a quantified value proposition widen the gap between willingness to pay and cost?"
+      },
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "drives",
+        "question": "How does the quantified customer value set the target price and target cost?"
+      },
+      {
+        "targetId": "e579-01-customer-discovery-interviews",
+        "relationship": "measured-by",
+        "question": "Which interviews confirm the job, pain and gain hypotheses?"
+      },
+      {
+        "targetId": "mk554-04-pricing-wtp-packaging",
+        "relationship": "foundation-for",
+        "question": "How should price relate to the value the proposition quantifies?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative phone-based health screening for employers",
+      "prompt": "Employees like a phone app that screens vital signs in a minute, and a large employer's wellness team wants it. Procurement says there is no budget line, and the benefits insurer has not been consulted. Who is the customer and what is the value proposition?",
+      "cfoAnswer": "The user is the employee, the influencer is the wellness team, the buyer is procurement and the likely payer is the insurer or the benefits budget. Quantify value for the payer, such as earlier detection reducing claims costs per employee, and run a pilot that measures it. Without a payer case the deal stalls however much users like the app.",
+      "keyTakeaway": "Map who uses, who buys and who pays, and quantify the value for the one who funds it."
+    },
+    "sources": [
+      "[Foster: ENTRE 579] I-Corps workbook, Lean Canvas, customer point-of-view and value proposition templates",
+      "[Foster: ENTRE 579] Customer discovery guide, ecosystem map roles",
+      "[Elite MBA: Harvard Business School] Osterwalder and Pigneur, Business Model Generation, and Maurya, Running Lean",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics per-acre cost and farm ROI slides (non-confidential section)"
+    ]
+  },
+  {
+    "id": "e579-03-founder-leverage-specific-knowledge",
+    "pillarId": "P4",
+    "courseCode": "ENTRE 579",
+    "title": "Founder Leverage: Specific Knowledge, Equity, Accountability and Rich versus King",
+    "difficulty": "intermediate",
+    "tags": [
+      "founder-career",
+      "leverage",
+      "equity",
+      "founder-dilemma"
+    ],
+    "hook10k": "Wealth for a founder comes from owning equity in something that scales without your time, built on specific knowledge others cannot easily copy and amplified by code, capital or people. Every founder also faces the rich-versus-king trade-off: the choices that grow the company's value usually cost the founder control.",
+    "pareto20_80": {
+      "summary": "Naval Ravikant's frame says to seek wealth, meaning assets that earn while you sleep, through specific knowledge, accountability and leverage, and to own equity rather than rent out time. Wasserman's founder's dilemma adds that bringing in co-founders, senior hires and top-tier investors grows value but erodes control, and most founders are replaced as CEO by the third round.",
+      "keyPoints": [
+        "Specific knowledge is learned through curiosity and apprenticeship, sits at the edge of a field and is hard to train someone else to replace.",
+        "Code and media are permissionless leverage with no marginal cost of replication, unlike labor and capital, which need someone's permission.",
+        "Equity ties reward to outcomes rather than hours, which is the only way to earn nonlinearly.",
+        "Research on venture-backed start-ups found that about half of founders are no longer CEO by year three and fewer than a quarter lead the company to IPO.",
+        "Rich choices fill gaps with strong co-founders, hire senior people ahead of need and accept tough investors; king choices keep control with juniors, bootstrapping or debt."
+      ],
+      "formulas": [
+        {
+          "name": "Leverage",
+          "expression": "Output = judgment × leverage (code, media, capital, people); leveraged output decouples from hours"
+        },
+        {
+          "name": "Founder outcome",
+          "expression": "Founder wealth = ownership % after dilution × exit value"
+        },
+        {
+          "name": "Hourly-rate rule",
+          "expression": "Outsource a task if its market cost < your aspirational hourly rate"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many first-time founders say they want to be rich but make every hiring and funding choice as if they want to stay in control.",
+      "Leverage multiplies bad judgment as well as good, so scaling before the core decisions are sound magnifies losses."
+    ],
+    "lenses": {
+      "history": "Henry Royce preferred being absolute boss of a small department to sharing control of a larger one, a choice Wasserman used to name the rich-versus-king dilemma in 2008. Naval's tweetstorm on getting rich without getting lucky, compiled in the Almanack, popularized the leverage frame for software builders.",
+      "economics": "Equity converts the founder's labor into a claim on the residual value of a scalable asset, so payoffs are convex while salaries are linear. Dilution is the price of capital and talent, and the founder's stake is worth more if a smaller share of a much larger company results.",
+      "behavioralScience": "Founders overweight control because losing it feels like a personal loss, even when the expected value of sharing it is higher. Naming the goal, rich or king, up front prevents inconsistent decisions under stress.",
+      "marketingNarrative": "Productizing yourself means building a public body of work tied to your specific knowledge, which becomes a reputation that attracts co-founders and investors. Authenticity is a moat because nobody can compete with you on being you.",
+      "sociology": "Status games are zero-sum, while wealth creation is positive-sum, which shapes how founders choose peers and partners. Long-term games with long-term people let reputation compound like interest.",
+      "firstPrinciplesContrarian": "Holding on to the CEO role is not the measure of success; for many founders the value-maximizing move is to hand it to someone better suited to scaling. Choosing king is legitimate only if it is a deliberate choice.",
+      "personalConnection": "Paul Mikesell's specific knowledge in distributed storage and infrastructure carried from Isilon and Uber into Carbon Robotics, where code and machines provide leverage. For an engineer leaving Cisco-scale enterprise work for PranaScan, the question is which specific knowledge transfers and whether to optimize for building value or for keeping control.",
+      "antiPattern": "Renting out your time indefinitely while waiting for the perfect idea, or hoarding control and equity until the company is too weak to matter. Decide rich or king, then make hiring and funding choices that match."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-10-equity-sbc",
+        "relationship": "builds-on",
+        "question": "How does stock-based compensation turn employees into owners and dilute founders?"
+      },
+      {
+        "targetId": "e542-11-venture-term-sheets",
+        "relationship": "risk-for",
+        "question": "Which term-sheet provisions shift control from founders to investors?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "builds-on",
+        "question": "Why does the power law push investors to replace founders who cannot scale?"
+      },
+      {
+        "targetId": "e532-03-mikesell-deep-tech-risk-retirement",
+        "relationship": "applied-in",
+        "question": "How did specific knowledge from storage systems become leverage in AI robotics?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative founder choosing between two offers",
+      "prompt": "A solo technical founder can raise 4 million dollars from a top-tier fund that wants a board seat and a senior go-to-market co-founder with 20% equity, or 1 million dollars from angels with no board seat. Which offer fits a goal of building the most valuable company?",
+      "cfoAnswer": "For value, take the top-tier round and the co-founder. Suppose the founder ends with 40% of a company with a 30% chance of a 500 million dollar exit, an expected 60 million, versus 70% of one with a 10% chance of a 200 million exit, an expected 14 million. The second option keeps control but is worth far less. If control is the real goal, say so and take the angel round knowingly.",
+      "keyTakeaway": "Decide whether you want to be rich or king before you choose investors and co-founders."
+    },
+    "sources": [
+      "[Foster: ENTRE 579] Course reading: Jorgenson, The Almanack of Naval Ravikant",
+      "[Foster: ENTRE 510] Session 7, Resource and Value Paths, Rich versus King",
+      "[Elite MBA: Harvard Business School] Wasserman, The Founder's Dilemma, Harvard Business Review, 2008",
+      "[Real 10-K / Case] Paul Mikesell career history from public press on Isilon, Clustrix and Carbon Robotics"
+    ]
+  },
+  {
+    "id": "mk554-01-pm-role-discovery-outcomes",
+    "pillarId": "P4",
+    "courseCode": "MKTG 554",
+    "title": "The Product Manager's Job: What and Why, Discovery versus Delivery and Outcomes over Outputs",
+    "difficulty": "foundation",
+    "tags": [
+      "product-management",
+      "discovery",
+      "outcomes",
+      "roadmap",
+      "prfaq"
+    ],
+    "hook10k": "A product manager decides what to build and why, while a project manager decides who does what by when, and confusing the two produces teams that ship features nobody uses. Good product work is discovery before delivery: reduce value, usability, feasibility and viability risk first, then measure success by changes in customer behavior, not by features shipped.",
+    "pareto20_80": {
+      "summary": "Cagan argues that at least half of product ideas will not work, so empowered teams of a PM, a designer and engineers test many ideas a week to produce a validated backlog. Outcomes, meaning changes in human behavior that drive business results, replace output roadmaps, and tools such as the PR/FAQ, Now-Next-Later roadmaps and pre-mortems keep the team honest.",
+      "keyPoints": [
+        "The four big risks are value (will they buy), usability (can they use it), feasibility (can we build it) and viability (does it work for the business).",
+        "Deep knowledge of customers, product data, business dynamics and the industry is the PM's real authority, since nobody reports to them.",
+        "Outputs lead to product outcomes, which are leading indicators, which lead to financial results, which lag.",
+        "A PR/FAQ writes the launch press release and a brutally honest internal FAQ before any code, covering market size, P&L and the four risks.",
+        "Feature teams are told what to build; empowered teams are given a problem and an outcome to move."
+      ],
+      "formulas": [
+        {
+          "name": "Outcome statement",
+          "expression": "Who does what by how much: segment × behavior change × target delta × date"
+        },
+        {
+          "name": "Idea hit rate",
+          "expression": "Validated ideas ≈ ideas tested × hit rate; with a hit rate near 25 to 50%, test volume decides learning"
+        },
+        {
+          "name": "Outcome chain",
+          "expression": "Output → product outcome (leading) → financial result (lagging)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many companies hire product managers who act as backlog administrators for stakeholder requests, which Cagan calls the top root cause of failed products.",
+      "Roadmaps presented as dated feature lists get treated as commitments, so teams ship on schedule and still miss the outcome."
+    ],
+    "lenses": {
+      "history": "Procter and Gamble's brand managers in the 1930s are the ancestors of product management, and the role was reinvented for software at firms like HP, Microsoft and Google. Amazon's working-backwards PR/FAQ and Cagan's Inspired defined the modern discovery-first version.",
+      "economics": "Engineering time is the scarcest input, so the opportunity cost of building the wrong thing is the main economic risk. Cheap discovery that kills bad ideas early raises the return on every engineering hour.",
+      "behavioralScience": "Stakeholders anchor on their own feature requests and competitors' releases, and PMs fall into the build trap of mistaking activity for progress. Framing work as a hypothesis with a measurable outcome counters that bias.",
+      "marketingNarrative": "The product vision, two to five years out, is a recruiting tool and an alignment story, told through narratives, storyboards or prototypes. Simple and clear beats sophisticated and confusing.",
+      "sociology": "Empowered teams of missionaries rather than mercenaries rely on autonomy, mastery and purpose, which changes how engineers and designers engage. The PM leads through influence and evidence, not hierarchy.",
+      "firstPrinciplesContrarian": "The PM is not the CEO of the product, since they rarely control price, promotion or placement and nobody reports to them. Their leverage is knowing the customer and the data better than anyone else in the room.",
+      "personalConnection": "Carbon Robotics' push-cart and radio-control stages were discovery work that retired feasibility risk before Paul Mikesell committed to delivery at scale. In enterprise AI and at PranaScan, the PM's job is to state the outcome, such as minutes saved per clinician visit, before any model or feature work begins.",
+      "antiPattern": "A roadmap of dated features and a team measured on shipping them. Write the outcome, test the riskiest assumption and let validated learning set the backlog."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "is500-01-sql-data-quality-decisions",
+        "relationship": "foundation-for",
+        "question": "How does clean customer data give a PM the product data knowledge the role depends on?"
+      },
+      {
+        "targetId": "op502-02-littles-law-lead-time-cycle-time",
+        "relationship": "applied-in",
+        "question": "How does Little's Law explain why smaller batches speed product delivery?"
+      },
+      {
+        "targetId": "mk554-03-experiment-design-evidence-ladder",
+        "relationship": "foundation-for",
+        "question": "Which experiment de-risks value before the team builds?"
+      },
+      {
+        "targetId": "e532-01-pitch-narrative-four-beliefs",
+        "relationship": "contrasts-with",
+        "question": "How is a PR/FAQ different from an investor pitch deck?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative enterprise software roadmap review",
+      "prompt": "The sales team has a list of 40 feature requests from large customers and wants them on next year's roadmap. Engineering capacity covers about 12. The product leader asks how to decide.",
+      "cfoAnswer": "Translate the requests into the few customer outcomes behind them, such as faster onboarding or fewer support tickets, and size each outcome's business impact. Test the riskiest assumption behind the top outcomes with prototypes or reference customers before committing engineers. Publish a Now-Next-Later roadmap of outcomes, so sales sees the problems being solved rather than a dated list of 12 features.",
+      "keyTakeaway": "Roadmap the outcomes customers need, not the features they ask for."
+    },
+    "sources": [
+      "[Foster: MKTG 554] Class 1, course introduction and the product manager role",
+      "[Foster: MKTG 554] Classes 4 and 5, vision, roadmaps, responsible products and the PR/FAQ",
+      "[Elite MBA: Stanford] Cagan, Inspired: How to Create Tech Products Customers Love, 2nd edition",
+      "[Real 10-K / Case] ServiceNow case: inbound and outbound product managers and platform investment (Stanford GSB E-771)"
+    ]
+  },
+  {
+    "id": "mk554-02-pmf-needs-kano-jtbd",
+    "pillarId": "P4",
+    "courseCode": "MKTG 554",
+    "title": "Product-Market Fit: Underserved Needs, Kano, Jobs to Be Done and the 40% Test",
+    "difficulty": "intermediate",
+    "tags": [
+      "product-market-fit",
+      "kano",
+      "jobs-to-be-done",
+      "customer-needs"
+    ],
+    "hook10k": "Product-market fit means being in a good market with a product that satisfies it, and it starts with the target customer and their underserved needs, not with features. The surest signs are customers pulling the product out of your hands, word-of-mouth growth and at least 40% of users saying they would be very disappointed without it.",
+    "pareto20_80": {
+      "summary": "Olsen's lean product pyramid builds PMF from the target customer, underserved needs, value proposition, feature set and user experience, in that order. Importance-versus-satisfaction mapping finds the opportunity space, the Kano model sorts features into must-haves, performance and delighters, and jobs-to-be-done interviews find the step customers find most important and hardest today.",
+      "keyPoints": [
+        "High importance and low satisfaction is the opportunity space; high importance and high satisfaction is a crowded fight.",
+        "Kano pairs a functional and a dysfunctional question per feature, and delighters decay into must-haves over time.",
+        "Jobs-to-be-done interviews six to twelve job performers and maps each step of the job to find where they struggle.",
+        "The Sean Ellis test asks how disappointed users would be if the product disappeared; 40% very disappointed is the usual PMF bar.",
+        "Quibi raised about 1.75 billion dollars and shut down within seven months, a reminder that funding cannot buy fit."
+      ],
+      "formulas": [
+        {
+          "name": "Opportunity score",
+          "expression": "Opportunity = importance + max(importance − satisfaction, 0)"
+        },
+        {
+          "name": "Sean Ellis test",
+          "expression": "PMF signal if very disappointed ÷ respondents ≥ 40%"
+        },
+        {
+          "name": "Retention check",
+          "expression": "Cohort retention curve flattens above zero → durable value"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams often declare PMF after a launch spike, when only a flattening cohort retention curve shows lasting value.",
+      "The 40% test measures problem-solution fit among current users more than market size, so it can pass in a market too small to matter."
+    ],
+    "lenses": {
+      "history": "Marc Andreessen defined product-market fit in 2007, building on Andy Rachleff's work at Benchmark. Noriaki Kano published his model of attractive and must-be quality in 1984, and Ulwick and Christensen developed jobs to be done in the 1990s and 2000s.",
+      "economics": "Fit raises willingness to pay and lowers churn and acquisition cost through word of mouth, which is why every unit-economics ratio improves once it is reached. Spending on growth before fit buys customers who leave.",
+      "behavioralScience": "Customers struggle to state needs directly but readily describe workarounds and what they dread, which is why jobs interviews ask about real incidents. Delighters create positive surprise, but expectations adapt and the delight fades into a baseline.",
+      "marketingNarrative": "Needs are functional, emotional and social, and the story a product tells must address all three, as Peloton does with fitness, motivation and community. Positioning against the underserved need, not the feature list, makes the story stick.",
+      "sociology": "In marketplaces fit must exist on both sides, and the jobs differ for each, as with hosts and guests. Customer segments defined by behavior and needs predict fit better than demographics.",
+      "firstPrinciplesContrarian": "Most products fail from lack of customers, not lack of technology, so the hard work is choosing the narrowest segment with the most painful need. Building the space pen when a pencil would do is the classic mistake.",
+      "personalConnection": "Carbon Robotics found fit with large specialty-crop growers whose weeding cost was high and labor scarce, the narrowest segment with the sharpest pain. PranaScan should run the 40% test and a jobs map on one segment, such as remote-care clinicians or enterprise wellness programs, before broadening.",
+      "antiPattern": "Declaring fit from downloads, sign-ups or a press spike. Look for very-disappointed users above 40% and a retention curve that flattens."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "m502-03-competitive-advantage-wtp-cost-vrio",
+        "relationship": "builds-on",
+        "question": "How does serving an underserved need raise willingness to pay above cost?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "drives",
+        "question": "How does reaching fit change churn, CAC and LTV?"
+      },
+      {
+        "targetId": "e579-01-customer-discovery-interviews",
+        "relationship": "builds-on",
+        "question": "Which discovery interviews reveal underserved needs?"
+      },
+      {
+        "targetId": "mk554-04-pricing-wtp-packaging",
+        "relationship": "foundation-for",
+        "question": "How do Kano categories decide which features go in which pricing tier?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative consumer AI app after launch",
+      "prompt": "A consumer AI app reached 200,000 downloads in its first month. Day-30 retention is 8% and still falling, and a survey of active users finds 22% would be very disappointed without it. Marketing wants to double ad spend.",
+      "cfoAnswer": "There is no product-market fit yet: retention has not flattened and the very-disappointed share is well below 40%. Doubling ad spend would buy users who leave, raising effective CAC. Narrow to the segment with the highest very-disappointed share, run jobs interviews with them and rebuild around their most underserved need before spending on growth.",
+      "keyTakeaway": "Fix retention and the 40% signal before you pay for growth."
+    },
+    "sources": [
+      "[Foster: MKTG 554] Class 2, product-market fit and validating ideas",
+      "[Foster: MKTG 554] Class 3, discovery techniques, jobs to be done and metrics",
+      "[Elite MBA: Stanford] Olsen, The Lean Product Playbook, and Ulwick, Jobs to Be Done",
+      "[Foster: ENTRE 510] Session 3, product-market fit as two-sided matching and the Pandora case"
+    ]
+  },
+  {
+    "id": "mk554-03-experiment-design-evidence-ladder",
+    "pillarId": "P4",
+    "courseCode": "MKTG 554",
+    "title": "Experiment Design: Pretotypes, the Evidence Ladder, Success Lines and Kill Switches",
+    "difficulty": "intermediate",
+    "tags": [
+      "experimentation",
+      "pretotyping",
+      "ab-testing",
+      "metrics"
+    ],
+    "hook10k": "Every product idea is a hypothesis, and the PM's job is to test it with the cheapest experiment that produces evidence people act on, not just say. Write the hypothesis as 'at least X% of Y will Z', set a success line and a kill switch before the data arrives, and climb from say evidence to do evidence to market evidence.",
+    "pareto20_80": {
+      "summary": "Savoia's pretotypes, such as fake doors, Wizard of Oz, facades and Pinocchio models, test initial interest before building. The strength-of-evidence ladder runs from opinions to call-to-action behavior to irrefutable market data, and good metrics are comparative, understandable ratios that change behavior, unlike vanity counts.",
+      "keyPoints": [
+        "The XYZ hypothesis 'at least X% of Y will Z' makes an idea falsifiable, such as a share of DVD subscribers switching to streaming at a set price.",
+        "A fake door measures the share of visitors who click a feature that does not exist yet; Wizard of Oz fakes automation with humans behind the screen.",
+        "Set the success line and the kill switch before launching the test, so the result forces a decision.",
+        "Marketplaces need special designs such as switchback tests that alternate treatment by time block, because users interact.",
+        "Correlation is not causation: users who view more photos book more, but pushing photos may not raise bookings."
+      ],
+      "formulas": [
+        {
+          "name": "XYZ hypothesis",
+          "expression": "At least X% of segment Y will do behavior Z within time T"
+        },
+        {
+          "name": "Minimum sample",
+          "expression": "n ≈ 16 × p(1 − p) ÷ δ² per arm for 80% power at 5% significance"
+        },
+        {
+          "name": "Decision rule",
+          "expression": "Ship if metric ≥ success line; stop if ≤ kill switch; else iterate"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Teams frequently peek at A/B results daily and stop at the first significant reading, which inflates false positives.",
+      "City-level synthetic control tests in marketplaces only detect fairly large effects, around 5% or more, so small improvements need other designs."
+    ],
+    "lenses": {
+      "history": "Ronald Fisher's randomized experiments in the 1920s founded modern testing, and web companies scaled online A/B tests in the 2000s. Alberto Savoia coined pretotyping at Google to test interest before building prototypes.",
+      "economics": "An experiment's value is the expected improvement in the decision it informs, minus its cost and delay. Clean data is a scarce asset in marketplaces, so a contaminated test can cost more than the feature it evaluates.",
+      "behavioralScience": "What people say about future behavior is a weak predictor of what they do, especially about price. Pre-committing to thresholds protects the team from motivated reasoning after the data arrives.",
+      "marketingNarrative": "A fake door or landing-page test also tests the message, so the words on the button are part of the experiment. Positive results give the launch story real numbers instead of opinions.",
+      "sociology": "Marketplace experiments affect both sides at once, so a change for riders alters drivers' earnings and behavior. Network interference is a social effect that simple user-level A/B tests miss.",
+      "firstPrinciplesContrarian": "Most of the value in experimentation comes from killing ideas cheaply, not from optimizing winners. A team that runs many small tests learns faster than one that runs a few perfect ones.",
+      "personalConnection": "Carbon Robotics tested the weed-finding network on a push cart before any vehicle, a pretotype of the full machine. Enterprise AI and PranaScan teams can fake-door a premium feature or Wizard-of-Oz an AI workflow with humans before paying GPU inference costs to automate it.",
+      "antiPattern": "Running a test with no hypothesis, no success line and no kill switch, then reading whatever the data shows as a win. Write the decision rule first."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "qm500-01-hypothesis-testing-regression",
+        "relationship": "builds-on",
+        "question": "How do significance, power and regression separate signal from noise in product tests?"
+      },
+      {
+        "targetId": "op502-03-variability-queueing-pooling",
+        "relationship": "applied-in",
+        "question": "How do wait-time experiments in a marketplace trade efficiency against cancellations?"
+      },
+      {
+        "targetId": "e510-02-hypothesis-driven-mvp-sequencing",
+        "relationship": "builds-on",
+        "question": "Which MVP in the sequence does this experiment test?"
+      },
+      {
+        "targetId": "mk554-04-pricing-wtp-packaging",
+        "relationship": "applied-in",
+        "question": "How do you test willingness to pay without relying on what customers say?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative ride-sharing wait-time test",
+      "prompt": "A ride-sharing team ran a switchback test of 2-minute versus 5-minute rider waits. Longer waits cut cost per ride but raised cancellations. A citywide experiment is under a five-week data freeze, and one PM estimates that waiting costs 1.6 million dollars. Do you change the wait time now?",
+      "cfoAnswer": "Compare the cost of waiting with the value of clean data. Changing mid-freeze contaminates the citywide test, which is the only way to measure the market-level effect, and the switchback result alone does not capture cancellations' long-run effect on rider retention. Unless the 1.6 million estimate is solid and the citywide test cannot be rerun, hold the freeze and decide with both results.",
+      "keyTakeaway": "Protect the experiment that answers the big question, even when a smaller test tempts you to act."
+    },
+    "sources": [
+      "[Foster: MKTG 554] Class 2, the four big risks, fake door and Wizard of Oz tests",
+      "[Foster: MKTG 554] Class 3, Savoia's XYZ hypotheses, metrics and cohorts, and the pretotyping quick reference",
+      "[Elite MBA: Harvard Business School] Innovation at Uber: The Launch of Express POOL (HBS 9-619-003)",
+      "[Elite MBA: Stanford] Savoia, The Right It, and Osterwalder and Bland, Testing Business Ideas"
+    ]
+  },
+  {
+    "id": "mk554-04-pricing-wtp-packaging",
+    "pillarId": "P4",
+    "courseCode": "MKTG 554",
+    "title": "Pricing Strategy: Willingness to Pay, Good-Better-Best and Value over Cost-Plus",
+    "difficulty": "intermediate",
+    "tags": [
+      "pricing",
+      "willingness-to-pay",
+      "packaging",
+      "go-to-market"
+    ],
+    "hook10k": "Price is the strongest profit lever a product team has, because a small price change on steady volume moves profit far more than the same change in volume. Test willingness to pay before you build, price against the customer's value and alternatives rather than your cost, and use good-better-best tiers instead of discounting when sales disappoint.",
+    "pareto20_80": {
+      "summary": "Pricing combines a structure (per use, per seat, tiered, freemium) with a price point, and both should be set early. Van Westendorp questions and conjoint studies estimate willingness to pay, good-better-best packaging lets the cheapest tier anchor the others, and value-based pricing beats cost-plus because customers compare you with their alternatives, not your costs.",
+      "keyPoints": [
+        "A 1% price cut on a product with 15% margin needs about 7% more volume just to keep profit flat.",
+        "Feature shock overprices a bloated product, such as the Amazon Fire Phone write-down, while minivation underprices a hit and leaves money on the table.",
+        "Van Westendorp asks at what price a product is too cheap, a bargain, getting expensive and too expensive, which is still say evidence.",
+        "When sales disappoint, add a cheaper basic version rather than cutting the main price.",
+        "Positioning names the target, the need, the category, the key benefit and the alternative, and go-to-market sequences segments and channels."
+      ],
+      "formulas": [
+        {
+          "name": "Volume to offset a price cut",
+          "expression": "Required volume change = −ΔP ÷ (margin + ΔP), using unit margin as a share of price"
+        },
+        {
+          "name": "Value-based ceiling",
+          "expression": "Max price = value of next-best alternative + value of differentiation"
+        },
+        {
+          "name": "Profit sensitivity",
+          "expression": "%Δprofit from +1% price ≈ 1 ÷ operating margin"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most start-ups set price by copying a competitor or adding a margin to cost, then struggle to raise it later.",
+      "An analysis of large firms found a 1% price improvement lifted operating profit about 12% on average, far more than equal gains in volume or cost."
+    ],
+    "lenses": {
+      "history": "Peter Drucker warned that low prices and high profits rarely come together, and Simon-Kucher's work, popularized in Monetizing Innovation, pushed teams to design products around price. Van Westendorp introduced his price sensitivity meter in 1976.",
+      "economics": "With fixed costs and a given margin, a price change flows almost entirely to profit, so the percentage effect on profit is roughly one over the operating margin. Willingness to pay, not cost, sets the ceiling, and cost only sets the floor.",
+      "behavioralScience": "Customers judge price against reference points, so the cheapest tier anchors the value of the better tiers and the top tier makes the middle look reasonable. Asking whether someone likes a product at 20 dollars changes the conversation compared with asking if they like it.",
+      "marketingNarrative": "Price is part of the story: a premium price signals quality and a free tier signals low commitment. Positioning against a named alternative tells customers what to compare the price to.",
+      "sociology": "B2B buying involves several roles, each with its own view of value, so messaging and price metrics must make sense to the user, the buyer and finance. Consumer prices spread through social comparison, which makes visible price changes risky.",
+      "firstPrinciplesContrarian": "Cutting price to win sales is usually the worst lever, because rivals follow and margin is gone. Packaging, a new low tier or a better value metric often grows revenue without touching the headline price.",
+      "personalConnection": "Carbon Robotics priced the LaserWeeder against per-acre weeding cost and payback, letting Paul Mikesell raise price as the machine improved. Enterprise AI pricing faces GPU inference costs that fall over time, so per-seat or outcome pricing set from customer value can widen margins while PranaScan tests consumer versus B2B price structures.",
+      "antiPattern": "Setting price as cost plus a fixed markup, then cutting it when sales are slow. Test willingness to pay early, price on value and add tiers instead of discounts."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a501-02-contribution-margin-breakeven",
+        "relationship": "builds-on",
+        "question": "How much more volume does a price cut need to keep contribution flat?"
+      },
+      {
+        "targetId": "e579-02-value-proposition-ecosystem-map",
+        "relationship": "builds-on",
+        "question": "How does the quantified value proposition set the price ceiling?"
+      },
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "builds-on",
+        "question": "How does price elasticity decide whether a price increase grows profit?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "drives",
+        "question": "How does a price change flow into LTV, CAC payback and value capture?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative B2B software price cut",
+      "prompt": "A software package sells for 1,000 dollars with a variable cost of 850 dollars, earning 150 dollars per unit. Sales wants a 1% price cut to hit the quarter. How many more units are needed to keep a 100 thousand dollar profit target?",
+      "cfoAnswer": "At 1,000 dollars the company needs 667 units for 100 thousand dollars of profit. At 990 dollars the margin falls to 140 dollars, so it needs 714 units, about 7% more volume, for a 1% price cut. Unless demand is very elastic, the cut destroys profit. Offer a lower-priced basic tier or a time-bound bundle instead of cutting the main price.",
+      "keyTakeaway": "A small price cut needs a large volume gain just to stand still."
+    },
+    "sources": [
+      "[Foster: MKTG 554] Class 8, pricing and go-to-market",
+      "[Elite MBA: Stanford] Ramanujam and Tacke, Monetizing Innovation",
+      "[Foster: ENTRE 510] Session 3, Pandora run-rate economics and pricing options",
+      "[Real 10-K / Case] Amazon 2014 annual report, Fire Phone inventory write-down"
+    ]
+  },
+  {
+    "id": "mk554-05-ai-product-unit-economics-payback",
+    "pillarId": "P4",
+    "courseCode": "MKTG 554",
+    "title": "AI Product Unit Economics: Inference Cost Curves, LTV/CAC, CAC Payback and Customer Payback",
+    "difficulty": "advanced",
+    "tags": [
+      "unit-economics",
+      "ai-pricing",
+      "ltv-cac",
+      "payback",
+      "inference-cost"
+    ],
+    "hook10k": "An AI product has software-like pricing but a real cost to serve every request, so gross margin depends on inference cost that falls each year and usage that rises with success. The test of the business is two paybacks at once: how fast the vendor earns back the cost of acquiring a customer, and how fast the customer earns back what they pay.",
+    "pareto20_80": {
+      "summary": "Per-account unit economics combine up-front contribution, recurring contribution after serving cost and platform fees, churn and acquisition cost into LTV, LTV/CAC and CAC payback. For AI products, serving cost per account can fall 20 to 30% a year with cheaper GPUs and better models, and value capture, the share of customer value the vendor charges for, shows how much pricing room remains.",
+      "keyPoints": [
+        "LTV is discounted contribution weighted by the probability the customer is still active; with monthly churn c and margin m per month, LTV ≈ m ÷ c before discounting.",
+        "CAC payback is the month when cumulative churn-weighted contribution covers acquisition cost, and an up-front hardware margin can cover CAC at the sale.",
+        "Heuristic benchmarks are LTV/CAC of at least 3 and payback under about 18 months, but they are rules of thumb, not laws.",
+        "Customer payback, the up-front price divided by monthly value minus the monthly fee, decides whether the buyer says yes.",
+        "Value capture below about a third leaves room to raise price as the product proves itself, as Carbon Robotics did."
+      ],
+      "formulas": [
+        {
+          "name": "Lifetime value",
+          "expression": "LTV = Σ_t contribution_t × (1 − churn)^(t−1) ÷ (1 + r)^t"
+        },
+        {
+          "name": "CAC payback",
+          "expression": "Smallest t with upfront contribution + Σ churn-weighted contribution ≥ CAC"
+        },
+        {
+          "name": "Serving cost curve",
+          "expression": "Serving cost_t = serving cost_1 × (1 − annual decline)^((t − 1) ÷ 12)"
+        },
+        {
+          "name": "Customer payback",
+          "expression": "Months = upfront price ÷ (customer monthly value − monthly price)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many AI start-ups report software-like revenue growth while gross margin sits far below software norms because inference costs scale with usage.",
+      "Public companies rarely disclose CAC, churn and payback, so outside analysis of AI unit economics relies on illustrative assumptions like those in the Lab #5 presets."
+    ],
+    "lenses": {
+      "history": "SaaS investors popularized LTV/CAC and payback in the 2000s, and Eisenmann's business model note wrote the LTV formula with churn and a discount rate for start-ups. Generative AI from 2022 reintroduced meaningful cost of goods to software, reviving gross-margin analysis.",
+      "economics": "Falling serving cost raises lifetime contribution even at a fixed price, so a product that looks marginal in year one can be strong by year three. Platform fees on consumer app stores take a fixed share of revenue and cut margin more than most founders model.",
+      "behavioralScience": "Buyers anchor on the payback they can feel, so an up-front price with a clear payback in under a year or three years sells better than an abstract ROI. Monthly subscriptions reduce the up-front loss that loss-averse customers resist.",
+      "marketingNarrative": "The pricing story should match the value metric customers understand, such as acres weeded, scans run or tickets resolved. A price tied to customer outcomes makes later price increases easier to justify.",
+      "sociology": null,
+      "firstPrinciplesContrarian": "The vendor's ratios can look healthy while the customer's payback is poor, and that business will stall at renewal. Model the customer's side first, then check your own margin and payback.",
+      "personalConnection": "Lab #5 runs the Carbon Robotics seed-plan economics from Paul Mikesell's talk next to illustrative PranaScan B2C and B2B and enterprise AI SaaS presets, so you can see which input moves LTV/CAC most. For enterprise AI built on hyperscaler GPUs, the key inputs are serving cost per account and its annual decline, which decide gross margin as usage grows.",
+      "antiPattern": "Reporting LTV/CAC from a churn rate measured over two months, or ignoring serving cost and platform fees in contribution. Use measured churn, full cost to serve and the customer's payback."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "a500-03-income-statement-gross-margin",
+        "relationship": "builds-on",
+        "question": "How does inference cost in COGS change an AI product's gross margin?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "builds-on",
+        "question": "How does adding serving cost decline and customer payback extend the LTV/CAC model?"
+      },
+      {
+        "targetId": "f502-01-tvm-npv-irr",
+        "relationship": "builds-on",
+        "question": "Why does LTV discount future contribution like an NPV?"
+      },
+      {
+        "targetId": "e532-03-mikesell-deep-tech-risk-retirement",
+        "relationship": "applied-in",
+        "question": "How do Carbon Robotics' COGS, price and farm payback fit the per-account model?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative enterprise AI SaaS account",
+      "prompt": "An enterprise AI product charges 12 thousand dollars to set up and 5,000 dollars a month. Setup costs 9,000 dollars, serving costs 1,500 dollars a month and falls 30% a year, CAC is 55 thousand dollars and monthly churn is 1%. The customer gains about 18 thousand dollars a month. Is this a good business?",
+      "cfoAnswer": "Recurring margin is 70% in month one, rising as serving costs fall. With a 12% discount rate over 60 months, LTV is about 150 thousand dollars, so LTV/CAC is about 2.7, just under the 3x heuristic, and churn-adjusted CAC payback is about 15 months. The customer pays back the setup fee in under a month and the vendor captures only about 29% of the value created, so raising the monthly price to about 5,400 dollars reaches 3x while keeping customer payback fast.",
+      "keyTakeaway": "When the customer's payback is fast and value capture is low, fix your own ratios with price, not discounts."
+    },
+    "sources": [
+      "[Foster: MKTG 554] Class 8, pricing structures and value-based pricing",
+      "[Foster: ENTRE 510] Business Model Analysis for Entrepreneurs (HBS 812-096), LTV and maximum CAC appendix",
+      "[Foster: ENTRE 557] Unit economics, LTV, CAC and payback session",
+      "[Real 10-K / Case] Paul Mikesell talk, Carbon Robotics COGS, price and farm ROI slides (non-confidential section)"
+    ]
+  }
+]

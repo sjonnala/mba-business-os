@@ -755,7 +755,7 @@
         "question": "How do term sheet provisions change the economic meaning of a headline valuation?"
       },
       {
-        "targetId": "ENTRE510",
+        "targetId": "e510-01-entrepreneurial-strategy-compass",
         "relationship": "applied-in",
         "question": "How does the startup's strategy shape the exit value assumed in the VC method?"
       }
@@ -840,7 +840,7 @@
         "question": "How do converted SAFE holders rank in the liquidation preference stack?"
       },
       {
-        "targetId": "ENTRE532",
+        "targetId": "e532-02-seed-memo-terms-that-matter",
         "relationship": "applied-in",
         "question": "When should a software founder choose a SAFE over a priced seed round?"
       }
@@ -1016,9 +1016,9 @@
         "question": "How does CAC payback determine how much cash growth consumes?"
       },
       {
-        "targetId": "MKTG554",
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
         "relationship": "applied-in",
-        "question": "How do pricing and packaging decisions change LTV and churn?"
+        "question": "How do AI serving-cost curves and pricing change LTV, CAC payback and churn?"
       }
     ],
     "boardroomDrill": {
@@ -1101,9 +1101,9 @@
         "question": "How are bridge rounds usually structured as notes or SAFEs?"
       },
       {
-        "targetId": "ENTRE532",
+        "targetId": "e532-04-saas-financial-model-assumptions",
         "relationship": "applied-in",
-        "question": "How should a software founder decide between cutting burn and raising a bridge?"
+        "question": "How deep is the cash trough in the operating plan, and should the founder cut burn or raise a bridge?"
       }
     ],
     "boardroomDrill": {
