@@ -11,9 +11,12 @@ interface ConceptDrawerProps {
   onNavigate: (id: string) => void;
   onLogRoutine: (id: string) => void;
   onClose: () => void;
+  /** When the concept was opened from a course or pillar overview: a link back to it. */
+  backLabel?: string;
+  onBack?: () => void;
 }
 
-export function ConceptDrawer({ concept, level, onToggleMastery, onNavigate, onLogRoutine, onClose }: ConceptDrawerProps) {
+export function ConceptDrawer({ concept, level, onToggleMastery, onNavigate, onLogRoutine, onClose, backLabel, onBack }: ConceptDrawerProps) {
   const [lens, setLens] = useState<LensKey | 'all'>('all');
   const [revealed, setRevealed] = useState(false);
 
@@ -29,6 +32,11 @@ export function ConceptDrawer({ concept, level, onToggleMastery, onNavigate, onL
 
   return (
     <aside className="drawer" aria-label={`Concept: ${concept.title}`}>
+      {backLabel && onBack && (
+        <button type="button" className="link back-link" onClick={onBack}>
+          ← {backLabel}
+        </button>
+      )}
       <header className="drawer-head">
         <div>
           <p className="eyebrow">
