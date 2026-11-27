@@ -9,23 +9,24 @@ Waves: M1 ACCTG 500 (15 concepts) · M2 ACCTG 501 and Pillar 2 Finance, Valuatio
 Needs Node 20 or later (CI uses Node 22) and git.
 
 ```bash
-git clone -b feat/wave-m7-gsb-and-econ-gap-pack https://github.com/sjonnala/mba-business-os.git && cd mba-business-os
+git clone https://github.com/sjonnala/mba-business-os.git && cd mba-business-os
 npm install
 npm run dev
 ```
 
-Open the local address Vite prints (usually http://localhost:5173). Once PRs #1–#6 are merged, drop `-b feat/wave-m6-mindmap-ux-polish` and clone `main`.
+Open the local address Vite prints (usually http://localhost:5173).
 
-### Branches and merge order
+### Wave history
 
-The six waves are stacked draft PRs, each based on the one before it, so the Wave M6 branch already contains every wave. To preview everything, check out that one branch (the quickstart does this). To land them on `main`, merge in order and retarget each next PR to `main` after its base merges (GitHub does this automatically when the merged branch is deleted):
+All seven waves are merged into `main`, so cloning `main` gets everything: 99 concepts, 59 Case Gym drills and 204 Vitest tests. They landed in order as PRs #1 to #7, each with a merge commit:
 
-1. PR #1 `feat/portal-scaffold-and-acctg500` → `main` (Wave M1)
+1. PR #1 `feat/portal-scaffold-and-acctg500` (Wave M1)
 2. PR #2 `feat/wave-m2-managerial-acctg-and-finance-vc` (Wave M2)
 3. PR #3 `feat/wave-m3-strategy-econ-ops-qmeth` (Wave M3)
 4. PR #4 `feat/wave-m4-entre-pm-and-mikesell-playbook` (Wave M4)
 5. PR #5 `feat/wave-m5-pillar5-case-gym-and-pages` (Wave M5)
 6. PR #6 `feat/wave-m6-mindmap-ux-polish` (Wave M6, mind-map navigation polish)
+7. PR #7 `feat/wave-m7-gsb-and-econ-gap-pack` (Wave M7, GSB + Economics gap pack)
 
 ## Architecture
 
