@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import rawA500 from '../data/pillar-1a-acctg500-financial.json';
 import rawA501 from '../data/pillar-1b-acctg501-managerial.json';
 import rawP2 from '../data/pillar-2-fin502-entre557-entre542.json';
+import rawP3 from '../data/pillar-3-econ-mgmt502-ops-qmeth.json';
 import {
   LENS_KEYS,
   countSentences,
@@ -13,6 +14,13 @@ const FILES = [
   { name: 'pillar-1a (ACCTG 500)', raw: rawA500, count: 15, pillar: 'P1', courses: ['ACCTG 500'] },
   { name: 'pillar-1b (ACCTG 501)', raw: rawA501, count: 10, pillar: 'P1', courses: ['ACCTG 501'] },
   { name: 'pillar-2 (FIN 502, ENTRE 557, ENTRE 542)', raw: rawP2, count: 14, pillar: 'P2', courses: ['FIN 502', 'ENTRE 557', 'ENTRE 542'] },
+  {
+    name: 'pillar-3 (B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501, I S 500)',
+    raw: rawP3,
+    count: 18,
+    pillar: 'P3',
+    courses: ['B ECON 500', 'B ECON 501', 'MGMT 502', 'OPMGT 502', 'QMETH 500', 'QMETH 501', 'I S 500'],
+  },
 ] as const;
 
 describe.each(FILES)('concept JSON schema: $name', ({ raw, count, pillar, courses }) => {
@@ -76,6 +84,33 @@ describe('Wave M2 cross-pillar wiring', () => {
     expect(p2.filter((id) => id.startsWith('a500-')).length).toBeGreaterThanOrEqual(5);
     expect(p2.filter((id) => id.startsWith('a501-')).length).toBeGreaterThanOrEqual(2);
     expect(a501.filter((id) => /^(f502|e557|e542)-/.test(id)).length).toBeGreaterThanOrEqual(4);
+  });
+});
+
+describe('Wave M3 cross-pillar wiring', () => {
+  const p3 = parseConcepts(rawP3);
+  const targets = p3.flatMap((n) => n.threadsToPull.map((t) => t.targetId));
+
+  it('links every Pillar 3 node outside its own course, to Pillar 1, Pillar 2 or a future course', () => {
+    for (const n of p3) {
+      const ownCourse = n.id.split('-')[0];
+      expect(n.threadsToPull.some((t) => !t.targetId.startsWith(`${ownCourse}-`)), n.id).toBe(true);
+      expect(n.threadsToPull.some((t) => /^(a500|a501|f502|e557|e542)-/.test(t.targetId) || /^[A-Z]/.test(t.targetId)), n.id).toBe(true);
+    }
+  });
+
+  it('wires Pillar 3 back into ACCTG 500, ACCTG 501 and Pillar 2', () => {
+    expect(targets.filter((id) => id.startsWith('a500-')).length).toBeGreaterThanOrEqual(3);
+    expect(targets.filter((id) => id.startsWith('a501-')).length).toBeGreaterThanOrEqual(10);
+    expect(targets.filter((id) => /^(f502|e557|e542)-/.test(id)).length).toBeGreaterThanOrEqual(10);
+    expect(p3.filter((n) => n.threadsToPull.some((t) => /^(a500|a501|f502|e557|e542)-/.test(t.targetId)))).toHaveLength(18);
+  });
+
+  it('connects strategy, operations and analytics inside Pillar 3', () => {
+    expect(targets.filter((id) => id.startsWith('m502-')).length).toBeGreaterThanOrEqual(8);
+    expect(targets.filter((id) => id.startsWith('op502-')).length).toBeGreaterThanOrEqual(8);
+    expect(targets).toContain('qm500-01-hypothesis-testing-regression');
+    expect(targets).toContain('is500-01-sql-data-quality-decisions');
   });
 });
 
