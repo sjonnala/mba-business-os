@@ -67,7 +67,7 @@
         "question": "How does a price change flow through to contribution margin and LTV?"
       },
       {
-        "targetId": "MKTG501",
+        "targetId": "mk501-04-value-based-pricing-price-communication",
         "relationship": "applied-in",
         "question": "How will marketing research measure willingness to pay for a new product?"
       }
@@ -726,7 +726,7 @@
         "question": "How do you value synergies with a DCF before setting a bid?"
       },
       {
-        "targetId": "MGMT504",
+        "targetId": "m500-03-culture-schein-leading-change",
         "relationship": "foundation-for",
         "question": "How do leadership and culture decide whether a merger integration succeeds?"
       }

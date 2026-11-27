@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CapTableLab } from './components/CapTableLab';
+import { CaseGym } from './components/CaseGym';
 import { OpsBottleneckLab } from './components/OpsBottleneckLab';
 import { UnitEconomicsLab } from './components/UnitEconomicsLab';
 import { ConceptDrawer } from './components/ConceptDrawer';
@@ -7,12 +8,16 @@ import { DcfStudio } from './components/DcfStudio';
 import { LinkerSandbox } from './components/LinkerSandbox';
 import { MindMap } from './components/MindMap';
 import { RoutineScratchpad } from './components/RoutineScratchpad';
+import { DRILLS } from './data/caseGym';
 import { conceptById } from './data/graph';
+import { schedule, type Grade, type GymProgress } from './lib/caseGym';
 import {
+  loadGymProgress,
   loadMastery,
   loadRoutine,
   loadTheme,
   nextMastery,
+  saveGymProgress,
   saveMastery,
   saveRoutine,
   saveTheme,
@@ -22,10 +27,11 @@ import {
   type Theme,
 } from './lib/storage';
 
-type Tab = 'map' | 'linker' | 'dcf' | 'captable' | 'ops' | 'unitecon' | 'routine';
+type Tab = 'map' | 'gym' | 'linker' | 'dcf' | 'captable' | 'ops' | 'unitecon' | 'routine';
 
 const TABS: { id: Tab; label: string }[] = [
   { id: 'map', label: 'Mind map' },
+  { id: 'gym', label: 'Case gym' },
   { id: 'linker', label: '3-statement linker' },
   { id: 'dcf', label: 'DCF & WACC studio' },
   { id: 'captable', label: 'Cap table lab' },
@@ -47,6 +53,7 @@ export function App() {
   const [theme, setTheme] = useState<Theme>(() => loadTheme() ?? systemTheme());
   const [mastery, setMastery] = useState<MasteryMap>(() => loadMastery());
   const [routine, setRoutine] = useState<RoutineEntry[]>(() => loadRoutine());
+  const [gym, setGym] = useState<GymProgress>(() => loadGymProgress());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [routineConcept, setRoutineConcept] = useState<string | null>(null);
 
@@ -84,6 +91,19 @@ export function App() {
     });
   };
 
+  const gradeDrill = (drillId: string, grade: Grade) => {
+    setGym((prev) => {
+      const next = { ...prev, [drillId]: schedule(prev[drillId], grade, Date.now()) };
+      saveGymProgress(next);
+      return next;
+    });
+  };
+
+  const openConcept = (conceptId: string) => {
+    setSelectedId(conceptId);
+    setTab('map');
+  };
+
   const closeDrawer = useCallback(() => setSelectedId(null), []);
   const selected = selectedId ? conceptById(selectedId) : undefined;
 
@@ -91,7 +111,7 @@ export function App() {
     <div className="app">
       <header className="masthead">
         <div>
-          <p className="eyebrow">Wave M4 · Pillars 1-4 · Accounting, Finance & VC, Strategy, Economics, Operations, Analytics, Entrepreneurship & Product</p>
+          <p className="eyebrow">Wave M5 · Pillars 1-5 · 22 courses · Accounting, Finance & VC, Strategy & Operations, Entrepreneurship & Product, Marketing, Leadership & Governance</p>
           <h1>MBA Business OS</h1>
         </div>
         <nav className="tabs" aria-label="Views">
@@ -108,6 +128,7 @@ export function App() {
 
       <main className={selected && tab === 'map' ? 'with-drawer' : undefined}>
         {tab === 'map' && <MindMap mastery={mastery} selectedId={selectedId} onSelectConcept={setSelectedId} />}
+        {tab === 'gym' && <CaseGym drills={DRILLS} progress={gym} onGrade={gradeDrill} onOpenConcept={openConcept} />}
         {tab === 'linker' && <LinkerSandbox />}
         {tab === 'dcf' && <DcfStudio />}
         {tab === 'captable' && <CapTableLab />}
@@ -133,7 +154,7 @@ export function App() {
       </main>
 
       <footer className="colophon">
-        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502, ENTRE 557/542, B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501, I S 500, ENTRE 510/532/579 and MKTG 554 materials; verify current filings before relying on
+        Figures marked illustrative are teaching numbers. Case figures come from UW Foster ACCTG 500/501, FIN 502, ENTRE 557/542, B ECON 500/501, MGMT 502, OPMGT 502, QMETH 500/501, I S 500, ENTRE 510/532/579, MKTG 554, MKTG 501, MGMT 500/504/550 materials, plus public records for MKTG 600 and MGMT 510 / B CMU 501 themes; verify current filings before relying on
         them.
       </footer>
     </div>

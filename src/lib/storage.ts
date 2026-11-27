@@ -3,6 +3,8 @@
  * throw (private windows, blocked site data); the app keeps working in memory when it does.
  */
 
+import { isCardState, type GymProgress } from './caseGym';
+
 export const MASTERY_LEVELS = ['new', 'reviewed', 'mastered'] as const;
 export type MasteryLevel = (typeof MASTERY_LEVELS)[number];
 export type MasteryMap = Record<string, MasteryLevel>;
@@ -27,6 +29,7 @@ export const STORAGE_KEYS = {
   mastery: 'mba-os:mastery:v1',
   routine: 'mba-os:routine:v1',
   theme: 'mba-os:theme:v1',
+  gym: 'mba-os:case-gym:v1',
 } as const;
 
 export interface KeyValueStore {
@@ -107,4 +110,17 @@ export function saveTheme(theme: Theme, store: KeyValueStore | null = defaultSto
 
 export function nextMastery(level: MasteryLevel | undefined, target: Exclude<MasteryLevel, 'new'>): MasteryLevel {
   return level === target ? 'new' : target;
+}
+
+export function loadGymProgress(store: KeyValueStore | null = defaultStore()): GymProgress {
+  const raw = readJson(STORAGE_KEYS.gym, store);
+  const out: GymProgress = {};
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+    for (const [k, v] of Object.entries(raw)) if (isCardState(v)) out[k] = v;
+  }
+  return out;
+}
+
+export function saveGymProgress(progress: GymProgress, store: KeyValueStore | null = defaultStore()): boolean {
+  return writeJson(STORAGE_KEYS.gym, progress, store);
 }

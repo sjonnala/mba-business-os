@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "check:any": "node scripts/check-no-any.mjs",
+    "verify": "npm run typecheck && npm test && npm run build && npm run check:any"
   },
   "dependencies": {
     "react": "19.1.10",

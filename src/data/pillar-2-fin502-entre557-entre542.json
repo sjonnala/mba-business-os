@@ -499,7 +499,7 @@
         "question": "Why should reinvestment come first when incremental ROIC exceeds WACC?"
       },
       {
-        "targetId": "MGMT550",
+        "targetId": "m550-04-ceo-succession-activism",
         "relationship": "applied-in",
         "question": "How should a board decide between buybacks, dividends and acquisitions?"
       }
@@ -930,7 +930,7 @@
         "question": "How does an acquisition price flow through the liquidation waterfall to each class?"
       },
       {
-        "targetId": "MGMT550",
+        "targetId": "m550-02-dual-class-control-related-party",
         "relationship": "applied-in",
         "question": "How do venture board seats and protective provisions shape governance?"
       }
