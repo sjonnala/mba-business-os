@@ -16,7 +16,7 @@ describe('catalog', () => {
     for (const c of COURSES) expect(ids.has(c.pillarId)).toBe(true);
   });
 
-  it('has all 22 courses live after Wave M5, with 90 concepts', () => {
+  it('has all 22 courses live, with 99 concepts after the Wave M7 gap pack', () => {
     expect(COURSES.filter((c) => c.status === 'live').map((c) => c.code)).toEqual([
       'ACCTG 500', 'ACCTG 501', 'FIN 502', 'ENTRE 557', 'ENTRE 542',
       'B ECON 500', 'B ECON 501', 'MGMT 502', 'OPMGT 502', 'QMETH 500', 'QMETH 501', 'I S 500',
@@ -25,14 +25,19 @@ describe('catalog', () => {
     ]);
     expect(CONCEPTS.filter((c) => c.courseCode === 'ACCTG 500')).toHaveLength(15);
     expect(CONCEPTS.filter((c) => c.courseCode === 'ACCTG 501')).toHaveLength(10);
-    expect(CONCEPTS.filter((c) => c.pillarId === 'P2')).toHaveLength(14);
-    expect(CONCEPTS.filter((c) => c.pillarId === 'P3')).toHaveLength(18);
+    expect(CONCEPTS.filter((c) => c.pillarId === 'P2')).toHaveLength(16);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'FIN 502')).toHaveLength(10);
+    expect(CONCEPTS.filter((c) => c.pillarId === 'P3')).toHaveLength(23);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'B ECON 500')).toHaveLength(4);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'B ECON 501')).toHaveLength(5);
     expect(CONCEPTS.filter((c) => c.courseCode === 'MGMT 502')).toHaveLength(7);
     expect(CONCEPTS.filter((c) => c.pillarId === 'P4')).toHaveLength(16);
     expect(CONCEPTS.filter((c) => c.courseCode === 'MKTG 554')).toHaveLength(5);
-    expect(CONCEPTS.filter((c) => c.pillarId === 'P5')).toHaveLength(17);
+    expect(CONCEPTS.filter((c) => c.pillarId === 'P5')).toHaveLength(19);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'MKTG 501')).toHaveLength(5);
+    expect(CONCEPTS.filter((c) => c.courseCode === 'MGMT 500')).toHaveLength(4);
     expect(CONCEPTS.filter((c) => c.courseCode === 'MGMT 550')).toHaveLength(4);
-    expect(CONCEPTS).toHaveLength(90);
+    expect(CONCEPTS).toHaveLength(99);
   });
 
   it('has a live concept under every live course and none under coming courses', () => {
@@ -57,17 +62,18 @@ describe('catalog', () => {
 });
 
 describe('mind map layout', () => {
-  it('places root, 5 pillars, 22 courses and 90 concepts', () => {
+  it('places root, 5 pillars, 22 courses and 99 concepts', () => {
     const layout = layoutMindMap(PILLARS, COURSES, CONCEPTS);
     const count = (k: string) => layout.nodes.filter((n) => n.kind === k).length;
-    expect([count('root'), count('pillar'), count('course'), count('concept')]).toEqual([1, 5, 22, 90]);
+    expect([count('root'), count('pillar'), count('course'), count('concept')]).toEqual([1, 5, 22, 99]);
     for (const n of layout.nodes) if (n.parentId) expect(layout.byId.has(n.parentId)).toBe(true);
   });
 
   it('keeps concept fans apart and ACCTG 500 at the top', () => {
     const layout = layoutMindMap(PILLARS, COURSES, CONCEPTS);
     const angles = layout.nodes.filter((n) => n.kind === 'concept').map((n) => n.angle).sort((a, b) => a - b);
-    // Neighbouring concept dots stay at least 45px apart along the outer ring (about 3.8 degrees at r = 680, with 90 concepts at 4 degrees each).
+    // Neighbouring concept dots stay at least 45px apart along the outer ring. With 99 concepts each gets 360 / 99 ≈ 3.64 degrees,
+    // so Wave M7 moves the ring from r = 680 (≈ 43px, too tight) to r = 740 (≈ 47px).
     const minArc = (deg: number) => (deg * Math.PI * RADII.concept) / 180;
     for (let i = 1; i < angles.length; i += 1) expect(minArc((angles[i] ?? 0) - (angles[i - 1] ?? 0))).toBeGreaterThan(45);
     expect((angles[angles.length - 1] ?? 0) - (angles[0] ?? 0)).toBeLessThan(360);

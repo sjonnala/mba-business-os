@@ -18,7 +18,7 @@ export interface MapLayout {
   byId: Map<string, MapNode>;
 }
 
-export const RADII = { pillar: 175, course: 350, concept: 680 } as const;
+export const RADII = { pillar: 175, course: 350, concept: 740 } as const;
 
 function polar(r: number, deg: number): { x: number; y: number } {
   const rad = (deg * Math.PI) / 180;

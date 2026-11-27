@@ -155,6 +155,11 @@
         "targetId": "be500-01-elasticity-pricing-power",
         "relationship": "contrasts-with",
         "question": "How does the markup over marginal cost depend on how customers respond to price?"
+      },
+      {
+        "targetId": "be500-03-labor-economics-mrp-ai-automation",
+        "relationship": "foundation-for",
+        "question": "How does diminishing marginal product of labor set the point where hiring stops?"
       }
     ],
     "boardroomDrill": {
@@ -167,6 +172,191 @@
       "[Foster: B ECON 500] Production and cost spreadsheet on programmers and lines of code",
       "[Foster: B ECON 500] Business economics sessions on short-run cost curves",
       "[Elite MBA: MIT Sloan] Brooks, The Mythical Man-Month, on adding people to late projects"
+    ]
+  },
+  {
+    "id": "be500-03-labor-economics-mrp-ai-automation",
+    "pillarId": "P3",
+    "courseCode": "B ECON 500",
+    "title": "Labor Economics, Marginal Revenue Product and AI Automation",
+    "difficulty": "intermediate",
+    "tags": [
+      "labor economics",
+      "marginal revenue product",
+      "unemployment",
+      "automation",
+      "AI agents"
+    ],
+    "hook10k": "A firm hires one more person only while the revenue that person adds is worth more than what they cost. AI agents change that math by lowering the cost of some tasks to near zero, so the real question is which tasks get automated and which people get more productive.",
+    "pareto20_80": {
+      "summary": "Labor demand comes from marginal revenue product: the extra output a worker adds times the price it sells for. Wages, unemployment types, minimum wage rules and pay ratios all follow from how that product compares with the cost of labor and its substitutes, including software and AI.",
+      "keyPoints": [
+        "Hire until marginal revenue product equals the wage; automate a task when its machine cost per unit falls below the labor cost per unit.",
+        "Labor supply can bend backward: at high wages some people choose more leisure, so higher pay does not always buy more hours.",
+        "Frictional, structural, cyclical and seasonal unemployment have different causes and different fixes; AI mostly raises structural risk for routine tasks.",
+        "Automation substitutes for workers on routine tasks and complements them on judgment tasks, so the same tool can replace one role and raise the value of another.",
+        "Minimum wage effects depend on how much market power employers have; evidence ranges from small job losses to none at moderate levels."
+      ],
+      "formulas": [
+        {
+          "name": "Marginal revenue product",
+          "expression": "MRP_L = MP_L × MR"
+        },
+        {
+          "name": "Hiring rule",
+          "expression": "Hire while MRP_L ≥ W (wage plus benefits)"
+        },
+        {
+          "name": "Automation threshold",
+          "expression": "Automate task if (tool cost + oversight cost) per unit < W / units per hour"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Most jobs are bundles of tasks, so AI usually removes some tasks from a role before it removes the role, and headcount plans built on whole-job replacement overshoot.",
+      "Retraining displaced workers takes years and often fails without employer involvement, which is why structural unemployment lingers after a technology shift."
+    ],
+    "lenses": {
+      "history": "The Luddites smashed textile machines in the 1810s, yet employment eventually grew as cheaper cloth expanded demand. Card and Krueger's 1994 study of New Jersey fast-food restaurants found no clear job loss from a minimum wage rise and reopened the debate.",
+      "economics": "When software lowers the cost of a task, demand for that task's output can rise enough to increase total employment, as spreadsheets did for analysts. Where demand is fixed, the saving shows up as fewer hours, so elasticity of demand decides whether automation adds or cuts jobs.",
+      "behavioralScience": "Workers judge pay against peers and against their own past, so a pay cut feels worse than a smaller raise of the same size. Managers also overestimate how much a new tool will save because they picture the demo, not the exceptions.",
+      "marketingNarrative": "Vendors sell AI agents as headcount savings because that number is easy for a CFO to approve. The more honest pitch, and often the more durable one, is output per engineer, since that survives contact with real workflows.",
+      "sociology": "CEO-to-worker pay ratios rose from roughly 20 to 1 in 1965 to roughly 290 to 1 in recent years, by Economic Policy Institute estimates. Large gaps strain perceived fairness inside firms and shape public support for regulation.",
+      "firstPrinciplesContrarian": "If an AI agent makes a senior engineer three times as productive, the firm may want more senior engineers, not fewer. The firms that lose are those that cut the juniors who would have become the next seniors.",
+      "personalConnection": "In enterprise software teams, coding agents now draft tests and boilerplate, which shifts senior engineers toward design reviews and integration work. For PranaScan, the MRP lens says to automate signal-quality triage first, where volume is high and errors are cheap to catch, and keep clinical judgment human.",
+      "antiPattern": "Announcing headcount cuts based on a pilot before measuring error rates and review time. Measure output per person and quality for a quarter, then decide whether to redeploy or reduce."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be500-02-marginal-cost-diminishing-returns",
+        "relationship": "builds-on",
+        "question": "How does diminishing marginal product shape the hiring curve?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "applied-in",
+        "question": "Which costs are relevant when deciding to automate a task rather than staff it?"
+      },
+      {
+        "targetId": "mk554-05-ai-product-unit-economics-payback",
+        "relationship": "measured-by",
+        "question": "How does inference cost per task compare with the labor cost it replaces?"
+      },
+      {
+        "targetId": "m550-03-ceo-pay-say-on-pay-clawbacks",
+        "relationship": "contrasts-with",
+        "question": "How should boards weigh pay ratios when designing CEO incentives?"
+      },
+      {
+        "targetId": "be501-01-gdp-business-cycle-multipliers",
+        "relationship": "foundation-for",
+        "question": "How does cyclical unemployment differ from structural unemployment caused by automation?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative 40-person support team evaluating an AI agent",
+      "prompt": "Support agents cost $70,000 a year fully loaded and resolve 6 tickets an hour. An AI agent resolves 60% of tickets at $0.40 each, but each AI resolution needs 1 minute of human review (illustrative). Should you cut staff, and by how much?",
+      "cfoAnswer": "Human cost per ticket is about $70,000 / 2,000 hours / 6 ≈ $5.80. AI cost per ticket is $0.40 plus one minute of review, about $0.60, so roughly $1.00, a large saving on the 60% it handles. The remaining 40% of tickets plus review time need about half the current hours, so plan for natural attrition and redeployment toward complex accounts rather than an immediate 50% cut, and re-measure after a quarter.",
+      "keyTakeaway": "Automate at the task level using full cost per unit, including human review."
+    },
+    "sources": [
+      "[Foster: B ECON 500] Course scope on labor markets, input demand and marginal product (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Economics curriculum gap map] The Entire Economics Degree in 20 Minutes, labor economics segment",
+      "[Elite MBA: Princeton] Card and Krueger, Minimum Wages and Employment: A Case Study of the Fast-Food Industry, 1994",
+      "[Real 10-K / Case] Economic Policy Institute CEO pay studies (public record); verify the latest ratio before reuse"
+    ]
+  },
+  {
+    "id": "be500-04-behavioral-economics-choice-architecture",
+    "pillarId": "P3",
+    "courseCode": "B ECON 500",
+    "title": "Behavioral Economics and Choice Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "behavioral economics",
+      "loss aversion",
+      "nudges",
+      "defaults",
+      "retention",
+      "pricing pages"
+    ],
+    "hook10k": "People are predictably irrational: losses hurt about twice as much as equal gains, the present looms larger than the future, and the first number they see anchors every number after it. Whoever designs the choice, its default, order and framing, shapes the decision more than the options themselves.",
+    "pareto20_80": {
+      "summary": "Behavioral economics replaces the perfectly rational buyer with a person who uses shortcuts. Six effects explain most product and pricing behavior: loss aversion, hyperbolic discounting, anchoring, the sunk cost fallacy, herding and the power of defaults, which Thaler and Sunstein called nudges.",
+      "keyPoints": [
+        "Loss aversion: frame a downgrade as losing features the user already has, and frame trials as something they will lose.",
+        "Hyperbolic discounting: people overweight today, so make the first step of a healthy habit small and the reward immediate.",
+        "Anchoring: the first price shown sets the reference, which is why pricing pages lead with the premium tier.",
+        "Sunk cost: people keep paying for things because they already paid, which inflates retention metrics without real value.",
+        "Defaults and herding: most people keep the default and copy what others do, so the default setting is the strongest design lever."
+      ],
+      "formulas": [
+        {
+          "name": "Prospect theory value (loss aversion)",
+          "expression": "v(x) = x^α for gains; v(x) = −λ(−x)^β for losses, with λ ≈ 2"
+        },
+        {
+          "name": "Hyperbolic discounting",
+          "expression": "V = A / (1 + kD)"
+        },
+        {
+          "name": "Default lift",
+          "expression": "Opt-in rate (default on) − Opt-in rate (default off)"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Many published nudge effects shrink sharply at scale, so A/B test a nudge in your own product rather than assuming a lab result transfers.",
+      "Dark patterns that exploit these biases, such as hidden cancellation flows, raise short-term retention and now draw regulatory action."
+    ],
+    "lenses": {
+      "history": "Kahneman and Tversky published prospect theory in 1979, and Kahneman received the 2002 Nobel Prize for it. Thaler and Sunstein's 2008 book Nudge brought choice architecture into government policy, and Thaler won the 2017 Nobel Prize.",
+      "economics": "Standard theory says adding options or changing a default should not matter to a rational buyer with stable preferences. The evidence that defaults swing participation from minority to majority shows preferences are partly built at the moment of choice.",
+      "behavioralScience": "Countries with opt-out organ donation defaults show far higher registration than opt-in countries, as Johnson and Goldstein documented in 2003. Save More Tomorrow raised retirement saving by committing workers to raise contributions out of future raises, which uses present bias rather than fighting it.",
+      "marketingNarrative": "A good pricing page tells a story with three tiers: an anchor, a target and a decoy that makes the target look sensible. Copy that names what users would lose by leaving often retains better than copy that lists features.",
+      "sociology": "Herding means visible social proof, such as how many clinics or teams already use a product, often moves adoption more than feature claims. Norms spread through networks, so early adopters in a tight community can tip a whole segment.",
+      "firstPrinciplesContrarian": "The most ethical nudge is one the user would choose if they thought about it, so test nudges by asking whether you would be comfortable explaining them on the screen. A retention gain that disappears once the trick is disclosed was never value.",
+      "personalConnection": "For PranaScan, a daily 30-second scan is a habit that fights present bias, so a default reminder at a time the user already picks and a visible streak tie the habit to an existing routine. In enterprise sales, an annual-plan default with the monthly price shown as the anchor raises prepaid contracts without changing the product.",
+      "antiPattern": "Using sunk cost and friction to block cancellation and calling the result retention. Measure engaged retention, users who still get value, and make leaving as easy as joining."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be500-01-elasticity-pricing-power",
+        "relationship": "contrasts-with",
+        "question": "Where does reference-price anchoring make measured elasticity unreliable?"
+      },
+      {
+        "targetId": "mk554-04-pricing-wtp-packaging",
+        "relationship": "applied-in",
+        "question": "How do anchors and decoys change which tier customers choose?"
+      },
+      {
+        "targetId": "a501-05-relevant-costs-make-vs-buy",
+        "relationship": "contrasts-with",
+        "question": "Why do managers keep funding projects because of sunk costs, and how do relevant costs fix it?"
+      },
+      {
+        "targetId": "e557-12-unit-economics-ltv-cac",
+        "relationship": "drives",
+        "question": "How much does a default or nudge change churn and therefore LTV?"
+      },
+      {
+        "targetId": "m504-03-psychology-ethical-decisions-ai-bias",
+        "relationship": "risk-for",
+        "question": "When does a nudge cross into manipulation, and who decides?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative consumer health app redesigning onboarding",
+      "prompt": "Only 18% of new users turn on daily reminders when the toggle is off by default. A designer proposes switching the default on, and growth wants to add a cancellation survey with five screens (illustrative). The board asks which change you will ship.",
+      "cfoAnswer": "Ship the reminder default with a clear one-tap off switch, because it matches what most users say they want and defaults often move adoption from a minority to a majority. Reject the five-screen cancellation flow: it may cut churn briefly, but it raises complaints, refund requests and regulatory risk. Track 30-day engaged retention, not raw subscriptions, so the team optimizes for real value.",
+      "keyTakeaway": "Use defaults that help users do what they already intend, never friction that traps them."
+    },
+    "sources": [
+      "[Foster: B ECON 500] Course scope on consumer choice and departures from rational choice (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Stanford GSB] Everything I Learned at Stanford Business School in 28 Minutes, decision-making and behavioral segment (gap map source)",
+      "[Elite MBA: Chicago Booth] Thaler and Sunstein, Nudge: Improving Decisions About Health, Wealth, and Happiness, 2008",
+      "[Elite MBA: Stanford] Kahneman and Tversky, Prospect Theory: An Analysis of Decision under Risk, 1979"
     ]
   },
   {
@@ -235,6 +425,11 @@
         "targetId": "a501-01-cost-behavior-operating-leverage",
         "relationship": "risk-for",
         "question": "Why does high operating leverage magnify a recession's hit to profit?"
+      },
+      {
+        "targetId": "be501-04-trade-tariffs-fx-supply-chain",
+        "relationship": "foundation-for",
+        "question": "How do tariffs and currency moves change net exports and the cycle?"
       }
     ],
     "boardroomDrill": {
@@ -320,6 +515,11 @@
         "targetId": "be501-01-gdp-business-cycle-multipliers",
         "relationship": "builds-on",
         "question": "How does the output gap enter the central bank's rate decision?"
+      },
+      {
+        "targetId": "be501-03-money-creation-fractional-reserve-qe",
+        "relationship": "foundation-for",
+        "question": "How do quantitative easing and tightening work alongside the policy rate?"
       }
     ],
     "boardroomDrill": {
@@ -332,6 +532,280 @@
       "[Foster: B ECON 501] Global economic conditions sessions on monetary policy and interest rates",
       "[Foster: B ECON 501] Session materials on automation, labor markets and structural unemployment",
       "[Elite MBA: Stanford GSB] Taylor, Discretion versus policy rules in practice, 1993"
+    ]
+  },
+  {
+    "id": "be501-03-money-creation-fractional-reserve-qe",
+    "pillarId": "P3",
+    "courseCode": "B ECON 501",
+    "title": "Money Creation, Fractional Reserve Banking, QE and Bank Runs",
+    "difficulty": "advanced",
+    "tags": [
+      "money supply",
+      "banking",
+      "quantitative easing",
+      "bank runs",
+      "liquidity",
+      "venture funding"
+    ],
+    "hook10k": "When a bank makes a loan, it creates a new deposit, which means most money in the economy is created by private banks rather than printed by governments. That system works until depositors all want their money at once, and the 2023 run on Silicon Valley Bank showed how fast that can happen to a startup ecosystem.",
+    "pareto20_80": {
+      "summary": "Banks hold only a fraction of deposits as reserves and lend or invest the rest, so they create money and take on liquidity and duration risk. Deposit insurance and central bank lending limit runs, while quantitative easing and tightening change how much liquidity flows into risk assets, including venture capital.",
+      "keyPoints": [
+        "Loans create deposits: lending expands the money supply, and repayment shrinks it.",
+        "A bank funds long-term assets with deposits that can leave overnight, so confidence is part of its balance sheet.",
+        "Deposits above the FDIC limit of $250,000 per depositor per bank are uninsured, which made concentrated startup deposits fragile.",
+        "Quantitative easing buys bonds to push down long yields and fill the system with reserves; quantitative tightening reverses it.",
+        "Easy liquidity lifts valuations and venture fundraising; tightening raises the cost of capital and shortens founders' runway."
+      ],
+      "formulas": [
+        {
+          "name": "Simple money multiplier (textbook)",
+          "expression": "Max deposits = Initial reserves / Reserve ratio"
+        },
+        {
+          "name": "Duration gap",
+          "expression": "Duration gap = D_assets − (Liabilities / Assets) × D_liabilities"
+        },
+        {
+          "name": "Unrealized loss on securities",
+          "expression": "Loss ≈ Portfolio value × D_mod × Δy"
+        }
+      ]
+    },
+    "realityCheck": [
+      "The Federal Reserve cut reserve requirements to zero in March 2020, so the textbook multiplier no longer describes how US banks are constrained; capital and liquidity rules do.",
+      "A bank can be solvent on paper at book value and still fail if depositors run before its long bonds mature."
+    ],
+    "lenses": {
+      "history": "Bank runs in the early 1930s led the United States to create the FDIC in 1933. In March 2023, Silicon Valley Bank faced about $42 billion of withdrawal requests in a single day and failed, followed by Signature Bank days later.",
+      "economics": "Fractional reserve banking turns short-term deposits into long-term credit, which funds growth but builds in fragility. Diamond and Dybvig showed in 1983 that runs can be self-fulfilling, which is the economic case for deposit insurance and a lender of last resort.",
+      "behavioralScience": "Runs are herding in its purest form: each depositor withdraws because they fear others will. Social media and mobile banking sped this up in 2023, turning a slow run into a same-day stampede.",
+      "marketingNarrative": "Silicon Valley Bank built its brand as the startup bank, which concentrated a single network of depositors who all talked to each other. The same network effect that won the market made the run faster.",
+      "sociology": "Venture firms advised portfolio companies to pull funds within hours, so the decision of a few investors cascaded through thousands of startups. Tight-knit communities move money in sync, for better and worse.",
+      "firstPrinciplesContrarian": "A startup's cash is not safe just because it sits in a bank; above the insurance limit it is an unsecured loan to that bank. Treat cash management as risk management, not an afterthought.",
+      "personalConnection": "Founders such as Paul Mikesell, who raise large rounds for capital-intensive robotics at Carbon Robotics, hold cash far above insured limits, so spreading it across banks and Treasury bills is basic hygiene. For PranaScan, the QE and QT cycle explains why seed terms tightened when the Federal Reserve began shrinking its balance sheet in 2022.",
+      "antiPattern": "Keeping all operating cash at one bank above the insurance limit because that bank offers good venture debt terms. Split deposits, sweep excess into short Treasuries and keep 3 months of payroll accessible elsewhere."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be501-02-rates-monetary-policy-cost-of-capital",
+        "relationship": "builds-on",
+        "question": "How does the Fed's balance sheet policy differ from setting the policy rate?"
+      },
+      {
+        "targetId": "f502-16-capital-markets-emh-bond-duration",
+        "relationship": "measured-by",
+        "question": "How did duration turn rising yields into SVB's unrealized losses?"
+      },
+      {
+        "targetId": "e557-13-runway-bridge",
+        "relationship": "risk-for",
+        "question": "How should a startup protect runway when its bank is under stress?"
+      },
+      {
+        "targetId": "e542-14-vc-power-law-dpi-tvpi",
+        "relationship": "drives",
+        "question": "How do QE and QT cycles change venture fundraising and DPI?"
+      },
+      {
+        "targetId": "a500-09-debt-leases-leverage",
+        "relationship": "contrasts-with",
+        "question": "How is a bank's leverage different from an operating company's?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative Series B startup with $60M in one bank",
+      "prompt": "Your startup holds $60M at a single regional bank. News breaks that the bank sold securities at a loss and is raising capital, and your investors' group chat is urging companies to withdraw. Payroll of $4M is due Friday. What do you do in the next hour?",
+      "cfoAnswer": "Only $250,000 is insured, so $59.75M is exposed. Move at least two payrolls to a second bank today, sweep the rest into Treasury bills through a brokerage or a sweep program, and notify the board. Do not wait for certainty: the cost of moving early is a few basis points of yield, and the cost of being late is missing payroll. Then write a standing treasury policy with bank limits.",
+      "keyTakeaway": "Above the insured limit, deposits are unsecured credit risk; diversify before a crisis."
+    },
+    "sources": [
+      "[Foster: B ECON 501] Course scope on money, banking and central bank policy (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Economics curriculum gap map] The Entire Economics Degree in 20 Minutes, money and banking segment",
+      "[Elite MBA: Chicago Booth] Diamond and Dybvig, Bank Runs, Deposit Insurance, and Liquidity, 1983",
+      "[Real 10-K / Case] Federal Reserve review of the supervision and regulation of Silicon Valley Bank, April 2023 (public record)"
+    ]
+  },
+  {
+    "id": "be501-04-trade-tariffs-fx-supply-chain",
+    "pillarId": "P3",
+    "courseCode": "B ECON 501",
+    "title": "International Trade, Tariffs, FX Regimes and Global Supply-Chain Shocks",
+    "difficulty": "advanced",
+    "tags": [
+      "trade",
+      "tariffs",
+      "exchange rates",
+      "export controls",
+      "supply chain",
+      "semiconductors"
+    ],
+    "hook10k": "Countries gain by specializing in what they do relatively best, but tariffs, export controls and currency swings can rewrite a company's cost base overnight. A supply chain that runs through one canal or one chip foundry is efficient until the day it is not.",
+    "pareto20_80": {
+      "summary": "Comparative advantage explains why trade raises total output, while protectionism shifts gains between groups and usually shrinks the total. Exchange-rate regimes decide whether shocks show up in prices or in reserves, and single points of failure in supply chains turn local disruptions into global shortages.",
+      "keyPoints": [
+        "Comparative advantage depends on opportunity cost, not absolute productivity, so even a less productive country gains from trade.",
+        "Tariffs, quotas, subsidies and export controls protect some producers at the expense of consumers and downstream firms.",
+        "Floating currencies absorb shocks through price; pegged currencies hold until reserves run out, then often break suddenly.",
+        "Borrowing in dollars while earning in local currency is the classic route to an emerging-market debt crisis.",
+        "Concentration risk matters: a large share of leading-edge chips comes from a few fabs in Taiwan, and one ship blocked the Suez Canal for six days in 2021."
+      ],
+      "formulas": [
+        {
+          "name": "Comparative advantage test",
+          "expression": "Opportunity cost of A in country 1 < Opportunity cost of A in country 2 → country 1 specializes in A"
+        },
+        {
+          "name": "Tariff landed cost",
+          "expression": "Landed cost = Import price × (1 + tariff rate) + freight"
+        },
+        {
+          "name": "FX revenue exposure",
+          "expression": "USD margin = (Revenue_INR / FX_INR per USD) − Cost_USD"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Reshoring announcements are common and actual reshoring is slow, because suppliers, skills and permits take years to build.",
+      "Many firms hedge FX on revenue but forget that their cloud and model-inference bills are in dollars, which is a cost exposure."
+    ],
+    "lenses": {
+      "history": "David Ricardo set out comparative advantage in 1817 with wine and cloth. The 1930 Smoot-Hawley tariffs were followed by retaliation and a collapse in world trade, and the 1997 Asian financial crisis began when Thailand could no longer defend its currency peg.",
+      "economics": "Trade lets each country consume beyond its own production frontier, but gains are uneven and losers are concentrated in specific regions and industries. Export controls on advanced AI chips, introduced by the United States in October 2022 and tightened since, trade some efficiency for national security.",
+      "behavioralScience": "Firms anchor on the lowest-cost supplier and underweight rare disruptions until one happens. After a shock, they overcorrect into costly duplication, then drift back as memories fade.",
+      "marketingNarrative": "Made-in-country and trusted-supply-chain claims have become selling points in government and enterprise procurement. A credible second source can be a sales argument as much as a risk control.",
+      "sociology": "Trade shocks hit specific towns hard, and research on the China shock shows lasting job and income losses in exposed US regions. That concentrated pain drives the politics of tariffs more than aggregate gains do.",
+      "firstPrinciplesContrarian": "The cheapest supply chain is not the lowest-cost one once you price the probability and cost of a stoppage. A little redundancy is insurance, and insurance has a fair price.",
+      "personalConnection": "PranaScan pays cloud and GPU inference in dollars and plans to earn in rupees, so a 10% rupee depreciation cuts its dollar margin without any change in usage. Enterprise hardware vendors such as Cisco and NVIDIA depend on a small number of leading-edge foundries, so foundry concentration is a board-level risk in their public filings.",
+      "antiPattern": "Building the whole plan on one low-cost supplier and one currency assumption. Run a tariff and FX sensitivity, qualify a second source for critical parts and price in local currency with a hedge or a dollar floor."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be501-01-gdp-business-cycle-multipliers",
+        "relationship": "builds-on",
+        "question": "How do net exports enter GDP, and how do currency moves change them?"
+      },
+      {
+        "targetId": "m502-05-corporate-scope-integration-alliances",
+        "relationship": "applied-in",
+        "question": "When does supply-chain risk justify vertical integration?"
+      },
+      {
+        "targetId": "a501-10-target-costing-pricing",
+        "relationship": "drives",
+        "question": "How much of a tariff can you pass to customers before demand falls?"
+      },
+      {
+        "targetId": "op502-03-variability-queueing-pooling",
+        "relationship": "contrasts-with",
+        "question": "How much buffer inventory does supplier variability really require?"
+      },
+      {
+        "targetId": "be501-05-development-institutions-dpi",
+        "relationship": "foundation-for",
+        "question": "Why do some emerging markets attract supply chains while others do not?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative India-focused health app with dollar costs",
+      "prompt": "Your app charges ₹300 a month per user and pays $1.20 per user per month for cloud and model inference. The rupee moves from 84 to 92 per dollar in a year (illustrative). What happens to unit margin and what do you change?",
+      "cfoAnswer": "Revenue per user falls from about $3.57 to $3.26 in dollars while cost stays at $1.20, so gross margin drops from about 66% to 63%, and the hit grows if the rupee keeps sliding. Respond by moving inference to cheaper models or regional capacity, indexing annual prices to inflation, and keeping a cash buffer in the currency of your costs. Track margin in both currencies every month.",
+      "keyTakeaway": "Match the currency of costs and revenue, or price the mismatch into your plan."
+    },
+    "sources": [
+      "[Foster: B ECON 501] Course scope on international trade, exchange rates and global economic conditions (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Economics curriculum gap map] The Entire Economics Degree in 20 Minutes, international economics segment",
+      "[Elite MBA: MIT Sloan] Autor, Dorn and Hanson, The China Shock: Learning from Labor-Market Adjustment to Large Changes in Trade, 2016",
+      "[Real 10-K / Case] US export control rules on advanced computing chips, October 2022, and the 2021 Suez Canal blockage (public record)"
+    ]
+  },
+  {
+    "id": "be501-05-development-institutions-dpi",
+    "pillarId": "P3",
+    "courseCode": "B ECON 501",
+    "title": "Development Economics, Institutions and Emerging-Market Moats",
+    "difficulty": "advanced",
+    "tags": [
+      "development economics",
+      "institutions",
+      "emerging markets",
+      "digital public infrastructure",
+      "India",
+      "UPI"
+    ],
+    "hook10k": "Countries grow rich mainly through institutions: secure property rights, enforceable contracts and a state that does not expropriate success. Digital public infrastructure such as India's UPI payments rails is a new kind of institution, and it changes how a startup reaches a billion people.",
+    "pareto20_80": {
+      "summary": "Development economics asks why some countries escape poverty and others stay trapped. Inclusive institutions, the rule of law and investment in people beat natural resources, and public digital rails for identity, payments and data consent can lower distribution costs so much that new business models become viable.",
+      "keyPoints": [
+        "Inclusive institutions that protect property and contracts encourage investment; extractive ones discourage it.",
+        "The resource curse: oil or mineral wealth often brings volatility, corruption and weak non-resource sectors.",
+        "Poverty traps arise when people cannot afford the health, education or capital needed to raise their productivity.",
+        "India's UPI, Aadhaar identity and consent-based data sharing cut the cost of payments, onboarding and verification to near zero.",
+        "Rules such as India's Digital Personal Data Protection Act 2023 shape what data startups can collect and how they must store it."
+      ],
+      "formulas": [
+        {
+          "name": "Solow growth accounting",
+          "expression": "g_Y = g_A + α × g_K + (1 − α) × g_L"
+        },
+        {
+          "name": "Catch-up (convergence) intuition",
+          "expression": "Growth rate ∝ −ln(Income / Frontier income), conditional on institutions"
+        },
+        {
+          "name": "Distribution cost advantage",
+          "expression": "CAC_on_rails = CAC_traditional − (KYC cost + payment cost) savings per user"
+        }
+      ]
+    },
+    "realityCheck": [
+      "Public rails lower costs for every competitor at once, so they rarely create a moat by themselves; the moat comes from what you build on top.",
+      "Regulation in emerging markets can change quickly, so a business model that depends on one rule is fragile."
+    ],
+    "lenses": {
+      "history": "Acemoglu and Robinson's 2012 book Why Nations Fail argued that institutions explain the divergence between neighbors such as North and South Korea. Acemoglu, Johnson and Robinson received the 2024 Nobel Prize for this research.",
+      "economics": "Weak contract enforcement raises the cost of every transaction and keeps firms small and informal. Public digital rails act like roads: they are non-rival, they lower the fixed cost of reaching small customers and they make tiny transactions profitable.",
+      "behavioralScience": "Trust is the binding constraint in many emerging markets, so people adopt digital payments faster when a familiar institution backs them. Once a payment habit forms on one rail, switching costs are psychological as much as financial.",
+      "marketingNarrative": "In markets where UPI processes more than ten billion transactions a month, a QR code at a tea stall is a distribution channel. Startups that speak to the user in their language on rails they already trust skip years of brand building.",
+      "sociology": "Mobile phones and identity systems brought hundreds of millions of people into formal finance within a decade. Gaps remain by gender, language and rural access, which shape who adopts digital health tools first.",
+      "firstPrinciplesContrarian": "Institutions are not just laws on paper; enforcement and predictability are what investors price. A market with weaker formal rules but stable, predictable enforcement can be easier to build in than one with perfect rules applied arbitrarily.",
+      "personalConnection": "PranaScan can onboard users through consent-based flows and collect small payments over UPI, which makes a low-price subscription viable in India in a way card payments would not. The DPDP Act shapes its design from day one: data minimization, clear consent and local handling of health data are product requirements, not legal afterthoughts.",
+      "antiPattern": "Copying a US go-to-market playbook into an emerging market and assuming cards, credit checks and email onboarding. Start from the local rails, rules and trust networks, and design pricing and onboarding around them."
+    },
+    "threadsToPull": [
+      {
+        "targetId": "be501-04-trade-tariffs-fx-supply-chain",
+        "relationship": "builds-on",
+        "question": "How do trade and FX regimes shape which emerging markets attract investment?"
+      },
+      {
+        "targetId": "m502-07-disruption-platforms-network-effects",
+        "relationship": "drives",
+        "question": "How do public digital rails change the network effects available to private platforms?"
+      },
+      {
+        "targetId": "e510-03-nascent-markets-parallel-play",
+        "relationship": "applied-in",
+        "question": "How should a founder sequence entry into a market whose rules are still forming?"
+      },
+      {
+        "targetId": "f502-03-wacc-capm-beta",
+        "relationship": "measured-by",
+        "question": "How should a country risk premium enter the cost of capital for an India-first startup?"
+      }
+    ],
+    "boardroomDrill": {
+      "companyOrScenario": "Illustrative India-first health subscription",
+      "prompt": "Card checkout converts 9% of trial users at ₹299 a month, with a 3% payment cost. A UPI autopay flow converts 21% with near-zero payment cost (illustrative). An investor asks whether this is a moat.",
+      "cfoAnswer": "It is a cost and conversion advantage, not a moat, because every competitor can use the same rail. Bank the gain: conversion more than doubles and payment cost falls, which lowers CAC payback sharply. The moat has to come from what the rail enables, such as a clinical data asset, partnerships with clinics and trust, so reinvest the savings there and comply with DPDP consent rules from day one.",
+      "keyTakeaway": "Public rails lower everyone's costs; build the moat on top of them, not from them."
+    },
+    "sources": [
+      "[Foster: B ECON 501] Course scope on global growth, emerging economies and institutions (topic mapping for the M-209 gap pack; no course file quoted)",
+      "[Elite MBA: Economics curriculum gap map] The Entire Economics Degree in 20 Minutes, development economics segment",
+      "[Elite MBA: MIT Sloan] Acemoglu and Robinson, Why Nations Fail: The Origins of Power, Prosperity, and Poverty, 2012",
+      "[Real 10-K / Case] NPCI public UPI statistics and India's Digital Personal Data Protection Act 2023 (public record); verify current volumes before reuse"
     ]
   },
   {
@@ -401,6 +875,11 @@
         "targetId": "a501-04-activity-based-costing",
         "relationship": "measured-by",
         "question": "How can activity-based costing reveal which activities truly support the strategy?"
+      },
+      {
+        "targetId": "mk501-05-blue-ocean-brand-archetypes-channel-icp",
+        "relationship": "applied-in",
+        "question": "How does a new value curve turn a real strategy into uncontested demand?"
       }
     ],
     "boardroomDrill": {
@@ -729,6 +1208,11 @@
         "targetId": "m500-03-culture-schein-leading-change",
         "relationship": "foundation-for",
         "question": "How do leadership and culture decide whether a merger integration succeeds?"
+      },
+      {
+        "targetId": "be501-04-trade-tariffs-fx-supply-chain",
+        "relationship": "risk-for",
+        "question": "How do tariffs, export controls and single-source suppliers change the case for integration?"
       }
     ],
     "boardroomDrill": {
@@ -891,6 +1375,11 @@
         "targetId": "e510-03-nascent-markets-parallel-play",
         "relationship": "foundation-for",
         "question": "How do founders win the overlooked customers and new categories where disruption starts?"
+      },
+      {
+        "targetId": "be501-05-development-institutions-dpi",
+        "relationship": "contrasts-with",
+        "question": "How do public digital rails such as UPI change who captures platform network effects?"
       }
     ],
     "boardroomDrill": {

@@ -1097,6 +1097,11 @@
         "targetId": "mk554-04-pricing-wtp-packaging",
         "relationship": "foundation-for",
         "question": "How do Kano categories decide which features go in which pricing tier?"
+      },
+      {
+        "targetId": "mk501-05-blue-ocean-brand-archetypes-channel-icp",
+        "relationship": "applied-in",
+        "question": "Which channel reaches the ideal customer whose job you have validated?"
       }
     ],
     "boardroomDrill": {
@@ -1269,6 +1274,11 @@
         "targetId": "mk554-05-ai-product-unit-economics-payback",
         "relationship": "drives",
         "question": "How does a price change flow into LTV, CAC payback and value capture?"
+      },
+      {
+        "targetId": "be500-04-behavioral-economics-choice-architecture",
+        "relationship": "builds-on",
+        "question": "Which defaults, anchors and decoys shape the tier customers choose?"
       }
     ],
     "boardroomDrill": {

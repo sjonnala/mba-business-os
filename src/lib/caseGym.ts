@@ -1,5 +1,5 @@
 /**
- * Spaced-repetition Case Gym: a typed parser for the 50-drill bank, SM-2-style scheduling with three
+ * Spaced-repetition Case Gym: a typed parser for the drill bank (59 drills after Wave M7), SM-2-style scheduling with three
  * self-grades (Again, Good, Easy), queue ordering and filters. Pure functions; storage lives in storage.ts.
  */
 import { DIFFICULTIES, PILLAR_IDS, type Difficulty, type PillarId } from '../schema/knowledgeGraph';
